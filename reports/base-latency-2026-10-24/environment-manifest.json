@@ -1,0 +1,213 @@
+{
+  "image_tag": "vllm/vllm-openai:v0.30.0",
+  "image_id": "sha256:8a69ffad015f138d7170c4ddc429e230a3bc1c1719f67e14324749df200a4b90",
+  "repo_digests": [
+    "vllm/vllm-openai@sha256:8a69ffad015f138d7170c4ddc429e230a3bc1c1719f67e14324749df200a4b90"
+  ],
+  "models": [
+    {
+      "repo": "nvidia/diffusiongemma-26B-A4B-it-NVFP4",
+      "revision": "ec4ff3df205028f4e81c954c2227f9312b3ec2ea",
+      "files": [
+        {
+          "name": ".gitattributes",
+          "size": 1570,
+          "lfs_sha256": null
+        },
+        {
+          "name": ".quant_summary.txt",
+          "size": 3700121,
+          "lfs_sha256": null
+        },
+        {
+          "name": "README.md",
+          "size": 9993,
+          "lfs_sha256": null
+        },
+        {
+          "name": "apache_2.0_license.md",
+          "size": 11433,
+          "lfs_sha256": null
+        },
+        {
+          "name": "chat_template.jinja",
+          "size": 17336,
+          "lfs_sha256": null
+        },
+        {
+          "name": "config.json",
+          "size": 5185,
+          "lfs_sha256": null
+        },
+        {
+          "name": "generation_config.json",
+          "size": 357,
+          "lfs_sha256": null
+        },
+        {
+          "name": "hf_quant_config.json",
+          "size": 463,
+          "lfs_sha256": null
+        },
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "size": 10002097536,
+          "lfs_sha256": "24f1257810848d296cc42fd2f6186c8dd6c2a562482c4c1bc8463a087a2c6554"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "size": 8821758352,
+          "lfs_sha256": "5015731988fbfc21042032ed9ea4c9af335bfe70bcd7529d09b8f2438d5fdd0e"
+        },
+        {
+          "name": "model.safetensors.index.json",
+          "size": 4656360,
+          "lfs_sha256": null
+        },
+        {
+          "name": "processor_config.json",
+          "size": 1689,
+          "lfs_sha256": null
+        },
+        {
+          "name": "tokenizer.json",
+          "size": 32169626,
+          "lfs_sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "size": 2741,
+          "lfs_sha256": null
+        }
+      ]
+    },
+    {
+      "repo": "google/diffusiongemma-26B-A4B-it",
+      "revision": "f7f5b7f5fa82ffc52addd066915886d497f5517b",
+      "files": [
+        {
+          "name": ".gitattributes",
+          "size": 1658,
+          "lfs_sha256": null
+        },
+        {
+          "name": "README.md",
+          "size": 19722,
+          "lfs_sha256": null
+        },
+        {
+          "name": "chat_template.jinja",
+          "size": 18575,
+          "lfs_sha256": null
+        },
+        {
+          "name": "config.json",
+          "size": 3469,
+          "lfs_sha256": null
+        },
+        {
+          "name": "generation_config.json",
+          "size": 357,
+          "lfs_sha256": null
+        },
+        {
+          "name": "model-00001-of-00011.safetensors",
+          "size": 4732780476,
+          "lfs_sha256": "3efe137998af7d2bde4e3ab04ab3524823699a4ac3130adace5003ef40cceeb6"
+        },
+        {
+          "name": "model-00002-of-00011.safetensors",
+          "size": 4884578006,
+          "lfs_sha256": "4a39d68c756fb26bbd2a54f2b8d550047ea98f3152f87ec75db825c8e17934a7"
+        },
+        {
+          "name": "model-00003-of-00011.safetensors",
+          "size": 4913414742,
+          "lfs_sha256": "ac6083e3489215ca032501714b78832e5cc4c945a8dbbb905b5292a4e95bc75e"
+        },
+        {
+          "name": "model-00004-of-00011.safetensors",
+          "size": 4884578030,
+          "lfs_sha256": "865b66393de5a9c752e67beae1bd2c860c12786b72ad86ca9345c00b7b586e60"
+        },
+        {
+          "name": "model-00005-of-00011.safetensors",
+          "size": 4913414814,
+          "lfs_sha256": "a87e01bed77ad9d2234851267d99af583ff79c7a86d7494fe08ae0f9de9cd318"
+        },
+        {
+          "name": "model-00006-of-00011.safetensors",
+          "size": 4884578070,
+          "lfs_sha256": "077e841b3b138fbc38df2c36665abdaafa96b8c96f968e2263a7452afaa912ab"
+        },
+        {
+          "name": "model-00007-of-00011.safetensors",
+          "size": 4913414814,
+          "lfs_sha256": "13a18b3c04a7f19a16385dd8a0d7fd0b9cc89ef131e4294a063c31c7d90c58ef"
+        },
+        {
+          "name": "model-00008-of-00011.safetensors",
+          "size": 4884578070,
+          "lfs_sha256": "aca5d3bdfc84700bd55b475781cb46e5608104c4832d2abe111a119ddcb23ff7"
+        },
+        {
+          "name": "model-00009-of-00011.safetensors",
+          "size": 4913414814,
+          "lfs_sha256": "8e2418867354e5cb356c0af8ccfdcc60bc363500674d6cf395991e7d6219eb29"
+        },
+        {
+          "name": "model-00010-of-00011.safetensors",
+          "size": 4884578070,
+          "lfs_sha256": "93d564b7dd686464a5c068ff9665cd5d3bca399c2ce320aecd41bd011e3787d5"
+        },
+        {
+          "name": "model-00011-of-00011.safetensors",
+          "size": 2838371118,
+          "lfs_sha256": "afec047176bb2a05f078566576aec6bdb71ad4d041275d0d0c89473fda6d6d87"
+        },
+        {
+          "name": "model.safetensors.index.json",
+          "size": 104650,
+          "lfs_sha256": null
+        },
+        {
+          "name": "model_index.json",
+          "size": 295,
+          "lfs_sha256": null
+        },
+        {
+          "name": "processor_config.json",
+          "size": 1689,
+          "lfs_sha256": null
+        },
+        {
+          "name": "scheduler/scheduler_config.json",
+          "size": 209,
+          "lfs_sha256": null
+        },
+        {
+          "name": "tokenizer.json",
+          "size": 32169626,
+          "lfs_sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "size": 2741,
+          "lfs_sha256": null
+        }
+      ]
+    }
+  ],
+  "gpu_info": "name, driver_version, memory.total [MiB], power.limit [W]\nNVIDIA RTX PRO 6000 Blackwell Workstation Edition, 615.71.09, 97887 MiB, 500.00 W\n",
+  "cpu": {
+    "Architecture:": "x86_64",
+    "CPU(s):": "64",
+    "Model name:": "AMD Ryzen Threadripper 9970X 32-Cores",
+    "Thread(s) per core:": "2",
+    "Core(s) per socket:": "32",
+    "Socket(s):": "1"
+  },
+  "concurrent_other_gpu_workloads_present": true,
+  "benchmark_cpu_limit": 8,
+  "benchmark_host_memory_limit_GiB": 112
+}

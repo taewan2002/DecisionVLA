@@ -1,0 +1,8 @@
+{
+  "vllm": "0.30.0",
+  "file": "vllm/model_executor/models/diffusion_gemma.py",
+  "before_sha256": "748157602927082f5fd95f96bec5ac43b55d1e34a42094f0ab5e5ddc6acb0146",
+  "after_sha256": "98d52f26cfcb77346fe7ab8e8447fb02ea96554da46f3dcd435d2d64db85c47f",
+  "change": "DiffusionGemmaForConditionalGeneration._enable_mm_lora = False",
+  "condition": "No LoRA used in benchmark; merged/base weights only"
+}

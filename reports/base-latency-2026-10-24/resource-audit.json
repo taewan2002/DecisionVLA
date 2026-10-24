@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "run": "nvfp4-v4",
+      "exit_code": 0,
+      "protected_jobs_unchanged": true,
+      "original_miner_restored": true,
+      "training_started": false
+    },
+    {
+      "run": "bf16-v1",
+      "exit_code": 0,
+      "protected_jobs_unchanged": true,
+      "original_miner_restored": true,
+      "training_started": false
+    }
+  ]
+}

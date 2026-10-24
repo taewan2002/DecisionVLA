@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "method": "independent standard-library recomputation",
+  "claims_excluded": [
+    "VLA success",
+    "trained-model latency",
+    "RTX 5090 speed"
+  ],
+  "results": {
+    "bf16": {
+      "cases": [
+        {
+          "views": 1,
+          "steps": 1,
+          "p50_ms": 128.91440599923953,
+          "p95_ms": 130.19584124558605
+        },
+        {
+          "views": 1,
+          "steps": 2,
+          "p50_ms": 157.33105753315613,
+          "p95_ms": 160.45146412216127
+        },
+        {
+          "views": 1,
+          "steps": 4,
+          "p50_ms": 221.1855484638363,
+          "p95_ms": 225.71962678339332
+        },
+        {
+          "views": 1,
+          "steps": 8,
+          "p50_ms": 352.535801474005,
+          "p95_ms": 356.9372848782223
+        },
+        {
+          "views": 2,
+          "steps": 1,
+          "p50_ms": 169.38985500019044,
+          "p95_ms": 170.11642872239463
+        },
+        {
+          "views": 2,
+          "steps": 2,
+          "p50_ms": 198.99448798969388,
+          "p95_ms": 200.98957301233895
+        },
+        {
+          "views": 2,
+          "steps": 4,
+          "p50_ms": 265.3392594656907,
+          "p95_ms": 268.5516564466525
+        },
+        {
+          "views": 2,
+          "steps": 8,
+          "p50_ms": 399.92290746886283,
+          "p95_ms": 403.4145882644225
+        }
+      ],
+      "timed_requests": 240,
+      "observed_device_memory_max_GiB_200ms_sampling": 53.0224609375,
+      "peak_torch_allocated_GiB": 50.826465129852295,
+      "peak_torch_reserved_GiB": 51.298828125,
+      "results_sha256": "7a92d1bf3f9837070f77a6f0fe8d06e9b1bba5e1e72362dba3dd28d82cc67275",
+      "telemetry_sha256": "dd48d5a2a04d22098e8c1a2829a9302d3f4608bf3c6ea09a4142ac1453708411"
+    },
+    "nvfp4": {
+      "cases": [
+        {
+          "views": 1,
+          "steps": 1,
+          "p50_ms": 89.77545896777883,
+          "p95_ms": 90.85880291531794
+        },
+        {
+          "views": 1,
+          "steps": 2,
+          "p50_ms": 107.39136347547174,
+          "p95_ms": 109.30173670058139
+        },
+        {
+          "views": 1,
+          "steps": 4,
+          "p50_ms": 144.6785760927014,
+          "p95_ms": 146.37732080300339
+        },
+        {
+          "views": 1,
+          "steps": 8,
+          "p50_ms": 221.3490925496444,
+          "p95_ms": 222.81656538834795
+        },
+        {
+          "views": 2,
+          "steps": 1,
+          "p50_ms": 128.06671694852412,
+          "p95_ms": 129.53194540459663
+        },
+        {
+          "views": 2,
+          "steps": 2,
+          "p50_ms": 146.4367060107179,
+          "p95_ms": 147.84549905452877
+        },
+        {
+          "views": 2,
+          "steps": 4,
+          "p50_ms": 186.2317865015939,
+          "p95_ms": 187.41632624296471
+        },
+        {
+          "views": 2,
+          "steps": 8,
+          "p50_ms": 266.19205402676016,
+          "p95_ms": 269.0355878090486
+        }
+      ],
+      "timed_requests": 240,
+      "observed_device_memory_max_GiB_200ms_sampling": 22.2646484375,
+      "peak_torch_allocated_GiB": 20.45273208618164,
+      "peak_torch_reserved_GiB": 20.935546875,
+      "results_sha256": "67679d425c148a56dc824b0c90d181217d57e21d84a5251cea2ff8c5247eb036",
+      "telemetry_sha256": "130678ac5422237eea2cd6813eb41dfaa42e0d58b844720fc754610be3b483bc"
+    }
+  }
+}

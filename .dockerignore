@@ -1,0 +1,10 @@
+.git
+.venv
+ops
+models
+data
+runs
+checkpoints
+release-assets
+reports
+__pycache__
