@@ -1,10 +1,10 @@
 """Download the official LIBERO mirror at a pinned revision, verifying every file."""
 import argparse
-from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
-from pathlib import Path
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 REPO = "yifengzhu-hf/LIBERO-datasets"
 REVISION = "f13aa24a3da8c43c7225569f28c562979fa0e35a"

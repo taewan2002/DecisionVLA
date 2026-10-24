@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import h5py
 import numpy as np
@@ -6,7 +7,7 @@ import pytest
 import torch
 from torch import nn
 
-from decisionvla.adapters import LoRALinear
+from decisionvla.adapters import ActionEmbedding, LoRALinear
 from decisionvla.codec import ActionCodec
 from decisionvla.data import LiberoDataset
 from decisionvla.model import corrupt_actions, denoising_loss
@@ -24,7 +25,7 @@ def test_control_quantization_and_gripper():
 
 
 def test_episode_split_post_action_alignment_and_tail(tmp_path):
-    config = json.load(open("configs/libero_spatial.json"))
+    config = json.loads(Path("configs/libero_spatial.json").read_text())
     path = tmp_path / config["suite"]
     path.mkdir()
     with h5py.File(path / "test_task_demo.hdf5", "w") as f:
@@ -62,7 +63,7 @@ def test_lora_initial_parity_and_shared_gradient():
 
 
 def test_noise_and_padding_loss_are_well_defined():
-    config = json.load(open("configs/libero_spatial.json"))
+    config = json.loads(Path("configs/libero_spatial.json").read_text())
     clean = torch.full((1, 56), 128, dtype=torch.long)
     clean[:, 6::7] = 0
     generator = torch.Generator().manual_seed(1)
@@ -75,3 +76,29 @@ def test_noise_and_padding_loss_are_well_defined():
     loss.backward()
     assert logits.grad[:, 49:].abs().sum() == 0
     assert logits.grad[:, :49].abs().sum() > 0
+
+
+def test_action_embedding_input_and_readout_share_only_selected_rows():
+    class ScaledEmbedding(nn.Embedding):
+        def __init__(self):
+            super().__init__(16, 8)
+            self.register_buffer("embed_scale", torch.tensor(8**0.5))
+
+        def forward(self, ids):
+            return super().forward(ids) * self.embed_scale
+
+    base = ScaledEmbedding().requires_grad_(False)
+    original = base.weight.detach().clone()
+    adapter = ActionEmbedding(base, start=12, bins=4)
+    with torch.no_grad():
+        adapter.delta.normal_()
+    ids = torch.tensor([[1, 12, 15]])
+    merged = original.clone()
+    merged[12:] += adapter.delta
+    torch.testing.assert_close(adapter(ids), torch.nn.functional.embedding(ids, merged) * base.embed_scale)
+    torch.testing.assert_close(adapter.action_weight(), merged[12:])
+    adapter(ids).sum().backward()
+    assert adapter.delta.grad[0].abs().sum() > 0
+    assert adapter.delta.grad[1:3].abs().sum() == 0
+    assert base.weight.grad is None
+    torch.testing.assert_close(base.weight, original, atol=0, rtol=0)

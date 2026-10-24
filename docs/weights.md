@@ -22,7 +22,7 @@ No adapter release has been published yet. Do not use the three-step smoke check
 
 The NVIDIA DiffusionGemma checkpoint quantizes selected expert linear weights **and activations** to NVFP4. Other modules remain at higher precision. Its config specifies static calibration and groups of 16, and its [model card](https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4) lists the calibration data. It is not W4A16.
 
-W4A16 only names weight/activation precision. It does not identify the quantization algorithm or imply calibration-free conversion. Weight-only round-to-nearest can avoid activation data; activation-aware or reconstruction-based methods may need representative data.
+W4A16 only names weight/activation precision. It does not identify the quantization algorithm or imply calibration-free conversion. Weight-only round-to-nearest can avoid activation data; activation-aware or reconstruction-based methods may need representative data. See the [AWQ paper](https://proceedings.mlsys.org/paper_files/paper/2024/file/42a452cbafa9dd64e9ba4aa95cc1ef21-Paper-Conference.pdf) for a W4A16 method that uses calibration.
 
 The intended deployment sequence is:
 

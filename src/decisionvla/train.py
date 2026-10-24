@@ -3,9 +3,9 @@ import argparse
 import hashlib
 import json
 import math
-from pathlib import Path
 import random
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -13,8 +13,7 @@ from safetensors.torch import load_file, save_file
 
 from .adapters import adapter_state, load_adapter_state
 from .data import LiberoDataset, prepare_observation
-from .model import (action_logits, corrupt_actions, denoising_loss, encode_prefix,
-                    load_model, sample_actions)
+from .model import action_logits, corrupt_actions, denoising_loss, encode_prefix, load_model, sample_actions
 
 
 def write_json(path, value):
@@ -97,7 +96,7 @@ def update(model, processor, dataset, optimizer, config, sampler, noise, device,
         inputs = to_device(prepare_observation(processor, item["image"], item["task"], config["visual_tokens"]), device)
         target = torch.from_numpy(item["tokens"])[None].to(device)
         valid = torch.from_numpy(item["valid"])[None].to(device)
-        noisy, rate = corrupt_actions(target, config, noise)
+        noisy, _rate = corrupt_actions(target, config, noise)
         cache = encode_prefix(model, inputs)
         key_cache = cache.layers[0].keys
         if audit and micro == 0:
@@ -249,6 +248,9 @@ def main():
     metadata["status"] = "smoke_passed" if args.smoke else ("deadline_reached" if deadline else "completed")
     metadata["completed_steps"] = step
     write_json(args.output / "run.json", metadata)
+    status = json.loads((args.output / "status.json").read_text())
+    status["status"] = metadata["status"]
+    write_json(args.output / "status.json", status)
     record({"event": metadata["status"], "step": step})
     train.close()
     validation.close()

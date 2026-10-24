@@ -11,6 +11,7 @@ DecisionVLA's original code is MIT licensed. That license does not replace the l
 | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) | Code is MIT; the official repository identifies dataset licensing as CC BY 4.0. The HF mirror's metadata labels Apache-2.0; preserve this distinction and credit the original authors. Dataset bytes are not redistributed here. |
 | [open-jev](https://github.com/JoshuaSP/open-jev) | Conceptual reference for constrained canvas inference; no claim that this project reproduces JEV or contains a trained OpenJEV VLA. |
 | [Google's DiffusionGemma training recipes](https://github.com/google-deepmind/gemma/tree/main/gemma/diffusion/hackable_diffusion_adapter) | Reference for fine-tuning feasibility. DecisionVLA uses its own simpler PyTorch action objective, not an exact recipe reproduction. |
+| [NVIDIA Alpamayo quantization example](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/alpamayo) | Existing FP8/NVFP4 VLA quantization with calibration. A direct precedent against claiming that NVFP4 VLA alone is novel. |
 
 LIBERO attribution: Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu and Peter Stone, *LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning*, 2023.
 
