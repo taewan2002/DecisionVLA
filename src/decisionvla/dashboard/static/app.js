@@ -14,6 +14,223 @@ let initialized = false,
   following = true,
   requestNumber = 0,
   episode = "";
+let evaluation,
+  lastEvaluationPoll = 0,
+  distributionView = false,
+  evaluationRenderKey = "";
+let activeVideo = null,
+  snapshotMode = false,
+  manualSelection = null;
+const queryCache = new Map(),
+  pendingQueries = new Map();
+let timingMode = "recorded",
+  timedPlan = null,
+  timedElapsed = 0,
+  timedAnchor = 0,
+  timedAnimation = null,
+  timedSegment = "";
+
+function measuredPlayback() {
+  return showingVideo() && timingMode === "recorded" && timedPlan;
+}
+function pauseTimed() {
+  if (timedAnimation !== null) cancelAnimationFrame(timedAnimation);
+  timedAnimation = null;
+  playing = false;
+  $("rollout-video").pause();
+  updateButtons();
+}
+function paintTimed(forceSeek = false) {
+  if (!measuredPlayback()) return;
+  const state = ReplayClock.sample(timedPlan, timedElapsed),
+    video = $("rollout-video");
+  const segment = `${state.phase}:${state.query}`,
+    changed = segment !== timedSegment;
+  timedSegment = segment;
+  const waiting = state.phase === "inference" && !state.finished;
+  $("content").classList.toggle(
+    "first-query-pending",
+    waiting && state.readyQuery === null,
+  );
+  $("media-time").textContent =
+    `${fixed(state.time, 2)} / ${fixed(timedPlan.duration, 2)}s · recorded wait replay`;
+  $("replay-phase").textContent = state.finished
+    ? "COMPLETE · recorded episode"
+    : waiting
+      ? `INFERENCE ${String(state.query + 1).padStart(2, "0")} · ${fixed((state.end - state.time) * 1000, 0)} ms remaining${state.readyQuery === null ? " · output pending" : " · previous output shown"}`
+      : `EXECUTING · query ${state.query + 1} ready · 20Hz controls`;
+  $("replay-phase").classList.toggle("pending", waiting);
+  $("timed-scrubber").max = timedPlan.duration;
+  $("timed-scrubber").value = state.time;
+  if (waiting || !playing || state.finished) {
+    video.pause();
+    if (video.readyState && (changed || forceSeek || state.finished))
+      video.currentTime = state.mediaTime;
+  } else {
+    if (
+      video.readyState &&
+      (changed ||
+        forceSeek ||
+        Math.abs(video.currentTime - state.mediaTime) > 0.12)
+    )
+      video.currentTime = state.mediaTime;
+    if (video.paused)
+      video.play().catch((error) => {
+        pauseTimed();
+        reportError(error.message);
+      });
+  }
+  const readyIndex =
+    state.readyQuery === null
+      ? -1
+      : visible.findIndex(
+          (row) =>
+            row.context.episode === activeVideo.episode &&
+            row.context.query === state.readyQuery,
+        );
+  if (
+    readyIndex >= 0 &&
+    visible[readyIndex].id !== frame?.id &&
+    readyIndex !== index
+  )
+    selectFrame(readyIndex, false, true);
+  if (state.finished && playing) pauseTimed();
+}
+function tickTimed(now) {
+  timedAnimation = null;
+  if (!playing || !measuredPlayback()) return;
+  timedElapsed = Math.min(timedPlan.duration, (now - timedAnchor) / 1000);
+  paintTimed();
+  if (playing) timedAnimation = requestAnimationFrame(tickTimed);
+}
+function toggleTimed() {
+  if (playing) {
+    pauseTimed();
+    return;
+  }
+  if ($("rollout-video").readyState < 2) {
+    reportError("Video is loading; press Play when ready.");
+    return;
+  }
+  if (timedElapsed >= timedPlan.duration) {
+    timedElapsed = 0;
+    timedSegment = "";
+  }
+  timedAnchor = performance.now() - timedElapsed * 1000;
+  playing = true;
+  paintTimed(true);
+  timedAnimation = requestAnimationFrame(tickTimed);
+  updateButtons();
+}
+
+async function loadQuery(id) {
+  if (queryCache.has(id)) return queryCache.get(id);
+  if (!pendingQueries.has(id)) {
+    const request = getJSON(`/api/frame?id=${id}`)
+      .then((value) => {
+        queryCache.set(id, value);
+        while (queryCache.size > 64)
+          queryCache.delete(queryCache.keys().next().value);
+        return value;
+      })
+      .finally(() => pendingQueries.delete(id));
+    pendingQueries.set(id, request);
+  }
+  return pendingQueries.get(id);
+}
+function showingVideo() {
+  return activeVideo && !snapshotMode && session?.mode === "replay";
+}
+function configureVideo() {
+  const next =
+    session.mode === "replay"
+      ? session.videos?.find((v) => v.episode === frame.context.episode)
+      : null;
+  const video = $("rollout-video");
+  if (next?.id !== activeVideo?.id) {
+    pauseTimed();
+    video.pause();
+    activeVideo = next || null;
+    timedPlan = next?.query_timing?.length ? ReplayClock.plan(next) : null;
+    timedElapsed = 0;
+    timedSegment = "";
+    if (next) {
+      video.src = next.url;
+      video.load();
+    } else {
+      video.removeAttribute("src");
+      video.load();
+    }
+  }
+  const show = Boolean(showingVideo());
+  const measured = Boolean(measuredPlayback());
+  video.controls = !measured;
+  $("timing-controls").hidden = !show || !timedPlan;
+  $("timed-scrubber").hidden = !measured;
+  $("replay-phase").hidden = !measured;
+  $("timing-note").textContent = measured
+    ? "Recorded call waits + nominal 20Hz controls. Simulator processing time excluded; not a live run."
+    : "Simulation time only; inference waits omitted.";
+  if (!measured) $("content").classList.remove("first-query-pending");
+  video.hidden = !show;
+  $("observation").hidden = show;
+  $("media-toggle").hidden = !activeVideo;
+  $("media-toggle").textContent = show
+    ? "Inspect policy input"
+    : "Watch rollout";
+  $("media-kind").textContent = show
+    ? measured
+      ? "RECORDED INFERENCE TIMING"
+      : "RECORDED ROLLOUT · 20 FPS"
+    : "POLICY OBSERVATION";
+  if (!measured)
+    $("media-time").textContent = show
+      ? `${fixed(video.currentTime, 2)}s · simulation time, inference waits omitted`
+      : "Exact policy input · updated once per query";
+  updatePlaybackLabel();
+}
+function updatePlaybackLabel() {
+  $("playback-rate").textContent = measuredPlayback()
+    ? "Recorded call waits + 20Hz controls"
+    : showingVideo()
+      ? "Video: 20fps · panels follow recorded queries"
+      : session?.mode === "live"
+        ? "Query updates · refresh 250ms"
+        : "Snapshots: 0.75s / query";
+}
+function seekToQuery() {
+  if (!showingVideo() || !frame) return;
+  if (measuredPlayback()) {
+    const segment = timedPlan.segments.find(
+      (s) => s.phase === "action" && s.query === frame.context.query,
+    );
+    timedElapsed = frame.context.query === 0 ? 0 : segment?.start || 0;
+    timedSegment = "";
+    paintTimed(true);
+    return;
+  }
+  const video = $("rollout-video"),
+    target = frame.context.control_step / activeVideo.fps;
+  if (video.readyState) video.currentTime = target;
+  // loadedmetadata uses the current frame when an episode source has just changed.
+}
+function syncVideo(seconds) {
+  if (!showingVideo() || measuredPlayback() || manualSelection !== null) return;
+  $("media-time").textContent =
+    `${fixed(seconds, 2)}s · simulation time, inference waits omitted`;
+  const next = ReplayClock.queryIndex(
+    visible,
+    activeVideo.episode,
+    seconds,
+    activeVideo.fps,
+  );
+  if (next >= 0 && (next !== index || visible[next].id !== frame?.id))
+    selectFrame(next, false, true);
+}
+function watchVideoFrame(_now, metadata) {
+  syncVideo(metadata.mediaTime);
+  $("rollout-video").requestVideoFrameCallback(watchVideoFrame);
+}
 
 function svgElement(type, attributes, text) {
   const element = document.createElementNS(svgNS, type);
@@ -63,6 +280,7 @@ function renderGrid() {
         "action-cell" + (t === timestep && d === dimension ? " selected" : "");
       button.style.backgroundColor = `hsl(86 43% ${96 - confidence * 22}%)`;
       button.textContent = signed(frame.actions[t][d]);
+      if (distributionView) renderMiniDistribution(button, t, d);
       button.setAttribute(
         "aria-label",
         `T+${t + 1} ${labels[d]}, action ${signed(frame.actions[t][d])}, confidence ${fixed(confidence)}`,
@@ -231,7 +449,7 @@ function renderHistory() {
       "stroke-dasharray": "3 4",
       opacity: 0.5,
     });
-  add(svg, "text", { x: left, y: 162 }, "FIRST QUERY");
+  add(svg, "text", { x: left, y: 162 }, "EARLIEST SHOWN");
   add(svg, "text", { x: right, y: 162, "text-anchor": "end" }, "LATEST");
   $("scrubber").max = Math.max(0, visible.length - 1);
   $("scrubber").value = index;
@@ -243,16 +461,19 @@ function renderOutcome() {
   if (!frame) return;
   const success =
     frame.context.recorded_success ??
-    session.outcomes?.[frame.context.episode]?.success;
+    session.outcomes?.[frame.context.episode]?.success ??
+    evaluation?.episodes.find((row) => row.episode === frame.context.episode)
+      ?.success;
   $("outcome").textContent =
     typeof success !== "boolean"
       ? ""
-      : `RECORDED EPISODE · ${success ? "SUCCESS" : "FAILURE"}`;
+      : `${session.mode === "live" ? "COMPLETED" : "RECORDED"} EPISODE · ${success ? "SUCCESS" : "FAILURE"}`;
   $("outcome").classList.toggle("failed", success === false);
 }
 function renderFrame() {
   $("observation").src = frame.image;
   $("observation").alt = `Policy observation: ${frame.instruction}`;
+  configureVideo();
   $("instruction").textContent = frame.instruction;
   $("query-label").textContent =
     `QUERY ${String((frame.context.query ?? frame.id) + 1).padStart(3, "0")}`;
@@ -273,28 +494,39 @@ function renderFrame() {
   renderGrid();
   renderDistribution();
   renderHistory();
+  renderEvaluation();
 }
-async function selectFrame(nextIndex, manual = false) {
+async function selectFrame(nextIndex, manual = false, fromVideo = false) {
   if (!visible.length) return;
+  const number = ++requestNumber;
   index = Math.max(0, Math.min(nextIndex, visible.length - 1));
   if (manual) {
+    manualSelection = number;
+    pauseTimed();
+    $("rollout-video").pause();
     playing = false;
     if (session.mode === "live") following = false;
     updateButtons();
   }
-  const number = ++requestNumber,
-    id = visible[index].id;
+  const id = visible[index].id;
   try {
-    const result = await getJSON(`/api/frame?id=${id}`);
+    const result = await loadQuery(id);
     if (number !== requestNumber) return;
     frame = result;
     renderFrame();
+    if (!fromVideo) seekToQuery();
+    visible
+      .slice(index + 1, index + 5)
+      .forEach((row) => loadQuery(row.id).catch(() => {}));
     reportError("");
   } catch (error) {
     reportError(`Could not load this query: ${error.message}`);
+  } finally {
+    if (manualSelection === number) manualSelection = null;
   }
 }
 function updateButtons() {
+  $("media-play").textContent = playing ? "Ⅱ Pause" : "▶ Play";
   $("play").textContent = playing ? "Ⅱ Pause" : "▶ Play";
   $("play").setAttribute(
     "aria-label",
@@ -348,6 +580,10 @@ async function poll() {
       oldId = rows.at(-1)?.id;
     session = next;
     rows = next.frames;
+    if (Date.now() - lastEvaluationPoll >= 2000) {
+      evaluation = await getJSON("/api/evaluation");
+      lastEvaluationPoll = Date.now();
+    }
     $("mode").textContent = session.mode.toUpperCase();
     $("mode").classList.toggle("live", session.mode === "live");
     $("source-label").textContent =
@@ -372,8 +608,7 @@ async function poll() {
     $("telemetry-note").title = session.recorder?.last_error || "";
     $("follow").hidden = session.mode !== "live";
     $("play").hidden = session.mode === "live";
-    $("playback-rate").textContent =
-      session.mode === "live" ? "Refresh: 250ms" : "Playback: 0.75s / query";
+    updatePlaybackLabel();
     updateEpisodes();
     filterRows();
     renderConnection(true);
@@ -398,6 +633,7 @@ async function poll() {
     }
     initialized = true;
     renderOutcome();
+    renderEvaluation();
     updateButtons();
   } catch (error) {
     renderConnection(false);
@@ -414,6 +650,23 @@ $("previous").onclick = () => selectFrame(index - 1, true);
 $("next").onclick = () => selectFrame(index + 1, true);
 $("scrubber").oninput = () => selectFrame(Number($("scrubber").value), true);
 $("play").onclick = () => {
+  if (measuredPlayback()) {
+    toggleTimed();
+    return;
+  }
+  if (showingVideo()) {
+    const video = $("rollout-video");
+    if (!video.paused) video.pause();
+    else {
+      if (video.ended) video.currentTime = 0;
+      video
+        .play()
+        .catch((error) =>
+          reportError(`Video could not play: ${error.message}`),
+        );
+    }
+    return;
+  }
   if (index >= visible.length - 1) selectFrame(0);
   playing = !playing;
   updateButtons();
@@ -449,10 +702,290 @@ $("download").onclick = () => {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 };
 setInterval(() => {
-  if (!playing) return;
+  if (!playing || showingVideo()) return;
   if (index >= visible.length - 1) {
     playing = false;
     updateButtons();
   } else selectFrame(index + 1);
 }, 750);
+$("media-toggle").onclick = () => {
+  pauseTimed();
+  $("rollout-video").pause();
+  playing = false;
+  snapshotMode = !snapshotMode;
+  configureVideo();
+  seekToQuery();
+  updateButtons();
+};
+$("media-play").onclick = () => $("play").click();
+$("timing-mode").onchange = () => {
+  pauseTimed();
+  timingMode = $("timing-mode").value;
+  configureVideo();
+  seekToQuery();
+};
+$("timed-scrubber").oninput = () => {
+  pauseTimed();
+  timedElapsed = Number($("timed-scrubber").value);
+  paintTimed(true);
+};
+$("rollout-video").onloadedmetadata = () =>
+  measuredPlayback() ? paintTimed(true) : seekToQuery();
+$("rollout-video").ontimeupdate = () =>
+  syncVideo($("rollout-video").currentTime);
+$("rollout-video").onplay = () => {
+  if (measuredPlayback()) return;
+  playing = true;
+  updateButtons();
+};
+$("rollout-video").onpause = $("rollout-video").onended = () => {
+  if (measuredPlayback()) return;
+  playing = false;
+  updateButtons();
+};
+$("rollout-video").onerror = () =>
+  reportError(
+    "Recorded video unavailable; use Inspect policy input to view query snapshots.",
+  );
+if ($("rollout-video").requestVideoFrameCallback)
+  $("rollout-video").requestVideoFrameCallback(watchVideoFrame);
+function renderMiniDistribution(button, t, d) {
+  button.classList.add("mini-distribution");
+  button.replaceChildren();
+  const svg = svgElement("svg", {
+    viewBox: "0 0 256 32",
+    "aria-hidden": "true",
+    preserveAspectRatio: "none",
+  });
+  const p = frame.diagnostics.probabilities[t][d],
+    peak = Math.max(...p);
+  if (d === 6) {
+    [0, 255].forEach((bin, i) =>
+      add(svg, "rect", {
+        x: 38 + i * 128,
+        y: 30 - (p[bin] / peak) * 28,
+        width: 52,
+        height: (p[bin] / peak) * 28,
+        fill: "#638b42",
+      }),
+    );
+  } else {
+    const points = p.map((v, i) => `${i},${30 - (v / peak) * 28}`).join(" ");
+    add(svg, "polygon", {
+      points: `0,31 ${points} 255,31`,
+      fill: "#6f934f",
+      opacity: 0.85,
+    });
+  }
+  button.appendChild(svg);
+  const value = document.createElement("span");
+  value.textContent = signed(frame.actions[t][d]);
+  button.appendChild(value);
+}
+function setDistributionView(enabled) {
+  distributionView = enabled;
+  $("view-values").classList.toggle("active", !enabled);
+  $("view-distributions").classList.toggle("active", enabled);
+  $("view-values").setAttribute("aria-pressed", String(!enabled));
+  $("view-distributions").setAttribute("aria-pressed", String(enabled));
+  $("grid-caption").textContent = enabled
+    ? "All 56 distributions · each chart scaled to its own peak · select one to inspect exact probabilities."
+    : "Select a control to inspect its distribution. Values are normalized to [−1, 1].";
+  if (frame) renderGrid();
+}
+function inspectEpisode(key) {
+  if (!rows.some((row) => row.context.episode === key)) return;
+  episode = key;
+  $("episode").value = key;
+  filterRows();
+  selectFrame(0, true);
+}
+function percentile(values, fraction) {
+  if (!values.length) return null;
+  const a = [...values].sort((x, y) => x - y),
+    k = (a.length - 1) * fraction,
+    lo = Math.floor(k);
+  return a[lo] + (a[Math.ceil(k)] - a[lo]) * (k - lo);
+}
+function renderEvaluation() {
+  if (!evaluation || !session) return;
+  const key = JSON.stringify([
+    evaluation,
+    rows[0]?.id,
+    rows.at(-1)?.id,
+    rows.length,
+    frame?.id,
+  ]);
+  if (key === evaluationRenderKey) return;
+  evaluationRenderKey = key;
+  const e = evaluation,
+    subset = e.scope === "recorded_subset";
+  $("benchmark-label").textContent =
+    session.metadata.benchmark === "plus"
+      ? "LIBERO PLUS EVALUATION"
+      : "LIBERO EVALUATION";
+  $("evaluation-status").textContent = subset
+    ? "SELECTED REPLAY"
+    : e.status.toUpperCase();
+  $("progress-label").textContent = subset
+    ? "Recorded episodes in this view"
+    : "Completed episodes · this worker";
+  $("eval-completed").textContent = e.expected
+    ? `${e.completed} / ${e.expected}`
+    : String(e.completed);
+  $("eval-progress").max = e.expected || Math.max(1, e.total_episodes);
+  $("eval-progress").value = e.completed;
+  $("eval-success").textContent = String(e.successes);
+  $("eval-failure").textContent = String(e.failures);
+  $("eval-rate").textContent = subset
+    ? "Selected episodes only"
+    : e.completed
+      ? `${fixed((e.successes / e.completed) * 100, 1)}% of completed episodes`
+      : "No completed outcomes yet";
+  $("eval-errors").textContent =
+    `${e.errors} errors · excluded from success/failure counts`;
+  const timings = rows
+    .map((r) => r.policy_seconds)
+    .filter((v) => Number.isFinite(v) && v > 0);
+  const p50 = percentile(timings, 0.5),
+    p95 = percentile(timings, 0.95);
+  $("eval-latency").textContent =
+    p50 === null ? "—" : `${fixed(p50 * 1000, 0)} / ${fixed(p95 * 1000, 0)} ms`;
+  $("eval-hz").textContent =
+    p50 === null
+      ? "Awaiting policy calls"
+      : `≈${fixed(1 / p50, 1)} calls/s at p50 · ${timings.length} available queries`;
+  $("suite-summary").replaceChildren();
+  e.suites.forEach((s) => {
+    const chip = document.createElement("span");
+    chip.textContent = `${s.suite.replace("libero_", "").toUpperCase()} · ${s.successes}/${s.completed} observed successes`;
+    $("suite-summary").appendChild(chip);
+  });
+  $("selection-note").textContent = [
+    subset
+      ? "Replay subset, not a benchmark success rate."
+      : "Live observations; formal results still require the artifact audit.",
+    e.selection || "",
+    session.metadata.latency_scope ||
+      "Policy timing excludes display and telemetry overhead.",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  $("outcome-scope").textContent =
+    e.total_episodes > e.listed_episodes
+      ? `Latest ${e.listed_episodes} / ${e.total_episodes} episodes`
+      : `${e.completed} completed episodes`;
+  const svg = $("outcome-plot");
+  svg.replaceChildren();
+  const left = 86,
+    right = 652,
+    x = (c) => left + c * (right - left);
+  [0, 0.25, 0.5, 0.75, 1].forEach((c) => {
+    add(svg, "line", {
+      x1: x(c),
+      x2: x(c),
+      y1: 22,
+      y2: 124,
+      class: "svg-grid",
+    });
+    add(svg, "text", { x: x(c), y: 147, "text-anchor": "middle" }, fixed(c, 2));
+  });
+  add(svg, "text", { x: left, y: 166 }, "FIRST-QUERY CONFIDENCE");
+  add(svg, "text", { x: 12, y: 51 }, "Success");
+  add(svg, "text", { x: 12, y: 108 }, "Failure");
+  const eligible = e.episodes.filter(
+    (r) =>
+      r.status === "completed" &&
+      typeof r.success === "boolean" &&
+      Number.isFinite(r.first_confidence),
+  );
+  eligible.forEach((r, i) => {
+    const available = rows.some((row) => row.context.episode === r.episode);
+    const circle = svgElement("circle", {
+      cx: x(r.first_confidence),
+      cy: (r.success ? 47 : 104) + ((i % 5) - 2) * 4,
+      r: 5,
+      fill: r.success ? "#759653" : "#bc8a68",
+      stroke: frame?.context.episode === r.episode ? "#25391c" : "white",
+      "stroke-width": frame?.context.episode === r.episode ? 2 : 1,
+      class: "outcome-point",
+      tabindex: available ? 0 : -1,
+      role: "button",
+      "aria-label": `${r.episode}: ${r.success ? "success" : "failure"}, first confidence ${fixed(r.first_confidence)}`,
+    });
+    circle.appendChild(
+      svgElement(
+        "title",
+        {},
+        `${r.episode} · ${fixed(r.first_confidence)} · ${r.success ? "success" : "failure"}`,
+      ),
+    );
+    circle.onclick = () => inspectEpisode(r.episode);
+    circle.onkeydown = (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        inspectEpisode(r.episode);
+      }
+    };
+    svg.appendChild(circle);
+  });
+  if (!eligible.length)
+    add(
+      svg,
+      "text",
+      { x: 370, y: 80, "text-anchor": "middle" },
+      "Waiting for completed outcomes with a first-query score",
+    );
+  $("outcome-note").textContent =
+    `${eligible.length} first-query scores shown. Descriptive comparison; no calibrated failure prediction or confidence threshold is applied.`;
+  $("episode-list").replaceChildren();
+  [...e.episodes]
+    .reverse()
+    .slice(0, 20)
+    .forEach((r) => {
+      const button = document.createElement("button");
+      button.className =
+        "episode-row" +
+        (frame?.context.episode === r.episode ? " selected" : "");
+      button.type = "button";
+      button.disabled = !rows.some((row) => row.context.episode === r.episode);
+      const title = document.createElement("div");
+      title.textContent = r.episode
+        .replaceAll("libero_", "")
+        .replaceAll("-", " ");
+      const sub = document.createElement("span");
+      sub.textContent = `First confidence ${r.first_confidence === null ? "—" : fixed(r.first_confidence)} · ${r.policy_queries} queries`;
+      title.appendChild(sub);
+      button.appendChild(title);
+      const result = document.createElement("strong");
+      const outcome =
+        r.status === "completed"
+          ? r.success
+            ? "success"
+            : "failure"
+          : r.status;
+      result.className = "episode-result " + outcome;
+      result.textContent = outcome.toUpperCase();
+      button.appendChild(result);
+      button.onclick = () => inspectEpisode(r.episode);
+      $("episode-list").appendChild(button);
+    });
+}
+$("view-values").onclick = () => setDistributionView(false);
+$("view-distributions").onclick = () => setDistributionView(true);
+$("inspect-weakest").onclick = () => {
+  if (!frame) return;
+  let weakest = Infinity;
+  frame.diagnostics.metrics.ordered_confidence.forEach((row, t) =>
+    row.forEach((c, d) => {
+      if (c < weakest) {
+        weakest = c;
+        timestep = t;
+        dimension = d;
+      }
+    }),
+  );
+  renderGrid();
+  renderDistribution();
+};
 poll();

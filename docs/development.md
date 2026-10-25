@@ -1,8 +1,9 @@
 # DecisionVLA development plan
 
-**2026-10-25: design and repository refresh only. New training is stopped.**
+**2026-10-25: typed decision API and native reference. Publication before training.**
 The owner requested native denoising/sampling, then a public repository refresh
-before another training launch. The previous forty-task run stopped at46 with
+before another training launch, then authorized the separate native implementation
+and1/2/4-pass comparison tools. The previous forty-task run stopped at46 with
 adapter, optimizer and all-rank RNG preserved; the earlier Spatial run remains
 at6,681. No new rollout or GPU optimization run was started for this redesign.
 The old controller's incomplete10k-boundary assertion is expected and must not
@@ -20,11 +21,14 @@ trigger recovery. [Verified stop](../reports/openjev-redesign-20261025/stop-audi
 | 6. Evaluation | Original LIBERO, then evaluation-only Plus | Complete action/probability traces, expected episode keys, independent aggregates and hashes |
 | 7. Deployment | Expert W4A16, fused kernels, then CUDA Graph | Native BF16 reference comparisons, paired robot outcomes and actual5090 measurements |
 
-Proposed modules: `native_policy.py` wraps native generation;
-`action_canvas.py` compiles fixed syntax and variable slots;
+Implemented reference modules: `native_policy.py` wraps native generation;
+`typed_decisions.py` declares question semantics and typed readouts;
+`decision_canvas.py` binds those questions to fixed syntax and variable slots;
 `native_training.py` implements the explicit VLA objective;
-`native_diagnostics.py` records sampler and confidence trajectories.
-These names describe planned files, not working commands. Preserve the old code
+`native_sampling.py` records optional sampler and confidence trajectories.
+`native_compare.py` and `native_evaluate.py` compare1/2/4 passes; commands and the
+remaining GPU/real-data gates are in [native reference](native-reference.md).
+CPU checks cover tiny native models, not the26B GPU model. Preserve the old code
 as the reproducible pilot instead of changing its meaning in place.
 
 The reference path must pass before porting faster execution. For identical

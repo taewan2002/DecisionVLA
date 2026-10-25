@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-25",
+  "status": "typed_native_cpu_verified_no_full_model_or_training",
+  "architecture": "decisionvla.native-decisions.v1",
+  "runtime": {
+    "versions": {
+      "torch": "2.14.0",
+      "transformers": "5.11.0",
+      "torchvision": "0.29.0"
+    },
+    "source_sha256": {
+      "generation_diffusion_gemma": "b814a6fc41492794c1f50ba71c750206684e25dfdd53932e0842675871fef0de",
+      "modeling_diffusion_gemma": "3f1a24f517b51470113c5181a53c3ddb07c05d01b8780a3a6d030497a231e2ec"
+    }
+  },
+  "native_checks": {
+    "passed": 44,
+    "command": "PYTHONPATH=src python -m pytest tests/test_native.py tests/test_native_decisions.py tests/test_native_compare.py tests/test_typed_decisions.py tests/test_decision_service.py -q",
+    "scope": "tiny real native DiffusionGemma, CPU; no model weight downloads",
+    "checks": [
+      "native 1/2/4-pass oracle raw logits/proposals/entropy acceptance/re-noising/self-conditioning",
+      "question-specific terminal readout leaves native stochastic traces exactly unchanged",
+      "same eager base vs zero-initialized native adapters",
+      "tied action-row delta in input, full output and self-conditioning expectation",
+      "full-vocabulary corruption, replaced-valid objective and finite gradients",
+      "tiny single-CPU adapter/optimizer/RNG exact 3 vs 2+1 update resume",
+      "question semantics enter prefix; ordered typed answers, boolean/string identity, score expectation",
+      "identical training/inference robot prefix and gripper target mapping",
+      "one model generation per request; actions equal with typed observer enabled",
+      "custom question opt-in, no custom robot control output, malformed request rejection",
+      "JSON-safe sampler settings and response serialization",
+      "paired evaluation rejects missing/duplicate/mismatched/error records"
+    ]
+  },
+  "pilot_regression": {
+    "passed": 128,
+    "skipped": 28,
+    "excluded": "tests/test_omy.py (deferred)",
+    "command": "uv run --isolated --no-project --python 3.12 --with-editable '.[dev]' -- python -m pytest -q --ignore=tests/test_omy.py",
+    "note": "optional GPU tests and incompatible native modules skipped in pilot runtime"
+  },
+  "dashboard_javascript_checks": 21,
+  "ruff": "passed",
+  "diff_whitespace": "passed",
+  "tokenizer_and_preservation": {
+    "robot_canvas_sha256": "29fc2d594e9b8007334915c0dd21dc2034bee2e44bf550c5c93de2684056f46c",
+    "robot_schema_sha256": "c4451b084bc6851348954c89e24e91cb4f36496cdadffac5fa5bf9bdc8a561ed",
+    "question_slots": 56,
+    "last_slot": 113,
+    "allowed_label_substitutions_checked": 12304,
+    "custom_three_type_canvas_sha256": "a555c1ddf2e8382d671644fd95fafa7e6114933eaadabe96dfb0dde839dd2fe8",
+    "prompt_tokens_for_pick_up_the_bowl": 202,
+    "preserved_prior_files": 210,
+    "changed_prior_files": [],
+    "full_model_loaded": false
+  },
+  "operational_changes": {
+    "new_gpu_model_calls": 0,
+    "new_main_training": false,
+    "remote_checkpoint_writes": 0,
+    "new_schedules": 0
+  },
+  "findings_fixed": [
+    "HF generation_config.to_dict retained a nested sampler dataclass; use structured JSON serialization",
+    "earlier temperature oracle used Python float rather than native tensor float32; exact arithmetic restored",
+    "earlier grouped/eager comparison mismatch; same eager reference now used without widening tolerances"
+  ],
+  "pending": [
+    "26B multimodal GPU numerical/latency/memory checks",
+    "real-data learning and DDP capacity/resume",
+    "trained native decision checkpoint",
+    "LIBERO and evaluation-only Plus outcomes",
+    "semantic question supervision and calibration",
+    "native 5090 W4A16/fused/Graph deployment validation"
+  ],
+  "source_sha256": {
+    ".github/workflows/tests.yml": "8fb5bc654c3df11dff0a5b81744141e934bf9df97a37dd84f1349271bffa2dea",
+    "configs/eval_native_passes.json": "61dd0317ace8b2c94efa7c69f8a904e26e8ece80bae403227d33310469ba459e",
+    "configs/native_libero40_r32.json": "a46922c3f7cfed8d4c281038051f0df79da68a3ef3c3ef62a290d14422dfc3ac",
+    "requirements-native.txt": "4330af79a28387455e25c3e724f40c66e860fe7bbbd2026119135ed86ddb3c54",
+    "src/decisionvla/action_canvas.py": "6c3680807878a9170c82e2595c4e6f9a47f7977f8de795de6d13c07ccc825f7b",
+    "src/decisionvla/decision_canvas.py": "6568f7dbdece66d9dd6e4b0a65360809c4e60ecc22c9ef03d8c48cc2caaa1ec0",
+    "src/decisionvla/decision_client.py": "19800855aa1d67f8183820ae720de6be0b4356e769339720707453118e71d9d6",
+    "src/decisionvla/native_adapters.py": "7604d5af5dc652a3cb783c6ca69bb79d12b3e894d4b7e64ce914a4b861a0a627",
+    "src/decisionvla/native_canvas.json": "5441be4739a0ec0f50aa2e8108067c367353c237d292ed4a8ca96614941a224e",
+    "src/decisionvla/native_compare.py": "18f109eced3d8bd869b208e5e71dc0122fca33820e0e3f760ab3add8ee8d4768",
+    "src/decisionvla/native_evaluate.py": "035ad369bb6d264e28cf231c9f91b2249c9f5d5919f97acfcf8725c884fa4551",
+    "src/decisionvla/native_policy.py": "c0e7572cf433ae8ff11da8e8580d109e8cee3cc679dc135ed2c2033042d02e48",
+    "src/decisionvla/native_runtime.py": "1c9843ab0f9b137395b2040c4c4509ca9e63128bb7fc0bbeb293f5d097afb1fd",
+    "src/decisionvla/native_sampling.py": "d816027056b4d7c227613a39fce4b5471158d6a4e64f872f43a3ea7b900b2a3b",
+    "src/decisionvla/native_serve.py": "50c5a353be8638ad6b9a8ba6d67f07f35846e0243ec14d84000eb8ea76765199",
+    "src/decisionvla/native_training.py": "336fdf699a4987c09acc0b04c2c4f70fedc4b9d74c61cb1fe6450a69769dd0cf",
+    "src/decisionvla/typed_decisions.py": "26a422e47d214b8b3cdbac1118085267007225be367fe648bb8c430120c19f16",
+    "tests/test_decision_service.py": "f97d43cb97b97d38be282346db2900a54a54dd379a2dbf10cf66b01e792fbf77",
+    "tests/test_native.py": "6df1c439515ff19d751545b66f3c015864eb35a9f6338cd18b1753ce1130ed13",
+    "tests/test_native_compare.py": "8c0622f7ca47b4faa4885519ea4e75251c78cfb9a106b84cb365ecd024b1fead",
+    "tests/test_native_decisions.py": "e777627e2a3968ee93472e9780658744ffe9bd99124a2dc3e34ff874ef7ce54d",
+    "tests/test_typed_decisions.py": "b3fcc59b2084cb4b00e7916e70cf039d7b2e7a48585227b233a8c1eae8337fa4"
+  }
+}

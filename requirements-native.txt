@@ -1,0 +1,8 @@
+# Isolated environment only. Never install over the historical pilot runtime.
+torch==2.14.0
+torchvision==0.29.0
+transformers==5.11.0
+numpy==2.5.4
+Pillow==13.0.0
+h5py==3.16.0
+safetensors==0.8.0

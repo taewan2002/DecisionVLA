@@ -113,6 +113,8 @@ def test_http_live_updates_read_only_routes_and_private_path_boundary(tmp_path):
         assert state["mode"] == "live" and state["total"] == 0
         writer.write(Image.new("RGB", (128, 128)), "test", prediction(), .1)
         assert get("/api/state")["total"] == 1
+        assert get("/api/evaluation")["completed"] == 0
+        assert get("/api/evaluation")["expected"] is None
         assert get("/api/state")["outcomes"] == {}
         (folder / "episodes.json").write_text(json.dumps({"omy-lift": {"success": False}}))
         assert get("/api/state")["outcomes"]["omy-lift"]["success"] is False

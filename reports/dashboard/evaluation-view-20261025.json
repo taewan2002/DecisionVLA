@@ -1,0 +1,91 @@
+{
+  "checked_at": "2026-10-25T07:48:36.652754+00:00",
+  "scope": "Local LIBERO observatory integration and audited video replay; no new GPU run",
+  "python": {
+    "passed": 100,
+    "skipped": 26,
+    "command": "pytest -q --ignore=tests/test_omy.py",
+    "note": "CPU environment; optional GPU/simulator tests skipped; deferred OMY excluded"
+  },
+  "javascript_sync_checks": 21,
+  "ruff": "passed",
+  "javascript_syntax": "passed",
+  "diff_whitespace": "passed",
+  "preserved_query_records": 37,
+  "all_query_payloads_equal_to_verified_reimport": true,
+  "comparison_exclusion": "recorded_at differs between the two original import times; all other fields exactly equal",
+  "contract_sha256": "458cebbda503e229d95e70563ace9733054730be62e2395b6fa9915300adcdda",
+  "videos": [
+    {
+      "episode": "task-00-init-00",
+      "sha256": "b5d6dd735ea41e10c27e5cc9a78dd6408b7ff37f6011288984db7128237f7c14",
+      "trace_sha256": "e1a145fda55525e55bcc5fbebf9c3f033ff1820390c1061520698348bee5cac1",
+      "fps": 20,
+      "frames": 70,
+      "width": 128,
+      "height": 128,
+      "timebase": "simulation",
+      "recorded_call_seconds": 2.9883794041816145,
+      "nominal_control_seconds": 3.45,
+      "timed_playback_seconds": 6.438379404181615
+    },
+    {
+      "episode": "task-03-init-01",
+      "sha256": "ce570d07cbfe49c70ed635bf32b82757c6733108611b544fac663ebad28b80b3",
+      "trace_sha256": "f238919aeb7b5b873616e72cf4273478fad4d9bb03bedcec4cc386c93f712c8e",
+      "fps": 20,
+      "frames": 221,
+      "width": 128,
+      "height": 128,
+      "timebase": "simulation",
+      "recorded_call_seconds": 9.299825999769382,
+      "nominal_control_seconds": 11.0,
+      "timed_playback_seconds": 20.299825999769382
+    }
+  ],
+  "video_mapping": "frame 0 = post-settle input; frame N = after control N; latest query <= current control",
+  "timebase": "Default: measured call waits plus nominal 20Hz controls. Optional simulation-only mode omits waits. Neither includes simulator processing wall time.",
+  "browser_checks": [
+    "Both episode videos loaded and played through",
+    "0.4 seconds selects query 2 / control 8",
+    "Previous query seeks to control 208 / 10.4s in failure episode",
+    "56-distribution atlas, exact input toggle and episode switch checked"
+  ],
+  "live_video": "Not implemented: live mode observes policy query snapshots",
+  "new_policy_calls": 0,
+  "training_changes": 0,
+  "new_automations": 0,
+  "publication_performed": false,
+  "source_sha256": {
+    "src/decisionvla/benchmark.py": "5a79b37bee50fcceb8ee7556bf083325b6d4f08e67f7f7a32419e477e63f07f1",
+    "src/decisionvla/dashboard/__init__.py": "c1fe60aa1ff39755697864091b97c7564eb01a8a4097b8fa373280db1ce19514",
+    "src/decisionvla/dashboard/__main__.py": "ddd60a1df996b2b744c45953165711e5afe2711f5f0249f4e98875e1342411df",
+    "src/decisionvla/dashboard/evaluation.py": "d844d41ec34a5e1e6b1facaf44a89a466aba89794f934bd8081c04ba665b8982",
+    "src/decisionvla/dashboard/import_trace.py": "02aca53b2aa9ca4f7f9e752ac3afed13f7bd93524987dd44496ca2b76d3cb65f",
+    "src/decisionvla/dashboard/server.py": "9ee9eb0c5a03726c33ab92843ae69b746f41492007c8f1f3c207cf4966f4ede1",
+    "src/decisionvla/dashboard/static/app.js": "b75711d05ade4b4c480681c803ce37594024a99225135212d17679665f80aa9b",
+    "src/decisionvla/dashboard/static/index.html": "0757cfc9d78ed5e9cfd24536ab17a6e508857cc3b5d9d62017374225502c225f",
+    "src/decisionvla/dashboard/static/playback.js": "88cdba91454785e2e77d3022cb15ab586c121a79f128538b844657e018d90820",
+    "src/decisionvla/dashboard/static/style.css": "c40ed49f04cf9bf7a7145a1e76da373de001731c74eb90fe545cced212d84391",
+    "src/decisionvla/dashboard/telemetry.py": "305dc53026fbd24e8d3fa7189de2e4c96653871ee6318c9a24208464a6af63ae",
+    "src/decisionvla/dashboard/video.py": "5dcd9024a3fbd6a9161d1ee3eb5394706a5f01e30cae484da63fd7cf477aa476",
+    "src/decisionvla/rollout.py": "91cd753f2e90e7babc9ca9be6f9ef0394af97db3e14a0752e17ab031559d6f4e",
+    "tests/dashboard_playback.cjs": "68580094401f9da295793d6ebe09e44036d578573d6fa1598286e218ae083a99",
+    "tests/test_dashboard.py": "dd97df4cb20fdea0d98bc273eb60b3c1415c65ca50b41778d3f9895ebed986bd",
+    "tests/test_dashboard_video.py": "48fb3ba6d3a35dbb0f4faa22d9c2e54ea22df2f54bf20019496b6b987854afde",
+    "tests/test_evaluation_dashboard.py": "daa08ceb1d6bceb578ab942a294ea5275d268a3d8a35b72ad39b9c1a4c6b5595"
+  },
+  "timed_replay_followup": {
+    "targeted_python_passed": 26,
+    "ruff": "passed",
+    "javascript_syntax": "passed",
+    "browser_default": "Recorded inference waits",
+    "browser_observed_initial_wait_ms": 340,
+    "browser_observed_final_seconds": 6.44,
+    "browser_observed_final_video_time": 3.45,
+    "first_prediction_hidden_until_call_finishes": true,
+    "future_query_output_not_revealed_during_wait": true,
+    "scope": "Measured query waits plus nominal 20Hz controls, not a live or full simulator wall-time run",
+    "browser_observed_later_wait": "INFERENCE 05, previous output shown, query 4 readout retained; captured in local screenshot"
+  }
+}

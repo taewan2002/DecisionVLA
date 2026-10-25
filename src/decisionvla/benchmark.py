@@ -11,6 +11,7 @@ import importlib.metadata
 import json
 import random
 import subprocess
+from contextlib import nullcontext
 from pathlib import Path
 
 import numpy as np
@@ -67,10 +68,23 @@ def task_config(plan, kind, suite, task_id, step, preflight):
 
 
 def run_worker(args, plan):
+    from .dashboard.evaluation import EvaluationRecorder, session_metadata
+
+    policy = PolicyClient(args.socket)
+    tasks = sum(plan[args.kind]["task_counts"].values())
+    expected = len(range(args.shard, tasks, args.shards)) * (50 if args.kind == "original" else 1)
+    session = getattr(args, "dashboard_session", None)
+    metadata = session_metadata(policy.metadata, benchmark=args.kind,
+        selection=f"Worker {args.shard + 1}/{args.shards}" + (" · preflight, excluded from score" if args.preflight else ""))
+    with (EvaluationRecorder(session, metadata, expected=None if args.preflight else expected)
+          if session else nullcontext()) as observer:
+        _run_worker(args, plan, policy, observer)
+
+
+def _run_worker(args, plan, policy, observer):
     import imageio.v2 as imageio
     from libero.libero.envs import OffScreenRenderEnv
     from libero.libero.envs import bddl_utils
-    policy = PolicyClient(args.socket)
     assert policy.metadata["step"] == args.step
     assert policy.metadata["kind"] == "decisionvla_bf16_reference"
     assert policy.metadata["confidence_schema"] == SCHEMA
@@ -132,7 +146,7 @@ def run_worker(args, plan):
                         args.kind == "original" and plan["save_original_videos"] and not args.preflight) else None
                     try:
                         result, trace = run_episode(env, initial_states[initial_id], policy,
-                            instruction, cfg, task_id, initial_id, writer)
+                            instruction, cfg, task_id, initial_id, writer, observer=observer)
                     finally:
                         if writer is not None:
                             writer.close()
@@ -236,10 +250,13 @@ def main():
     p.add_argument("--shards", type=int, default=2)
     p.add_argument("--preflight", action="store_true")
     p.add_argument("--collect", action="store_true")
+    p.add_argument("--dashboard-session", type=Path, help="New telemetry directory for this worker")
     args = p.parse_args()
     assert 0 <= args.shard < args.shards
     plan = json.loads(args.plan.read_text())
     if args.collect:
+        if args.dashboard_session:
+            p.error("--dashboard-session observes a worker, not collection")
         collect(args, plan)
     else:
         run_worker(args, plan)

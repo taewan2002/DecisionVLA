@@ -1,0 +1,17 @@
+{
+  "version": "decisionvla.native-passes.v1",
+  "benchmark": "original",
+  "passes": [1, 2, 4],
+  "initial_state_ids": [0, 1, 2, 3, 4],
+  "policy": {
+    "camera_resolution": 128,
+    "environment_seed": 0,
+    "policy_seed": 42,
+    "settle_steps": 10,
+    "execute_chunk_steps": 8
+  },
+  "quality_reference_passes": 4,
+  "paired_noninferiority_margin": -0.05,
+  "scope": "development comparison; reused initial states, not untouched test; no Plus selection",
+  "automatic_launch": false
+}

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "decisionvla"
 version = "0.1.0"
-description = "Robot action diffusion and probability diagnostics with DiffusionGemma"
+description = "Typed robot decisions, native diffusion and probability diagnostics with DiffusionGemma"
 requires-python = ">=3.12"
 license = "MIT"
 dependencies = [
@@ -20,7 +20,7 @@ dev = ["pytest==9.0.2", "ruff==0.14.11"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-decisionvla = ["*.c"]
+decisionvla = ["*.c", "native_canvas.json"]
 "decisionvla.dashboard" = ["static/*.html", "static/*.css", "static/*.js"]
 
 [tool.ruff]

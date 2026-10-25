@@ -10,6 +10,12 @@ See the [current protocol and evidence contract](../docs/training-libero40.md).
 
 The sections below document the preserved Spatial-only pilot evaluator.
 
+For a new approved evaluation, add `--dashboard-session /path/to/new-telemetry`
+to either evaluator to observe LIBERO/Plus progress, all 56 action distributions
+and confidence against actual outcomes. Each worker needs its own session outside
+the evaluation output directory. See the [viewer integration](../docs/dashboard.md#follow-libero-evaluation).
+This option does not launch training, select a checkpoint or change the protocol.
+
 The completed rank-32 run used effective batch 8 (microbatch 1, accumulation 8). Increasing accumulation would increase work per optimizer update; it is not a throughput optimization. Larger true microbatches require a separate memory/throughput check and do not change this in-flight training run.
 
 ## Fixed protocol

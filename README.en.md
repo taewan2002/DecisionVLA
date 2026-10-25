@@ -2,7 +2,7 @@
 
 # DecisionVLA
 
-**Parallel actions · Visible uncertainty**
+**Typed decisions · Parallel actions · Visible uncertainty**
 
 An experiment in reading robot actions and probabilities from one observation.
 
@@ -21,7 +21,7 @@ An experiment in reading robot actions and probabilities from one observation.
 DecisionVLA adapts DiffusionGemma's existing vision encoder and shared Transformer to robot control. The target interface returns an **8 × 7 action chunk**, per-action distributions and uncertainty from an image and instruction. This repository shares implementation, inference optimization and failure analysis with their measurement records.
 
 > **Development status · 2026-10-25**
-> Forty-task training was intentionally stopped after saving **checkpoint 46**. The figure describes a **proposed architecture** preserving native denoising, sampling and self-conditioning. Executable code and measurements below use the earlier action-only sampler; the new path is not implemented, trained or benchmarked yet. [Development plan](docs/development.md) · [Stop audit](reports/openjev-redesign-20261025/stop-audit.json)
+> Forty-task training was intentionally stopped after saving **checkpoint 46**. A separate native denoising/sampler/self-conditioning path and typed decision API are implemented, with tiny-model CPU numerical/resume checks passing. **Full 26B GPU validation, new training and robot success evaluation remain pending.** Measurements below belong to the earlier action-only pilot. [Native implementation and commands](docs/native-reference.md) · [Stop audit](reports/openjev-redesign-20261025/stop-audit.json)
 
 ## Direction
 
@@ -33,7 +33,13 @@ DecisionVLA adapts DiffusionGemma's existing vision encoder and shared Transform
 | **One-GPU inference** | Test expert NVFP4 W4A16, fused kernels and CUDA Graph on an actual RTX 5090 |
 | **Auditable experiments** | Pin data, configurations and checkpoint hashes; independently verify results |
 
-The proposed path retains the **full vocabulary during intermediate denoising** and restricts only the final action readout. It keeps the native entropy-bound sampler and self-conditioning, with planned 1/2/4-pass quality–latency comparisons. [Data flow, exact differences and upstream references](docs/architecture.md).
+The native path retains the **full vocabulary during intermediate denoising** and restricts only the final action readout. It keeps the native entropy-bound sampler and self-conditioning, with tools for paired 1/2/4-pass latency, action differences and LIBERO outcomes on one native checkpoint. [Data flow, exact differences and upstream references](docs/architecture.md).
+
+## Actions as typed decisions
+
+Supply shared evidence and **questions with allowed answers**; read `predicate / choice / score` answers directly from model probabilities, without parsing generated text. DecisionVLA adapts the interface philosophy of the [OpenAI Decisions API](https://developers.openai.com/api/docs/guides/decisions) to robot control using its own DiffusionGemma backend.
+
+The robot profile defines **48 control-bin choices + 8 gripper predicates**. Questions enter the model prefix; answer slots, training targets and executed controls share the same schema. Custom semantic questions are explicitly experimental, with no claim of learned progress or success prediction. [API, examples and semantics](docs/typed-decisions.md).
 
 ## Measured so far
 
@@ -52,7 +58,7 @@ Warm timings cover preprocessing through CPU actions/confidence, excluding netwo
 
 ## Inspect inference
 
-The local dashboard shows observations, the 8 × 7 action chunk, per-control distributions, confidence and latency. Replay saved traces or attach a recorder to an existing policy. [Dashboard guide](docs/dashboard.md).
+The local dashboard shows actual observations, **all 56 action distributions**, confidence history and policy latency. It also tracks LIBERO worker progress, per-suite outcomes, and first-query confidence against actual success/failure. Connect an evaluator with `--dashboard-session`, or inspect saved traces in explicit REPLAY mode. [Dashboard guide](docs/dashboard.md).
 
 ```bash
 python -m decisionvla.dashboard --session results/recorded-session --mode replay
@@ -62,7 +68,7 @@ python -m decisionvla.dashboard --session results/recorded-session --mode replay
 
 ## Explore the code
 
-The existing BF16 pilot targets Linux, Python 3.12 and CUDA 13. The proposed native path will validate a separate runtime.
+The existing BF16 pilot targets Linux, Python 3.12 and CUDA13. The native path uses a separate [requirements-native.txt](requirements-native.txt) environment; do not install it over the pilot runtime below.
 
 ```bash
 git clone https://github.com/taewan2002/DecisionVLA.git
@@ -75,7 +81,7 @@ pytest -q
 ruff check src tests scripts benchmarks
 ```
 
-Obtain the base model and datasets from their upstream sources. No adapter release is available yet. The BF16 API needs more than 50GiB VRAM; the 5090 path uses separate [NVFP4 reproduction tools](benchmarks/NVFP4.md). [Pilot training](docs/training.md) · [Weight format](docs/weights.md).
+Obtain the base model and datasets from their upstream sources. No adapter release is available yet. The historical pilot BF16 API needs more than 50GiB VRAM; the 5090 path uses separate [NVFP4 reproduction tools](benchmarks/NVFP4.md). [Pilot training](docs/training.md) · [Weight format](docs/weights.md).
 
 ## Next milestones
 
@@ -83,12 +89,13 @@ Obtain the base model and datasets from their upstream sources. No adapter relea
 - [x] Actual RTX 5090 W4A16, fused-kernel and CUDA Graph pilot
 - [x] Original forty-task LIBERO data alignment and split audit
 - [x] Preserved training state and new DecisionVLA design
-- [ ] Native sampler/self-conditioning implementation and reference parity
+- [x] Native sampler/self-conditioning and typed decision API; tiny-model CPU numerical/resume checks
+- [ ] Full 26B GPU numerical and real-data validation
 - [ ] GPU0/1 batch64 capacity, resume and throughput checks before fresh training
 - [ ] Original LIBERO and evaluation-only LIBERO Plus
 - [ ] Final 5090 deployment validation and adapter-only experimental release
 
-The proposed new training budget is rank32, global batch64 and100k updates. It will use a separate fresh run, not resume checkpoint46, and has not started. Convergence, success rate and completion time remain unmeasured.
+The proposed new training budget is rank32, global batch64 and 100k updates. It will use a separate fresh run, not resume checkpoint46, and has not started. Convergence, success rate and completion time remain unmeasured.
 
 ## Repository map
 
@@ -101,4 +108,4 @@ The proposed new training budget is rank32, global batch64 and100k updates. It w
 | [`evaluation/`](evaluation/) / [`reports/`](reports/) | LIBERO/Plus tooling and curated evidence |
 | [Sources & licenses](docs/third-party.md) | DiffusionGemma, OpenJEV-family references and data attribution |
 
-Original code is **MIT** licensed. Base models, datasets and dependencies retain separate terms; weights and datasets are not included. This is not an official Jev/TypeSafe or Google implementation.
+Original code is **MIT** licensed. Base models, datasets and dependencies retain separate terms; weights and datasets are not included. This is not an official OpenAI, Jev/TypeSafe or Google implementation.

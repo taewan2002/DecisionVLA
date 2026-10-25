@@ -4,6 +4,7 @@ data/
 checkpoints/
 cache/
 .venv/
+.venv-native/
 __pycache__/
 *.pyc
 *.safetensors

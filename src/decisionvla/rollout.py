@@ -5,6 +5,7 @@ import importlib.metadata
 import json
 import subprocess
 import time
+from contextlib import nullcontext
 from pathlib import Path
 
 import numpy as np
@@ -36,8 +37,15 @@ def camera_image(observation):
     return Image.fromarray(raw[::-1, ::-1].copy())
 
 
-def run_episode(env, initial_state, policy, instruction, config, task_id, initial_id, writer=None):
+def run_episode(env, initial_state, policy, instruction, config, task_id, initial_id, writer=None,
+                *, observer=None):
     """Record only policy actions in the horizon; settling is a separate phase."""
+    if observer is not None:
+        if not config.get("record_confidence"):
+            raise ValueError("Dashboard observation requires an existing confidence-enabled protocol")
+        observer.begin(f'{config["suite"]}/task-{task_id:02d}-init-{initial_id:02d}',
+                       suite=config["suite"], task_id=task_id, initial_id=initial_id,
+                       instruction=instruction, max_steps=config["max_policy_steps"])
     env.seed(config["environment_seed"])
     env.reset()
     observation = env.set_init_state(initial_state)
@@ -74,6 +82,9 @@ def run_episode(env, initial_state, policy, instruction, config, task_id, initia
             query_steps.append(step)
             query_seeds.append(seed)
             image_hashes.append(hashlib.sha256(np.asarray(image).tobytes()).hexdigest())
+            if observer is not None:
+                observer.query(image, instruction, chunk, stats, seconds, query=len(chunks) - 1,
+                               control_step=step, seed=seed, steps=config["denoising_steps"])
             queued = list(chunk[:config["execute_chunk_steps"]])
         action = queued.pop(0)
         observation, _, done, _ = env.step(action.tolist())
@@ -103,6 +114,8 @@ def run_episode(env, initial_state, policy, instruction, config, task_id, initia
               "confidence_schema": SCHEMA if diagnostics else None,
               "confidence_action_parity_verified": bool(diagnostics and config.get("check_repeat_prediction")),
               "initial_state_sha256": hashlib.sha256(np.asarray(initial_state).tobytes()).hexdigest()}
+    if observer is not None:
+        observer.finish(result)
     return result, trace
 
 
@@ -126,6 +139,8 @@ def main():
     parser.add_argument("--socket", type=Path, required=True)
     parser.add_argument("--config", type=Path, default=Path("configs/eval_libero_spatial.json"))
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--dashboard-session", type=Path,
+                        help="New optional telemetry directory, separate from evaluation evidence")
     parser.add_argument("--smoke", action="store_true", help="10 tasks, one initial state, four controls; no result claim")
     parser.add_argument("--preflight", action="store_true", help="One task, eight controls, real checkpoint; excluded")
     args = parser.parse_args()
@@ -183,62 +198,71 @@ def main():
     results, all_latency, all_compute = [], [], []
     start = time.monotonic()
     expected = len(config["task_ids"]) * len(config["initial_state_ids"])
-    try:
-        for task_id in config["task_ids"]:
-            task = suite.get_task(task_id)
-            env = OffScreenRenderEnv(bddl_file_name=suite.get_task_bddl_file_path(task_id),
-                                     camera_heights=128, camera_widths=128, camera_names=["agentview"],
-                                     control_freq=20, render_gpu_device_id=-1)
-            try:
-                for initial_id in config["initial_state_ids"]:
-                    name = f"task-{task_id:02d}-init-{initial_id:02d}"
-                    destination = args.output / name
-                    if destination.exists():
-                        result = json.loads((destination / "result.json").read_text())
-                        assert result["task_id"] == task_id and result["initial_state_id"] == initial_id
-                        for file, sha in result["artifacts_sha256"].items():
-                            assert Path(file).name == file and digest(destination / file) == sha
-                        trace = np.load(destination / "trace.npz", allow_pickle=False)
-                    else:
-                        if time.monotonic() - start > config["max_evaluation_hours"] * 3600:
-                            raise TimeoutError("Evaluation deadline reached; completed episodes preserved")
-                        temporary = args.output / (name + ".partial")
-                        temporary.mkdir(exist_ok=False)
-                        writer = (imageio.get_writer(temporary / "rollout.mp4", fps=20, codec="libx264")
-                                  if config["save_video"] else None)
-                        try:
-                            result, trace = run_episode(env, states[task_id][initial_id], policy, task.language,
-                                                        config, task_id, initial_id, writer)
-                        finally:
-                            if writer is not None:
-                                writer.close()
-                        np.savez_compressed(temporary / "trace.npz", **trace)
-                        result["artifacts_sha256"] = {p.name: digest(p) for p in temporary.iterdir() if p.is_file()}
-                        write_json(temporary / "result.json", result)
-                        temporary.rename(destination)
-                    results.append(result)
-                    all_latency.extend(trace["query_seconds"].tolist())
-                    all_compute.extend(trace["policy_seconds"].tolist())
-                    if hasattr(trace, "close"):
-                        trace.close()
-                    status = {"status": "running", "kind": kind, "completed_episodes": len(results),
-                              "expected_episodes": expected, "elapsed_seconds": time.monotonic() - start}
-                    write_json(args.output / "status.json", status)
-                    print(json.dumps({"event": "episode", **result}), flush=True)
-            finally:
-                env.close()
-        summary = {"status": "completed", "kind": kind, **aggregate(results, config["task_ids"]),
-                   "expected_episodes": expected, "errors": 0, "elapsed_seconds": time.monotonic() - start,
-                   "query_seconds_p50_p95": np.percentile(all_latency, [50, 95]).tolist(),
-                   "policy_seconds_p50_p95": np.percentile(all_compute, [50, 95]).tolist()}
-        assert len(results) == expected
-        write_json(args.output / "summary.json", summary)
-        write_json(args.output / "status.json", {**status, "status": "completed"})
-        print(json.dumps(summary), flush=True)
-    except Exception as error:
-        write_json(args.output / "status.json", {"status": "error", "error": repr(error), "kind": kind,
-                                                "completed_episodes": len(results), "expected_episodes": expected})
-        raise
+    from .dashboard.evaluation import EvaluationRecorder, session_metadata
+
+    if args.dashboard_session and not config.get("record_confidence"):
+        parser.error("--dashboard-session requires record_confidence in the existing protocol")
+    metadata = session_metadata(policy.metadata, benchmark=config["suite"], selection=kind)
+    with (EvaluationRecorder(args.dashboard_session, metadata, expected=expected)
+          if args.dashboard_session else nullcontext()) as observer:
+        try:
+            for task_id in config["task_ids"]:
+                task = suite.get_task(task_id)
+                env = OffScreenRenderEnv(bddl_file_name=suite.get_task_bddl_file_path(task_id),
+                                         camera_heights=128, camera_widths=128, camera_names=["agentview"],
+                                         control_freq=20, render_gpu_device_id=-1)
+                try:
+                    for initial_id in config["initial_state_ids"]:
+                        name = f"task-{task_id:02d}-init-{initial_id:02d}"
+                        destination = args.output / name
+                        if destination.exists():
+                            result = json.loads((destination / "result.json").read_text())
+                            assert result["task_id"] == task_id and result["initial_state_id"] == initial_id
+                            for file, sha in result["artifacts_sha256"].items():
+                                assert Path(file).name == file and digest(destination / file) == sha
+                            trace = np.load(destination / "trace.npz", allow_pickle=False)
+                            if observer is not None:
+                                observer.restore(f'{config["suite"]}/{name}', result, trace, config)
+                        else:
+                            if time.monotonic() - start > config["max_evaluation_hours"] * 3600:
+                                raise TimeoutError("Evaluation deadline reached; completed episodes preserved")
+                            temporary = args.output / (name + ".partial")
+                            temporary.mkdir(exist_ok=False)
+                            writer = (imageio.get_writer(temporary / "rollout.mp4", fps=20, codec="libx264")
+                                      if config["save_video"] else None)
+                            try:
+                                result, trace = run_episode(env, states[task_id][initial_id], policy, task.language,
+                                                            config, task_id, initial_id, writer, observer=observer)
+                            finally:
+                                if writer is not None:
+                                    writer.close()
+                            np.savez_compressed(temporary / "trace.npz", **trace)
+                            result["artifacts_sha256"] = {p.name: digest(p) for p in temporary.iterdir() if p.is_file()}
+                            write_json(temporary / "result.json", result)
+                            temporary.rename(destination)
+                        results.append(result)
+                        all_latency.extend(trace["query_seconds"].tolist())
+                        all_compute.extend(trace["policy_seconds"].tolist())
+                        if hasattr(trace, "close"):
+                            trace.close()
+                        status = {"status": "running", "kind": kind, "completed_episodes": len(results),
+                                  "expected_episodes": expected, "elapsed_seconds": time.monotonic() - start}
+                        write_json(args.output / "status.json", status)
+                        print(json.dumps({"event": "episode", **result}), flush=True)
+                finally:
+                    env.close()
+            summary = {"status": "completed", "kind": kind, **aggregate(results, config["task_ids"]),
+                       "expected_episodes": expected, "errors": 0, "elapsed_seconds": time.monotonic() - start,
+                       "query_seconds_p50_p95": np.percentile(all_latency, [50, 95]).tolist(),
+                       "policy_seconds_p50_p95": np.percentile(all_compute, [50, 95]).tolist()}
+            assert len(results) == expected
+            write_json(args.output / "summary.json", summary)
+            write_json(args.output / "status.json", {**status, "status": "completed"})
+            print(json.dumps(summary), flush=True)
+        except Exception as error:
+            write_json(args.output / "status.json", {"status": "error", "error": repr(error), "kind": kind,
+                                                    "completed_episodes": len(results), "expected_episodes": expected})
+            raise
 
 
 if __name__ == "__main__":

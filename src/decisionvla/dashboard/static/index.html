@@ -6,6 +6,7 @@
     <meta name="color-scheme" content="light" />
     <title>DecisionVLA · Observatory</title>
     <link rel="stylesheet" href="/style.css" />
+    <script src="/playback.js" defer></script>
     <script src="/app.js" defer></script>
   </head>
   <body>
@@ -15,7 +16,7 @@
         >Decision<span>VLA</span></a
       >
       <span class="top-label"
-        >INFERENCE OBSERVATORY <span class="version">/ 01</span></span
+        >LIBERO OBSERVATORY <span class="version">/ 02</span></span
       >
       <div class="connection">
         <span id="status-dot" class="dot"></span
@@ -25,9 +26,9 @@
     <main>
       <section class="intro">
         <div>
-          <div class="eyebrow">FROM OBSERVATION TO ACTION</div>
-          <h1>See the next move.</h1>
-          <p>Actions, distributions, and confidence. Together.</p>
+          <div class="eyebrow">OBSERVE EVERY DECISION</div>
+          <h1>Actions. Confidence. Outcomes.</h1>
+          <p>Follow LIBERO evaluation, one decision at a time.</p>
         </div>
         <div class="model-meta">
           <span id="device" class="chip">Device —</span
@@ -36,6 +37,45 @@
         </div>
       </section>
       <div id="error" role="alert" hidden></div>
+      <section class="evaluation-board" aria-label="Evaluation progress">
+        <div class="evaluation-topline">
+          <span class="eyebrow" id="benchmark-label">LIBERO EVALUATION</span>
+          <span class="mode-badge" id="evaluation-status"
+            >Awaiting records</span
+          >
+        </div>
+        <div class="evaluation-stats">
+          <div class="progress-stat">
+            <span class="stat-label" id="progress-label"
+              >Completed episodes</span
+            >
+            <strong id="eval-completed">—</strong>
+            <progress
+              id="eval-progress"
+              max="1"
+              value="0"
+              aria-label="Completed episodes"
+            ></progress>
+          </div>
+          <div>
+            <span class="stat-label">Observed successes</span
+            ><strong id="eval-success">—</strong
+            ><small id="eval-rate">Completed episodes only</small>
+          </div>
+          <div>
+            <span class="stat-label">Observed failures</span
+            ><strong id="eval-failure">—</strong
+            ><small id="eval-errors">Errors counted separately</small>
+          </div>
+          <div>
+            <span class="stat-label">Policy call p50 / p95</span
+            ><strong id="eval-latency">—</strong
+            ><small id="eval-hz">Available query history</small>
+          </div>
+        </div>
+        <div id="suite-summary" class="suite-summary"></div>
+        <p class="selection-note" id="selection-note"></p>
+      </section>
       <section class="toolbar" aria-label="Session controls">
         <div class="mode-group">
           <span class="mode-badge" id="mode">REPLAY</span
@@ -70,11 +110,53 @@
                 id="observation"
                 alt="Camera image used for this policy query"
               />
+              <video
+                id="rollout-video"
+                hidden
+                controls
+                playsinline
+                muted
+                preload="auto"
+                aria-label="Recorded simulator rollout"
+              ></video>
               <div class="camera-tags">
-                <span>AGENT VIEW</span><span id="image-size">128 × 128</span>
+                <span id="media-kind">POLICY OBSERVATION</span
+                ><span id="image-size">128 × 128</span>
               </div>
               <div class="crosshair crosshair-a"></div>
               <div class="crosshair crosshair-b"></div>
+            </div>
+            <div class="media-controls">
+              <span id="media-time">Exact policy input</span>
+              <button id="media-toggle" type="button" hidden>
+                Inspect policy input
+              </button>
+            </div>
+            <div id="timing-controls" class="timing-controls" hidden>
+              <div class="timing-top">
+                <label
+                  >Playback
+                  <select id="timing-mode" aria-label="Playback timing">
+                    <option value="recorded">Recorded inference waits</option>
+                    <option value="simulation">Simulation only</option>
+                  </select></label
+                >
+                <button id="media-play" type="button">▶ Play</button>
+              </div>
+              <div id="replay-phase" class="replay-phase">READY</div>
+              <input
+                id="timed-scrubber"
+                type="range"
+                min="0"
+                max="1"
+                step="any"
+                value="0"
+                aria-label="Playback including inference waits"
+              />
+              <p id="timing-note">
+                Recorded call waits + nominal 20Hz controls; simulator
+                processing time excluded.
+              </p>
             </div>
             <div class="instruction">
               <span class="eyebrow">LANGUAGE INSTRUCTION</span>
@@ -108,11 +190,29 @@
             <article class="panel action-panel">
               <div class="panel-heading">
                 <h2><span class="section-number">02</span>Next actions</h2>
-                <div class="legend">
-                  <span>Diffuse</span><i></i><span>Concentrated</span>
+                <div
+                  class="view-switch"
+                  role="group"
+                  aria-label="Action display"
+                >
+                  <button
+                    id="view-values"
+                    class="active"
+                    type="button"
+                    aria-pressed="true"
+                  >
+                    Values
+                  </button>
+                  <button
+                    id="view-distributions"
+                    type="button"
+                    aria-pressed="false"
+                  >
+                    56 distributions
+                  </button>
                 </div>
               </div>
-              <p class="panel-caption">
+              <p class="panel-caption" id="grid-caption">
                 Select a control to inspect its distribution. Values are
                 normalized to [−1, 1].
               </p>
@@ -124,7 +224,9 @@
               ></div>
               <div class="matrix-foot">
                 <span>Cell color = component confidence</span
-                ><span>Δ position · Δ rotation · gripper</span>
+                ><button id="inspect-weakest" type="button">
+                  Inspect least certain
+                </button>
               </div>
             </article>
           </div>
@@ -198,9 +300,42 @@
             </div>
             <div class="playback-note">
               <span id="position">Query — / —</span
-              ><span id="playback-rate">Playback: 0.75s / query</span>
+              ><span id="playback-rate">Recorded playback</span>
             </div>
           </article>
+        </section>
+        <section
+          class="panel outcome-panel"
+          aria-label="Confidence and actual outcomes"
+        >
+          <div class="panel-heading">
+            <h2>
+              <span class="section-number">05</span>Confidence meets reality
+            </h2>
+            <span class="mono" id="outcome-scope">Completed episodes</span>
+          </div>
+          <div class="outcome-layout">
+            <div>
+              <svg
+                id="outcome-plot"
+                viewBox="0 0 680 172"
+                role="img"
+                aria-label="First-query confidence grouped by actual episode success or failure"
+              ></svg>
+              <p class="chart-note">
+                One dot per episode · first-query confidence · actual simulator
+                outcome
+              </p>
+            </div>
+            <div
+              class="episode-list"
+              id="episode-list"
+              aria-label="Recent episode outcomes"
+            ></div>
+          </div>
+          <p class="panel-caption" id="outcome-note">
+            Association is descriptive; confidence is not a success probability.
+          </p>
         </section>
         <aside class="interpretation">
           <span class="info-symbol">i</span>

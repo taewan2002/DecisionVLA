@@ -32,3 +32,24 @@ latencies must not be relabeled as the separate 188ms standalone CUDA Graph resu
 Raw sessions, source images/traces and the preview screenshot remain in ignored
 `private/`. See [dashboard setup](../../docs/dashboard.md) for live integration,
 replay import, timing boundaries and confidence interpretation.
+
+## Evaluation view and continuous replay update
+
+The evaluation view now includes all 56 distributions, per-worker episode totals,
+actual outcomes and a first-query-confidence/outcome comparison. Optional rollout
+and original/Plus benchmark observers preserve the model calls, RNG and actions.
+Simulator errors remain separate from task failures. The preview still uses only
+the same two selected episodes, not a representative benchmark sample.
+
+The original videos are attached with their audited SHA values: 70 and 221 frames
+at 20fps, including the initial frame. All 37 query identities were checked against
+the original trace, and existing query JSON is unchanged. Video time drives query
+selection; the exact policy-input image remains available separately. The video
+can be replayed with recorded call waits or in simulation-only mode. The default
+includes each measured query wait and nominal 20Hz controls: the success example
+lasts 6.438379s (2.988379s of waits + 3.45s of actions). Per-control simulator
+processing time is unavailable, so this is not an end-to-end speed measurement.
+Live telemetry still displays query observations; continuous video is a replay feature.
+
+The update's validation is recorded in
+[evaluation-view-20261025.json](evaluation-view-20261025.json).

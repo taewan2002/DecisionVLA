@@ -1,18 +1,28 @@
 # DecisionVLA architecture
 
-**Status: proposed, not implemented or trained (2026-10-25).** The executable
-`model.py` remains the earlier action-only pilot. This document specifies the
-replacement; it does not reclassify existing checkpoints or benchmark results.
+**Status: separate native reference implemented and CPU-verified; untrained (2026-10-25).**
+`model.py` remains the earlier action-only pilot. The new `native_*` modules use an
+isolated pinned runtime. Full26B GPU execution and robot performance are still
+unverified. [Implementation and commands](native-reference.md). Existing checkpoints
+and benchmark results retain their original meaning.
 
 ![DecisionVLA architecture proposal](../figures/decisionvla-native/architecture.png)
 
-## Interface and intended mechanism
+## Typed decisions and robot control
 
 An agent-view RGB observation and task instruction condition eight timesteps of
 seven LIBERO controls. Six controls use256 bins on `[-1,1]`; the gripper uses two
 endpoints. Return actions, the56 conditional distributions, selected probabilities,
 entropy, ordered-control variance, allowed-set probability mass and provenance.
 No added action expert, world model or learned confidence head is required.
+
+The [typed interface](typed-decisions.md) follows the shared evidence + questions
++ ordered answers principle of the [OpenAI Decisions API](https://developers.openai.com/api/docs/guides/decisions).
+The default robot profile comprises 48 control-bin choices and 8 positive-command
+predicates. Question meaning and allowed-label mappings enter the model prefix.
+The same schema binds training targets, output slots and controls; it is not a
+post-hoc renaming of arbitrary action probabilities. General score/choice/predicate
+queries compile through the same backend but remain explicitly unvalidated experiments.
 
 The backbone is `google/diffusiongemma-26B-A4B-it`, revision
 `f7f5b7f5fa82ffc52addd066915886d497f5517b`. The prefix and decoder share the native
@@ -31,7 +41,7 @@ Relevant source: [canvas](https://github.com/JoshuaSP/open-jev/blob/50d32c7e542d
 [sampler wrapper](https://github.com/JoshuaSP/open-jev/blob/50d32c7e542dd714c89bb223e8fc8c0b2b3d0d9c/json_canvas.py)
 and [generation call](https://github.com/JoshuaSP/open-jev/blob/50d32c7e542dd714c89bb223e8fc8c0b2b3d0d9c/inference.py).
 
-The DecisionVLA reference path will call native `model.generate()` with the
+The DecisionVLA reference path calls native `model.generate()` with the
 structured canvas processor. It must preserve:
 
 1. A256-token canvas; variable action slots initialize from **uniform full vocabulary**.
@@ -54,7 +64,7 @@ and [self-conditioning implementation](https://github.com/huggingface/transforme
 
 ### Changes from the executable pilot
 
-| Component | Previous pilot | Proposed DecisionVLA |
+| Component | Previous pilot | Native DecisionVLA reference |
 |---|---|---|
 | Intermediate vocabulary |256 action bins; gripper endpoints | Full262,144 vocabulary entries |
 | Proposal / re-noising | Custom action-only loop | Native entropy-bound sampler |
@@ -68,20 +78,19 @@ remain evidence for their original implementation only.
 
 ## Robot-specific canvas adapter
 
-Use56 independent **single-token labels** arranged in an8×7 JSON array. A label
-maps to a control bin; it is not a natural-language description of an action.
-The action-token IDs remain261888–262143. At readout, continuous slots admit256
-labels and gripper slots admit only the two endpoint labels. All variable slots
-still admit the entire vocabulary during denoising.
+Use 56 single-token labels in a flat `{"answers":[...]}` canvas, with a
+one-to-one correspondence to the ordered typed questions. The action-token IDs
+remain 261888–262143. Continuous slots admit 256 labels; gripper slots bind true
+to 262143 (+1) and false to 261888 (−1). All variable slots still admit the full
+vocabulary during denoising. The robot decoder applies the established modal-bin
+rule and resolves a gripper tie to −1.
 
-A tokenizer-only feasibility check constructed a243-token JSON template, leaving
-13 positions for fixed EOS fill in the256-token canvas. It checked14,336 individual
-slot/label substitutions. The unused token spellings **do not re-encode to one
-token**: the compiler must insert their token IDs directly, then decode and map
-labels to bins. Re-tokenizing a serialized alias string is incorrect. This compiler
-is our VLA adaptation, not the unmodified upstream `compile_fields()` function.
-[Audit and exact template](../reports/openjev-redesign-20261025/canvas-audit.json).
-Repeat this check under the pinned reference runtime before model execution.
+The compiler inserts unused label IDs directly; their printable aliases do not
+re-encode to a single token. It validates the decoded layout under the pinned
+base tokenizer. The earlier nested 243-token action template and its audit are
+preserved as historical design evidence, not claimed as the current layout.
+The current flat answer layout and compact robot prefix have their own
+[verification record](../reports/native-reference-20261025/verification.json).
 
 A compact numeric JSON representation also fits for the inspected constant-value
 examples, but numbers can occupy multiple tokens. We choose single-token labels
@@ -131,6 +140,10 @@ The proposed budget remains global batch64 /100k updates, subject to the
 capacity, resume and training checks in [development](development.md).
 
 ## Probabilities and confidence
+
+The [typed API](typed-decisions.md) returns `predicate`, `choice` and `score`
+answers from question-specific logits; `noul` is a predicate spelling alias. Typed APIs, native sampling and calibration are
+separate concerns; maintaining a sampler is not a definition of all Jev-like models.
 
 For raw final logits `z` before sampler temperature, expose
 `p_allowed = softmax(z[allowed])` and

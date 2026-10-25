@@ -14,4 +14,23 @@ jobs:
       - run: pip install -e '.[dev]'
       - run: pytest -q
       - run: ruff check src tests scripts benchmarks
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/dashboard_playback.cjs
       - run: python benchmarks/audit_results.py reports/base-latency-2026-10-24
+  native-decisions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install torch==2.14.0 torchvision==0.29.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -r requirements-native.txt pytest==9.0.2
+      - name: Tiny CPU native sampler and typed decisions (no model download)
+        env:
+          PYTHONPATH: src
+        run: >-
+          python -m pytest tests/test_native.py tests/test_native_decisions.py
+          tests/test_native_compare.py tests/test_typed_decisions.py tests/test_decision_service.py -q
