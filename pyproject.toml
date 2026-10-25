@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "decisionvla"
 version = "0.1.0"
-description = "A personal experiment in direct action diffusion with DiffusionGemma"
+description = "Robot action diffusion and probability diagnostics with DiffusionGemma"
 requires-python = ">=3.12"
 license = "MIT"
 dependencies = [

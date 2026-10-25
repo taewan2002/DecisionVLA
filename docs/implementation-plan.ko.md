@@ -2,7 +2,7 @@
 
 > **이전 구현 기록:** 2026-10-25에 40-task 학습을 46-step에서 저장·중단했습니다. 새 설계는 [DecisionVLA architecture](architecture.md), 현재 작업 범위는 [development plan](development.md)을 따릅니다. 아래의 진행 중·후속 자동 실행 설명은 당시 이력이며 재시작 지시가 아닙니다.
 
-2026-10-24. 개인 오픈소스 프로젝트이며 기존 학위논문 코드·checkpoint·결과와 분리되어 있다.
+2026-10-24. 기존 학위논문 코드·checkpoint·결과와 분리된 오픈소스 프로젝트다.
 
 ## 현재 구현
 

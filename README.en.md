@@ -18,7 +18,7 @@ An experiment in reading robot actions and probabilities from one observation.
 
 <p align="center"><a href="https://www.figma.com/design/FbL9C7OnlyOZkiyGPOkcW0/?node-id=13407-92873">Editable Figma</a> · <a href="figures/decisionvla-native/">Figure source</a></p>
 
-DecisionVLA is a personal project adapting DiffusionGemma's existing vision encoder and shared Transformer to robot control. The target interface returns an **8 × 7 action chunk**, per-action distributions and uncertainty from an image and instruction. This repository shares implementation, inference optimization and failure analysis with their measurement records.
+DecisionVLA adapts DiffusionGemma's existing vision encoder and shared Transformer to robot control. The target interface returns an **8 × 7 action chunk**, per-action distributions and uncertainty from an image and instruction. This repository shares implementation, inference optimization and failure analysis with their measurement records.
 
 > **Development status · 2026-10-25**
 > Forty-task training was intentionally stopped after saving **checkpoint 46**. The figure describes a **proposed architecture** preserving native denoising, sampling and self-conditioning. Executable code and measurements below use the earlier action-only sampler; the new path is not implemented, trained or benchmarked yet. [Development plan](docs/development.md) · [Stop audit](reports/openjev-redesign-20261025/stop-audit.json)

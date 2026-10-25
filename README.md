@@ -18,7 +18,7 @@
 
 <p align="center"><a href="https://www.figma.com/design/FbL9C7OnlyOZkiyGPOkcW0/?node-id=13407-92873">Editable Figma</a> · <a href="figures/decisionvla-native/">Figure source</a></p>
 
-DecisionVLA는 DiffusionGemma의 내장 vision encoder와 공유 Transformer를 로봇 제어에 적응시키는 개인 프로젝트입니다. 이미지와 지시문을 받아 **8 × 7 행동 chunk**, 행동별 확률분포와 불확실성을 반환하는 것이 목표입니다. 학습, 추론 최적화, 실패 분석 과정을 코드와 측정 기록으로 공유합니다.
+DecisionVLA는 DiffusionGemma의 내장 vision encoder와 공유 Transformer를 로봇 제어에 적응시키는 VLA 프로젝트입니다. 이미지와 지시문을 받아 **8 × 7 행동 chunk**, 행동별 확률분포와 불확실성을 반환하는 것이 목표입니다. 학습, 추론 최적화, 실패 분석 과정을 코드와 측정 기록으로 공유합니다.
 
 > **개발 상태 · 2026-10-25**
 > 전체 40-task 학습을 **46-step checkpoint 저장 후 중단**했습니다. 위 그림은 native denoising·sampler·self-conditioning을 보존하는 **새 설계**입니다. 현재 실행 코드와 아래 실측은 이전 action-only sampler를 사용하며, 새 경로는 아직 구현·학습·성능 검증 전입니다. [개발 계획](docs/development.md) · [중단 검산](reports/openjev-redesign-20261025/stop-audit.json)
