@@ -1,0 +1,256 @@
+{
+  "status": "completed",
+  "mode": "w4a16",
+  "graph": false,
+  "prefix_graph": false,
+  "prefix_kv_copy_scope": "eager decoder reads prefix",
+  "torch": "2.14.1+cu130",
+  "device": "NVIDIA GeForce RTX 5090",
+  "checkpoint_step": 4500,
+  "manifest_sha256": "eea7e332542cbdf8ce2afba5b686654a3a59d244d0ea57dbf001510b552d33a6",
+  "samples_sha256": "766f57bc7bd9a9c947adfea602aae0df329679771d8cd79634e58bd3c87a4e31",
+  "images_sha256": {
+    "observation-00.png": "342537f9ba62281b3eeedccba2c1fb83130627b7566550d57e31c989d74ac704",
+    "observation-01.png": "d1294857c98f4fa39c34d50c6ae4c5ea1cadc7f34e2e613ad957d624708a9550",
+    "observation-02.png": "dbda571c1396b2b9ef9c7e4827a7eb9c650355b5cc824fa127d6111bd70804e5",
+    "observation-03.png": "db954f774a1603d3c7714ee217c70b6fea831610b2b89b1d2fcf1e052508b288",
+    "observation-04.png": "d99ef9be363a2fb5bf1695934c177f39522fe5c9e0f64921cf34a00c85be3960",
+    "observation-05.png": "9738f42f45f0d88c9d5c3162736271f26435a5ccd7c9606c52b833f49eaffbc7",
+    "observation-06.png": "8f2f7a22c9213d4a5f6635750456182ebabaeef2563b5c88c6e86b70dfe1b3ee",
+    "observation-07.png": "4228b19e0e9cfb9afe80338c53a342cb2a21e052232e57f896b22d81f9a45b7a",
+    "observation-08.png": "476e911ce09454ef86a2dd87fb7660ceec755e1878e7a479fc877c30b4f51f64",
+    "observation-09.png": "adef1aeb5c3c5a9d3982dd3025ea96df0f00fab38d67f040bb5585d07528467e"
+  },
+  "scope": "batch1, one128x128 RGB and instruction, four denoising passes, eight7D actions plus full probability/confidence conversion; no CPU offload",
+  "standalone": "caller must verify exclusive compute on this GPU",
+  "rows": [
+    {
+      "i": 0,
+      "repeat": 0,
+      "seconds": 0.3145734489662573,
+      "action_sha256": "05446af8fb316d4fd3c6ba49afe10f5a268b18381ab8e41dbca660cd57d741c9"
+    },
+    {
+      "i": 0,
+      "repeat": 1,
+      "seconds": 0.3152546959463507,
+      "action_sha256": "05446af8fb316d4fd3c6ba49afe10f5a268b18381ab8e41dbca660cd57d741c9"
+    },
+    {
+      "i": 1,
+      "repeat": 0,
+      "seconds": 0.31516402296256274,
+      "action_sha256": "1c647fa0a935cda41726aca36f7f5c0482a183b149bb0609a5e8d1f1bda05264"
+    },
+    {
+      "i": 1,
+      "repeat": 1,
+      "seconds": 0.3153322710422799,
+      "action_sha256": "1c647fa0a935cda41726aca36f7f5c0482a183b149bb0609a5e8d1f1bda05264"
+    },
+    {
+      "i": 2,
+      "repeat": 0,
+      "seconds": 0.31563179194927216,
+      "action_sha256": "cffa205faf0139ed8535beafac67f6e294485d9be332aec49dc04cfe58114960"
+    },
+    {
+      "i": 2,
+      "repeat": 1,
+      "seconds": 0.3159214580664411,
+      "action_sha256": "cffa205faf0139ed8535beafac67f6e294485d9be332aec49dc04cfe58114960"
+    },
+    {
+      "i": 3,
+      "repeat": 0,
+      "seconds": 0.31602748401928693,
+      "action_sha256": "af77d7dfcf0e9c6d72bdb5e43ad175455e146960addf9e2b10fed6e86d1e549e"
+    },
+    {
+      "i": 3,
+      "repeat": 1,
+      "seconds": 0.3154875891050324,
+      "action_sha256": "af77d7dfcf0e9c6d72bdb5e43ad175455e146960addf9e2b10fed6e86d1e549e"
+    },
+    {
+      "i": 4,
+      "repeat": 0,
+      "seconds": 0.3178456829627976,
+      "action_sha256": "09b8c15e28e4a73c99b4cf8e4ba7a2366e56f009ee1d0593a5b7cf3f78d77865"
+    },
+    {
+      "i": 4,
+      "repeat": 1,
+      "seconds": 0.31509048608131707,
+      "action_sha256": "09b8c15e28e4a73c99b4cf8e4ba7a2366e56f009ee1d0593a5b7cf3f78d77865"
+    },
+    {
+      "i": 5,
+      "repeat": 0,
+      "seconds": 0.3158517429837957,
+      "action_sha256": "2a391af1ab593f9be2fc2871faec1aee98704f2f99825ac427a9232bb08a9a66"
+    },
+    {
+      "i": 5,
+      "repeat": 1,
+      "seconds": 0.31490327999927104,
+      "action_sha256": "2a391af1ab593f9be2fc2871faec1aee98704f2f99825ac427a9232bb08a9a66"
+    },
+    {
+      "i": 6,
+      "repeat": 0,
+      "seconds": 0.31489373405929655,
+      "action_sha256": "24a1ab8c76fb95f219a8e5a777aa6eb5bfad0df6b0657d5a98b2933bea26eb12"
+    },
+    {
+      "i": 6,
+      "repeat": 1,
+      "seconds": 0.3150841830065474,
+      "action_sha256": "24a1ab8c76fb95f219a8e5a777aa6eb5bfad0df6b0657d5a98b2933bea26eb12"
+    },
+    {
+      "i": 7,
+      "repeat": 0,
+      "seconds": 0.3156161509687081,
+      "action_sha256": "c8e356dbe5979b92940510518e01c3db57ae562b6fa23dada31127cba21861a0"
+    },
+    {
+      "i": 7,
+      "repeat": 1,
+      "seconds": 0.3137270490406081,
+      "action_sha256": "c8e356dbe5979b92940510518e01c3db57ae562b6fa23dada31127cba21861a0"
+    },
+    {
+      "i": 8,
+      "repeat": 0,
+      "seconds": 0.31598073698114604,
+      "action_sha256": "fa20286fe65f407e89a6168fdecebf9dfb11fc4332605f85bee8c67ce68df10e"
+    },
+    {
+      "i": 8,
+      "repeat": 1,
+      "seconds": 0.3143086009658873,
+      "action_sha256": "fa20286fe65f407e89a6168fdecebf9dfb11fc4332605f85bee8c67ce68df10e"
+    },
+    {
+      "i": 9,
+      "repeat": 0,
+      "seconds": 0.31352692702785134,
+      "action_sha256": "2e509011c290b15ae15032a0b3166d358a3f0bdcf765e6e0ecf8ae84df2b7942"
+    },
+    {
+      "i": 9,
+      "repeat": 1,
+      "seconds": 0.31483087793458253,
+      "action_sha256": "2e509011c290b15ae15032a0b3166d358a3f0bdcf765e6e0ecf8ae84df2b7942"
+    }
+  ],
+  "cold_or_capture_rows": [
+    {
+      "i": 0,
+      "phase": "eager_first",
+      "seconds": 2.7503251070156693
+    },
+    {
+      "i": 1,
+      "phase": "eager_first",
+      "seconds": 0.48644929693546146
+    },
+    {
+      "i": 2,
+      "phase": "eager_first",
+      "seconds": 0.49054171808529645
+    },
+    {
+      "i": 3,
+      "phase": "eager_first",
+      "seconds": 0.48379609803669155
+    },
+    {
+      "i": 4,
+      "phase": "eager_first",
+      "seconds": 0.487556244013831
+    },
+    {
+      "i": 5,
+      "phase": "eager_first",
+      "seconds": 0.315961831016466
+    },
+    {
+      "i": 6,
+      "phase": "eager_first",
+      "seconds": 0.31497479998506606
+    },
+    {
+      "i": 7,
+      "phase": "eager_first",
+      "seconds": 0.31351853196974844
+    },
+    {
+      "i": 8,
+      "phase": "eager_first",
+      "seconds": 0.3151319979224354
+    },
+    {
+      "i": 9,
+      "phase": "eager_first",
+      "seconds": 0.3146282790694386
+    },
+    {
+      "i": 0,
+      "phase": "eager_warmup",
+      "seconds": 0.31632010196335614
+    },
+    {
+      "i": 1,
+      "phase": "eager_warmup",
+      "seconds": 0.313517561997287
+    },
+    {
+      "i": 2,
+      "phase": "eager_warmup",
+      "seconds": 0.3149060989962891
+    },
+    {
+      "i": 3,
+      "phase": "eager_warmup",
+      "seconds": 0.3157131370389834
+    },
+    {
+      "i": 4,
+      "phase": "eager_warmup",
+      "seconds": 0.31482362607493997
+    },
+    {
+      "i": 5,
+      "phase": "eager_warmup",
+      "seconds": 0.3145833869930357
+    },
+    {
+      "i": 6,
+      "phase": "eager_warmup",
+      "seconds": 0.3148685439955443
+    },
+    {
+      "i": 7,
+      "phase": "eager_warmup",
+      "seconds": 0.3167398020159453
+    },
+    {
+      "i": 8,
+      "phase": "eager_warmup",
+      "seconds": 0.3138785311020911
+    },
+    {
+      "i": 9,
+      "phase": "eager_warmup",
+      "seconds": 0.3136111230123788
+    }
+  ],
+  "export_reload_exact": true,
+  "repeated_actions_and_probabilities_exact": true,
+  "p50_seconds": 0.3152093594544567,
+  "p95_seconds": 0.31611839396646246,
+  "peak_allocated_gib": 18.09536838531494,
+  "peak_reserved_gib": 18.30078125
+}

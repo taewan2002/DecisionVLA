@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "parent_checkpoint_files_verified": 8,
+  "parent_optimizer_and_rng_artifact_verified": true,
+  "parent_manifest_sha256": "aab279b96227ce63d3df5dc366382346e9b733f43bed5dd82fbcac0ffebd094d",
+  "original_evaluation_source_files_verified": 33,
+  "original_protocol_sha256": "c64c01539e1f578be8e48285d9c92708addc10261e161060ee9e91663a2e21d2",
+  "artifact_changes": 0
+}

@@ -1,0 +1,49 @@
+{
+  "time": "2026-10-25T00:43:56.273267+09:00",
+  "status": {
+    "status": "running",
+    "step": 27,
+    "target_steps": 100000,
+    "global_batch_size": 64,
+    "elapsed_seconds": 579.1498557860032,
+    "last_update_seconds": 20.752841711975634,
+    "last_loss": 4.576494514942169,
+    "latest_checkpoint": null
+  },
+  "steady_update_count": 26,
+  "steady_median_seconds": 20.867495808575768,
+  "timing_note": "Includes small sampling overhead. Synthetic dispatch probe interval is contended and not a standalone speed measurement.",
+  "last_updates": [
+    {
+      "step": 23,
+      "seconds": 20.974770575994626,
+      "loss": 4.9146435260772705,
+      "lr": 6.035000000000001e-06
+    },
+    {
+      "step": 24,
+      "seconds": 20.97228383505717,
+      "loss": 4.850498735904694,
+      "lr": 6.08e-06
+    },
+    {
+      "step": 25,
+      "seconds": 20.709250657935627,
+      "loss": 4.612117648124695,
+      "lr": 6.125000000000001e-06
+    },
+    {
+      "step": 26,
+      "seconds": 20.84502876899205,
+      "loss": 4.668586552143097,
+      "lr": 6.17e-06
+    },
+    {
+      "step": 27,
+      "seconds": 20.752841711975634,
+      "loss": 4.576494514942169,
+      "lr": 6.215000000000001e-06
+    }
+  ],
+  "protected_miner": "exited"
+}

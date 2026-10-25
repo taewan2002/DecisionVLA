@@ -6,7 +6,7 @@ from pathlib import Path
 import h5py
 import numpy as np
 
-from decisionvla.data import LiberoDataset
+from decisionvla.data import LiberoDataset, dataset_files
 
 
 def main():
@@ -17,10 +17,10 @@ def main():
     args = parser.parse_args()
     config = json.loads(Path(args.config).read_text())
     train, val = (LiberoDataset(args.data, config, split) for split in ["train", "validation"])
-    assert {(p.name, d) for p, d, *_ in train.episodes}.isdisjoint(
-        {(p.name, d) for p, d, *_ in val.episodes})
+    assert {(p, d) for p, d, *_ in train.episodes}.isdisjoint(
+        {(p, d) for p, d, *_ in val.episodes})
     errors, episodes, frames = [], 0, 0
-    for path in sorted((Path(args.data) / config["suite"]).glob("*.hdf5")):
+    for path in dataset_files(args.data, config):
         with h5py.File(path) as f:
             for group in f["data"].values():
                 # In the pinned Panda dataset, qpos starts at state index 1.

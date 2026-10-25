@@ -1,0 +1,4 @@
+# Preserve byte-for-byte exported evidence and its recorded SHA256 values.
+reports/** -text -whitespace
+# Vector exports and authoring snapshots are generated assets.
+figures/** -whitespace

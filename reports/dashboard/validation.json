@@ -1,0 +1,36 @@
+{
+  "status": "implemented_and_checked",
+  "checked_at": "2026-10-25T06:06:02.747125+00:00",
+  "cpu_tests_passed": 12,
+  "replay_queries": 37,
+  "component_distributions_verified": 2072,
+  "image_action_probability_latency_exact": true,
+  "confidence_metric_atol": 2e-06,
+  "new_gpu_inference_calls": 0,
+  "training_changed": false,
+  "new_automation": false,
+  "published": false,
+  "live_gpu_session_tested": false,
+  "live_transport_tested_with_cpu_fixtures": true,
+  "browser_checks": [
+    "component selection",
+    "continuous distribution",
+    "binary gripper distribution",
+    "episode filter",
+    "next query",
+    "28-query playback completion",
+    "explicit replay label"
+  ],
+  "code_sha256": {
+    "docs/dashboard.md": "7be775b348930a42deeaef9799091b5b26a8a244b38d7bcf3ea2077db9258e5b",
+    "src/decisionvla/dashboard/__init__.py": "12a0267130792ed950db63252cc8ad54869bfd0522da5ece6bd969ba99f94279",
+    "src/decisionvla/dashboard/__main__.py": "4009f92e93eedb03d45a0d95b2c426e2f49d229255f98489ae795495b2220b3d",
+    "src/decisionvla/dashboard/import_trace.py": "02aca53b2aa9ca4f7f9e752ac3afed13f7bd93524987dd44496ca2b76d3cb65f",
+    "src/decisionvla/dashboard/server.py": "f97b85820c1eb3c9ac200a45a4cc9f89de48b6ac9c1e18388495a0faf3cb1109",
+    "src/decisionvla/dashboard/static/app.js": "4cbaf6531f4a5f43b714dc691166704f3f81543dc47e733cc87e2b3ba752c114",
+    "src/decisionvla/dashboard/static/index.html": "078adbd5cb63a0249fe6213325a5ead231fa1589208ded6835d3ed8a22ca098d",
+    "src/decisionvla/dashboard/static/style.css": "8a3f1e50af3affcae8db4332ce3e419c3cfa832f3443c9204091bc5895813a47",
+    "src/decisionvla/dashboard/telemetry.py": "50decd748d78fb309afc515b3f14e823a50fed253b421e48bcd7438f86f948af",
+    "tests/test_dashboard.py": "83de6fafecb421cd357b667cf5bd4926ec783521db7ea516d73650bd2dce8e00"
+  }
+}

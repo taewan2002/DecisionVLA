@@ -1,0 +1,8 @@
+{
+  "data_manifest_sha256": "ca138bd15476a6fd589a85e8955fe9c16b982b6530712c8ccfe04b5aa1f3c42e",
+  "old_run_stopped_at": 6681,
+  "initialization": "fresh LoRA and optimizer from pinned base; no pilot or smoke weights",
+  "sampling": "uniform_task_then_uniform_frame",
+  "checkpoint_retention": "all10k boundaries plus latest2 recovery points;500-step hashes/logs preserved",
+  "controller_sha256": "9afb76c3a828af988d30f700f06978d5cb31cc8fa1802f915e1ffef1ae004a0f"
+}

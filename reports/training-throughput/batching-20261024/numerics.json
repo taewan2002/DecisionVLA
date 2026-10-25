@@ -1,0 +1,51 @@
+{
+  "updates": 0,
+  "prefix_lengths": [
+    294,
+    295,
+    297,
+    294,
+    294,
+    298,
+    294,
+    297
+  ],
+  "padded_single_vs_unpadded": {
+    "continuous_logit_mae": 0.15157997608184814,
+    "continuous_logit_max_abs": 1.2566184997558594,
+    "probability_mae": 0.00011762316717067733,
+    "argmax_agreement": 0.9754464030265808
+  },
+  "duplicate_same_length": {
+    "2": {
+      "continuous_logit_mae": 0.13518677651882172,
+      "continuous_logit_max_abs": 0.6768999099731445,
+      "probability_mae": 0.00030237427563406527,
+      "argmax_agreement": 0.9642857313156128,
+      "changed_expert_set_token_layers": 4392,
+      "total_token_layers": 16500,
+      "changed_expert_set_fraction": 0.2661818181818182
+    },
+    "4": {
+      "continuous_logit_mae": 0.1529942750930786,
+      "continuous_logit_max_abs": 0.9461593627929688,
+      "probability_mae": 0.00022115714091341943,
+      "argmax_agreement": 1.0,
+      "changed_expert_set_token_layers": 4230,
+      "total_token_layers": 16500,
+      "changed_expert_set_fraction": 0.25636363636363635
+    }
+  },
+  "batch_2_vs_unpadded": {
+    "continuous_logit_mae": 0.1701761931180954,
+    "continuous_logit_max_abs": 1.9691110849380493,
+    "probability_mae": 0.00014810755965299904,
+    "argmax_agreement": 0.96875
+  },
+  "batch_4_vs_unpadded": {
+    "continuous_logit_mae": 0.16336698830127716,
+    "continuous_logit_max_abs": 1.9437211751937866,
+    "probability_mae": 0.00012922589667141438,
+    "argmax_agreement": 0.9665178656578064
+  }
+}

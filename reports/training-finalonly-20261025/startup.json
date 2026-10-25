@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "checked_time_unix": 1792860719.8393657,
+  "run": "libero-spatial-r32-b64-100k-finalonly-v1",
+  "controller_pid": 2095926,
+  "from_step": 219,
+  "observed_step": 222,
+  "updates_observed": 3,
+  "first_update": {
+    "event": "update",
+    "step": 220,
+    "lr": 1.49e-05,
+    "loss": 3.7386670112609863,
+    "grad_norm": 5.199652671813965,
+    "seconds": 23.97037710098084,
+    "global_batch_size": 64,
+    "supervised_tokens": 2239,
+    "valid_tokens": 3465
+  },
+  "resumed_adapter_sha256_matches_parent": true,
+  "resume_manifest_sha256": "32957e228756caab46b2d4c317d6ac865983fccae62d580ff107f23467442f3a",
+  "training_config_and_data_manifests_exact": true,
+  "kernel_migration": {},
+  "all_observed_lrs_match_original_schedule": true,
+  "training_gpu_indices": [
+    0,
+    1
+  ],
+  "evaluation_steps": [
+    100000
+  ],
+  "protected_serving_and_retovla_id_pid_start_exact": true,
+  "gpu1_miner_stopped": true,
+  "runtime_source_files_verified": 108,
+  "recent_steady_median_seconds": 7.479681492492091
+}

@@ -1,0 +1,22 @@
+{
+  "diffs": [],
+  "fixed_input_expert_repeats": [],
+  "action_equal": [
+    true,
+    true
+  ],
+  "canvas_equal": [
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ]
+  ]
+}

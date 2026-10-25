@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "key": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/75",
+  "seed": 42,
+  "actions_exact": true,
+  "probability_max_abs_difference": 0.0,
+  "probability_atol": 2e-06,
+  "native_policy_additional_queries": 1,
+  "policy_seconds_contended": 0.6617877890821546,
+  "scope": "CPU-offloaded diagnostic versus unchanged resident policy checkpoint2000; not a benchmark"
+}

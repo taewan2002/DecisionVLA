@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "posthoc_diagnostic_local_artifacts",
+  "probability_audit_matches_geometry": true,
+  "fixed_protocol_unchanged": true,
+  "local_input_hashes_match": true,
+  "report_links_exist": true,
+  "ruff": "passed",
+  "git_diff_check": "passed",
+  "new_policy_calls": 0,
+  "new_simulation_steps": 0,
+  "scripts_sha256": {
+    "scripts/diagnose_training.py": "74ab5a3203497151e072908bfa47ee5ed8b7b7965797c5708fff9824b4f177ac",
+    "scripts/diagnose_rollout_states.py": "60b4e6690161b6667a95d07f194b780fcb56ca415bf3ff141c3257af895d7809",
+    "scripts/plot_pilot_diagnostic.py": "51e9be4804b4a2eb8ed7e6becd76b655bddf826871c81cc62756ef496fe9edfa"
+  },
+  "render_sha256": {
+    "pilot-diagnostic.png": "8e918753ad2643c458cd9bfdf74e0efa5d77c2a566bf2216d5e29c144584d241",
+    "pilot-diagnostic.svg": "cace0ea9b49a263d87cc6c5d9ba320da9df9b96cd8387c90641651ca86210fb5"
+  }
+}

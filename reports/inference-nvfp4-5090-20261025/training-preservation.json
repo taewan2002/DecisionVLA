@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-25T03:39:19.323297+00:00",
+  "training_source_files_verified": 108,
+  "source_unchanged": true,
+  "same_training_container_and_pid": true,
+  "training_state": {
+    "status": "running",
+    "step": 5304,
+    "target_steps": 100000,
+    "global_batch_size": 64,
+    "elapsed_seconds": 38881.79009183508,
+    "last_update_seconds": 7.556768244947307,
+    "last_loss": 2.0226316079497337,
+    "latest_checkpoint": "checkpoint-005000"
+  }
+}

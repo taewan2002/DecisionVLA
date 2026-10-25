@@ -1,0 +1,70 @@
+{
+  "version": "decisionvla.training-schedule.v2",
+  "total_steps": 100000,
+  "preserved_parent_steps": 109,
+  "evaluation_steps": [
+    10000,
+    20000,
+    30000,
+    40000,
+    50000,
+    60000,
+    70000,
+    80000,
+    90000,
+    100000
+  ],
+  "episodes_per_checkpoint": 500,
+  "training_config": "configs/libero_spatial_r32_b64_100k_cublas.json",
+  "checkpoint_every": 500,
+  "validation_every": 500,
+  "validation_samples": 100,
+  "selection": {
+    "metric": "task_macro_success_rate",
+    "direction": "maximize",
+    "tie_break": "earliest_step",
+    "candidate_steps": [
+      10000,
+      20000,
+      30000,
+      40000,
+      50000,
+      60000,
+      70000,
+      80000,
+      90000,
+      100000
+    ]
+  },
+  "same_seed": 42,
+  "gpu_count": 2,
+  "stop_on_error": true,
+  "automatic_performance_early_stopping": false,
+  "release_after": "all ten evaluations, probability/action/SHA audits, review and documentation",
+  "scope": "Development comparison on reused official LIBERO-Spatial initial states, not an independent test",
+  "history": [
+    {
+      "from_step": 0,
+      "to_step": 38,
+      "objective": "resampled_only",
+      "expert_kernel": "torch_grouped_mm",
+      "state": "completed and preserved"
+    },
+    {
+      "from_step": 38,
+      "to_step": 109,
+      "objective": "resampled_only",
+      "expert_kernel": "triton_sm120_backward",
+      "state": "completed and preserved"
+    },
+    {
+      "from_step": 109,
+      "to_step": 100000,
+      "objective": "resampled_only",
+      "expert_kernel": "cublas_sm120_forward",
+      "state": "migration requires full numerical, restart and measured speed gates; preserve optimizer/RNG/LR/batch"
+    }
+  ],
+  "global_batch_size": 64,
+  "initialization": "Fresh LoRA through step109; preserve all state and continue with validated cuBLAS forward/Triton backward"
+}

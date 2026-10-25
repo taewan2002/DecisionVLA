@@ -1,0 +1,101 @@
+{
+  "kind": "CPU mocked orchestration rehearsal, not real training or rollout",
+  "success_path": {
+    "status": "passed",
+    "injected_failure_step": null,
+    "events": [
+      [
+        "gate"
+      ],
+      [
+        "train",
+        10000,
+        20000
+      ],
+      [
+        "probe",
+        20000
+      ],
+      [
+        "evaluate",
+        20000
+      ],
+      [
+        "train",
+        20000,
+        30000
+      ],
+      [
+        "probe",
+        30000
+      ],
+      [
+        "evaluate",
+        30000
+      ],
+      [
+        "train",
+        30000,
+        40000
+      ],
+      [
+        "probe",
+        40000
+      ],
+      [
+        "evaluate",
+        40000
+      ],
+      [
+        "train",
+        40000,
+        50000
+      ],
+      [
+        "probe",
+        50000
+      ],
+      [
+        "evaluate",
+        50000
+      ]
+    ],
+    "resource_released": true
+  },
+  "failure_path": {
+    "status": "passed",
+    "injected_failure_step": 30000,
+    "events": [
+      [
+        "gate"
+      ],
+      [
+        "train",
+        10000,
+        20000
+      ],
+      [
+        "probe",
+        20000
+      ],
+      [
+        "evaluate",
+        20000
+      ],
+      [
+        "train",
+        20000,
+        30000
+      ],
+      [
+        "probe",
+        30000
+      ],
+      [
+        "evaluate",
+        30000
+      ]
+    ],
+    "resource_released": true
+  }
+}

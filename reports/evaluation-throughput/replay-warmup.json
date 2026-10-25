@@ -1,0 +1,48 @@
+{
+  "kind": "CPU replay, no policy inference, excluded from evaluation",
+  "episode": "task-04-init-30",
+  "environment": {
+    "LP_NUM_THREADS": null,
+    "OMP_NUM_THREADS": "2",
+    "MUJOCO_GL": "osmesa",
+    "PYOPENGL_PLATFORM": "osmesa"
+  },
+  "environment_construction_seconds": 3.7505159149877727,
+  "warmup": {
+    "episode": "task-04-init-00",
+    "state_difference": 0.0,
+    "images_exact": true
+  },
+  "rollout_seconds": 16.77054178598337,
+  "compression_seconds": 0.025696430006064475,
+  "maximum_state_difference": 2.437204553111517,
+  "initial_settled_state_difference": 0.07600284812515005,
+  "observation_hashes_exact": false,
+  "observation_hash_matches": 0,
+  "first_observation_hash": "7d83c88b9bbaa23f5881e0a6058a773dd39e824298877c95b527da02d0e5d584",
+  "status": "error",
+  "error": "AssertionError(\"\\nArrays are not equal\\nimage_sha256\\nMismatched elements: 28 / 28 (100%)\\n x: array(['7d83c88b9bbaa23f5881e0a6058a773dd39e824298877c95b527da02d0e5d584',\\n       'bb7872737850a1d7d987e61dad1aa853199273797ca166c122c2e22707e94e75',\\n       '52305082a3eed8ccfa31b3f81f8410c5648a4bc6b78fd48e45e7a2e91c134420',...\\n y: array(['44927eb24b21a5ab314608965fa1e6c801b497c0b4f09f8a48e8b0be8e97646a',\\n       '56de323bf7a920c6ce5b540b7dbc57d64baed7137856406dac4df5e771e52fc9',\\n       '123bceb20a5550b52e88593e003fbd44e0ff5289cf9b9c587dc9192a68ee4cd7',...\")",
+  "verified_queries": 28,
+  "environment_seconds": {
+    "seed": 3.723800182342529e-05,
+    "reset": 5.4856680209049955,
+    "set_init_state": 0.09411850001197308,
+    "step": 29.792812923551537,
+    "check_success": 0.08482188999187201,
+    "get_sim_state": 0.007110403152182698,
+    "close": 0.1642600289778784
+  },
+  "environment_calls": {
+    "seed": 2,
+    "reset": 2,
+    "set_init_state": 2,
+    "step": 460,
+    "check_success": 460,
+    "get_sim_state": 442,
+    "close": 1
+  },
+  "writer_seconds": {
+    "append_data": 0.08044882281683385,
+    "close": 0.010217096074484289
+  }
+}

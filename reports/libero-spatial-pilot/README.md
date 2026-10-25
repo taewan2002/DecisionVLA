@@ -1,6 +1,8 @@
 # First LIBERO-Spatial pilot
 
-Status: initial training launched on 2026-10-24; ongoing. This file will be updated with an observed progress snapshot before publication.
+Status: the rank-16 run completed 2,000 updates on 2026-10-24, with exit code 0 and a final checkpoint. Training and final open-loop validation took approximately 1 hour 52 minutes, excluding initial model loading.
+
+At step 2,000, the fixed 20-frame held-out check measured normalized continuous-action MAE **0.2326**, gripper accuracy **90.13%**, exact action-token accuracy **26.97%**, and denoising CE **2.0783**. The initial MAE/CE were 0.6556/6.0722. These are a small development check, not closed-loop robot success. MAE fluctuated around 0.23 after step 1,000.
 
 The original 500 demonstrations were independently downloaded and checked against upstream SHA256. Across all 61,750 available adjacent states, post-action observation joint coordinates matched the following simulator state exactly. Training and validation episodes are disjoint (450 / 50).
 

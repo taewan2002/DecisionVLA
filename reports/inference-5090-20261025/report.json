@@ -1,0 +1,399 @@
+{
+  "status": "completed",
+  "checkpoint_step": 4500,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.9.1+cu130",
+  "cuda": "13.0",
+  "steps": 4,
+  "action_shape": [
+    8,
+    7
+  ],
+  "images": 10,
+  "visual_tokens": 280,
+  "timing_boundary": "PIL image + instruction -> preprocessing, vision/prefix, 4 denoise passes, actions + full confidence diagnostics on CPU",
+  "excluded": [
+    "image acquisition",
+    "disk image decode",
+    "RPC/network",
+    "robot actuation",
+    "model load",
+    "warmups"
+  ],
+  "bf16_stream_is_same_hardware_reference": true,
+  "quantizer_check": {
+    "gpu_unpack_matches_independent_torch_reference": true,
+    "zero_group_exact": true,
+    "max_abs_error": 0.21875
+  },
+  "quantized_closed_loop_success": "not_evaluated",
+  "reference_reused_sha256": {
+    "report.json": "e935108d46ce002bf677cd97e679966c2849f6d2921e819f79363e8c8a317120",
+    "bf16_stream.json": "e634437702383cdff19b18ea71266589a02db9690d245c4187f533a624456e01",
+    "bf16_stream.npz": "51cd5696d3e6bc6fe38ac31dc51e2a4947f930eb7eda00853d04527b35b2624a"
+  },
+  "streaming_hooks_installed_in_this_process": false,
+  "bf16_stream": {
+    "summary": {
+      "n": 10,
+      "p50_seconds": 17.36418906506151,
+      "p95_seconds": 17.47769571506069,
+      "min_seconds": 17.34763168601785,
+      "max_seconds": 17.566033771028742,
+      "mean_seconds": 17.381515627913178
+    },
+    "samples": [
+      {
+        "i": 0,
+        "warmup": false,
+        "file": "observation-00.png",
+        "seed": 42,
+        "seconds": 17.36646865005605,
+        "actions_sha256": "50c7d8a792342d6e4d35a1b7c90f7b890dec2e5658a3ded1c7af09d8569531be"
+      },
+      {
+        "i": 1,
+        "warmup": false,
+        "file": "observation-01.png",
+        "seed": 43,
+        "seconds": 17.36456088605337,
+        "actions_sha256": "fbf518d4e9dd0c82a6ef63ddab192495904d79c1cdaab0557b6756bafb429daf"
+      },
+      {
+        "i": 2,
+        "warmup": false,
+        "file": "observation-02.png",
+        "seed": 44,
+        "seconds": 17.358298026956618,
+        "actions_sha256": "7d9c2598374183b351e8cfee80c9cef5b466ca3767d494a420b7976119f6ec5d"
+      },
+      {
+        "i": 3,
+        "warmup": false,
+        "file": "observation-03.png",
+        "seed": 45,
+        "seconds": 17.566033771028742,
+        "actions_sha256": "ee71a40ec5d46ad27c0271c9540aa57fa015392b93fd8c32c60b5e6876bfb95d"
+      },
+      {
+        "i": 4,
+        "warmup": false,
+        "file": "observation-04.png",
+        "seed": 46,
+        "seconds": 17.36246245901566,
+        "actions_sha256": "bc68b0711393aaf7389c10f4f050401cb398b2f0e461b3ea627fdebca05bcc7a"
+      },
+      {
+        "i": 5,
+        "warmup": false,
+        "file": "observation-05.png",
+        "seed": 47,
+        "seconds": 17.36628324398771,
+        "actions_sha256": "e5ccab004801dc6b0eed013acf71de885833ee026809a733b644c32719a7bb79"
+      },
+      {
+        "i": 6,
+        "warmup": false,
+        "file": "observation-06.png",
+        "seed": 48,
+        "seconds": 17.349873331957497,
+        "actions_sha256": "ae2d7cdd194f8e11d38e754efc72808f20ed3076ea729b3e8f5aecd872206c79"
+      },
+      {
+        "i": 7,
+        "warmup": false,
+        "file": "observation-07.png",
+        "seed": 49,
+        "seconds": 17.36381724406965,
+        "actions_sha256": "6189f13b171f0397ed77de1aa5834e84af24e7a4fce996bbef56421003d45c79"
+      },
+      {
+        "i": 8,
+        "warmup": false,
+        "file": "observation-08.png",
+        "seed": 50,
+        "seconds": 17.369726979988627,
+        "actions_sha256": "b4058b41fed5d70178ea2e692b35f3e6b7e082b297f90b39caad8ec366462a84"
+      },
+      {
+        "i": 9,
+        "warmup": false,
+        "file": "observation-09.png",
+        "seed": 51,
+        "seconds": 17.34763168601785,
+        "actions_sha256": "6e03c76e2357d891a9370c56fb67ebc76f10761ba3ed6f730311d0a277fd3d9f"
+      }
+    ]
+  },
+  "quantization": {
+    "expert_modules": 30,
+    "original_expert_bytes": 45675970560,
+    "packed_expert_bytes": 12846366720,
+    "group_size": 64,
+    "format": "symmetric signed INT4 [-7,7], FP32 scale per64 weights",
+    "compute": "GPU dequantization to BF16 + original cached cuBLAS grouped GEMM",
+    "calibration": null,
+    "lora_merged": false,
+    "cpu_weight_offload": false,
+    "nvfp4": false,
+    "fused_int4_gemm": false
+  },
+  "original_model_hooks_preserved": {
+    "model.encoder.language_model.embed_tokens": {
+      "_forward_hooks": [
+        "PreTrainedModel.enable_input_require_grads.<locals>.make_inputs_require_grads"
+      ],
+      "_forward_pre_hooks": []
+    }
+  },
+  "cpu_weight_streaming_hooks_present": false,
+  "all_parameters_and_buffers_cuda": true,
+  "resident_tensor_gib": 21.21167645789683,
+  "resident_w4": {
+    "summary": {
+      "n": 20,
+      "p50_seconds": 0.9592311964952387,
+      "p95_seconds": 0.9613943286414723,
+      "min_seconds": 0.9546617200830951,
+      "max_seconds": 0.9621791919926181,
+      "mean_seconds": 0.9587781368521974
+    },
+    "samples": [
+      {
+        "i": 0,
+        "warmup": false,
+        "file": "observation-00.png",
+        "seed": 42,
+        "seconds": 0.9581088059348986,
+        "actions_sha256": "7df4d879221bac1722797371aa68f63a70979b1a1a0da5df1e50fb4f40a31ffb"
+      },
+      {
+        "i": 1,
+        "warmup": false,
+        "file": "observation-01.png",
+        "seed": 43,
+        "seconds": 0.9613530200440437,
+        "actions_sha256": "d9a273de19603526fb14a7c027f9cf42215c98b69e997e4713d1d75906c06910"
+      },
+      {
+        "i": 2,
+        "warmup": false,
+        "file": "observation-02.png",
+        "seed": 44,
+        "seconds": 0.9605272599728778,
+        "actions_sha256": "5d11edeb8fc396309b5c76324057feb796dd699f53bb84dcf4dfa252138dd391"
+      },
+      {
+        "i": 3,
+        "warmup": false,
+        "file": "observation-03.png",
+        "seed": 45,
+        "seconds": 0.9599216670030728,
+        "actions_sha256": "9cfb5842299cbafe4569fc6a56f599a45ae8385e61bc89a9303cd0fbfa644671"
+      },
+      {
+        "i": 4,
+        "warmup": false,
+        "file": "observation-04.png",
+        "seed": 46,
+        "seconds": 0.9591791169950739,
+        "actions_sha256": "662f73c1f5b3c9312fba39e6e6c4f91a54369bc1137fd44b32e740f2a10a51a4"
+      },
+      {
+        "i": 5,
+        "warmup": false,
+        "file": "observation-05.png",
+        "seed": 47,
+        "seconds": 0.9621791919926181,
+        "actions_sha256": "e7fcb2ee479030c89a5956ad08919c4267506143deef2aae904d3260f970946c"
+      },
+      {
+        "i": 6,
+        "warmup": false,
+        "file": "observation-06.png",
+        "seed": 48,
+        "seconds": 0.9583014680538327,
+        "actions_sha256": "7c546feae9962fb663923e0b6e3f7d7b5eed70a7b5579daac27f40421f79d9c5"
+      },
+      {
+        "i": 7,
+        "warmup": false,
+        "file": "observation-07.png",
+        "seed": 49,
+        "seconds": 0.9594009059946984,
+        "actions_sha256": "e48e4373355c6daae1285cbd90bf55e08ce93d84ec133d2552db0acc9e5de18d"
+      },
+      {
+        "i": 8,
+        "warmup": false,
+        "file": "observation-08.png",
+        "seed": 50,
+        "seconds": 0.9546617200830951,
+        "actions_sha256": "5beb9dc1e26d2c5e3cec3dbc1c38393d389f7fcbcb32e548525160b7fc499e41"
+      },
+      {
+        "i": 9,
+        "warmup": false,
+        "file": "observation-09.png",
+        "seed": 51,
+        "seconds": 0.9559477530419827,
+        "actions_sha256": "80fa4053e216f776245a7b6204a5bd57e288755008aac5bb72c3ae9261819c6c"
+      },
+      {
+        "i": 10,
+        "warmup": false,
+        "file": "observation-00.png",
+        "seed": 42,
+        "seconds": 0.9578012799611315,
+        "actions_sha256": "7df4d879221bac1722797371aa68f63a70979b1a1a0da5df1e50fb4f40a31ffb"
+      },
+      {
+        "i": 11,
+        "warmup": false,
+        "file": "observation-01.png",
+        "seed": 43,
+        "seconds": 0.9595402110135183,
+        "actions_sha256": "d9a273de19603526fb14a7c027f9cf42215c98b69e997e4713d1d75906c06910"
+      },
+      {
+        "i": 12,
+        "warmup": false,
+        "file": "observation-02.png",
+        "seed": 44,
+        "seconds": 0.9608450010418892,
+        "actions_sha256": "5d11edeb8fc396309b5c76324057feb796dd699f53bb84dcf4dfa252138dd391"
+      },
+      {
+        "i": 13,
+        "warmup": false,
+        "file": "observation-03.png",
+        "seed": 45,
+        "seconds": 0.9578403510386124,
+        "actions_sha256": "9cfb5842299cbafe4569fc6a56f599a45ae8385e61bc89a9303cd0fbfa644671"
+      },
+      {
+        "i": 14,
+        "warmup": false,
+        "file": "observation-04.png",
+        "seed": 46,
+        "seconds": 0.9584862169576809,
+        "actions_sha256": "662f73c1f5b3c9312fba39e6e6c4f91a54369bc1137fd44b32e740f2a10a51a4"
+      },
+      {
+        "i": 15,
+        "warmup": false,
+        "file": "observation-05.png",
+        "seed": 47,
+        "seconds": 0.9609748639632016,
+        "actions_sha256": "e7fcb2ee479030c89a5956ad08919c4267506143deef2aae904d3260f970946c"
+      },
+      {
+        "i": 16,
+        "warmup": false,
+        "file": "observation-06.png",
+        "seed": 48,
+        "seconds": 0.9592832759954035,
+        "actions_sha256": "7c546feae9962fb663923e0b6e3f7d7b5eed70a7b5579daac27f40421f79d9c5"
+      },
+      {
+        "i": 17,
+        "warmup": false,
+        "file": "observation-07.png",
+        "seed": 49,
+        "seconds": 0.9596764090238139,
+        "actions_sha256": "e48e4373355c6daae1285cbd90bf55e08ce93d84ec133d2552db0acc9e5de18d"
+      },
+      {
+        "i": 18,
+        "warmup": false,
+        "file": "observation-08.png",
+        "seed": 50,
+        "seconds": 0.9551853080047294,
+        "actions_sha256": "5beb9dc1e26d2c5e3cec3dbc1c38393d389f7fcbcb32e548525160b7fc499e41"
+      },
+      {
+        "i": 19,
+        "warmup": false,
+        "file": "observation-09.png",
+        "seed": 51,
+        "seconds": 0.9563489109277725,
+        "actions_sha256": "80fa4053e216f776245a7b6204a5bd57e288755008aac5bb72c3ae9261819c6c"
+      }
+    ]
+  },
+  "peak_allocated_gib": 22.500497817993164,
+  "peak_reserved_gib": 22.658203125,
+  "paired_differences": [
+    {
+      "file": "observation-00.png",
+      "continuous_action_mae": 0.1214052364230156,
+      "action_max_abs": 1.20784330368042,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.22863597693180607
+    },
+    {
+      "file": "observation-01.png",
+      "continuous_action_mae": 0.03186274692416191,
+      "action_max_abs": 0.38431376218795776,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.4020196823368632
+    },
+    {
+      "file": "observation-02.png",
+      "continuous_action_mae": 0.023366011679172516,
+      "action_max_abs": 0.31372547149658203,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.48706687673350935
+    },
+    {
+      "file": "observation-03.png",
+      "continuous_action_mae": 0.007189542055130005,
+      "action_max_abs": 0.07058823108673096,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.18414002443343971
+    },
+    {
+      "file": "observation-04.png",
+      "continuous_action_mae": 0.05784313753247261,
+      "action_max_abs": 0.35294121503829956,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.3474241865344708
+    },
+    {
+      "file": "observation-05.png",
+      "continuous_action_mae": 0.06078431382775307,
+      "action_max_abs": 0.46274513006210327,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.3948147346873885
+    },
+    {
+      "file": "observation-06.png",
+      "continuous_action_mae": 0.026307187974452972,
+      "action_max_abs": 0.23529410362243652,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.28158892895919563
+    },
+    {
+      "file": "observation-07.png",
+      "continuous_action_mae": 0.020098039880394936,
+      "action_max_abs": 0.09411764144897461,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.3220367821787322
+    },
+    {
+      "file": "observation-08.png",
+      "continuous_action_mae": 0.01895424909889698,
+      "action_max_abs": 0.10980391502380371,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.3143555962446687
+    },
+    {
+      "file": "observation-09.png",
+      "continuous_action_mae": 0.028758175671100616,
+      "action_max_abs": 0.2588236331939697,
+      "gripper_agreement": 1.0,
+      "probability_mean_tv": 0.24702226151604467
+    }
+  ],
+  "repeated_output_exact": true
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "file": "observation-00.png",
+    "key": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_9/0",
+    "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "seed": 42,
+    "image_sha256": "94a2a294d8ace266d99238f6e866e9eabebccc8f82c900662a214f104b8eb582"
+  },
+  {
+    "file": "observation-01.png",
+    "key": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_19/59",
+    "instruction": "pick up the black bowl from table center and place it on the plate",
+    "seed": 43,
+    "image_sha256": "3a64a10b4fd5aae3d79776a8c0d667b4fbe99b619aae94381df731877b342e1e"
+  },
+  {
+    "file": "observation-02.png",
+    "key": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_19/149",
+    "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+    "seed": 44,
+    "image_sha256": "ce6f1db2937125afbc03c4dd11f16095ac51a35be0ae461c4fff53a1ca5511c2"
+  },
+  {
+    "file": "observation-03.png",
+    "key": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_19/109",
+    "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+    "seed": 45,
+    "image_sha256": "d0a22edd462b714221c337b84741b3ed95fe626ea0ea7ed41647c87f564d19d1"
+  },
+  {
+    "file": "observation-04.png",
+    "key": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_29/55",
+    "instruction": "pick up the black bowl next to the plate and place it on the plate",
+    "seed": 46,
+    "image_sha256": "dbdcc43011e4c4e40e114fba25094e7d1cb48e398a8515616286df96009baf5f"
+  },
+  {
+    "file": "observation-05.png",
+    "key": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_29/73",
+    "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+    "seed": 47,
+    "image_sha256": "032662d4ace272e0e3f268fb87c394871fce261945464d41c6ab1f6d3e102215"
+  },
+  {
+    "file": "observation-06.png",
+    "key": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_39/48",
+    "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+    "seed": 48,
+    "image_sha256": "57106404b5a2f5284bee764b4e7da4578321d538896d475aca9fc1cb7b5655e5"
+  },
+  {
+    "file": "observation-07.png",
+    "key": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_9/21",
+    "instruction": "pick up the black bowl on the stove and place it on the plate",
+    "seed": 49,
+    "image_sha256": "8b2ece2cd25ae0c61481446b0b4ba8aad28fe263b870332a51c342877c5ca456"
+  },
+  {
+    "file": "observation-08.png",
+    "key": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/13",
+    "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+    "seed": 50,
+    "image_sha256": "0eea7d9022684d5c9916d2642560c138287d48a63971526dc19d53fb865e817c"
+  },
+  {
+    "file": "observation-09.png",
+    "key": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_49/136",
+    "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+    "seed": 51,
+    "image_sha256": "93c46514848572c9b1cb931c95e2531c578869de44a3c1b024103f23927cc4cf"
+  }
+]

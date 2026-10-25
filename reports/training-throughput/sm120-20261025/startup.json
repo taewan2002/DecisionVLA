@@ -1,0 +1,41 @@
+{
+  "status": "training",
+  "observed_at": "2026-10-25T01:12:37.698638+09:00",
+  "run": "libero-spatial-r32-b64-100k-sm120-v1",
+  "starting_step": 38,
+  "last_completed_step": 45,
+  "target_steps": 100000,
+  "gpu_indices": [
+    0,
+    1
+  ],
+  "power_limits_watts": [
+    600.0,
+    600.0
+  ],
+  "kernel": "triton_sm120_backward",
+  "global_batch_size": 64,
+  "first_five_updates_match_accepted_disposable_sequence": true,
+  "initial_adapter_sha256": "cc8fb5042dfcf5fa20d62c4e8b219c0db46105761093f820158c742b61501a4a",
+  "first_update_seconds": 28.162507905974053,
+  "steady_updates_observed": 6,
+  "steady_median_seconds": 12.309922972519416,
+  "source_files_verified": 94,
+  "gpu1_mining_stopped": true,
+  "protected_other_job_ids_and_pids_unchanged": true,
+  "evaluation_steps": [
+    10000,
+    20000,
+    30000,
+    40000,
+    50000,
+    60000,
+    70000,
+    80000,
+    90000,
+    100000
+  ],
+  "evaluation_episodes_each": 500,
+  "training_or_evaluation_completed": false,
+  "scope": "Early production startup snapshot, not completion or a long-run throughput result"
+}

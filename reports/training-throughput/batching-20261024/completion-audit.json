@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "scope": "Independent arithmetic, finite values, matching sample/noise sequences, and truthful reporting of failed numerical screens; not training adoption",
+  "runs": [
+    {
+      "microbatch": 1,
+      "accumulation": 8,
+      "median_seconds": 6.833393238543067,
+      "speedup": 1.0,
+      "peak_allocated_GiB": 71.1191029548645
+    },
+    {
+      "microbatch": 2,
+      "accumulation": 4,
+      "median_seconds": 3.843008562049363,
+      "speedup": 1.7781363554649539,
+      "peak_allocated_GiB": 74.09117603302002
+    },
+    {
+      "microbatch": 4,
+      "accumulation": 2,
+      "median_seconds": 2.2565661135013215,
+      "speedup": 3.028226471034023,
+      "peak_allocated_GiB": 80.03553867340088
+    }
+  ],
+  "optimizer_updates": 24,
+  "sample_presentations_per_variant": 64,
+  "warmup_excluded_per_variant": 2,
+  "measured_updates_per_variant": 6,
+  "candidate_adopted": false,
+  "current_training_modified": false,
+  "cpu_tests_passed": 40,
+  "ruff": "passed",
+  "source_manifests_verified": {
+    "preserved_10k": 38,
+    "queued_50k": 58,
+    "batch_benchmark": 62,
+    "numerical_probe": 64
+  },
+  "other_jobs_container_identity_and_start_time_unchanged": true,
+  "gpu1_miner_restored": true,
+  "gpu1_power_restored_watts": 500,
+  "files_sha256": {
+    "batch-1.json": "af770ab5e598cdf49aaa4a2bc783a4ff610b247202e6468c80cc8467a26e383b",
+    "batch-2.json": "5c19916a0e798930225649937f1d22f717993be282142bde76fbff9cafd48b84",
+    "numerics.json": "d316c6d6255776cc80c1b1e91d074088bd623298b40499a9e14126df7d2cd3f8",
+    "batch-4.json": "ad4d18636a2b56c323e7e58b694b866f445f90195515ecc4324b76e3bfa62e66",
+    "telemetry.csv": "21d40f9230d2f83798f313d2954e144ab5683bd6702dbe0d3704c6327b92cb51",
+    "source-sha256.json": "b5737762d0c6878b98fe9a08fc829f60eb5ee460e67b784a8a6b617fec6783ad"
+  }
+}

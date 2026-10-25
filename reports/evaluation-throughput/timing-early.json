@@ -1,0 +1,66 @@
+{
+  "status": "early_observation_not_final_speedup",
+  "evaluation": "libero-spatial-r32-confidence-v3",
+  "gpu_models": 1,
+  "cpu_simulator_workers": 3,
+  "completed_events": 10,
+  "intervals": 9,
+  "window_seconds": 139.75609397888184,
+  "aggregate_seconds_per_completion": 15.528454886542427,
+  "serial_median_episode_seconds": 31.676119804382324,
+  "approximate_early_throughput_ratio": 2.039875830262681,
+  "seconds_since_launch": 168.13872170448303,
+  "note": "Different tasks, ongoing workload, short completion-event window; not a paired benchmark or standalone inference speedup. Only task8/9 assisted; whole-run speedup will be smaller.",
+  "events": [
+    {
+      "episode": "task-04-init-48",
+      "completed_unix": 1792845063.919594,
+      "result_sha256": "53411a7fee71b99c631e4dd9c57d14ce5a7e9ec2f8ea9246203f04cf384329aa"
+    },
+    {
+      "episode": "task-08-init-00",
+      "completed_unix": 1792845109.668454,
+      "result_sha256": "f061f97b36ad405a429904a2150c0977d6555c26aa1cdd2bed2a347a7bb69e16"
+    },
+    {
+      "episode": "task-09-init-00",
+      "completed_unix": 1792845110.1752295,
+      "result_sha256": "c97367ba56b5b9b043939389ac8930337e4ef8ca94021f68ae0000a7cd0d8842"
+    },
+    {
+      "episode": "task-04-init-49",
+      "completed_unix": 1792845110.7232547,
+      "result_sha256": "8a084e2ddbbbc24ef0241aee34e8a822c28eeb6edf633ba0d330265172802304"
+    },
+    {
+      "episode": "task-08-init-01",
+      "completed_unix": 1792845154.4526072,
+      "result_sha256": "dcf3c665496c6e293076cd6d35f99b78b78bf9493414bebd52585850496fafbf"
+    },
+    {
+      "episode": "task-09-init-01",
+      "completed_unix": 1792845155.5183585,
+      "result_sha256": "56043ca8e67ad3597a38cb6e6084d78279e0b7c42b92c9a72818732a9aaf9ee6"
+    },
+    {
+      "episode": "task-05-init-00",
+      "completed_unix": 1792845158.1361177,
+      "result_sha256": "5742ec777dc5f5c49b607ac4bc1b3eb928caf2d58110b148f9880cf7ccd88ac5"
+    },
+    {
+      "episode": "task-08-init-02",
+      "completed_unix": 1792845200.5303597,
+      "result_sha256": "2213e53bca94005ceb90613b21d068eafc40470d12d3853ba36d7b37bf9fd07f"
+    },
+    {
+      "episode": "task-09-init-02",
+      "completed_unix": 1792845201.0715234,
+      "result_sha256": "98d4a78c26043be12976dadf54eabf46618e121ab46bf10386aaa118da1bd308"
+    },
+    {
+      "episode": "task-05-init-01",
+      "completed_unix": 1792845203.675688,
+      "result_sha256": "9551c30c4ff69ee507464ae2abd9611bef27a7e0bb591264e2a463759652507d"
+    }
+  ]
+}

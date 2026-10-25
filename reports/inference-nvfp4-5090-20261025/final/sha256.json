@@ -1,0 +1,21 @@
+{
+  "bf16-summary.json": "21fa1f3a7849156333939374cbca9807e080c8119e2a26129c0eed1aef633c47",
+  "graph-full-query-w4a16.json": "bf80bd0275682e6c7e668e0d6a345418bf5a4cac112f3ebce978ede982371377",
+  "w4a16-audit.json": "0d0efc1ff41ed0f8d88f74faa84c869912b8a8c26f8bed79333434f9c6ef924e",
+  "report.json": "599f5570726a3b14f3d6a4d25ae245aabb973d260724cb4e219eed13d29314ec",
+  "graph-full-query-w4a4.json": "63a32c133a35d7179e4c8d18d4a21efcc40151aa98a927df48e8be2708129b69",
+  "w4a4-graph-latency.json": "44a534faefc283d61f7a79a942acbe5efffe08a212a93b15c7eef4f74d9dcb5f",
+  "w4a4-eager-latency.json": "3d06850decc1b68ef7afbc5f0a6ef97adae5ddd0d0492bba09c5da69fee7bfed",
+  "graph-full-query-w4a4-audit.json": "c0743bba128f8c89e5aee67d63b69c601808e7c2758a85daef9b28921e8e9389",
+  "README.md": "72169667f070bcaf83cc68adf37d4f2d1d617b39b3d1cffdfea38d62ce831f39",
+  "w4a16-eager-latency.json": "130ecd5d80a14b77cd155736a1f16e4c5a4e6488bdae593c3912d92c4ac80178",
+  "w4a4-summary.json": "dd7a1938fcebdb312ae8141f4bdffd6654826d4b0c1aa363e7eba6746788832d",
+  "w4a16-graph-latency.json": "294599cc7428e0e54fe66fc68d1b29c4988630085d624b3ed3041da78d873951",
+  "w4a16-summary.json": "723b268e254eb975a08b0628c3c35064ae37fad78d40dad495ce326e9f03b85e",
+  "graph-full-query-w4a16-audit.json": "6c921f2fa92e636b40c6f51663751d37339c7294a4af621ff8152d1e1f25bde9",
+  "bf16-contract.json": "37d24891e65b2c3f3287527cf3c8e348f0d934f7d18109e9b92caf128f027058",
+  "w4a16-contract.json": "458cebbda503e229d95e70563ace9733054730be62e2395b6fa9915300adcdda",
+  "w4a4-audit.json": "4491adac6c5834c3352dd16d71b7082025056f39542745795c820b3b2dc7dc66",
+  "standalone-independent-audit.json": "b26ba468a3f348785f04c03933ae7b2caa9340ecbcf91ff2fcbfe1b9f755d29c",
+  "w4a4-contract.json": "1ca2f80194d862f0257c9054dc2d05a737a263a94dad0514e6363ed4dffb012b"
+}

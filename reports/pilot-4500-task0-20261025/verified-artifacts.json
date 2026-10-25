@@ -1,0 +1,8 @@
+{
+  "task-00-init-00/rollout.mp4": "63aede64d9b9dbb02132fa7c9bc2f768df2295fe55b722359d1193aca4c26bb2",
+  "task-00-init-00/trace.npz": "14dc227819df770a468db2d7fba1d835f8994a64ec37e4bae9609edbf81bbb65",
+  "task-00-init-00/result.json": "521ba8b9cc2b4507b360db3c50c1c8f3266b7e7c4d710c5fdff860e535a068d4",
+  "task-00-init-01/rollout.mp4": "4e764002ef461081627ad1f32677c0d932c7113fac94e3cecdecf1b8de3035b2",
+  "task-00-init-01/trace.npz": "38b705b49ff093de25bc4cf6ab15fa1ce1040f848c87323b332988b674585dd4",
+  "task-00-init-01/result.json": "aa6aeb2017c710ea635a827133548440555304b318ac8540856fb04058c50e59"
+}

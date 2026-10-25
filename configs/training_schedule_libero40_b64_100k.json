@@ -1,0 +1,43 @@
+{
+  "version": "decisionvla.training-schedule.libero40.v1",
+  "run": "libero40-r32-b64-100k-v1",
+  "initialization": "fresh LoRA/action embeddings/optimizer/RNG from pinned base; no pilot weights",
+  "total_steps": 100000,
+  "global_batch_size": 64,
+  "training_config": "configs/libero_40_r32_b64_100k.json",
+  "sampling": "uniform_task_then_uniform_frame",
+  "gpu_indices": [
+    0,
+    1
+  ],
+  "checkpoint_every": 500,
+  "checkpoint_retention": {
+    "keep_every": 10000,
+    "keep_latest": 2,
+    "preserve_removed_manifests_and_logs": true
+  },
+  "validation_every": 500,
+  "validation_samples": 200,
+  "validation_samples_per_task": 5,
+  "evaluation_steps": [
+    100000
+  ],
+  "evaluation_plan": "configs/eval_libero40_plus_100k.json",
+  "original_episodes": 2000,
+  "plus_episodes": 10030,
+  "selection": "fixed100000",
+  "training_segment_steps": [
+    10000,
+    20000,
+    30000,
+    40000,
+    50000,
+    60000,
+    70000,
+    80000,
+    90000,
+    100000
+  ],
+  "stop_on_error": true,
+  "publication": "after BF16 evaluation, final NVFP4 deployment validation, reports/figure/review; one combined push; no automatic upload"
+}

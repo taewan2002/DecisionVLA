@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "observations": 20,
+  "verified_distributions": 280,
+  "report_sha256": "9f1abef84121cfe8c1fdd331df35182dd7e1d24a07976807c20d8bca329811b8",
+  "events_sha256": "5cf7dc00113d771e1ad25b74fc5d151236193e51fb71f4991913ff17b597f6b8",
+  "plan_sha256": "5c0a30a15d1e2bea4d93c40abd38a5ab056002284c68e443b1a768fa0429b451",
+  "confidence_increased_observations": 20,
+  "mae_increased_observations": 14,
+  "paired_final_minus_first": [
+    {
+      "observation": 0,
+      "key": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/75",
+      "confidence": 0.21866432262753455,
+      "continuous_mae": 0.04423791666825613,
+      "translation_mae": 0.08528296152750653,
+      "token_accuracy": -0.07142857142857137
+    },
+    {
+      "observation": 1,
+      "key": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/97",
+      "confidence": 0.23748902272301153,
+      "continuous_mae": -0.002849467098712921,
+      "translation_mae": -0.01919253667195636,
+      "token_accuracy": -0.11309523809523814
+    },
+    {
+      "observation": 2,
+      "key": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_29/103",
+      "confidence": 0.22002091765339027,
+      "continuous_mae": 0.025739764173825584,
+      "translation_mae": 0.04435044527053833,
+      "token_accuracy": -0.16666666666666669
+    },
+    {
+      "observation": 3,
+      "key": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_29/70",
+      "confidence": 0.2790859982955871,
+      "continuous_mae": -0.05675300459067026,
+      "translation_mae": -0.11935155590375268,
+      "token_accuracy": -0.047619047619047616
+    },
+    {
+      "observation": 4,
+      "key": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/104",
+      "confidence": 0.17972691283513054,
+      "continuous_mae": 0.05385012303789456,
+      "translation_mae": 0.10115496814250946,
+      "token_accuracy": -0.2738095238095239
+    },
+    {
+      "observation": 5,
+      "key": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_39/70",
+      "confidence": 0.26172917255358363,
+      "continuous_mae": 0.001937761902809143,
+      "translation_mae": -0.018929883837699862,
+      "token_accuracy": 0.011904761904761918
+    },
+    {
+      "observation": 6,
+      "key": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_39/6",
+      "confidence": 0.05138698902056349,
+      "continuous_mae": 0.03682630074520906,
+      "translation_mae": 0.07093398210903008,
+      "token_accuracy": -0.1071428571428572
+    },
+    {
+      "observation": 7,
+      "key": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_39/49",
+      "confidence": 0.20651158552471394,
+      "continuous_mae": 0.08644606545567513,
+      "translation_mae": 0.1433385858933131,
+      "token_accuracy": -0.0892857142857143
+    },
+    {
+      "observation": 8,
+      "key": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_39/88",
+      "confidence": 0.20892554436550326,
+      "continuous_mae": -0.008702447017033904,
+      "translation_mae": -0.01573002835114798,
+      "token_accuracy": -0.14880952380952384
+    },
+    {
+      "observation": 9,
+      "key": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_9/31",
+      "confidence": 0.2634759790342661,
+      "continuous_mae": -0.014542554815610231,
+      "translation_mae": -0.04976458350817364,
+      "token_accuracy": -0.023809523809523836
+    },
+    {
+      "observation": 10,
+      "key": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/81",
+      "confidence": 0.2648909555661225,
+      "continuous_mae": 0.014639392495155334,
+      "translation_mae": 0.013009125987688663,
+      "token_accuracy": -0.047619047619047644
+    },
+    {
+      "observation": 11,
+      "key": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_19/118",
+      "confidence": 0.20224481896335178,
+      "continuous_mae": 0.053542497257391616,
+      "translation_mae": 0.08482986688613892,
+      "token_accuracy": -0.15873015873015878
+    },
+    {
+      "observation": 12,
+      "key": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_49/30",
+      "confidence": 0.164087376303112,
+      "continuous_mae": 0.025800928473472595,
+      "translation_mae": 0.03486032783985138,
+      "token_accuracy": -0.13095238095238088
+    },
+    {
+      "observation": 13,
+      "key": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_29/24",
+      "confidence": 0.17433155228626818,
+      "continuous_mae": 0.043418265879154205,
+      "translation_mae": 0.07415334135293959,
+      "token_accuracy": -0.18452380952380953
+    },
+    {
+      "observation": 14,
+      "key": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_9/39",
+      "confidence": 0.2586182562642433,
+      "continuous_mae": 0.039787086347738906,
+      "translation_mae": 0.06861968835194907,
+      "token_accuracy": -0.08928571428571425
+    },
+    {
+      "observation": 15,
+      "key": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_49/99",
+      "confidence": 0.2893457834949621,
+      "continuous_mae": 0.05332121749718985,
+      "translation_mae": 0.08060759305953982,
+      "token_accuracy": -0.07142857142857145
+    },
+    {
+      "observation": 16,
+      "key": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_49/92",
+      "confidence": 0.14812671062162275,
+      "continuous_mae": -0.005053882797559112,
+      "translation_mae": -0.014919862151145935,
+      "token_accuracy": -0.035714285714285754
+    },
+    {
+      "observation": 17,
+      "key": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_9/55",
+      "confidence": 0.21791227149422931,
+      "continuous_mae": -0.035572176178296416,
+      "translation_mae": -0.09065223733584088,
+      "token_accuracy": -0.0714285714285714
+    },
+    {
+      "observation": 18,
+      "key": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_19/101",
+      "confidence": 0.18322855667424465,
+      "continuous_mae": 0.03681119407216708,
+      "translation_mae": 0.06547715763250986,
+      "token_accuracy": -0.16666666666666669
+    },
+    {
+      "observation": 19,
+      "key": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/171",
+      "confidence": 0.15546716590302279,
+      "continuous_mae": 0.06318081791202228,
+      "translation_mae": 0.12374727676312128,
+      "token_accuracy": -0.19047619047619047
+    }
+  ],
+  "scope": "post-hoc known-task demonstration diagnostic, not closed-loop success or calibration"
+}

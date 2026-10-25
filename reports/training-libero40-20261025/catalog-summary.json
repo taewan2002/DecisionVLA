@@ -1,0 +1,14 @@
+{
+  "original": {
+    "status": "passed",
+    "plan_sha256": "90ee4d2d0157a61b30ddfb5230e9d9e81d31326dc18a42daeb294e60d8c45c15",
+    "catalog_sha256": "89d95f59f094899ca26a6985975bba1ef27781fa65fcc2347be5536795df4dba",
+    "tasks_checked": 40
+  },
+  "plus": {
+    "status": "passed",
+    "plan_sha256": "90ee4d2d0157a61b30ddfb5230e9d9e81d31326dc18a42daeb294e60d8c45c15",
+    "catalog_sha256": "0802b755fb3bd1a285b8c2b25352d355f2f21f3320eeb3e7471155908871bbda",
+    "tasks_checked": 10030
+  }
+}

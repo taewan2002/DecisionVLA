@@ -1,0 +1,16 @@
+{
+  "completion-audit.json": "fce2e4b9f917c4c8e9b27a1ff03597eaec281a3acaf343b8ce51694d428c80c9",
+  "geometry.json": "75948e84ad7db6bd304973dece4ea2daa5bc2172f0225f65f3c4fd13dffa307a",
+  "summary.json": "8c42cd7f92fb483c14a27b58b26b8400a999d7c4822022acb53e818636d22a1b",
+  "rollout-config.json": "65b83b6c9ec79cb7fd21a9e971352daaf82f059b67c7680cf64afcfbd19cb27f",
+  "plan.json": "ff44b32fe09f79aadc6fe41998a5f70422b3e387e94b6d3f0c8c60b94e3d99ef",
+  "report.json": "7651672befeaae3e94a57a8caa5a66a0f95cf0e38c5297996a99bcb54cb425d1",
+  "verified-artifacts.json": "715d7284454a68e678cfa38a3a1ab75454fe9d427eeff191694f52ada99ae10f",
+  "analysis-protocol.json": "2df1a7eadbce55e44534cb731700984598cf91318a6c362c6e826d2ddaf32982",
+  "guard-validation.json": "9e7fe54eeef6d508be98f364993f108912de7d74a84a2711d57a5ec71e693cf1",
+  "timing-gate.json": "2f1e1fee935ee15ae00cb9b3c15d2c188d54f6ea9180e8623fcc9f177268bf1d",
+  "preflight-comparison.json": "eb35bbc49b1f720103f0b5a0c664d7580862d1f890230857be06774d3bd3221d",
+  "README.md": "6ba76241a68f5a8716983dab7e0dae428cf9d3a4cc12a7a63e97bc6847c33783",
+  "episodes.csv": "ab6f06feed1504e3897cefb8c3659fd7e2e228782d020a447d7bbc58e6f96603",
+  "contract.json": "fa94dc95984653f05d14eea7b264fa5a28845eb0f9e7d81d018fe0e1fc0846a0"
+}

@@ -1,0 +1,136 @@
+{
+  "scope": "Disposable throughput/capacity checks; not production updates or policy performance",
+  "trials": {
+    "v1": {
+      "disposable": true,
+      "global_batch_size": 64,
+      "microbatch": 4,
+      "gradient_accumulation": 8,
+      "updates": [
+        {
+          "step": 1,
+          "lr": 5.045000000000001e-06,
+          "loss": 6.223019957542419,
+          "grad_norm": 34.448020935058594,
+          "seconds": 25.10500666499138,
+          "global_batch_size": 64,
+          "supervised_tokens": 2225,
+          "valid_tokens": 3486,
+          "rank_peak_allocated_GiB": [
+            76.34924221038818,
+            76.34924221038818
+          ]
+        },
+        {
+          "step": 2,
+          "lr": 5.09e-06,
+          "loss": 6.336094468832016,
+          "grad_norm": 30.012216567993164,
+          "seconds": 10.42783026304096,
+          "global_batch_size": 64,
+          "supervised_tokens": 2377,
+          "valid_tokens": 3514,
+          "rank_peak_allocated_GiB": [
+            83.72140455245972,
+            83.72140455245972
+          ]
+        },
+        {
+          "step": 3,
+          "lr": 5.135000000000001e-06,
+          "loss": 6.2533083856105804,
+          "grad_norm": 28.253198623657227,
+          "seconds": 9.736829107976519,
+          "global_batch_size": 64,
+          "supervised_tokens": 2070,
+          "valid_tokens": 3535,
+          "rank_peak_allocated_GiB": [
+            83.72140455245972,
+            83.72140455245972
+          ]
+        }
+      ],
+      "events_sha256": "a4387906fef8f60b622c7ce3315054120c1b32fb7fa2eb1efbf5d283cfa14d24"
+    },
+    "v2": {
+      "disposable": true,
+      "global_batch_size": 64,
+      "microbatch": 8,
+      "gradient_accumulation": 4,
+      "updates": [
+        {
+          "step": 1,
+          "lr": 5.045000000000001e-06,
+          "loss": 6.229849994182587,
+          "grad_norm": 34.79405212402344,
+          "seconds": 22.501836874056607,
+          "global_batch_size": 64,
+          "supervised_tokens": 2225,
+          "valid_tokens": 3486,
+          "rank_peak_allocated_GiB": [
+            88.23767757415771,
+            88.23767757415771
+          ]
+        }
+      ],
+      "events_sha256": "bb857510b4a6f7421dbb4abcaf78527da8bb1f38f0eb4d436dcd65c1fa45b6ab",
+      "status": "OOM on update2 after one disposable update",
+      "peak_allocated_GiB_from_error": [
+        93.29,
+        93.43
+      ],
+      "log_sha256": "59232293b8cf458c8e9a245abefa4109bce739faae38fe6e62db428fb2b41f89"
+    },
+    "v3": {
+      "disposable": true,
+      "global_batch_size": 64,
+      "microbatch": 4,
+      "gradient_accumulation": 8,
+      "updates": [
+        {
+          "step": 1,
+          "lr": 5.045000000000001e-06,
+          "loss": 6.223019957542419,
+          "grad_norm": 34.40991973876953,
+          "seconds": 25.347332963952795,
+          "global_batch_size": 64,
+          "supervised_tokens": 2225,
+          "valid_tokens": 3486,
+          "rank_peak_allocated_GiB": [
+            76.34924221038818,
+            76.34924221038818
+          ]
+        },
+        {
+          "step": 2,
+          "lr": 5.09e-06,
+          "loss": 6.333612561225891,
+          "grad_norm": 29.607160568237305,
+          "seconds": 10.289841952966526,
+          "global_batch_size": 64,
+          "supervised_tokens": 2377,
+          "valid_tokens": 3514,
+          "rank_peak_allocated_GiB": [
+            83.72140455245972,
+            83.72140455245972
+          ]
+        },
+        {
+          "step": 3,
+          "lr": 5.135000000000001e-06,
+          "loss": 6.29426309466362,
+          "grad_norm": 28.691896438598633,
+          "seconds": 9.710080628050491,
+          "global_batch_size": 64,
+          "supervised_tokens": 2070,
+          "valid_tokens": 3535,
+          "rank_peak_allocated_GiB": [
+            83.72140455245972,
+            83.72140455245972
+          ]
+        }
+      ],
+      "events_sha256": "0125190ec95ba92a91d10ed3ca2de043c7c5093917a5f38fbd5e07aeccd59cfb"
+    }
+  }
+}

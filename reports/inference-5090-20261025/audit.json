@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "requests_checked": 30,
+  "distributions_checked": 1680,
+  "latency_recomputed": {
+    "bf16_stream": {
+      "p50_seconds": 17.36418906506151,
+      "p95_seconds": 17.47769571506069,
+      "min_seconds": 17.34763168601785,
+      "max_seconds": 17.566033771028742,
+      "mean_seconds": 17.381515627913178
+    },
+    "resident_w4": {
+      "p50_seconds": 0.9592311964952387,
+      "p95_seconds": 0.9613943286414723,
+      "min_seconds": 0.9546617200830951,
+      "max_seconds": 0.9621791919926181,
+      "mean_seconds": 0.9587781368521974
+    }
+  },
+  "paired_difference_summary": {
+    "continuous_action_mae": 0.03965686410665512,
+    "action_max_abs": 0.34901964068412783,
+    "gripper_agreement": 1.0,
+    "probability_mean_tv": 0.32091050505561186,
+    "max_action_difference": 1.20784330368042
+  },
+  "repeated_quantized_actions_and_probabilities_exact": true,
+  "p50_speedup_same_hardware": 18.10219384910059,
+  "quality_equivalence": "not_established; this audit checks numerical record consistency, not quantization quality",
+  "closed_loop_success": "not_evaluated",
+  "files_sha256": {
+    "resident_w4.json": "143d3b1888cdfc0bfb6ebe18a8b1f4648f58086d13ad605e00c8434359da434a",
+    "events.jsonl": "dc6a90410fc9f73ae3ee1f80fa46996cfa8719a6d288014d16df53ab3a306636",
+    "resident_w4.npz": "150503a9136eb16191983a17016fa9c0d7e474cf2797ed2fb20dc9afc4e0595a",
+    "report.json": "0f1d375a696d26dccb226cd34fc0b36ebc9128c771f4319530e79db04b511ed6",
+    "bf16_stream.json": "e634437702383cdff19b18ea71266589a02db9690d245c4187f533a624456e01",
+    "bf16_stream.npz": "51cd5696d3e6bc6fe38ac31dc51e2a4947f930eb7eda00853d04527b35b2624a"
+  }
+}

@@ -1,47 +1,68 @@
+<div align="center">
+
 # DecisionVLA
 
-**DiffusionGemma를 로봇 action을 직접 생성하는 VLA로 적응시키는 개인 실험입니다.**
+**Parallel actions · Visible uncertainty**
 
-[English](README.en.md) · [학습 방법](docs/training.md) · [실측 결과](reports/base-latency-2026-10-24/report.ko.md) · [가중치 배포](docs/weights.md)
+관측 하나에서 행동과 확률을 함께 읽는 Vision–Language–Action 실험.
 
-이미지와 지시문을 받아 앞으로의 8개 행동을 병렬 생성합니다. 내장 vision encoder와 공유 Transformer를 사용하며, 별도 action expert나 world model을 추가하지 않습니다. 구현 과정과 실험 결과를 공유하기 위한 프로젝트입니다.
+[English](README.en.md) · [아키텍처](docs/architecture.md) · [실험 결과](docs/experiments.md) · [대시보드](docs/dashboard.md)
 
-```mermaid
-flowchart LR
-    I[RGB 이미지 + 지시문] --> E[DiffusionGemma 관측 인코딩]
-    E --> K[관측 KV cache]
-    K --> D[공유 Transformer로 action denoising]
-    N[무작위 action tokens] --> D
-    D --> A[8 × 7 action chunk]
+![Status: Experimental](https://img.shields.io/badge/status-experimental-CE9147)
+![Backbone: DiffusionGemma](https://img.shields.io/badge/backbone-DiffusionGemma-43789D)
+[![License: MIT](https://img.shields.io/badge/code-MIT-398779)](LICENSE)
+
+</div>
+
+![DecisionVLA의 제안 아키텍처. 공유 Transformer, native denoising과 entropy-bound sampler, 마지막 행동·확률 readout.](figures/decisionvla-native/architecture.png)
+
+<p align="center"><a href="https://www.figma.com/design/FbL9C7OnlyOZkiyGPOkcW0/?node-id=13407-92873">Editable Figma</a> · <a href="figures/decisionvla-native/">Figure source</a></p>
+
+DecisionVLA는 DiffusionGemma의 내장 vision encoder와 공유 Transformer를 로봇 제어에 적응시키는 개인 프로젝트입니다. 이미지와 지시문을 받아 **8 × 7 행동 chunk**, 행동별 확률분포와 불확실성을 반환하는 것이 목표입니다. 학습, 추론 최적화, 실패 분석 과정을 코드와 측정 기록으로 공유합니다.
+
+> **개발 상태 · 2026-10-25**
+> 전체 40-task 학습을 **46-step checkpoint 저장 후 중단**했습니다. 위 그림은 native denoising·sampler·self-conditioning을 보존하는 **새 설계**입니다. 현재 실행 코드와 아래 실측은 이전 action-only sampler를 사용하며, 새 경로는 아직 구현·학습·성능 검증 전입니다. [개발 계획](docs/development.md) · [중단 검산](reports/openjev-redesign-20261025/stop-audit.json)
+
+## 핵심 방향
+
+| | DecisionVLA |
+|---|---|
+| **하나의 backbone** | 관측 인코딩과 행동 denoising에 같은 text Transformer·LoRA 사용 |
+| **병렬 행동 생성** | 한 관측의 KV cache를 재사용해 여러 행동 위치를 함께 복원 |
+| **확률을 함께 출력** | 최종 행동 분포, entropy, 선택 확률과 제어값 분산 확인 |
+| **GPU 한 장의 추론** | RTX 5090에서 expert NVFP4 W4A16·fused kernels·CUDA Graph 검증 |
+| **재현 가능한 실험** | 고정 데이터·설정·checkpoint hash, 원시 결과와 독립 검산 연결 |
+
+새 설계는 중간 denoising에서 **전체 vocabulary를 유지**하고, 마지막 readout에서만 허용된 행동으로 변환합니다. Native entropy-bound sampler와 self-conditioning을 보존하며 1·2·4회 추론의 속도와 품질을 비교할 계획입니다. [구체적인 데이터 흐름과 참고 구현](docs/architecture.md).
+
+## 지금까지 측정한 것
+
+**RTX 5090 · 기존 4,500-step Spatial pilot · 4회 denoising · 8개 행동 + confidence**
+
+| 측정 | 결과 |
+|---|---:|
+| W4A16 + fused + CUDA Graph, p50 / p95 | **188.43 / 190.35 ms** |
+| PyTorch 최대 할당 메모리 | **18.815 GiB** |
+| 20회 대응 LIBERO 평가, BF16 / W4A16 | **12 / 11 성공** |
+| 별도 2k pilot, Spatial 500회 | **14 / 500 성공** |
+
+[5090 측정·행동 차이·신뢰구간](reports/inference-nvfp4-5090-20261025/final/) · [2k 실패 분석](reports/libero-spatial-confidence/)
+
+188ms는 입력 전처리부터 행동·confidence의 CPU 반환까지의 warm 측정이며, 네트워크·로봇 구동·최초 컴파일 시간은 포함하지 않습니다. 18.815GiB는 전체 장치 메모리가 아닌 PyTorch peak allocation입니다. 20회 비교의 W4A16−BF16 성공률 차이는 −5%p, 95% CI [−35, +25]로 동등성을 입증하지 못했습니다. **이 수치는 새 설계나 최종 40-task 모델의 결과가 아닙니다.**
+
+## 추론을 들여다보기
+
+로컬 대시보드는 실제 관측, 8 × 7 행동, 각 제어값의 분포·신뢰도, 추론 시간을 보여줍니다. 저장된 trace를 재생하거나 실행 중인 정책에 recorder를 연결할 수 있습니다. [사용 방법](docs/dashboard.md).
+
+```bash
+python -m decisionvla.dashboard --session results/recorded-session --mode replay
 ```
 
-## 현재 상태
+**신뢰도 0.9는 작업 성공률 90%를 뜻하지 않습니다.** 현재 값은 조건부 행동 분포의 집중도를 요약합니다. 실패 예측력과 calibration은 별도로 검증하며, 확률 표시만으로 행동의 인과적 설명을 주장하지 않습니다. [확률·신뢰도 계약](docs/confidence.md).
 
-| 항목 | 상태 |
-|---|---|
-| LIBERO-Spatial 데이터 | 공식 원본 500개 시연, SHA·시점 정렬 검사 |
-| 학습 구현 | 공유 attention LoRA + native action embedding rows |
-| 최초 학습 | GPU 1장, 450개 시연 학습 / 50개 시연 검증, 2,000 updates |
-| 추론 구현 | BF16 reference API; 약 51GiB 이상 필요 |
-| NVFP4 | **기본 모델 비용 측정 완료. 학습된 정책의 export는 아직 미완료** |
-| 로봇 성공률 / RTX 5090 | 아직 측정하지 않음 |
+## 코드 살펴보기
 
-학습·검증 상세 상태는 [첫 run 기록](reports/libero-spatial-pilot/README.md)에 남깁니다. 현재 프로젝트를 검증된 로봇 정책으로 소개하지 않습니다.
-
-## 무엇을 학습하나요?
-
-- Base: [`google/diffusiongemma-26B-A4B-it`](https://huggingface.co/google/diffusiongemma-26B-A4B-it), revision 고정.
-- Encoder/decoder에 **같은 LoRA**를 적용합니다. Vision, MoE experts, router와 원래 가중치는 동결합니다.
-- 확인된 unused vocabulary 256개를 action bins로 사용합니다. 입력 embedding과 출력 readout의 action rows를 함께 학습합니다.
-- 연속 제어 6차원은 `[-1, 1]`의 256 bins, gripper는 두 값입니다. 8-step chunk의 56개 위치를 timestep 순서로 씁니다.
-- 정답 action에 uniform noise를 섞어 복원하는 denoising CE로 학습합니다. 이번 pilot은 self-conditioning을 사용하지 않습니다.
-- Native 256-token canvas 중 나머지 200개 위치는 고정 padding이며 attention key에서 제외합니다.
-
-공식 HDF5에서 관측은 해당 action을 실행한 뒤 저장됩니다. 이번 구현은 `obs[t] → actions[t+1:t+9]`로 맞췄고, 전체 61,750개 인접 상태에서 관절 좌표 일치를 확인했습니다. 자세한 계약은 [학습 문서](docs/training.md)에 있습니다.
-
-## 시작하기
-
-Linux, Python 3.12, CUDA 13을 지원하는 NVIDIA driver를 기준으로 검사했습니다. BF16 학습에는 96GB GPU 한 장을 사용합니다.
+현재 BF16 pilot의 재현 환경은 Linux / Python 3.12 / CUDA 13입니다. 새 native 경로의 runtime은 별도 검증할 예정입니다.
 
 ```bash
 git clone https://github.com/taewan2002/DecisionVLA.git
@@ -50,58 +71,34 @@ uv venv --python 3.12
 source .venv/bin/activate
 uv pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu130
 uv pip install -e '.[dev]'
-
-python scripts/download_libero.py --output data
-hf download google/diffusiongemma-26B-A4B-it \
-  --revision f7f5b7f5fa82ffc52addd066915886d497f5517b --local-dir models/base
 pytest -q
-python scripts/audit_data.py --data data --output data/audit.json
-
-CUDA_VISIBLE_DEVICES=0 python -m decisionvla.train \
-  --model models/base --data data --output runs/smoke --smoke
-CUDA_VISIBLE_DEVICES=0 python -m decisionvla.train \
-  --model models/base --data data --output runs/libero-spatial
+ruff check src tests scripts benchmarks
 ```
 
-추론은 저장된 adapter와 원본 base를 함께 불러옵니다. 아래 API는 BF16 reference이며 **5090용 NVFP4 runtime은 아직 아닙니다**.
-
-```python
-from PIL import Image
-from decisionvla.policy import DecisionVLA
-
-policy = DecisionVLA("models/base", "runs/libero-spatial/checkpoint-002000")
-# Raw LIBERO camera images and HDF5 frames use the same 180° rotation.
-image = Image.open("agentview.png").convert("RGB").transpose(Image.Transpose.ROTATE_180)
-actions = policy.predict(image, "pick up the black bowl and place it on the plate", steps=4)
-assert actions.shape == (8, 7)
-```
-
-## 측정한 추론 비용
-
-RTX PRO 6000 Blackwell 96GB, 500W 설정, vLLM 0.30.0, batch 1, 이미지 1장, native 256-token canvas입니다. **미학습 기본 모델 + synthetic image의 비용 기준선**이며, 위 action sampler의 속도나 LIBERO 성공률은 아닙니다.
-
-| Denoising steps | NVFP4 p50 / p95 | BF16 p50 / p95 |
-|---|---:|---:|
-| 1 | 89.8 / 90.9 ms | 128.9 / 130.2 ms |
-| 2 | 107.4 / 109.3 ms | 157.3 / 160.5 ms |
-| 4 | 144.7 / 146.4 ms | 221.2 / 225.7 ms |
-| 8 | 221.3 / 222.8 ms | 352.5 / 356.9 ms |
-
-관측된 전체 GPU 메모리 최대치는 NVFP4 **22.26GiB**, BF16 **53.02GiB**였습니다. 5090에서 같은 속도가 나온다는 의미는 아닙니다. [원시 측정값·조건](reports/base-latency-2026-10-24/)과 [재현 명령](docs/benchmark-protocol.md)을 제공합니다.
+Base model과 데이터는 각각의 upstream에서 받습니다. 현재 공개된 adapter release는 없습니다. BF16 API는 50GiB 이상의 VRAM이 필요하며, 5090 최적화 경로는 별도 [NVFP4 재현 도구](benchmarks/NVFP4.md)를 사용합니다. [기존 학습 재현](docs/training.md) · [가중치 형식](docs/weights.md).
 
 ## 다음 단계
 
-1. 고정 checkpoint로 LIBERO closed-loop rollout 평가.
-2. BF16 + LoRA merge, 로봇 데이터 calibration, NVFP4 export.
-3. 같은 입력·noise에서 reference와 가속 runtime의 action 일치 검사.
-4. RTX 5090에서 성공률·지연·최대 메모리 실측.
+- [x] 행동·확률 API, 대시보드, LIBERO 평가·검산 구현
+- [x] 기존 pilot의 RTX 5090 W4A16·fused·CUDA Graph 실측
+- [x] 원본 LIBERO 40-task 데이터 정렬·split 검산
+- [x] 학습 checkpoint 보존 및 DecisionVLA 새 설계 작성
+- [ ] Native sampler·self-conditioning 구현과 원본 대비 수치 검증
+- [ ] GPU0/1의 batch-64 학습 구성·재개·처리량 확인 후 새 학습
+- [ ] 원본 LIBERO와 학습에 쓰지 않은 LIBERO Plus 평가
+- [ ] 최종 5090 배포 검증과 adapter-only experimental release
 
-NVFP4와 직접 action diffusion 자체를 최초 기여로 주장하지 않습니다. 성공한 부분과 실패한 부분을 함께 기록합니다.
+새 학습 예산의 제안은 rank 32 · global batch 64 · 100k updates입니다. 기존 46-step 가중치를 이어 쓰지 않고 새 run으로 분리하며, 아직 시작하지 않았습니다. 성공률·수렴·완료 시간을 미리 보장하지 않습니다.
 
-## 코드와 가중치
+## 문서와 코드
 
-코드는 MIT입니다. Base model, NVIDIA quantized model, LIBERO 데이터에는 각각의 upstream 조건이 적용됩니다. [출처·라이선스](docs/third-party.md)를 참고하세요.
+| 경로 | 내용 |
+|---|---|
+| [Architecture](docs/architecture.md) / [Development](docs/development.md) | 새 설계, 변경 범위와 구현 검증 단계 |
+| [Experiments](docs/experiments.md) | 완료·중단된 실험과 측정 범위 |
+| [`src/decisionvla/`](src/decisionvla/) | 기존 policy, LoRA, 학습, 확률 API, 대시보드 |
+| [`benchmarks/`](benchmarks/) | 5090 양자화·fused·Graph 변환 및 검산 |
+| [`evaluation/`](evaluation/) / [`reports/`](reports/) | LIBERO·Plus 평가 도구와 공개 가능한 근거 |
+| [Sources & licenses](docs/third-party.md) | DiffusionGemma, OpenJEV 계열 참고 구현과 데이터 출처 |
 
-Adapter는 검증 후 이 저장소의 **GitHub Releases**에 `safetensors`, config, model card, SHA256으로 배포할 계획입니다. Base weight·dataset·optimizer state는 Git에 넣지 않습니다. 별도의 HF 배포 저장소는 필요하지 않습니다.
-
-이 프로젝트는 Google, NVIDIA, LIBERO, open-jev의 공식 프로젝트가 아닙니다.
+원본 코드는 **MIT**입니다. Base model·데이터·의존성의 라이선스는 별도이며 이 저장소에 가중치나 데이터셋을 포함하지 않습니다. 이 프로젝트는 Jev/TypeSafe 또는 Google의 공식 구현이 아닙니다.

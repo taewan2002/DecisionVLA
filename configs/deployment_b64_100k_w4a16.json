@@ -1,0 +1,70 @@
+{
+  "version": "decisionvla.deployment-plan.v1",
+  "status": "superseded_spatial_only_scope_not_sufficient_for_publication",
+  "scope_correction": "docs/libero-40-scope-correction.md",
+  "checkpoint_step": 100000,
+  "checkpoint_selection": "fixed final checkpoint; no performance-based search",
+  "training_schedule": "configs/training_schedule_b64_100k_finalonly.json",
+  "preserve_training_runtime_optimizer_rng_and_schedule": true,
+  "candidate": {
+    "weight_format": "expert NVFP4 E2M1 / E4M3 block16 / FP32 global scale",
+    "activation_dtype": "bfloat16",
+    "expert_lora": "merge once in an isolated inference copy before quantization",
+    "nonexpert_lora_and_action_embeddings": "preserve the validated original execution path",
+    "kernel": "stable fused W4A16 GeGLU-tanh",
+    "graphs": "prefix language model and decoder; prefix KV copy once per observation",
+    "cpu_offload": false,
+    "activation_calibration_dataset": null,
+    "canvas_length": 256,
+    "denoising_steps": 4,
+    "action_chunk_length": 8
+  },
+  "evaluation": {
+    "reference_config": "configs/eval_libero_spatial_b64_100k.json",
+    "reference_episodes": 500,
+    "candidate_episodes": 500,
+    "paired_initial_states": true,
+    "reference_runs": "reuse the existing controller's completed and audited final BF16 evaluation",
+    "scope": "Known Spatial tasks and reused development initial states; not an unseen test",
+    "selection_text_erratum": "The frozen confidence protocol retains an obsolete ten-candidate selection sentence. The controlling finalonly schedule fixes step100000; preserve original evidence and report this metadata clarification."
+  },
+  "additional_transfer": {
+    "environment": "OMY-F3M MuJoCo custom cube lift",
+    "protocol": "configs/omy_lift_zero_shot.json",
+    "episodes": 20,
+    "checkpoint": "same fixed final100k W4A16 candidate",
+    "target_domain_updates": 0,
+    "controller": "fixed geometric IK bridge; separately validated scripted feasibility",
+    "status": "deferred_by_owner_finish_libero_first",
+    "report_separately_from_libero": true,
+    "required_before_current_publication": false
+  },
+  "required_evidence": [
+    "Final checkpoint/base/config SHA verification and original-file preservation",
+    "Export reload, eager repeat and eager-versus-graph action/probability/confidence checks",
+    "BF16-versus-candidate action MAE/max, gripper agreement and probability differences",
+    "500 paired LIBERO episodes per arm, artifact/trace audit, recovered/lost counts and paired intervals",
+    "Raw confidence/failure association, with undefined AUROC retained for single-class results",
+    "Exclusive RTX5090 whole-policy p50/p95, memory and separate warmup/capture costs",
+    "Document and review actual results, including regressions; no automatic equivalence claim"
+  ],
+  "publication": {
+    "repository": "taewan2002/DecisionVLA",
+    "timing": "one combined commit/push after final evidence, documentation and review",
+    "release": "experimental adapter only: four shards, index, config, model card and SHA manifest",
+    "exclude": [
+      "base weights",
+      "merged or quantized base copies",
+      "dataset",
+      "optimizer",
+      "RNG state",
+      "private operations",
+      "credentials"
+    ],
+    "candidate_regression": "Preserve and disclose results; do not describe a regressed or inconclusive candidate as quality-equivalent."
+  },
+  "execution": {
+    "training_and_reference_evaluation": "existing controller, unchanged",
+    "deployment": "follow-up contract; no new recurring automation or unattended publication job created"
+  }
+}

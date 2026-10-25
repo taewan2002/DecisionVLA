@@ -1,0 +1,16 @@
+{
+  "approved_to_start": true,
+  "diagnosis_complete": true,
+  "authorization": "Owner requested diagnosis, necessary correction, and continuation to 10k total updates on 2026-10-24",
+  "diagnostic_run": "denoising-20261024-v2",
+  "diagnostic_report_sha256": "9f1abef84121cfe8c1fdd331df35182dd7e1d24a07976807c20d8bca329811b8",
+  "diagnostic_audit_sha256": "8c6316dfad274f5ff8c11ebc1640b2254d2a55adaf2bd73f9f483624418896bd",
+  "probability_capture_repeat_rows_exact": 280,
+  "loss_scope": "resampled_only",
+  "parent_step": 2000,
+  "target_step": 10000,
+  "new_updates": 8000,
+  "selection": "post-hoc engineering mitigation; removal of unchanged-target loss reward; cure not yet established",
+  "main_training_requires_existing_500_episode_evaluation_complete": true,
+  "main_training_requires_gradient_and_resume_smoke_pass": true
+}

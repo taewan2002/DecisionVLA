@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "episodes": 20,
+  "queries": 454,
+  "all_query_images_exact": true,
+  "state_restore_max_error": 0.0,
+  "replayed_controls": 3552,
+  "new_policy_calls": 0,
+  "interpretation": "Replay of existing trajectories; not an additional success cohort",
+  "source_contract_sha256": "1ca2f80194d862f0257c9054dc2d05a737a263a94dad0514e6363ed4dffb012b"
+}

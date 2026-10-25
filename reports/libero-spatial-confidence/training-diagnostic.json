@@ -1,0 +1,269 @@
+{
+  "kind": "posthoc_training_diagnostic",
+  "training_updates": 2000,
+  "anchor_presentations": 16000,
+  "unique_anchor_count": 14007,
+  "train_anchors_available": 55672,
+  "equivalent_anchor_epochs": 0.28739761459979885,
+  "unique_supervised_action_steps": 49185,
+  "validation_samples": 20,
+  "validation_curve": [
+    {
+      "event": "validation_before",
+      "step": 0,
+      "continuous_action_mae": 0.6556444772102527,
+      "gripper_accuracy": 0.3684210526315789,
+      "action_token_accuracy": 0.05263157894736842,
+      "denoising_ce": 6.072213673591614,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 100,
+      "continuous_action_mae": 0.29680624554799706,
+      "gripper_accuracy": 0.5657894736842105,
+      "action_token_accuracy": 0.17951127819548873,
+      "denoising_ce": 2.765903252363205,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 200,
+      "continuous_action_mae": 0.25873188697681926,
+      "gripper_accuracy": 0.6710526315789473,
+      "action_token_accuracy": 0.21146616541353383,
+      "denoising_ce": 2.5146882116794584,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 300,
+      "continuous_action_mae": 0.2733322522749005,
+      "gripper_accuracy": 0.7368421052631579,
+      "action_token_accuracy": 0.19642857142857142,
+      "denoising_ce": 2.4230228662490845,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 400,
+      "continuous_action_mae": 0.23695768920981464,
+      "gripper_accuracy": 0.625,
+      "action_token_accuracy": 0.23590225563909775,
+      "denoising_ce": 2.3391650348901747,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 500,
+      "continuous_action_mae": 0.23336852959146837,
+      "gripper_accuracy": 0.8421052631578947,
+      "action_token_accuracy": 0.25845864661654133,
+      "denoising_ce": 2.2464659035205843,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 600,
+      "continuous_action_mae": 0.22814231799566187,
+      "gripper_accuracy": 0.9144736842105263,
+      "action_token_accuracy": 0.25469924812030076,
+      "denoising_ce": 2.1882113426923753,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 700,
+      "continuous_action_mae": 0.2363541227818483,
+      "gripper_accuracy": 0.8881578947368421,
+      "action_token_accuracy": 0.2387218045112782,
+      "denoising_ce": 2.221527561545372,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 800,
+      "continuous_action_mae": 0.2337539846025481,
+      "gripper_accuracy": 0.8421052631578947,
+      "action_token_accuracy": 0.24154135338345864,
+      "denoising_ce": 2.184876616299152,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 900,
+      "continuous_action_mae": 0.19220349260324024,
+      "gripper_accuracy": 0.6973684210526315,
+      "action_token_accuracy": 0.24060150375939848,
+      "denoising_ce": 2.1292770966887473,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1000,
+      "continuous_action_mae": 0.20032120681073712,
+      "gripper_accuracy": 0.9210526315789473,
+      "action_token_accuracy": 0.24906015037593984,
+      "denoising_ce": 2.0603960692882537,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1100,
+      "continuous_action_mae": 0.20780219620639018,
+      "gripper_accuracy": 0.9276315789473685,
+      "action_token_accuracy": 0.24812030075187969,
+      "denoising_ce": 2.042351391911507,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1200,
+      "continuous_action_mae": 0.19750836858956813,
+      "gripper_accuracy": 0.9013157894736842,
+      "action_token_accuracy": 0.2575187969924812,
+      "denoising_ce": 2.029339051246643,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1300,
+      "continuous_action_mae": 0.18519641026821837,
+      "gripper_accuracy": 0.8486842105263158,
+      "action_token_accuracy": 0.27631578947368424,
+      "denoising_ce": 1.9934206411242485,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1400,
+      "continuous_action_mae": 0.18990813853196686,
+      "gripper_accuracy": 0.7894736842105263,
+      "action_token_accuracy": 0.23308270676691728,
+      "denoising_ce": 1.9997140675783158,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1500,
+      "continuous_action_mae": 0.16545254543062152,
+      "gripper_accuracy": 0.9276315789473685,
+      "action_token_accuracy": 0.25093984962406013,
+      "denoising_ce": 1.9727989464998246,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1600,
+      "continuous_action_mae": 0.17910212399172515,
+      "gripper_accuracy": 0.9210526315789473,
+      "action_token_accuracy": 0.26597744360902253,
+      "denoising_ce": 1.9342057943344115,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1700,
+      "continuous_action_mae": 0.16184841305080785,
+      "gripper_accuracy": 0.9144736842105263,
+      "action_token_accuracy": 0.2556390977443609,
+      "denoising_ce": 1.9261231794953346,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1800,
+      "continuous_action_mae": 0.16410153058537266,
+      "gripper_accuracy": 0.9078947368421053,
+      "action_token_accuracy": 0.26033834586466165,
+      "denoising_ce": 1.9334781475365161,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 1900,
+      "continuous_action_mae": 0.15805279160288097,
+      "gripper_accuracy": 0.9276315789473685,
+      "action_token_accuracy": 0.25093984962406013,
+      "denoising_ce": 1.914415293186903,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    },
+    {
+      "event": "validation",
+      "step": 2000,
+      "continuous_action_mae": 0.1640700243863792,
+      "gripper_accuracy": 0.9210526315789473,
+      "action_token_accuracy": 0.2556390977443609,
+      "denoising_ce": 1.9072181008756162,
+      "samples": 20,
+      "kind": "held_out_demonstration_open_loop_not_rollout_success"
+    }
+  ],
+  "validation_keys": [
+    "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/8",
+    "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_49/44",
+    "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_9/100",
+    "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_49/74",
+    "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_9/46",
+    "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_49/38",
+    "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_29/29",
+    "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_9/32",
+    "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/40",
+    "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/117",
+    "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_19/10",
+    "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_49/68",
+    "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_19/85",
+    "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_19/103",
+    "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_29/118",
+    "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/130",
+    "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_9/54",
+    "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_9/126",
+    "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_49/20",
+    "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_29/91"
+  ],
+  "zero_continuous_action_validation_mae": 0.18558447062969208,
+  "zero_action_mae_by_axis": [
+    0.34264567494392395,
+    0.19840814173221588,
+    0.4848918914794922,
+    0.017213348299264908,
+    0.0353923924267292,
+    0.03495536744594574
+  ],
+  "validation_gripper_majority_accuracy": 0.5460526315789473,
+  "fixed_validation_last": {
+    "event": "validation",
+    "step": 2000,
+    "continuous_action_mae": 0.1640700243863792,
+    "gripper_accuracy": 0.9210526315789473,
+    "action_token_accuracy": 0.2556390977443609,
+    "denoising_ce": 1.9072181008756162,
+    "samples": 20,
+    "kind": "held_out_demonstration_open_loop_not_rollout_success"
+  },
+  "source_sha256": {
+    "events.jsonl": "c3262b1a6da57545895ba9a676ab34fe8c6e3d06430262685a057f434ecf95aa",
+    "run.json": "25a17c1997f8fe0f397f3189b1ddeb5c238ec8013ee330381f91977ac2096758"
+  },
+  "numpy_version": "2.5.4"
+}

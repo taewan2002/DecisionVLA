@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "frozen_source_count": 88,
+  "preserved_source_counts": {
+    "libero-spatial-r32-corr-10k-v1": 38,
+    "libero-spatial-r32-corr-50k-v1": 58,
+    "libero-spatial-r32-b64-100k-v1": 88,
+    "libero-spatial-r32-b64-100k-v2": 88,
+    "libero-spatial-r32-b64-100k-v3": 88
+  },
+  "evaluation_source_counts": {
+    "10000": 88,
+    "20000": 88,
+    "30000": 88,
+    "40000": 88,
+    "50000": 88,
+    "60000": 88,
+    "70000": 88,
+    "80000": 88,
+    "90000": 88,
+    "100000": 88
+  },
+  "protected_training_validation_serving_containers_unchanged": true,
+  "gpu1_mining_stopped": true,
+  "scope": "source/config preparation and unrelated-container identity check; no rollout success claim",
+  "local_source_matches_remote": true
+}

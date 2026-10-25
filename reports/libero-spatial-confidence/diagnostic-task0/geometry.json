@@ -1,0 +1,2395 @@
+{
+  "kind": "posthoc_saved_state_diagnostic_not_new_rollout",
+  "task_id": 0,
+  "episodes": 50,
+  "new_policy_calls": 0,
+  "new_simulation_steps": 0,
+  "state_restore_max_abs": 2.220446049250313e-16,
+  "state_restore_atol": 1e-12,
+  "geometry": {
+    "target": "akita_black_bowl_1",
+    "goal": "plate_1",
+    "bilateral_contact": "target contact with each finger for >=3 consecutive saved states",
+    "lift": "target center >3cm above its own settled initial height for >=3 saved states",
+    "limitations": "post-hoc geometric proxies; contact/lift do not prove a stable grasp"
+  },
+  "categories": {
+    "contact_without_3cm_lift": 5,
+    "lift_without_task_success": 7,
+    "no_sustained_bilateral_contact": 37,
+    "success": 1
+  },
+  "failures_first_confidence_by_axis": [
+    0.9747394736932249,
+    0.8845539384958695,
+    0.9287242269029423,
+    0.9953099927123712,
+    0.9939902874888206,
+    0.9990233705968273,
+    0.9998852440289089
+  ],
+  "failures_first_peak_probability_by_axis": [
+    0.9079134433853383,
+    0.6551151914255959,
+    0.746833069592106,
+    0.8924184745671798,
+    0.8808261253395859,
+    0.9718936304656827,
+    0.9999426189734011
+  ],
+  "rows": [
+    {
+      "initial_id": 0,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06578923075255912,
+      "maximum_target_height_gain_m": 0.04027063198278813,
+      "target_displacement_final_m": 0.04089387455500172,
+      "final_target_goal_xy_m": 0.14855671138215357,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9655296601030449,
+      "all_query_mean_confidence": 0.8857019375503709,
+      "first_confidence_by_axis": [
+        0.8828004598617554,
+        0.9298470616340637,
+        0.9652948975563049,
+        0.9920429587364197,
+        0.9900344014167786,
+        0.9992749691009521,
+        0.9994127750396729
+      ],
+      "first_peak_probability_by_axis": [
+        0.6119799017906189,
+        0.648763120174408,
+        0.7232117056846619,
+        0.7804067134857178,
+        0.8714055418968201,
+        0.9572957158088684,
+        0.9997063875198364
+      ],
+      "first_min_component_confidence": 0.6238812804222107,
+      "gripper_close_fraction": 0.3181818181818182,
+      "action_abs_mean_by_axis": [
+        0.33133652806282043,
+        0.09508019685745239,
+        0.6119788289070129,
+        0.02459893748164177,
+        0.051408156752586365,
+        0.039108723402023315,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 1,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.1638911992307016,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.6450475249708647e-07,
+      "final_target_goal_xy_m": 0.12560673442526132,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.97919920121634,
+      "all_query_mean_confidence": 0.8960054691438595,
+      "first_confidence_by_axis": [
+        0.9967237710952759,
+        0.8812626600265503,
+        0.9910331964492798,
+        0.9970526099205017,
+        0.9883971214294434,
+        0.9999474883079529,
+        0.9999774694442749
+      ],
+      "first_peak_probability_by_axis": [
+        0.9743265509605408,
+        0.7086955308914185,
+        0.8754892945289612,
+        0.9262483716011047,
+        0.7952985167503357,
+        0.9973264932632446,
+        0.9999886751174927
+      ],
+      "first_min_component_confidence": 0.6058692932128906,
+      "gripper_close_fraction": 0.38181818181818183,
+      "action_abs_mean_by_axis": [
+        0.2910159230232239,
+        0.10670226812362671,
+        0.5780752897262573,
+        0.02007129415869713,
+        0.049839578568935394,
+        0.03372546285390854,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 2,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.11023731711799772,
+      "maximum_target_height_gain_m": 0.0,
+      "target_displacement_final_m": 0.0005240288478361938,
+      "final_target_goal_xy_m": 0.2099253984733024,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9354352723091103,
+      "all_query_mean_confidence": 0.8812712221939883,
+      "first_confidence_by_axis": [
+        0.9273787140846252,
+        0.7225034236907959,
+        0.9309133291244507,
+        0.9999863505363464,
+        0.9701146483421326,
+        0.9973070621490479,
+        0.999843418598175
+      ],
+      "first_peak_probability_by_axis": [
+        0.7610883712768555,
+        0.3781304955482483,
+        0.7542121410369873,
+        0.9993979930877686,
+        0.5784744024276733,
+        0.9089141488075256,
+        0.9999216794967651
+      ],
+      "first_min_component_confidence": 0.19420266151428223,
+      "gripper_close_fraction": 0.45,
+      "action_abs_mean_by_axis": [
+        0.3615686297416687,
+        0.1028519868850708,
+        0.6115869283676147,
+        0.01657756231725216,
+        0.05411764979362488,
+        0.0389660969376564,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 3,
+      "success": false,
+      "category": "contact_without_3cm_lift",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.04140285531912668,
+      "maximum_target_height_gain_m": 0.02584546115180142,
+      "target_displacement_final_m": 0.07252512015498087,
+      "final_target_goal_xy_m": 0.14611444506497726,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9821816816899462,
+      "all_query_mean_confidence": 0.8987481247997487,
+      "first_confidence_by_axis": [
+        0.9997622966766357,
+        0.9321462512016296,
+        0.9521592855453491,
+        0.9939676523208618,
+        0.997275173664093,
+        0.9999693632125854,
+        0.999991774559021
+      ],
+      "first_peak_probability_by_axis": [
+        0.9972130656242371,
+        0.675519585609436,
+        0.5519067645072937,
+        0.8061840534210205,
+        0.92482990026474,
+        0.9985080361366272,
+        0.9999958276748657
+      ],
+      "first_min_component_confidence": 0.7916131615638733,
+      "gripper_close_fraction": 0.5136363636363637,
+      "action_abs_mean_by_axis": [
+        0.30381470918655396,
+        0.11376111954450607,
+        0.6630664467811584,
+        0.02270946279168129,
+        0.05262034013867378,
+        0.041212063282728195,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 4,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.10557677026630434,
+      "maximum_target_height_gain_m": 3.664152234961193e-07,
+      "target_displacement_final_m": 3.6641664858321695e-07,
+      "final_target_goal_xy_m": 0.1375058738439158,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.980674150170116,
+      "all_query_mean_confidence": 0.8985999475481672,
+      "first_confidence_by_axis": [
+        0.9998956918716431,
+        0.896631121635437,
+        0.981307864189148,
+        0.9892038106918335,
+        0.9990204572677612,
+        0.9995012283325195,
+        0.9991589784622192
+      ],
+      "first_peak_probability_by_axis": [
+        0.9986290335655212,
+        0.6164897680282593,
+        0.8283881545066833,
+        0.7231258749961853,
+        0.9621930122375488,
+        0.9828738570213318,
+        0.9995794892311096
+      ],
+      "first_min_component_confidence": 0.7030792832374573,
+      "gripper_close_fraction": 0.6,
+      "action_abs_mean_by_axis": [
+        0.2447771579027176,
+        0.0884491577744484,
+        0.5155794024467468,
+        0.029518740251660347,
+        0.04638146981596947,
+        0.04360068216919899,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 5,
+      "success": false,
+      "category": "contact_without_3cm_lift",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.01689102032712935,
+      "maximum_target_height_gain_m": 0.021970849943085957,
+      "target_displacement_final_m": 0.14207943909639034,
+      "final_target_goal_xy_m": 0.1218011337322904,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9943030770266628,
+      "all_query_mean_confidence": 0.8970704298486801,
+      "first_confidence_by_axis": [
+        0.9916811585426331,
+        0.9746743440628052,
+        0.9960742592811584,
+        0.998799741268158,
+        0.9991545677185059,
+        0.9997527599334717,
+        0.9999847412109375
+      ],
+      "first_peak_probability_by_axis": [
+        0.9629717469215393,
+        0.82780522108078,
+        0.9259368777275085,
+        0.9555649161338806,
+        0.9757303595542908,
+        0.9912714958190918,
+        0.9999922513961792
+      ],
+      "first_min_component_confidence": 0.8681389093399048,
+      "gripper_close_fraction": 0.5818181818181818,
+      "action_abs_mean_by_axis": [
+        0.27443844079971313,
+        0.13190728425979614,
+        0.6384318470954895,
+        0.024991104379296303,
+        0.050017811357975006,
+        0.051122941076755524,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 6,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06779065403887093,
+      "maximum_target_height_gain_m": 0.009605313164182672,
+      "target_displacement_final_m": 0.07871289914243172,
+      "final_target_goal_xy_m": 0.09820570215674342,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9600840768941686,
+      "all_query_mean_confidence": 0.9179979111687303,
+      "first_confidence_by_axis": [
+        0.991523027420044,
+        0.9843804836273193,
+        0.7560731172561646,
+        0.9946773052215576,
+        0.995166003704071,
+        0.9987785816192627,
+        0.9999901056289673
+      ],
+      "first_peak_probability_by_axis": [
+        0.9496681690216064,
+        0.9220455884933472,
+        0.42737826704978943,
+        0.8641377091407776,
+        0.9090567827224731,
+        0.9554404616355896,
+        0.9999951124191284
+      ],
+      "first_min_component_confidence": 0.5512365698814392,
+      "gripper_close_fraction": 0.5454545454545454,
+      "action_abs_mean_by_axis": [
+        0.33679139614105225,
+        0.11008905619382858,
+        0.6644567847251892,
+        0.023208560422062874,
+        0.0452406220138073,
+        0.037433113902807236,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 7,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.07617015789982545,
+      "maximum_target_height_gain_m": 0.00035685761629711266,
+      "target_displacement_final_m": 0.00012429485262647647,
+      "final_target_goal_xy_m": 0.14048027094960402,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9896949310832497,
+      "all_query_mean_confidence": 0.8900259819960195,
+      "first_confidence_by_axis": [
+        0.9984967708587646,
+        0.9521008729934692,
+        0.9919415712356567,
+        0.9958699941635132,
+        0.9912524819374084,
+        0.9982293844223022,
+        0.9999732971191406
+      ],
+      "first_peak_probability_by_axis": [
+        0.9846847653388977,
+        0.7654620409011841,
+        0.8888942003250122,
+        0.8233255743980408,
+        0.7897042036056519,
+        0.9410240054130554,
+        0.9999866485595703
+      ],
+      "first_min_component_confidence": 0.8630892634391785,
+      "gripper_close_fraction": 0.45454545454545453,
+      "action_abs_mean_by_axis": [
+        0.2698395550251007,
+        0.10217466950416565,
+        0.549055278301239,
+        0.02556149661540985,
+        0.04085562378168106,
+        0.03814610466361046,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 8,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09382490297294202,
+      "maximum_target_height_gain_m": 0.00045441758725106585,
+      "target_displacement_final_m": 0.00010049442193807507,
+      "final_target_goal_xy_m": 0.10626926094111559,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9661769762221972,
+      "all_query_mean_confidence": 0.8718918989802408,
+      "first_confidence_by_axis": [
+        0.9955915212631226,
+        0.8131656646728516,
+        0.9717164635658264,
+        0.9936861395835876,
+        0.9891903400421143,
+        0.9999054670333862,
+        0.9999832510948181
+      ],
+      "first_peak_probability_by_axis": [
+        0.9714906811714172,
+        0.6482957601547241,
+        0.7270984649658203,
+        0.8261853456497192,
+        0.8327584862709045,
+        0.9952868819236755,
+        0.9999916553497314
+      ],
+      "first_min_component_confidence": 0.31336647272109985,
+      "gripper_close_fraction": 0.6090909090909091,
+      "action_abs_mean_by_axis": [
+        0.3093404471874237,
+        0.1004277914762497,
+        0.6110519170761108,
+        0.025668451562523842,
+        0.04720141738653183,
+        0.05383242666721344,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 9,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.11337524465533304,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.645047524970817e-07,
+      "final_target_goal_xy_m": 0.13264043254205934,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9746860395756407,
+      "all_query_mean_confidence": 0.8993750789995777,
+      "first_confidence_by_axis": [
+        0.9977698922157288,
+        0.9502618908882141,
+        0.8910551071166992,
+        0.997840404510498,
+        0.9860779047012329,
+        0.9998089075088501,
+        0.9999883770942688
+      ],
+      "first_peak_probability_by_axis": [
+        0.9710170030593872,
+        0.7395540475845337,
+        0.5614415407180786,
+        0.9202511310577393,
+        0.7066982984542847,
+        0.992169976234436,
+        0.9999942779541016
+      ],
+      "first_min_component_confidence": 0.7100580930709839,
+      "gripper_close_fraction": 0.45454545454545453,
+      "action_abs_mean_by_axis": [
+        0.30748650431632996,
+        0.1068805381655693,
+        0.5853832364082336,
+        0.028877006843686104,
+        0.0572192445397377,
+        0.04477715492248535,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 10,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.08418670464321076,
+      "maximum_target_height_gain_m": 2.879858299609239e-07,
+      "target_displacement_final_m": 2.879954576929176e-07,
+      "final_target_goal_xy_m": 0.12926081409849527,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9803847056813826,
+      "all_query_mean_confidence": 0.8914385884707242,
+      "first_confidence_by_axis": [
+        0.9947329759597778,
+        0.937528133392334,
+        0.9425848126411438,
+        0.9982179999351501,
+        0.9901880621910095,
+        0.9994539618492126,
+        0.9999870657920837
+      ],
+      "first_peak_probability_by_axis": [
+        0.9584218263626099,
+        0.7328881025314331,
+        0.6776503920555115,
+        0.9146671891212463,
+        0.8483170866966248,
+        0.9790804386138916,
+        0.9999935626983643
+      ],
+      "first_min_component_confidence": 0.8113450407981873,
+      "gripper_close_fraction": 0.45,
+      "action_abs_mean_by_axis": [
+        0.32163992524147034,
+        0.10698751360177994,
+        0.6180394887924194,
+        0.019607845693826675,
+        0.06827094405889511,
+        0.042923323810100555,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 11,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.08170708883188409,
+      "maximum_target_height_gain_m": 0.02274821586662268,
+      "target_displacement_final_m": 0.01693899596019087,
+      "final_target_goal_xy_m": 0.13516332097088765,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9836723787843107,
+      "all_query_mean_confidence": 0.9106771691592329,
+      "first_confidence_by_axis": [
+        0.986914873123169,
+        0.9388367533683777,
+        0.9771040678024292,
+        0.9995559453964233,
+        0.9854172468185425,
+        0.9979449510574341,
+        0.9999328851699829
+      ],
+      "first_peak_probability_by_axis": [
+        0.9488975405693054,
+        0.7558034062385559,
+        0.8119536638259888,
+        0.980596661567688,
+        0.6939736008644104,
+        0.9462475776672363,
+        0.9999663829803467
+      ],
+      "first_min_component_confidence": 0.8026413321495056,
+      "gripper_close_fraction": 0.4727272727272727,
+      "action_abs_mean_by_axis": [
+        0.2868448495864868,
+        0.11347589641809464,
+        0.6414976119995117,
+        0.021818192675709724,
+        0.03582887724041939,
+        0.05864522606134415,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 12,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.12549344072861518,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.645047524970817e-07,
+      "final_target_goal_xy_m": 0.12788908475270025,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9702342303793767,
+      "all_query_mean_confidence": 0.8824615534438227,
+      "first_confidence_by_axis": [
+        0.95782870054245,
+        0.9449590444564819,
+        0.8937938213348389,
+        0.9960476756095886,
+        0.999182403087616,
+        0.9998925924301147,
+        0.9999354481697083
+      ],
+      "first_peak_probability_by_axis": [
+        0.7911062836647034,
+        0.7558032274246216,
+        0.7598371505737305,
+        0.8707106113433838,
+        0.9700660705566406,
+        0.9949404001235962,
+        0.9999676942825317
+      ],
+      "first_min_component_confidence": 0.41058385372161865,
+      "gripper_close_fraction": 0.5181818181818182,
+      "action_abs_mean_by_axis": [
+        0.29928696155548096,
+        0.10121212154626846,
+        0.543387234210968,
+        0.02409982867538929,
+        0.049090880900621414,
+        0.027593545615673065,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 13,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.14474238219365412,
+      "maximum_target_height_gain_m": 4.128362396382812e-07,
+      "target_displacement_final_m": 4.129002731647256e-07,
+      "final_target_goal_xy_m": 0.15429958455783946,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9908386231304535,
+      "all_query_mean_confidence": 0.8959314745912742,
+      "first_confidence_by_axis": [
+        0.9995956420898438,
+        0.9474968910217285,
+        0.9995076656341553,
+        0.992577850818634,
+        0.9974275231361389,
+        0.9992735385894775,
+        0.999991238117218
+      ],
+      "first_peak_probability_by_axis": [
+        0.9951401352882385,
+        0.7410922050476074,
+        0.9894789457321167,
+        0.8619867563247681,
+        0.91097491979599,
+        0.9609622955322266,
+        0.9999957084655762
+      ],
+      "first_min_component_confidence": 0.8708838224411011,
+      "gripper_close_fraction": 0.5545454545454546,
+      "action_abs_mean_by_axis": [
+        0.27140823006629944,
+        0.11404632031917572,
+        0.6298398971557617,
+        0.022388599812984467,
+        0.06716573983430862,
+        0.04655968025326729,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 14,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.11993621293005938,
+      "maximum_target_height_gain_m": 3.3900536100528456e-07,
+      "target_displacement_final_m": 3.3906110604880224e-07,
+      "final_target_goal_xy_m": 0.2081990849469684,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.94961767586424,
+      "all_query_mean_confidence": 0.8889762514953615,
+      "first_confidence_by_axis": [
+        0.9498148560523987,
+        0.7747452855110168,
+        0.943651020526886,
+        0.9925687909126282,
+        0.9992549419403076,
+        0.9873402714729309,
+        0.9999486207962036
+      ],
+      "first_peak_probability_by_axis": [
+        0.8642212152481079,
+        0.6335577964782715,
+        0.6818248629570007,
+        0.8560305833816528,
+        0.9846290946006775,
+        0.9203405380249023,
+        0.999974250793457
+      ],
+      "first_min_component_confidence": 0.0866779312491417,
+      "gripper_close_fraction": 0.42727272727272725,
+      "action_abs_mean_by_axis": [
+        0.2781817615032196,
+        0.10306596010923386,
+        0.6064529418945312,
+        0.022352969273924828,
+        0.060320816934108734,
+        0.04057038575410843,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 15,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06402375211181716,
+      "maximum_target_height_gain_m": 0.00015151824133174951,
+      "target_displacement_final_m": 0.0018056569913018259,
+      "final_target_goal_xy_m": 0.1130306269539647,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9781220201082357,
+      "all_query_mean_confidence": 0.8928607855467596,
+      "first_confidence_by_axis": [
+        0.984875500202179,
+        0.9442608952522278,
+        0.9382664561271667,
+        0.9849054217338562,
+        0.9947788715362549,
+        0.9997805953025818,
+        0.9999862313270569
+      ],
+      "first_peak_probability_by_axis": [
+        0.926420271396637,
+        0.7804419994354248,
+        0.6352977156639099,
+        0.7302150130271912,
+        0.9054768085479736,
+        0.989742636680603,
+        0.999993085861206
+      ],
+      "first_min_component_confidence": 0.6775932312011719,
+      "gripper_close_fraction": 0.4,
+      "action_abs_mean_by_axis": [
+        0.3139036297798157,
+        0.11672013252973557,
+        0.6561499238014221,
+        0.028983961790800095,
+        0.06716575473546982,
+        0.03921565040946007,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 16,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06793178672276742,
+      "maximum_target_height_gain_m": 0.042792361330805107,
+      "target_displacement_final_m": 0.06603143416118018,
+      "final_target_goal_xy_m": 0.19708106715101384,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.98340067913833,
+      "all_query_mean_confidence": 0.8872186410728647,
+      "first_confidence_by_axis": [
+        0.9957854151725769,
+        0.9360178709030151,
+        0.965613603591919,
+        0.9997323155403137,
+        0.9872440099716187,
+        0.9994227886199951,
+        0.9999886751174927
+      ],
+      "first_peak_probability_by_axis": [
+        0.9705415368080139,
+        0.7711110711097717,
+        0.7233914136886597,
+        0.9848375916481018,
+        0.8253840208053589,
+        0.977958619594574,
+        0.9999943375587463
+      ],
+      "first_min_component_confidence": 0.6559373736381531,
+      "gripper_close_fraction": 0.38636363636363635,
+      "action_abs_mean_by_axis": [
+        0.3187166154384613,
+        0.11725485324859619,
+        0.6028167009353638,
+        0.02377898059785366,
+        0.05500893294811249,
+        0.04313722252845764,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 17,
+      "success": false,
+      "category": "contact_without_3cm_lift",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.07885415777986705,
+      "maximum_target_height_gain_m": 0.02208814970370121,
+      "target_displacement_final_m": 0.04468615423565269,
+      "final_target_goal_xy_m": 0.1812235832212774,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9848680225307724,
+      "all_query_mean_confidence": 0.8900726911526782,
+      "first_confidence_by_axis": [
+        0.9893660545349121,
+        0.9722721576690674,
+        0.935374915599823,
+        0.9974219799041748,
+        0.9999944567680359,
+        0.999670147895813,
+        0.9999763369560242
+      ],
+      "first_peak_probability_by_axis": [
+        0.9595627784729004,
+        0.8046190738677979,
+        0.8171049952507019,
+        0.9247382283210754,
+        0.9997588992118835,
+        0.9891569018363953,
+        0.9999881982803345
+      ],
+      "first_min_component_confidence": 0.8406954407691956,
+      "gripper_close_fraction": 0.7227272727272728,
+      "action_abs_mean_by_axis": [
+        0.3070589005947113,
+        0.08238855004310608,
+        0.5968270301818848,
+        0.028413545340299606,
+        0.05080215632915497,
+        0.05622100085020065,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 18,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.07288990463330691,
+      "maximum_target_height_gain_m": 0.0027763547472936523,
+      "target_displacement_final_m": 0.01641369892482157,
+      "final_target_goal_xy_m": 0.19281445339709113,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9728536841212506,
+      "all_query_mean_confidence": 0.8991432176684893,
+      "first_confidence_by_axis": [
+        0.9421698451042175,
+        0.9225215911865234,
+        0.9788643717765808,
+        0.971217155456543,
+        0.9972909688949585,
+        0.9986647963523865,
+        0.9992470741271973
+      ],
+      "first_peak_probability_by_axis": [
+        0.7838289737701416,
+        0.6984235048294067,
+        0.7594913244247437,
+        0.7481210827827454,
+        0.9440091252326965,
+        0.9512959718704224,
+        0.9996234774589539
+      ],
+      "first_min_component_confidence": 0.8098077774047852,
+      "gripper_close_fraction": 0.4590909090909091,
+      "action_abs_mean_by_axis": [
+        0.2940819561481476,
+        0.1131906732916832,
+        0.6736546754837036,
+        0.025490202009677887,
+        0.04884137213230133,
+        0.0500534288585186,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 19,
+      "success": true,
+      "category": "success",
+      "policy_steps": 109,
+      "min_eef_target_m": 0.03653323013802214,
+      "maximum_target_height_gain_m": 0.1434610671836064,
+      "target_displacement_final_m": 0.11118876753955982,
+      "final_target_goal_xy_m": 0.020042099937819472,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9738680418617492,
+      "all_query_mean_confidence": 0.9108575844620207,
+      "first_confidence_by_axis": [
+        0.9540002942085266,
+        0.877402663230896,
+        0.9874838590621948,
+        0.9999710321426392,
+        0.9983851313591003,
+        0.9998810887336731,
+        0.9999520778656006
+      ],
+      "first_peak_probability_by_axis": [
+        0.7595293521881104,
+        0.5776515603065491,
+        0.8969893455505371,
+        0.998525857925415,
+        0.9497690200805664,
+        0.9944483637809753,
+        0.9999760389328003
+      ],
+      "first_min_component_confidence": 0.646923303604126,
+      "gripper_close_fraction": 0.5321100917431193,
+      "action_abs_mean_by_axis": [
+        0.4383164644241333,
+        0.14315524697303772,
+        0.6315886974334717,
+        0.012844077311456203,
+        0.039323605597019196,
+        0.04795823246240616,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 20,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06395234245821249,
+      "maximum_target_height_gain_m": 0.01791093375899211,
+      "target_displacement_final_m": 0.05480760436857227,
+      "final_target_goal_xy_m": 0.18601246876540845,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9608694377338968,
+      "all_query_mean_confidence": 0.8837195952017377,
+      "first_confidence_by_axis": [
+        0.9977067112922668,
+        0.92534339427948,
+        0.8123577237129211,
+        0.9942340850830078,
+        0.9972630739212036,
+        0.9992038011550903,
+        0.9999772906303406
+      ],
+      "first_peak_probability_by_axis": [
+        0.9825823307037354,
+        0.676845908164978,
+        0.5655303597450256,
+        0.7967967391014099,
+        0.8993260860443115,
+        0.9733134508132935,
+        0.9999886751174927
+      ],
+      "first_min_component_confidence": 0.503177285194397,
+      "gripper_close_fraction": 0.5454545454545454,
+      "action_abs_mean_by_axis": [
+        0.2655256688594818,
+        0.11828872561454773,
+        0.6395010948181152,
+        0.021283438429236412,
+        0.05918004363775253,
+        0.04741529002785683,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 21,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.032515635194193156,
+      "maximum_target_height_gain_m": 0.06263605140615336,
+      "target_displacement_final_m": 0.08215993641286813,
+      "final_target_goal_xy_m": 0.1666098872444239,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9789837349145915,
+      "all_query_mean_confidence": 0.9102698300197829,
+      "first_confidence_by_axis": [
+        0.9874834418296814,
+        0.914091169834137,
+        0.9589364528656006,
+        0.9997532367706299,
+        0.9929420351982117,
+        0.9997471570968628,
+        0.9999325275421143
+      ],
+      "first_peak_probability_by_axis": [
+        0.8955235481262207,
+        0.7326874136924744,
+        0.7881513237953186,
+        0.9875578880310059,
+        0.8109148740768433,
+        0.988903284072876,
+        0.9999662637710571
+      ],
+      "first_min_component_confidence": 0.6629241108894348,
+      "gripper_close_fraction": 0.5181818181818182,
+      "action_abs_mean_by_axis": [
+        0.2884848713874817,
+        0.10581101477146149,
+        0.6999291181564331,
+        0.02449198067188263,
+        0.04773617535829544,
+        0.04762919247150421,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 22,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06076593810689909,
+      "maximum_target_height_gain_m": 0.06841946895096152,
+      "target_displacement_final_m": 0.0747695972436801,
+      "final_target_goal_xy_m": 0.14442012447361374,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9868736317599127,
+      "all_query_mean_confidence": 0.9019695805516201,
+      "first_confidence_by_axis": [
+        0.9923545122146606,
+        0.9282337427139282,
+        0.9913256168365479,
+        0.9984385967254639,
+        0.9982420206069946,
+        0.9995266199111938,
+        0.9999940395355225
+      ],
+      "first_peak_probability_by_axis": [
+        0.9579514861106873,
+        0.6387962698936462,
+        0.8976243734359741,
+        0.9354082942008972,
+        0.9403353929519653,
+        0.9726538062095642,
+        0.9999970197677612
+      ],
+      "first_min_component_confidence": 0.7536563873291016,
+      "gripper_close_fraction": 0.5,
+      "action_abs_mean_by_axis": [
+        0.36253124475479126,
+        0.10470583289861679,
+        0.6381106972694397,
+        0.0194652508944273,
+        0.0622103288769722,
+        0.03322635218501091,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 23,
+      "success": false,
+      "category": "contact_without_3cm_lift",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.01835351000898718,
+      "maximum_target_height_gain_m": 0.012306383690312894,
+      "target_displacement_final_m": 0.041394273968619194,
+      "final_target_goal_xy_m": 0.15368119419634596,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9695377153996495,
+      "all_query_mean_confidence": 0.898070025009926,
+      "first_confidence_by_axis": [
+        0.996263325214386,
+        0.8112761974334717,
+        0.9867412447929382,
+        0.9997144341468811,
+        0.9930956959724426,
+        0.9997020959854126,
+        0.9999710321426392
+      ],
+      "first_peak_probability_by_axis": [
+        0.9801734089851379,
+        0.3870830535888672,
+        0.8175581693649292,
+        0.9823330044746399,
+        0.8340667486190796,
+        0.9874112010002136,
+        0.9999855160713196
+      ],
+      "first_min_component_confidence": 0.6642288565635681,
+      "gripper_close_fraction": 0.6954545454545454,
+      "action_abs_mean_by_axis": [
+        0.35180023312568665,
+        0.12898391485214233,
+        0.6016047596931458,
+        0.01604280062019825,
+        0.04716574028134346,
+        0.04260244220495224,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 24,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09161570879247848,
+      "maximum_target_height_gain_m": 0.01904941951114547,
+      "target_displacement_final_m": 0.007816059690795699,
+      "final_target_goal_xy_m": 0.14453192144885116,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9702602614349239,
+      "all_query_mean_confidence": 0.8906380311549044,
+      "first_confidence_by_axis": [
+        0.9962661862373352,
+        0.7986724972724915,
+        0.9991417527198792,
+        0.9997183084487915,
+        0.9983758330345154,
+        0.999660849571228,
+        0.9999864101409912
+      ],
+      "first_peak_probability_by_axis": [
+        0.9666310548782349,
+        0.3416825234889984,
+        0.992760419845581,
+        0.9873995780944824,
+        0.9585468769073486,
+        0.9869801998138428,
+        0.9999932050704956
+      ],
+      "first_min_component_confidence": 0.599690854549408,
+      "gripper_close_fraction": 0.19090909090909092,
+      "action_abs_mean_by_axis": [
+        0.3585382401943207,
+        0.1171836107969284,
+        0.6591092348098755,
+        0.01982174441218376,
+        0.04545454680919647,
+        0.040962520986795425,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 25,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09569775816052305,
+      "maximum_target_height_gain_m": 0.0017601569570790954,
+      "target_displacement_final_m": 0.01099516758577634,
+      "final_target_goal_xy_m": 0.18588283142992837,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9679140466209368,
+      "all_query_mean_confidence": 0.8907854525920218,
+      "first_confidence_by_axis": [
+        0.8525407910346985,
+        0.9495910406112671,
+        0.987778902053833,
+        0.9938616156578064,
+        0.9919253587722778,
+        0.9997316598892212,
+        0.9999687671661377
+      ],
+      "first_peak_probability_by_axis": [
+        0.6630929708480835,
+        0.7707810997962952,
+        0.9222762584686279,
+        0.7522225379943848,
+        0.9237495064735413,
+        0.9892522096633911,
+        0.9999844431877136
+      ],
+      "first_min_component_confidence": 0.4318108558654785,
+      "gripper_close_fraction": 0.41818181818181815,
+      "action_abs_mean_by_axis": [
+        0.27304813265800476,
+        0.08331543207168579,
+        0.6159361600875854,
+        0.016506260260939598,
+        0.03999998793005943,
+        0.0493047758936882,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 26,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.07798801092695212,
+      "maximum_target_height_gain_m": 0.0013168221432101612,
+      "target_displacement_final_m": 0.003368367282277523,
+      "final_target_goal_xy_m": 0.2212840702520729,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9730510364583499,
+      "all_query_mean_confidence": 0.8919924248727351,
+      "first_confidence_by_axis": [
+        0.9989351630210876,
+        0.8654420375823975,
+        0.9576175212860107,
+        0.9932588934898376,
+        0.9965628981590271,
+        0.9995474219322205,
+        0.9999933242797852
+      ],
+      "first_peak_probability_by_axis": [
+        0.9906449913978577,
+        0.6185544729232788,
+        0.7856756448745728,
+        0.8408125638961792,
+        0.9236406683921814,
+        0.9818114042282104,
+        0.9999966025352478
+      ],
+      "first_min_component_confidence": 0.45986294746398926,
+      "gripper_close_fraction": 0.4772727272727273,
+      "action_abs_mean_by_axis": [
+        0.2932976484298706,
+        0.08299461752176285,
+        0.6618897318840027,
+        0.021390385925769806,
+        0.05429590865969658,
+        0.05126556381583214,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 27,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09500154383869602,
+      "maximum_target_height_gain_m": 0.012071468049469347,
+      "target_displacement_final_m": 0.02168711572591971,
+      "final_target_goal_xy_m": 0.15995820813568953,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.982526893350587,
+      "all_query_mean_confidence": 0.8999622906900308,
+      "first_confidence_by_axis": [
+        0.9852237701416016,
+        0.9292060136795044,
+        0.9772809743881226,
+        0.9980909824371338,
+        0.9911170601844788,
+        0.9968342781066895,
+        0.9999352693557739
+      ],
+      "first_peak_probability_by_axis": [
+        0.9334216713905334,
+        0.7635299563407898,
+        0.908077597618103,
+        0.9169583916664124,
+        0.8137584924697876,
+        0.9433577656745911,
+        0.999967634677887
+      ],
+      "first_min_component_confidence": 0.6471026539802551,
+      "gripper_close_fraction": 0.6954545454545454,
+      "action_abs_mean_by_axis": [
+        0.31654176115989685,
+        0.10941179096698761,
+        0.6604636907577515,
+        0.02549019269645214,
+        0.05654187127947807,
+        0.027593564242124557,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 28,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.0958848679104951,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.645047524970817e-07,
+      "final_target_goal_xy_m": 0.1831173303769895,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.968741018150081,
+      "all_query_mean_confidence": 0.8837115231225473,
+      "first_confidence_by_axis": [
+        0.9800438284873962,
+        0.8219515085220337,
+        0.9851342439651489,
+        0.9964307546615601,
+        0.9980930089950562,
+        0.9995546936988831,
+        0.9999792575836182
+      ],
+      "first_peak_probability_by_axis": [
+        0.9066489338874817,
+        0.44655269384384155,
+        0.8628586530685425,
+        0.865607500076294,
+        0.9310512542724609,
+        0.9817649126052856,
+        0.9999896287918091
+      ],
+      "first_min_component_confidence": 0.6084504723548889,
+      "gripper_close_fraction": 0.4727272727272727,
+      "action_abs_mean_by_axis": [
+        0.285989373922348,
+        0.11711223423480988,
+        0.5518719553947449,
+        0.02392156794667244,
+        0.04028519615530968,
+        0.042958956211805344,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 29,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09647278936807349,
+      "maximum_target_height_gain_m": 0.0279745875488423,
+      "target_displacement_final_m": 0.06916966675545583,
+      "final_target_goal_xy_m": 0.12351750339672263,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9251312224834031,
+      "all_query_mean_confidence": 0.9114978900600418,
+      "first_confidence_by_axis": [
+        0.9998432993888855,
+        0.767008364200592,
+        0.7162271738052368,
+        0.9995394349098206,
+        0.9936450123786926,
+        0.9996622204780579,
+        0.9999930262565613
+      ],
+      "first_peak_probability_by_axis": [
+        0.9974662661552429,
+        0.37989726662635803,
+        0.5233457088470459,
+        0.9790765643119812,
+        0.7594600915908813,
+        0.9866724610328674,
+        0.999996542930603
+      ],
+      "first_min_component_confidence": 0.0,
+      "gripper_close_fraction": 0.10454545454545454,
+      "action_abs_mean_by_axis": [
+        0.3606773316860199,
+        0.08067731559276581,
+        0.6079146862030029,
+        0.02295900508761406,
+        0.05843135714530945,
+        0.02531193196773529,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 30,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09079170163129824,
+      "maximum_target_height_gain_m": 0.011287204590925803,
+      "target_displacement_final_m": 0.0004336196821622765,
+      "final_target_goal_xy_m": 0.2616180693948399,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9725900328508276,
+      "all_query_mean_confidence": 0.8882104152479348,
+      "first_confidence_by_axis": [
+        0.9570726752281189,
+        0.9011077880859375,
+        0.9512564539909363,
+        0.999266505241394,
+        0.99973064661026,
+        0.9997150897979736,
+        0.9999809861183167
+      ],
+      "first_peak_probability_by_axis": [
+        0.8234100937843323,
+        0.7283468246459961,
+        0.6997767090797424,
+        0.9726336002349854,
+        0.9868237972259521,
+        0.9883388876914978,
+        0.9999905824661255
+      ],
+      "first_min_component_confidence": 0.5682232975959778,
+      "gripper_close_fraction": 0.5590909090909091,
+      "action_abs_mean_by_axis": [
+        0.28645288944244385,
+        0.10420671850442886,
+        0.5681642889976501,
+        0.020356521010398865,
+        0.05155077949166298,
+        0.05294113978743553,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 31,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.0816909268679754,
+      "maximum_target_height_gain_m": 0.023089028255051214,
+      "target_displacement_final_m": 0.022300772227804966,
+      "final_target_goal_xy_m": 0.2462049194551948,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9481595753534184,
+      "all_query_mean_confidence": 0.8875566490424392,
+      "first_confidence_by_axis": [
+        0.9983505010604858,
+        0.6773102283477783,
+        0.9669056534767151,
+        0.9974527359008789,
+        0.997428834438324,
+        0.9996867179870605,
+        0.9999822378158569
+      ],
+      "first_peak_probability_by_axis": [
+        0.9785518050193787,
+        0.3522874712944031,
+        0.8391199111938477,
+        0.941946804523468,
+        0.9434217214584351,
+        0.9890921115875244,
+        0.9999911189079285
+      ],
+      "first_min_component_confidence": 0.1626921445131302,
+      "gripper_close_fraction": 0.45,
+      "action_abs_mean_by_axis": [
+        0.2715863883495331,
+        0.08862738311290741,
+        0.6513015627861023,
+        0.023672029376029968,
+        0.06406416743993759,
+        0.031051652505993843,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 32,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.12124610677712626,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.645047524970817e-07,
+      "final_target_goal_xy_m": 0.12824467113406895,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9843175481514528,
+      "all_query_mean_confidence": 0.9122147625825674,
+      "first_confidence_by_axis": [
+        0.9994239807128906,
+        0.9077160358428955,
+        0.9934037923812866,
+        0.9936417937278748,
+        0.9984430074691772,
+        0.9976103901863098,
+        0.9999836683273315
+      ],
+      "first_peak_probability_by_axis": [
+        0.994273841381073,
+        0.763226330280304,
+        0.9074123501777649,
+        0.8985360264778137,
+        0.9634429216384888,
+        0.908454179763794,
+        0.9999918341636658
+      ],
+      "first_min_component_confidence": 0.6147092580795288,
+      "gripper_close_fraction": 0.22272727272727272,
+      "action_abs_mean_by_axis": [
+        0.2868448495864868,
+        0.08944737911224365,
+        0.5300536155700684,
+        0.02616756781935692,
+        0.044991087168455124,
+        0.03853829205036163,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 33,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.05204728535564126,
+      "maximum_target_height_gain_m": 0.09152855238263813,
+      "target_displacement_final_m": 0.06031121734116969,
+      "final_target_goal_xy_m": 0.10117216657074489,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9405871956489621,
+      "all_query_mean_confidence": 0.8740797040833481,
+      "first_confidence_by_axis": [
+        0.9814501404762268,
+        0.8505126237869263,
+        0.7625947594642639,
+        0.999911904335022,
+        0.9899426102638245,
+        0.9997113943099976,
+        0.9999868869781494
+      ],
+      "first_peak_probability_by_axis": [
+        0.9421499371528625,
+        0.45775535702705383,
+        0.5639854073524475,
+        0.9953137040138245,
+        0.8254784941673279,
+        0.9876477122306824,
+        0.9999935030937195
+      ],
+      "first_min_component_confidence": 0.08647798001766205,
+      "gripper_close_fraction": 0.5,
+      "action_abs_mean_by_axis": [
+        0.2956148684024811,
+        0.0915508046746254,
+        0.6159361600875854,
+        0.01839572750031948,
+        0.060249555855989456,
+        0.03276290372014046,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 34,
+      "success": false,
+      "category": "contact_without_3cm_lift",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.0534986658391985,
+      "maximum_target_height_gain_m": 0.006324070745934884,
+      "target_displacement_final_m": 0.007691221687086845,
+      "final_target_goal_xy_m": 0.17161483936210184,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9753872706400591,
+      "all_query_mean_confidence": 0.8856668468338654,
+      "first_confidence_by_axis": [
+        0.9952912330627441,
+        0.9609496593475342,
+        0.879746675491333,
+        0.9984263181686401,
+        0.9964452385902405,
+        0.9969537258148193,
+        0.9998981356620789
+      ],
+      "first_peak_probability_by_axis": [
+        0.976672887802124,
+        0.8288717269897461,
+        0.5134451389312744,
+        0.9469699859619141,
+        0.8639765977859497,
+        0.8787567615509033,
+        0.9999490976333618
+      ],
+      "first_min_component_confidence": 0.7027450799942017,
+      "gripper_close_fraction": 0.5,
+      "action_abs_mean_by_axis": [
+        0.2936897873878479,
+        0.12228157371282578,
+        0.615365743637085,
+        0.022994665428996086,
+        0.049803923815488815,
+        0.04267378896474838,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 35,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.14186461759241678,
+      "maximum_target_height_gain_m": 0.00026053433774375634,
+      "target_displacement_final_m": 0.0016895723241742123,
+      "final_target_goal_xy_m": 0.13189364519653787,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9749514317579034,
+      "all_query_mean_confidence": 0.8928018110442794,
+      "first_confidence_by_axis": [
+        0.9474878907203674,
+        0.9474656581878662,
+        0.9343397617340088,
+        0.9977543354034424,
+        0.9994927644729614,
+        0.999994158744812,
+        0.998125433921814
+      ],
+      "first_peak_probability_by_axis": [
+        0.8298648595809937,
+        0.7885997891426086,
+        0.6007201075553894,
+        0.9339113235473633,
+        0.9798173308372498,
+        0.9997478723526001,
+        0.999062716960907
+      ],
+      "first_min_component_confidence": 0.7812706232070923,
+      "gripper_close_fraction": 0.2863636363636364,
+      "action_abs_mean_by_axis": [
+        0.2748306691646576,
+        0.12581101059913635,
+        0.5217827558517456,
+        0.02007131651043892,
+        0.04570409283041954,
+        0.041140783578157425,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 36,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.09191756153650375,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.645047524970817e-07,
+      "final_target_goal_xy_m": 0.12823932636222876,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9503068537241827,
+      "all_query_mean_confidence": 0.9016330238115706,
+      "first_confidence_by_axis": [
+        0.9848859310150146,
+        0.839697003364563,
+        0.8387920260429382,
+        0.9985305070877075,
+        0.990572452545166,
+        0.9997591376304626,
+        0.9999109506607056
+      ],
+      "first_peak_probability_by_axis": [
+        0.9021276235580444,
+        0.5225862264633179,
+        0.5057041645050049,
+        0.9327071905136108,
+        0.8332785367965698,
+        0.9909496903419495,
+        0.9999554753303528
+      ],
+      "first_min_component_confidence": 0.6510782837867737,
+      "gripper_close_fraction": 0.30454545454545456,
+      "action_abs_mean_by_axis": [
+        0.2749732732772827,
+        0.11094469577074051,
+        0.5780035257339478,
+        0.020249569788575172,
+        0.04973258823156357,
+        0.041390348225831985,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 37,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.08289604760885905,
+      "maximum_target_height_gain_m": 0.06799386766591275,
+      "target_displacement_final_m": 0.08186004967208782,
+      "final_target_goal_xy_m": 0.2419325049496122,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.986567136453116,
+      "all_query_mean_confidence": 0.877653622489385,
+      "first_confidence_by_axis": [
+        0.9987325072288513,
+        0.9667181968688965,
+        0.9478532075881958,
+        0.9993688464164734,
+        0.9934272170066833,
+        0.9998810291290283,
+        0.9999887943267822
+      ],
+      "first_peak_probability_by_axis": [
+        0.9869018197059631,
+        0.8033392429351807,
+        0.8917523622512817,
+        0.9662113189697266,
+        0.8487001061439514,
+        0.9925289154052734,
+        0.9999943375587463
+      ],
+      "first_min_component_confidence": 0.6275480389595032,
+      "gripper_close_fraction": 0.5772727272727273,
+      "action_abs_mean_by_axis": [
+        0.30285200476646423,
+        0.10092686116695404,
+        0.534581184387207,
+        0.02459893934428692,
+        0.06288770586252213,
+        0.053048063069581985,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 38,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.11661177669029493,
+      "maximum_target_height_gain_m": 0.025575119480429787,
+      "target_displacement_final_m": 0.07487187591998228,
+      "final_target_goal_xy_m": 0.1526518694878113,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9033978475013635,
+      "all_query_mean_confidence": 0.9024957810380876,
+      "first_confidence_by_axis": [
+        0.9488489627838135,
+        0.956224262714386,
+        0.42823702096939087,
+        0.9995409250259399,
+        0.991455614566803,
+        0.9995319843292236,
+        0.9999462366104126
+      ],
+      "first_peak_probability_by_axis": [
+        0.8407668471336365,
+        0.85849529504776,
+        0.40839821100234985,
+        0.98094642162323,
+        0.794999897480011,
+        0.9705319404602051,
+        0.9999731779098511
+      ],
+      "first_min_component_confidence": 0.0,
+      "gripper_close_fraction": 0.11363636363636363,
+      "action_abs_mean_by_axis": [
+        0.3827451169490814,
+        0.11950080841779709,
+        0.7625319957733154,
+        0.022317316383123398,
+        0.05322636291384697,
+        0.024563264101743698,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 39,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.10188540250282625,
+      "maximum_target_height_gain_m": 0.02964233366770086,
+      "target_displacement_final_m": 0.04554859905615009,
+      "final_target_goal_xy_m": 0.20254149974676258,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9841701214696782,
+      "all_query_mean_confidence": 0.9020466796804468,
+      "first_confidence_by_axis": [
+        0.9988784790039062,
+        0.9353058934211731,
+        0.959942102432251,
+        0.9975996017456055,
+        0.9991814494132996,
+        0.9982987642288208,
+        0.999984622001648
+      ],
+      "first_peak_probability_by_axis": [
+        0.9911705255508423,
+        0.66231769323349,
+        0.7657114267349243,
+        0.9197919964790344,
+        0.9768081307411194,
+        0.924906849861145,
+        0.9999923706054688
+      ],
+      "first_min_component_confidence": 0.7946150898933411,
+      "gripper_close_fraction": 0.45454545454545453,
+      "action_abs_mean_by_axis": [
+        0.24253113567829132,
+        0.09921567142009735,
+        0.6234580278396606,
+        0.018253138288855553,
+        0.06663098931312561,
+        0.03201421722769737,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 40,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.07910115749193827,
+      "maximum_target_height_gain_m": 0.043066625369170164,
+      "target_displacement_final_m": 0.05564597881077927,
+      "final_target_goal_xy_m": 0.21523581924668128,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.973048741845591,
+      "all_query_mean_confidence": 0.8815447306584888,
+      "first_confidence_by_axis": [
+        0.9879480600357056,
+        0.9567409157752991,
+        0.8722854852676392,
+        0.9956023693084717,
+        0.9992790818214417,
+        0.9997073411941528,
+        0.9997780919075012
+      ],
+      "first_peak_probability_by_axis": [
+        0.9226975440979004,
+        0.8332213163375854,
+        0.7065770626068115,
+        0.8613333702087402,
+        0.977742075920105,
+        0.9872148036956787,
+        0.9998889565467834
+      ],
+      "first_min_component_confidence": 0.5479321479797363,
+      "gripper_close_fraction": 0.36818181818181817,
+      "action_abs_mean_by_axis": [
+        0.2961139380931854,
+        0.10096251219511032,
+        0.5711944103240967,
+        0.02131909690797329,
+        0.055793214589357376,
+        0.044598888605833054,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 41,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.12661519571876156,
+      "maximum_target_height_gain_m": 0.00010901234886129263,
+      "target_displacement_final_m": 0.0006506041745787304,
+      "final_target_goal_xy_m": 0.12151846897042874,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9687306128806987,
+      "all_query_mean_confidence": 0.8854705591139422,
+      "first_confidence_by_axis": [
+        0.918874204158783,
+        0.9173948764801025,
+        0.9491546750068665,
+        0.9960720539093018,
+        0.999800980091095,
+        0.9998584985733032,
+        0.9999589920043945
+      ],
+      "first_peak_probability_by_axis": [
+        0.7452972531318665,
+        0.7231892347335815,
+        0.7124864459037781,
+        0.8805481791496277,
+        0.9910405278205872,
+        0.9935798048973083,
+        0.9999794363975525
+      ],
+      "first_min_component_confidence": 0.7571606636047363,
+      "gripper_close_fraction": 0.2772727272727273,
+      "action_abs_mean_by_axis": [
+        0.2934402525424957,
+        0.09967909753322601,
+        0.4531908333301544,
+        0.014581134542822838,
+        0.0518716536462307,
+        0.03857393190264702,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 42,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.10298017191013871,
+      "maximum_target_height_gain_m": 3.610979263379832e-07,
+      "target_displacement_final_m": 3.611249097684197e-07,
+      "final_target_goal_xy_m": 0.18941781766215662,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9769323235764846,
+      "all_query_mean_confidence": 0.8964324456955294,
+      "first_confidence_by_axis": [
+        0.9996858835220337,
+        0.8630914688110352,
+        0.9875196814537048,
+        0.9969691038131714,
+        0.991594672203064,
+        0.9996868371963501,
+        0.9999786019325256
+      ],
+      "first_peak_probability_by_axis": [
+        0.9961081743240356,
+        0.447448194026947,
+        0.8548526167869568,
+        0.9120849370956421,
+        0.8856992721557617,
+        0.9867672324180603,
+        0.9999892711639404
+      ],
+      "first_min_component_confidence": 0.7034483551979065,
+      "gripper_close_fraction": 0.41363636363636364,
+      "action_abs_mean_by_axis": [
+        0.33661317825317383,
+        0.10695184022188187,
+        0.644278347492218,
+        0.024884149432182312,
+        0.04998215660452843,
+        0.04256680607795715,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 43,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.10160081703932353,
+      "maximum_target_height_gain_m": 2.6450475154593533e-07,
+      "target_displacement_final_m": 2.6450475249708647e-07,
+      "final_target_goal_xy_m": 0.14398986003423683,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9278442632858985,
+      "all_query_mean_confidence": 0.8872268097307764,
+      "first_confidence_by_axis": [
+        0.9073516130447388,
+        0.6901596188545227,
+        0.9091526865959167,
+        0.9947229623794556,
+        0.9961657524108887,
+        0.9973745942115784,
+        0.999982476234436
+      ],
+      "first_peak_probability_by_axis": [
+        0.6060147881507874,
+        0.5749325156211853,
+        0.6161936521530151,
+        0.9164888858795166,
+        0.9321109056472778,
+        0.8994527459144592,
+        0.999991238117218
+      ],
+      "first_min_component_confidence": 0.3008338510990143,
+      "gripper_close_fraction": 0.41363636363636364,
+      "action_abs_mean_by_axis": [
+        0.2416398674249649,
+        0.0987878367304802,
+        0.5930126309394836,
+        0.0191800594329834,
+        0.04570408910512924,
+        0.05183596909046173,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 44,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.06010408114423168,
+      "maximum_target_height_gain_m": 0.013152129344550456,
+      "target_displacement_final_m": 0.02667867671037397,
+      "final_target_goal_xy_m": 0.18213456900456806,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9713915462083917,
+      "all_query_mean_confidence": 0.8925434623781383,
+      "first_confidence_by_axis": [
+        0.9996172785758972,
+        0.8738940358161926,
+        0.9371856451034546,
+        0.9974398016929626,
+        0.9916148781776428,
+        0.9999966621398926,
+        0.9999925494194031
+      ],
+      "first_peak_probability_by_axis": [
+        0.9965996742248535,
+        0.5507705211639404,
+        0.6705148220062256,
+        0.9374614953994751,
+        0.7595312595367432,
+        0.999837338924408,
+        0.9999963045120239
+      ],
+      "first_min_component_confidence": 0.7103253602981567,
+      "gripper_close_fraction": 0.6318181818181818,
+      "action_abs_mean_by_axis": [
+        0.2757932245731354,
+        0.1029590293765068,
+        0.6868811249732971,
+        0.020000005140900612,
+        0.05707664415240288,
+        0.05044560134410858,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 45,
+      "success": false,
+      "category": "lift_without_task_success",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.04488446970952345,
+      "maximum_target_height_gain_m": 0.0929326320975834,
+      "target_displacement_final_m": 0.15426055565393826,
+      "final_target_goal_xy_m": 0.08139961804355586,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9331287209924286,
+      "all_query_mean_confidence": 0.9042067310295582,
+      "first_confidence_by_axis": [
+        0.7991921305656433,
+        0.7612835168838501,
+        0.9856504201889038,
+        0.9866430759429932,
+        0.9992420077323914,
+        0.9999364614486694,
+        0.9999535083770752
+      ],
+      "first_peak_probability_by_axis": [
+        0.46673157811164856,
+        0.4671112298965454,
+        0.8270974159240723,
+        0.8013896942138672,
+        0.9723557233810425,
+        0.997063934803009,
+        0.9999767541885376
+      ],
+      "first_min_component_confidence": 0.38306760787963867,
+      "gripper_close_fraction": 0.5681818181818182,
+      "action_abs_mean_by_axis": [
+        0.3487344980239868,
+        0.13008907437324524,
+        0.5572551488876343,
+        0.022210342809557915,
+        0.05065952241420746,
+        0.04634576663374901,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 46,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.03418643830400709,
+      "maximum_target_height_gain_m": 0.021991519867500475,
+      "target_displacement_final_m": 0.028063735611715625,
+      "final_target_goal_xy_m": 0.1315957870433161,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9425308236080798,
+      "all_query_mean_confidence": 0.8961675308277118,
+      "first_confidence_by_axis": [
+        0.9972126483917236,
+        0.6416564583778381,
+        0.9608988761901855,
+        0.9988397359848022,
+        0.9999105334281921,
+        0.999203085899353,
+        0.9999945163726807
+      ],
+      "first_peak_probability_by_axis": [
+        0.9627465605735779,
+        0.3746238350868225,
+        0.6075201034545898,
+        0.9304240345954895,
+        0.9957109689712524,
+        0.9727816581726074,
+        0.9999971985816956
+      ],
+      "first_min_component_confidence": 0.18400691449642181,
+      "gripper_close_fraction": 0.39545454545454545,
+      "action_abs_mean_by_axis": [
+        0.2983599901199341,
+        0.11326202750205994,
+        0.6172909140586853,
+        0.016149720177054405,
+        0.055543672293424606,
+        0.05076644942164421,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 47,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.1050522980925468,
+      "maximum_target_height_gain_m": 0.0023912010043398713,
+      "target_displacement_final_m": 0.023053457625752616,
+      "final_target_goal_xy_m": 0.13460131842871303,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9695234979033629,
+      "all_query_mean_confidence": 0.9171876265774771,
+      "first_confidence_by_axis": [
+        0.9920427799224854,
+        0.8629995584487915,
+        0.9749785661697388,
+        0.9693495035171509,
+        0.9875097870826721,
+        0.9998072981834412,
+        0.9999769926071167
+      ],
+      "first_peak_probability_by_axis": [
+        0.9571915864944458,
+        0.5755802989006042,
+        0.9008323550224304,
+        0.6663475632667542,
+        0.8646150231361389,
+        0.9935570955276489,
+        0.9999884366989136
+      ],
+      "first_min_component_confidence": 0.6042004823684692,
+      "gripper_close_fraction": 0.07272727272727272,
+      "action_abs_mean_by_axis": [
+        0.3423171639442444,
+        0.12691618502140045,
+        0.7118366360664368,
+        0.019607853144407272,
+        0.04919785261154175,
+        0.03650620952248573,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 48,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.1278485095569142,
+      "maximum_target_height_gain_m": 2.6450492718321783e-07,
+      "target_displacement_final_m": 2.645047663771526e-07,
+      "final_target_goal_xy_m": 0.14828377950085078,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9739938404319405,
+      "all_query_mean_confidence": 0.8905223185354441,
+      "first_confidence_by_axis": [
+        0.9820595383644104,
+        0.8677182197570801,
+        0.979681134223938,
+        0.9957753419876099,
+        0.9927573800086975,
+        0.9999959468841553,
+        0.9999693632125854
+      ],
+      "first_peak_probability_by_axis": [
+        0.9258806705474854,
+        0.6946319937705994,
+        0.872236967086792,
+        0.8399818539619446,
+        0.7713502049446106,
+        0.9997891187667847,
+        0.9999847412109375
+      ],
+      "first_min_component_confidence": 0.4617212414741516,
+      "gripper_close_fraction": 0.5363636363636364,
+      "action_abs_mean_by_axis": [
+        0.2564704716205597,
+        0.10787875205278397,
+        0.5115153789520264,
+        0.02598932385444641,
+        0.048591796308755875,
+        0.05101599171757698,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 49,
+      "success": false,
+      "category": "no_sustained_bilateral_contact",
+      "policy_steps": 220,
+      "min_eef_target_m": 0.08865877055228395,
+      "maximum_target_height_gain_m": 0.02989166472916871,
+      "target_displacement_final_m": 0.009113310181735638,
+      "final_target_goal_xy_m": 0.1371196123409396,
+      "sustained_bilateral_contact": false,
+      "sustained_lift_3cm": false,
+      "first_chunk_confidence": 0.9701802907965905,
+      "all_query_mean_confidence": 0.8956950378940195,
+      "first_confidence_by_axis": [
+        0.9984595775604248,
+        0.8987686038017273,
+        0.9130370616912842,
+        0.998869776725769,
+        0.9838055968284607,
+        0.9983463883399963,
+        0.9999752044677734
+      ],
+      "first_peak_probability_by_axis": [
+        0.9872541427612305,
+        0.7323970794677734,
+        0.9466367959976196,
+        0.9525724053382874,
+        0.7699875235557556,
+        0.9398320913314819,
+        0.9999875426292419
+      ],
+      "first_min_component_confidence": 0.30519771575927734,
+      "gripper_close_fraction": 0.7,
+      "action_abs_mean_by_axis": [
+        0.26951873302459717,
+        0.10167553275823593,
+        0.5670234560966492,
+        0.02110518515110016,
+        0.059821732342243195,
+        0.0458110012114048,
+        1.0
+      ]
+    }
+  ],
+  "source_hashes": {
+    "task-00-init-00": {
+      "result": "e38a4b4591fd73e7c39c3304ff89c67b768ac91613519fe5f76f5ec7cee7bdcb",
+      "trace": "90d4afb3f195d0b0c3ba7de5aae31f68af0a123a7f493247331d2a146a63e915"
+    },
+    "task-00-init-01": {
+      "result": "b1fd848a334fead8d1b87ad91c583cc3394035c434909d9aa3b319000c9f7a70",
+      "trace": "4017144e6a1c3e5d445ace435fbf230dc574dbb58c55d55a0ec20e4c8b923b25"
+    },
+    "task-00-init-02": {
+      "result": "83979aa8c0a0aef61660ae992f24e17982aa9dfa7183630c1515336bd1d229ae",
+      "trace": "2bab63a71cc43f1fb2f2d981e597938e525cb50f07cefec1213d012fb22169df"
+    },
+    "task-00-init-03": {
+      "result": "b91330e1ae03f547508ffbba37975209e4e6f4af145f402783323357bcc3dcf7",
+      "trace": "c0422af05f5818be915137fef8728c21a4dd243160c37dfb3a99bcea78ebbdd3"
+    },
+    "task-00-init-04": {
+      "result": "5b18ff51c0d60024df2cf8f04b1870f29105919b250e105a868c3fff1d4ccda4",
+      "trace": "8a5f3e32380c00c3f65252013f8df9a9e54b07d05ee99946657faeb11f8cd48e"
+    },
+    "task-00-init-05": {
+      "result": "1eca37c7b1e624d2850e204c52d179550ecd7f4b8d9345674c57879f6734ded4",
+      "trace": "bc11bf9a58fd8db489abe77a10717c0e9a10937ffd2bdef0a2651d1de670e1f1"
+    },
+    "task-00-init-06": {
+      "result": "f561c7530ebac289ce2c74622cecf1f83d3117ebe52d49243cbfd737a4b00843",
+      "trace": "9dd0decb8c0205020452d9d3fc9df1abf0ff2df64d25671873f1310a7ce33191"
+    },
+    "task-00-init-07": {
+      "result": "90116dcc6b0dfa283ba4d25714510e3990238958c3be6886ccb722655fe91db0",
+      "trace": "394cad9db1f751fcbf9cee55844e798ee6e0f6d6984acf8fa415749ae73635c9"
+    },
+    "task-00-init-08": {
+      "result": "026fdc5b24ce3f78d03cecd807ca57ccaeb0a592dddc8544c009ff40f9848e4c",
+      "trace": "e1db4647bca96773b030ccb4c4f472b1f8168fc1adb6c03d325282be09e0a6da"
+    },
+    "task-00-init-09": {
+      "result": "3b08a729085aaa98e121d8275b2a56aa7a7ba36328c741fd4c04a84f1a271709",
+      "trace": "7389c131833051cbce4ca65c9e7df4698c8febfee7f6038bde8ceb390b4b968f"
+    },
+    "task-00-init-10": {
+      "result": "5512d59d0c2cc87ef3c130c45a477b46c94454bc487caaf36ae4d8fa52ed3159",
+      "trace": "40f70b922d74ec7c78b26facdd435650e4532a6ca297de546d37304375a2edc1"
+    },
+    "task-00-init-11": {
+      "result": "aa1fa222ebe7109e3529bf5853b0b3b245c3b2364b855c9960ea9c480334c8a4",
+      "trace": "32a7b6466193966b66b7d76f15bf13e3db96e604be8c298bcf44bc4eb732ef34"
+    },
+    "task-00-init-12": {
+      "result": "847c82101b0b05c7c3a1bec04aede7cfb4a35ba5c7d305dd546162add2ac6913",
+      "trace": "b4d08ad824d00aca6eb86f09621cb88dfb51610dfe39d4692dd82ef981e94be7"
+    },
+    "task-00-init-13": {
+      "result": "b57d425af9367240fadcce64d6f8dfebb5622177d03c9673f6ea6c44665d5e48",
+      "trace": "709acd1c9e9c54b832881bb98a9270ee67bb89217a0c3112da367c1a657b6deb"
+    },
+    "task-00-init-14": {
+      "result": "d39f55a53d7e00bee920289c3c63285e9165f8829e0df436937e0259b83cadf0",
+      "trace": "f3b349b597cf0333ef822873a22c68b0418209ebc861958bc0eecc985350fe9a"
+    },
+    "task-00-init-15": {
+      "result": "208e594ad222147f3996aed827cd7da13497831aeebb158b240fd53d670d87e3",
+      "trace": "d84a40443aa19eb2f1b5d40ffeaf1032e0cf05121208518d174e929e188ee17c"
+    },
+    "task-00-init-16": {
+      "result": "b0c872b48b5662e7f61585bb789c30648492b51727538e846dcfc2a06ddb7942",
+      "trace": "d009fd17c87fecdbb6c514c74dca8b6123f8c8aaecd6b759148d359df9f60d34"
+    },
+    "task-00-init-17": {
+      "result": "065e95a15d0754589abaee5de6fc350381e4a617ae43325d456b27d9760c1bd9",
+      "trace": "09444efd7720990d27a29a32511317668de656e9cc71bc5c1f627658c9c52ccb"
+    },
+    "task-00-init-18": {
+      "result": "fd51e12df80d4aa2a872f2afd35b5d7a660c17eb66bacbd6628ae3ff489d846d",
+      "trace": "15af3f715ee8388e16d4bd032027f832aceaf140e3a4d5cb78e1695726972523"
+    },
+    "task-00-init-19": {
+      "result": "5ac1bd218573f4de33b3f916f71f0746e3b3080ddb6297edfcc9b758d47cea38",
+      "trace": "850d2006c8884a2cf711624fd34449642bd22f263265a16782ee228fb585bbfc"
+    },
+    "task-00-init-20": {
+      "result": "49b93cca16f2942a1178d99ca903d7028010139c561e7654fec6775f929145f1",
+      "trace": "44073d4c82478dce1537001cc4452e8a68a9a8e804145ca24d084cfaf1f533be"
+    },
+    "task-00-init-21": {
+      "result": "fdaebbba9f3832742c09f3294b14842d792faac7734cd3883e6172fdf54ac06b",
+      "trace": "ef55dd31f287ebc5d00a145e4939f982fc06647fa7a28cd32b586adb65b28429"
+    },
+    "task-00-init-22": {
+      "result": "50bfadc88f46b3f9625ca3d6613820499d5ed70157a2d09d9c72542b62f6b93a",
+      "trace": "ac5442d19fbb35f64137d273bf83b1ffe81d77b663bcaa1020ed840b52dd9aa6"
+    },
+    "task-00-init-23": {
+      "result": "44448464491a796fc28faa5e4b8cbbde75d9f4990792ee50b1c5e4ae0859192b",
+      "trace": "113eae27455a7c71e6bb44b6a1fc2551a026630a36ea051ccc23521aa7395bd2"
+    },
+    "task-00-init-24": {
+      "result": "db3f2a76937dae2d0cb1faad59c3a6179895bd249d892752037b307f57be5f21",
+      "trace": "261fb2ffe822db9f3a95a9a4d8c50da39bb73cb5f4bcc806fe435c0f0346f456"
+    },
+    "task-00-init-25": {
+      "result": "c65f24c9f945f0e43d188b3bbdfde2d9a2378bc723a143ad914b7db705a47950",
+      "trace": "8ed4809c1731d09a08959f9449ad2e2dfb2551c8d9435d84ab6c21fbba3fbbc5"
+    },
+    "task-00-init-26": {
+      "result": "a3eddefbfe5a1eeb2fb327d8e08398591b4c73c92de907a426fee046dd47b2f8",
+      "trace": "a55501b3cda620a58beee112d62d52f8bc2681fa3db33de92a682bd54a0efed5"
+    },
+    "task-00-init-27": {
+      "result": "c0d3b82e82ca9c8dae09bc02b0ac0f68db24efc64b0bd07a5d3e2b200ab77e9b",
+      "trace": "21f3031da5ea5358a1e229acece2c01c6cda0950a22923fa05a27cb6d1218222"
+    },
+    "task-00-init-28": {
+      "result": "0c3a57904de50394a3c360604cc8a3a32ac414d1a2c4333fb14b54bb42f5d444",
+      "trace": "eef06fd162b50c9e8d2358f78b3d7fb342c7bb57f04357c51b23bf7cdb905ee3"
+    },
+    "task-00-init-29": {
+      "result": "ef5c9720e740e100537b30dbd9140f93b9b53ff850142ed7419972cccdfa3101",
+      "trace": "9a0920a75ec14f44756ca0999ceae994af43d2e533d6ab1e94e47c1498ed1dd1"
+    },
+    "task-00-init-30": {
+      "result": "5f2210b7b3068f9c39403d79fa538a25184a7b28b610edfd174d285bf4967056",
+      "trace": "7436479089823151b4079543ea3dc0dde03dabc938fcf0c3f9b73c23e94297ce"
+    },
+    "task-00-init-31": {
+      "result": "940038da6e7dbd2c8861e7cdae82085510e31b2cd5f886471f097c85bc59ec69",
+      "trace": "a97eddf0ea211e0b7bbd2b9a7c04018e86f256424bb5ce8c0156e6beb3169b65"
+    },
+    "task-00-init-32": {
+      "result": "5a7d34f7ab748d04b1393a6d8a3356537d2adc32e8101fc9618bdbeb5f21a60e",
+      "trace": "36c52e0e537cbda75d879cb02f4592ab38ec4ce798a77271be282fbe18a397cc"
+    },
+    "task-00-init-33": {
+      "result": "dc3010c35fdf190420156e7a0726d2e4983c65018c24ca1d771d015af7352cd1",
+      "trace": "7e710b1ef24b18b087fb34c5ba0e6a0a50df12c3d692db85e1cf9c661b821978"
+    },
+    "task-00-init-34": {
+      "result": "808b9ea00ea125decb31f0443e64ca41d8878d1b70b9af81e44268c9d9086010",
+      "trace": "16564e8786750431808a2a5e4956d1061bb23beba307ba9c9516be06f160656e"
+    },
+    "task-00-init-35": {
+      "result": "f7c28692b3fe0be1ab93049c71a73b7b7d73500bb77233778f5b2d270b3cf448",
+      "trace": "f4e1bebe22faea18633a1e71270c3119e0890e0194d8bc6dd30446d50fd4854f"
+    },
+    "task-00-init-36": {
+      "result": "432afcb828e8e2310b8e6704a672c6e612e1e91d5bf01b242f1dba9b0d0e7238",
+      "trace": "f8b53e0ed71b4003ddf731b8d40f22bf04896f20602320250ef9d63453eb13f0"
+    },
+    "task-00-init-37": {
+      "result": "62adeb57550769a961d1211a060d70bfe7c485f7e7f45186aa57fcba7d547fd9",
+      "trace": "96496d9349b166c498ede277d489318bc9cdcb2f0b5dd5a24ac06275c37857dd"
+    },
+    "task-00-init-38": {
+      "result": "840098ae1c842857c8084bd38cc5fb17d1debc65f148ff1fade3456873aab4e2",
+      "trace": "a2cbe90e2033137609e6c4f048a5076432b121196abdca417691aa92498fba09"
+    },
+    "task-00-init-39": {
+      "result": "69c248ee8bd67c7cb60a2c8efcbefdb9199dbfde75bd92d66b9d385a44998844",
+      "trace": "c5824d28e8ec6168cbd8eda2d0cddcc7a43f573bebecbac728df690aec2e4ab6"
+    },
+    "task-00-init-40": {
+      "result": "71c450f7ded9e1652a36a7a40fca5a36750cbdc6899ec84dd4086c6a689e3e87",
+      "trace": "e4927df68c66b1bd861dc86ed5cff6b57b132c176b84d1b22a089b4ca056bb26"
+    },
+    "task-00-init-41": {
+      "result": "0962cbb181696b8bb7541810b2114c73c1eabf6385cb075dc2d1c94650ac4b92",
+      "trace": "aa78ae1868a35ec96aa37d185becc4e60f0b9a4df776ac637f5e7d08ac1c4a70"
+    },
+    "task-00-init-42": {
+      "result": "d8fa7aef335a7ed4b568034e774eeaf9062ca90b7993743f93abbf5fed69c2fc",
+      "trace": "12b50a034a8b25c32fcc5993a8dc36849ac28c0448593d18e8e5013604eb09b8"
+    },
+    "task-00-init-43": {
+      "result": "4087c25713a15ae5e38b94a499e2965151e8240cfc13150638538ed53d313c97",
+      "trace": "74dfa8678e28c06786ffd245d8a43fcc0148f0e7f01c778c813e93c33b6cb7de"
+    },
+    "task-00-init-44": {
+      "result": "9651a207fde63c0f1d0d0ae05cf7e9a6618d3eae227627583f1c0e404b74c380",
+      "trace": "97787f311d0c4b0b5f0ea27ec20f852fe8b116fa13f48031fc03648d8076d4d9"
+    },
+    "task-00-init-45": {
+      "result": "ec77f9157c52d64878a07e3b151c3b231ec81c02b366d6c95cadf2cf9e0869c2",
+      "trace": "88a907dbce477a54ea07a07909f32b7b4d829bf382931a33a8fc8fe58c0981ac"
+    },
+    "task-00-init-46": {
+      "result": "3790a92ba03c8f26960ea7084f9ecffa958f4b5caaeaf50524b2d40060229434",
+      "trace": "4216dcd8408f7d5901c13e464629403341738ad71bbbb9f0404be8f9d4b4bee5"
+    },
+    "task-00-init-47": {
+      "result": "44a15cc75921e4838e2189c4e5247e36604c7de7b7ba415b4d786b1a2632f5ed",
+      "trace": "724f92363ba45c86e14f1556c05b664e073fe806875464b143de1a594550f577"
+    },
+    "task-00-init-48": {
+      "result": "8c632046b366b7b2549538d11d494ab46fb6d488bcf1b150bc1b6c8e56669881",
+      "trace": "abd86ff84edf4456e411073ca09d9b72b9d2a24aa591a9329b6dff75d1a87a4f"
+    },
+    "task-00-init-49": {
+      "result": "a924e74355bada5be62fd42455b05d7a4aa4719ffc828bdb52437094b607f897",
+      "trace": "7c1e52061351869c726fb156805a785840629ad808e91c44c00e0229b9380653"
+    }
+  },
+  "contract_sha256": "5ce13ce26dc74282d16e87b337cd074024799589b707e6efc263bd93510e395f"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "action_api_parity": true,
+  "resident_vs_streamed_latest_checkpoint_parity": "not_measured",
+  "preflight_policy_seconds": 15.659388852887787,
+  "episodes": 2,
+  "selection_basis": "second warmed preflight latency only, before scored episodes; first cold preflight preserved",
+  "formula": "min(10, floor(1200 / (28 * preflight_p95_seconds *1.2 +5)))",
+  "config_sha256": "65b83b6c9ec79cb7fd21a9e971352daaf82f059b67c7680cf64afcfbd19cb27f",
+  "protocol_sha256": "2df1a7eadbce55e44534cb731700984598cf91318a6c362c6e826d2ddaf32982"
+}

@@ -1,0 +1,5 @@
+{
+  "image": "sha256:c403c02875ecec562feca139c67f3da0a982b267c4b67a56d5dfb2f1fe19853c",
+  "base": "sha256:f9150b270212789ddb79da45b925d631e0153853d289c32c2837482a21b2d222",
+  "change": "gcc and libc6-dev added for Triton JIT; torch/transformers/CUDA packages unchanged"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": 0,
+  "initial_state_id": 0,
+  "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+  "success": false,
+  "policy_steps": 8,
+  "settle_steps": 10,
+  "policy_queries": 1,
+  "environment_terminated": false,
+  "repeated_prediction_verified": true,
+  "confidence_schema": "decisionvla.action-confidence.v1",
+  "confidence_action_parity_verified": true,
+  "initial_state_sha256": "4e3eaf7a315bc3bafb6db4837c8eef0e5f8aea717782a2a3ea33139392d966ed",
+  "artifacts_sha256": {
+    "rollout.mp4": "f769746deb9980bec8a27d62e84be7d77559cdd7d8d8c2cf5c9251f1d022c936",
+    "trace.npz": "239088147afae911760de5f87b0a35f5108ef9e47d45e456166f91a20c4bf1ef"
+  }
+}

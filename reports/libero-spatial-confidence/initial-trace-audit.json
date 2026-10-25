@@ -1,0 +1,20 @@
+{
+  "status": "initial_trace_audit_passed",
+  "evaluation_run": "libero-spatial-r32-confidence-v3",
+  "checkpoint_step": 2000,
+  "verified_episodes": 3,
+  "verified_policy_queries": 84,
+  "checks": [
+    "artifact SHA256",
+    "probability support and normalization",
+    "all confidence metric recomputations",
+    "argmax and decoded action equality",
+    "executed chunk action equality"
+  ],
+  "initial_policy_seconds_p50_p95": [
+    0.5104840825079009,
+    0.5305659397738054
+  ],
+  "evaluation_elapsed_seconds_at_3_episodes": 102.46457858500071,
+  "scope": "interim runtime verification, not final success/failure association or RTX5090 benchmark"
+}

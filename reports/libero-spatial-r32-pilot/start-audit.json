@@ -1,0 +1,46 @@
+{
+  "observed_at_utc": "2026-10-24T06:04:01.354588+00:00",
+  "run": "libero-spatial-r32-all-v2",
+  "controller_pid": 3740343,
+  "container_started_at_utc": "2026-10-24T06:02:23.503899601Z",
+  "running": true,
+  "authorized_gpu_index": 0,
+  "gpu": "RTX PRO 6000 Blackwell 96GB",
+  "completed_steps": 9,
+  "target_steps": 2000,
+  "effective_batch": 8,
+  "losses_finite": true,
+  "first_prefix_gradient_norm": 1.029880166053772,
+  "first_family_gradient_norms": {
+    "self_attn": 12.635616302490234,
+    "mlp": 9.616498947143555,
+    "experts": 7.038105487823486,
+    "embed_tokens": 42.31314468383789
+  },
+  "latest_loss": 5.746119916439056,
+  "recent_update_seconds_median": 6.6931276329560205,
+  "recent_update_sample_count": 8,
+  "peak_allocated_GiB": 71.1191029548645,
+  "peak_reserved_GiB": 71.349609375,
+  "source_files_sha256_verified": 34,
+  "old_rank16_completed_steps": 2000,
+  "old_source_files_sha256_verified": 24,
+  "old_final_checkpoint_files_sha256_verified": 4,
+  "old_final_validation": {
+    "event": "validation",
+    "step": 2000,
+    "continuous_action_mae": 0.2326334137173386,
+    "gripper_accuracy": 0.9013157894736842,
+    "action_token_accuracy": 0.26973684210526316,
+    "denoising_ce": 2.0783471167087555,
+    "samples": 20,
+    "kind": "held_out_demonstration_open_loop_not_rollout_success"
+  },
+  "cpu_tests_passed": 10,
+  "ruff_passed": true,
+  "closed_loop_success_measured": false,
+  "failed_launch_v1": {
+    "training_updates": 0,
+    "reason": "Resource device layout changed before lease; preserved failed attempt and protected workloads"
+  }
+}

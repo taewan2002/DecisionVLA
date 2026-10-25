@@ -1,0 +1,64 @@
+{
+  "route_checks": [
+    {
+      "rows": 1,
+      "topk": 2,
+      "experts": 4,
+      "block": 16,
+      "passed": true
+    },
+    {
+      "rows": 37,
+      "topk": 8,
+      "experts": 128,
+      "block": 16,
+      "passed": true
+    },
+    {
+      "rows": 256,
+      "topk": 8,
+      "experts": 128,
+      "block": 32,
+      "passed": true
+    },
+    {
+      "rows": 345,
+      "topk": 8,
+      "experts": 128,
+      "block": 64,
+      "passed": true
+    }
+  ],
+  "real_layer0_repeat_max_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "torch": "2.9.1+cu130",
+  "transformers": "5.20.2",
+  "numpy": "1.26.4",
+  "pillow": "13.0.0",
+  "triton": "3.5.1",
+  "image_id": "sha256:66dcd2325a2bfb55c293c9339d7338dd5637530c12b6bd6c55da7531984a0264"
+}

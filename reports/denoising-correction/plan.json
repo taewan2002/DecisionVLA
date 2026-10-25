@@ -1,0 +1,40 @@
+{
+  "keys": [
+    "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/75",
+    "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/97",
+    "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_29/103",
+    "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_29/70",
+    "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/104",
+    "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_39/70",
+    "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_39/6",
+    "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_39/49",
+    "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_39/88",
+    "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_9/31",
+    "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_39/81",
+    "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_19/118",
+    "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_49/30",
+    "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_29/24",
+    "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_9/39",
+    "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_49/99",
+    "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_49/92",
+    "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_9/55",
+    "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_19/101",
+    "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_9/171"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "steps": 4,
+  "new_training_updates": 0,
+  "scope": "known-task held-out demos, post-hoc mechanism diagnosis",
+  "controls": [
+    "ground_truth_canvas",
+    "shifted_translation_and_flipped_gripper_canvas"
+  ],
+  "interpretation": "confidence growth alone is expected; compare paired accuracy and input dependence",
+  "adapter_sha256": "aab279b96227ce63d3df5dc366382346e9b733f43bed5dd82fbcac0ffebd094d",
+  "gpu_allocator_limit_fraction": 0.34,
+  "resident_gib": 25
+}

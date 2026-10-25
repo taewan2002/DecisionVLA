@@ -19,3 +19,11 @@ dist/
 build/
 runs/
 release-assets/
+evaluation-output/
+/exports/
+/inputs/
+/results/
+
+# Local datasets, raw diagnostics and operating-system metadata
+data-*/
+.DS_Store

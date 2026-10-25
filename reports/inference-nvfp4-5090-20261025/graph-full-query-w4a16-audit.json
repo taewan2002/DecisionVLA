@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "mode": "w4a16",
+  "queries": 409,
+  "distributions": 22904,
+  "replay_report_sha256": "bf80bd0275682e6c7e668e0d6a345418bf5a4cac112f3ebce978ede982371377",
+  "all_image_action_probability_hashes_match_reference": true,
+  "probability_normalization_gripper_support_and_action_decode_passed": true,
+  "interpretation": "Independent trace/hash audit; these are existing episodes, not new success trials"
+}

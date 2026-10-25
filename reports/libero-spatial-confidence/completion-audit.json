@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-24T14:10:20.141620+00:00",
+  "episodes": 500,
+  "successes": 14,
+  "artifact_files_sha256_verified": 1500,
+  "frozen_source_files_sha256_verified": 33,
+  "unique_task_initial_pairs": 500,
+  "primary_auroc_independent_csv_recomputation": 0.4310897435897436,
+  "eligible_failure_success_pairs": 624,
+  "raw_probability_metric_action_audit": "completed by frozen decisionvla.analyze_confidence before original controller completion",
+  "protocol_sha256": "c64c01539e1f578be8e48285d9c92708addc10261e161060ee9e91663a2e21d2",
+  "contract_sha256": "5ce13ce26dc74282d16e87b337cd074024799589b707e6efc263bd93510e395f",
+  "report_sha256": "0192d980d8db845d0a4a37679fd977b8b81011c81dabb784561bd9ddce87e837",
+  "episodes_csv_sha256": "efe695305eb826ee5988e3214671c2881d3c9d76d217b0f5f88bb1606fa032df",
+  "verified_artifacts_index_sha256": "e72bb3d043cbf9c0a1899ff6e64c59d01a59d1cd1e9a25a1a52780bdc541a057",
+  "latency_note": "contains offloaded-diagnostic and shared-server parallel intervals; not standalone inference timing"
+}

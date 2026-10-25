@@ -1,0 +1,35 @@
+{
+  "kind": "one_off_exploratory_pilot",
+  "checkpoint_step": 4500,
+  "suite": "libero_spatial",
+  "task_ids": [
+    0
+  ],
+  "maximum_episodes": 10,
+  "initial_state_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "episode_count_rule": "min(10, floor(1200 / (28 * second_warmed_preflight_p95_policy_seconds * 1.2 + 5))); abort if <1; only latency before scored rollout used",
+  "gpu_indices": [
+    0
+  ],
+  "training_and_serving_remain_running": true,
+  "allocator_limit_gib": 6,
+  "minimum_free_mib": 2048,
+  "sustained_training_slowdown_limit_ratio": 1.3,
+  "final100k_release_policy_unchanged": true,
+  "latest_checkpoint_fullresident_vs_streamed_parity": "not_measured; original prediction API unchanged, action/confidence/repeat preflight required",
+  "runtime_source_files": 110,
+  "existing_training_source_exact": true,
+  "previous_attempt": "v1 stopped before scored episodes because first cold request exceeded budget; all evidence preserved",
+  "baseline_training_seconds": 7.572685755556449
+}

@@ -1,0 +1,8 @@
+FROM decisionvla-simulator:20261024-v1
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends libexpat1 libfontconfig1 libmagickwand-dev && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir Wand==0.6.13 scikit-image==0.25.2
+COPY cache/libero-plus-runtime /opt/LIBERO-PLUS
+RUN test "$(git -C /opt/LIBERO-PLUS rev-parse HEAD)" = 4976dc30028e805ff8094b55501d532c48fec182 && pip uninstall -y libero && pip install --no-deps -e /opt/LIBERO-PLUS
+RUN mkdir -p /opt/libero-plus-config && python -c 'import yaml; from pathlib import Path; p="/opt/LIBERO-PLUS/libero/libero"; Path("/opt/libero-plus-config/config.yaml").write_text(yaml.safe_dump({"benchmark_root":p,"bddl_files":p+"/bddl_files","init_states":p+"/init_files","assets":p+"/assets","datasets":"/tmp/no-training-data"}))'
+ENV LIBERO_CONFIG_PATH=/opt/libero-plus-config

@@ -1,0 +1,14 @@
+FROM python:3.10-slim-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends git build-essential linux-libc-dev libosmesa6 libgl1 libgl1-mesa-dri libglib2.0-0 libgomp1 && rm -rf /var/lib/apt/lists/*
+COPY evaluation/requirements-simulator.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir pip==25.2 && pip install --no-cache-dir torch==2.5.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r /tmp/requirements.txt
+ARG LIBERO_REVISION=8f1084e3132a39270c3a13ebe37270a43ece2a01
+RUN git init /opt/LIBERO && git -C /opt/LIBERO remote add origin https://github.com/Lifelong-Robot-Learning/LIBERO.git && git -C /opt/LIBERO fetch --depth 1 origin "$LIBERO_REVISION" && git -C /opt/LIBERO checkout FETCH_HEAD && pip install --no-deps -e /opt/LIBERO
+RUN mkdir -p /opt/libero-config /opt/LIBERO/libero/datasets && python -c 'import yaml; from pathlib import Path; p="/opt/LIBERO/libero/libero"; Path("/opt/libero-config/config.yaml").write_text(yaml.safe_dump({"benchmark_root":p,"bddl_files":p+"/bddl_files","init_states":p+"/init_files","assets":p+"/assets","datasets":"/opt/LIBERO/libero/datasets"}))'
+ENV LIBERO_CONFIG_PATH=/opt/libero-config MUJOCO_GL=osmesa PYOPENGL_PLATFORM=osmesa PYTHONPATH=/workspace/src PYTHONUNBUFFERED=1 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 NUMBA_NUM_THREADS=2
+WORKDIR /workspace
+COPY src ./src
+COPY configs ./configs
+COPY tests ./tests
+RUN pip install --no-cache-dir future==1.0.0
+ENTRYPOINT ["python"]

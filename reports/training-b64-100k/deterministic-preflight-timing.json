@@ -1,0 +1,54 @@
+{
+  "scope": "Disposable deterministic-algorithm preflight, not production or policy performance",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": ":4096:8",
+  "microbatch": 4,
+  "gradient_accumulation": 8,
+  "world_size": 2,
+  "global_batch_size": 64,
+  "events_sha256": "4d3c43767e29d48ef30e667b0df4dc6a379e2a799490fd674c8a353b8618586e",
+  "updates": [
+    {
+      "step": 1,
+      "lr": 5.045000000000001e-06,
+      "loss": 6.223019957542419,
+      "grad_norm": 34.407676696777344,
+      "seconds": 36.497281515970826,
+      "global_batch_size": 64,
+      "supervised_tokens": 2225,
+      "valid_tokens": 3486,
+      "rank_peak_allocated_GiB": [
+        76.39587306976318,
+        76.39587306976318
+      ]
+    },
+    {
+      "step": 2,
+      "lr": 5.09e-06,
+      "loss": 6.318658947944641,
+      "grad_norm": 30.13083267211914,
+      "seconds": 21.18767342402134,
+      "global_batch_size": 64,
+      "supervised_tokens": 2377,
+      "valid_tokens": 3514,
+      "rank_peak_allocated_GiB": [
+        83.76803541183472,
+        83.76803541183472
+      ]
+    },
+    {
+      "step": 3,
+      "lr": 5.135000000000001e-06,
+      "loss": 6.266106396913528,
+      "grad_norm": 27.46457862854004,
+      "seconds": 20.44974399905186,
+      "global_batch_size": 64,
+      "supervised_tokens": 2070,
+      "valid_tokens": 3535,
+      "rank_peak_allocated_GiB": [
+        83.76803541183472,
+        83.76803541183472
+      ]
+    }
+  ]
+}

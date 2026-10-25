@@ -1,0 +1,44 @@
+{
+  "purpose": "Measure the actual 4500-step DecisionVLA policy on RTX5090 GPU0 without CPU weight offload, with a paired BF16 reference.",
+  "checkpoint_step": 4500,
+  "training": "Unchanged, continues on separate host GPU0/1",
+  "observations": "10 evenly spaced held-out LIBERO demonstration observations selected before model output",
+  "denoising_steps": 4,
+  "horizon": 8,
+  "action_dim": 7,
+  "bf16": {
+    "placement": "CPU master streaming with CUDA arithmetic",
+    "warmups": 1,
+    "measured_requests": 10,
+    "reuse": "Completed v1 ten measurements on identical hardware/model/source/inputs. V1 stopped on an overly broad hooks check, before any scored resident timing."
+  },
+  "resident_w4": {
+    "weights": "Only frozen expert weights use symmetric group64 RTN INT4; remaining original types including FP32 LoRA",
+    "compute": "GPU BF16 dequantization then original cached cuBLAS grouped GEMM",
+    "warmups": 3,
+    "measured_requests": 20,
+    "closed_loop_success": "not_evaluated"
+  },
+  "measurements": [
+    "p50/p95 end-to-end policy latency",
+    "memory peak",
+    "raw paired actions/probabilities",
+    "repeated output equality",
+    "quantizer unpack reference equality"
+  ],
+  "timing_boundary": "PIL observation/instruction to 8x7 actions and full confidence diagnostics; excludes model load, image disk decode, warmup, RPC and robot execution",
+  "limits": {
+    "gpu_index": 0,
+    "allocator_gib": 29,
+    "timeout_minutes": 40,
+    "restore_original_miner": true
+  },
+  "non_claims": [
+    "NVFP4 trained export",
+    "optimized serving speed",
+    "calibrated success probability",
+    "quantized policy quality equivalence",
+    "closed-loop success of quantized policy"
+  ],
+  "revision": "v2 preserves original built-in hooks and asserts their identities unchanged; all weights/buffers CUDA; no streaming hooks installed in resident-only process."
+}

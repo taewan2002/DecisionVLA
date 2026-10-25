@@ -1,0 +1,17 @@
+{
+  "benchmarks/resident_nvfp4.py": "b30667a0bedf9c4e8f1ee918d74240cdcd7e2555ca6033deabb613f6e77364af",
+  "benchmarks/resident_nvfp4_a4.py": "b249d746b29a5ec89f268127cf9954dceff3f5b7ba29bf306df92722ee77c6b7",
+  "benchmarks/stable_routes.py": "3decd30c9559edd6e03bb94acabe4619d5d6846ba7816bf69e87f3fae572bb5e",
+  "benchmarks/decoder_graph.py": "9cae2f97b2af76b4f86a516f0717de0cf39050e301c9f471bf94f15b3d2986d7",
+  "benchmarks/prefix_graph.py": "8041b093f56449d42084b4086e408a51dfbf112e1c41a90ac2e16913c806c44a",
+  "benchmarks/latency_nvfp4.py": "921fa56df1908d21b8d4d1e9691d3512ff66c971b26885542bd11f7e6ef5a8b0",
+  "benchmarks/export_nvfp4.py": "026c3fc737b62e156968602ec6221bfd8e67c5f7c61c1094fba77bbaffb4ab14",
+  "benchmarks/calibrate_nvfp4.py": "3b66b94c8d35fb5a6f216395690a785459e9c3dc1c2dee3a05c8506a437d9422",
+  "benchmarks/prepare_calibration_inputs.py": "d20639eaea07af214ed42ecaf75f8f572021823ab98012040a40ba62fd8da6e1",
+  "benchmarks/audit_nvfp4.py": "c6fb2ec86088d82747ab3c3f0f5bb1bcf31c119e2e0a7e9168eb659a7f4b346c",
+  "benchmarks/replay_policy_observations.py": "f722ce85450437a307d4b916b78d72a1636ed454a5fd0ec743873b9201119d9c",
+  "benchmarks/replay_graph_queries.py": "8d7a52141bb6233481be41c35c52118fe0fa69c3fce3dea2558b6a44d749dacb",
+  "benchmarks/patches/flashinfer_geglu.py": "796c741cc4e9df5ef055aa8c10a6804ad08da1bd62fe4e5b3d42f3ffbe29a8d9",
+  "benchmarks/audit_graph_replay.py": "fc1d0ced3b1ad8478d33f68eb9eda83dea0a790c898ba04b3292df0f90e8e93e",
+  "benchmarks/audit_standalone_nvfp4.py": "3a389a3b714364affd7e0698a7cb39c22e18c80fdfde24c984b948cf49d6e7bd"
+}

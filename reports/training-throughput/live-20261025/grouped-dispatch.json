@@ -1,0 +1,96 @@
+{
+  "torch": "2.9.1+cu130",
+  "git_revision": "5811a8d7da873dd699ff6687092c225caffcf1bb",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "capability": [
+    12,
+    0
+  ],
+  "input_shape": [
+    1024,
+    128
+  ],
+  "weight_shape": [
+    128,
+    128,
+    64
+  ],
+  "groups": 128,
+  "correct_output": true,
+  "scope": "isolated synthetic BF16 grouped-mm forward dispatch probe, no model loading/training; concurrent main run timings excluded",
+  "peak_allocated_bytes": 36176384,
+  "operators": [
+    {
+      "op": "aten::_grouped_mm",
+      "count": 1,
+      "cpu_total_us": 4548.160000000001,
+      "self_cpu_us": 384.68399999999656
+    },
+    {
+      "op": "aten::empty_strided",
+      "count": 2,
+      "cpu_total_us": 773.38,
+      "self_cpu_us": 39.16100000000006
+    },
+    {
+      "op": "aten::fill_",
+      "count": 2,
+      "cpu_total_us": 734.2189999999999,
+      "self_cpu_us": 734.2189999999999
+    },
+    {
+      "op": "aten::to",
+      "count": 1,
+      "cpu_total_us": 71.86099999999999,
+      "self_cpu_us": 6.210000000000036
+    },
+    {
+      "op": "aten::_to_copy",
+      "count": 1,
+      "cpu_total_us": 65.65099999999995,
+      "self_cpu_us": 6.759999999999991
+    },
+    {
+      "op": "aten::copy_",
+      "count": 1,
+      "cpu_total_us": 45.569999999999936,
+      "self_cpu_us": 45.569999999999936
+    },
+    {
+      "op": "aten::select",
+      "count": 256,
+      "cpu_total_us": 255.1769999999973,
+      "self_cpu_us": 191.99499999999477
+    },
+    {
+      "op": "aten::as_strided",
+      "count": 512,
+      "cpu_total_us": 123.37400000000218,
+      "self_cpu_us": 123.37400000000218
+    },
+    {
+      "op": "aten::item",
+      "count": 128,
+      "cpu_total_us": 91.39400000000592,
+      "self_cpu_us": 68.88300000000174
+    },
+    {
+      "op": "aten::_local_scalar_dense",
+      "count": 128,
+      "cpu_total_us": 22.511000000004174,
+      "self_cpu_us": 22.511000000004174
+    },
+    {
+      "op": "aten::slice",
+      "count": 256,
+      "cpu_total_us": 209.27499999999884,
+      "self_cpu_us": 149.08299999999917
+    },
+    {
+      "op": "aten::mm",
+      "count": 128,
+      "cpu_total_us": 2775.710000000002,
+      "self_cpu_us": 2775.710000000002
+    }
+  ]
+}

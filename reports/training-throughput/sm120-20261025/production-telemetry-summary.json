@@ -1,0 +1,27 @@
+{
+  "scope": "45 one-second samples during production training; utilization is not Tensor Core FLOP utilization",
+  "start_step": 40,
+  "end_step": 43,
+  "gpus": {
+    "0": {
+      "samples": 45,
+      "gpu_util_mean_percent": 54.44444444444444,
+      "memory_util_mean_percent": 23.0,
+      "power_mean_watts": 306.1022222222222,
+      "max_memory_MiB": 87485.0,
+      "power_limit_watts": [
+        600.0
+      ]
+    },
+    "1": {
+      "samples": 45,
+      "gpu_util_mean_percent": 54.422222222222224,
+      "memory_util_mean_percent": 28.644444444444446,
+      "power_mean_watts": 309.8473333333333,
+      "max_memory_MiB": 87404.0,
+      "power_limit_watts": [
+        600.0
+      ]
+    }
+  }
+}

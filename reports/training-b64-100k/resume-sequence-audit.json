@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "updates": 3,
+  "sample_keys_exact_all_ranks": true,
+  "loss_gradient_norm_learning_rate_exact": true,
+  "global_batch_size": 64,
+  "scope": "disposable continuous3 versus2+1; no production weights reused"
+}

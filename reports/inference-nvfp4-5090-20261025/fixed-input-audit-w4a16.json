@@ -1,0 +1,86 @@
+{
+  "fixed_inputs": {
+    "observations": 10,
+    "continuous_actions": 480,
+    "gripper_actions": 80,
+    "continuous_action_mae": 0.040571896638721225,
+    "max_action_difference": 0.7843137979507446,
+    "gripper_agreements": 80,
+    "probability_mean_tv": 0.25127803927041115,
+    "rows": [
+      {
+        "observation": 0,
+        "continuous_action_mae": 0.10130719095468521,
+        "max_action_difference": 0.7843137979507446,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.21610694647839587
+      },
+      {
+        "observation": 1,
+        "continuous_action_mae": 0.023692810907959938,
+        "max_action_difference": 0.38431376218795776,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.24600790128696617
+      },
+      {
+        "observation": 2,
+        "continuous_action_mae": 0.01944444328546524,
+        "max_action_difference": 0.3529411554336548,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.35077127853404255
+      },
+      {
+        "observation": 3,
+        "continuous_action_mae": 0.011437907814979553,
+        "max_action_difference": 0.18823528289794922,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.15333890188124874
+      },
+      {
+        "observation": 4,
+        "continuous_action_mae": 0.07728759199380875,
+        "max_action_difference": 0.6666667461395264,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.271560343911423
+      },
+      {
+        "observation": 5,
+        "continuous_action_mae": 0.021895423531532288,
+        "max_action_difference": 0.2901960611343384,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.24532217040511486
+      },
+      {
+        "observation": 6,
+        "continuous_action_mae": 0.008169934153556824,
+        "max_action_difference": 0.18823528289794922,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.1550367162167515
+      },
+      {
+        "observation": 7,
+        "continuous_action_mae": 0.029248366132378578,
+        "max_action_difference": 0.29019612073898315,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.31209569951391863
+      },
+      {
+        "observation": 8,
+        "continuous_action_mae": 0.01503268163651228,
+        "max_action_difference": 0.16470587253570557,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.18953458963172073
+      },
+      {
+        "observation": 9,
+        "continuous_action_mae": 0.09820261597633362,
+        "max_action_difference": 0.6666667461395264,
+        "gripper_agreements": 8,
+        "probability_mean_tv": 0.3730058448445293
+      }
+    ],
+    "reference_sha256": "51cd5696d3e6bc6fe38ac31dc51e2a4947f930eb7eda00853d04527b35b2624a",
+    "candidate_sha256": "9123b49d7c3bf96fce681e3805fe38981db244e423f2ef4954a0e86eec80c0ee",
+    "interpretation": "Total deployment-path difference; not quantization-only error or a success-rate estimate"
+  }
+}

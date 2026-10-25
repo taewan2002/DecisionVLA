@@ -1,0 +1,55 @@
+{
+  "version": "decisionvla.training-schedule.v1",
+  "total_steps": 50000,
+  "preserved_parent_steps": 10000,
+  "evaluation_steps": [
+    10000,
+    20000,
+    30000,
+    40000,
+    50000
+  ],
+  "episodes_per_checkpoint": 500,
+  "training_config": "configs/libero_spatial_r32_corr_50k.json",
+  "checkpoint_every": 500,
+  "validation_every": 500,
+  "validation_samples": 100,
+  "selection": {
+    "metric": "task_macro_success_rate",
+    "direction": "maximize",
+    "tie_break": "earliest_step",
+    "candidate_steps": [
+      10000,
+      20000,
+      30000,
+      40000,
+      50000
+    ]
+  },
+  "same_seed": 42,
+  "gpu_count": 1,
+  "stop_on_error": true,
+  "automatic_performance_early_stopping": false,
+  "release_after": "all five evaluations, probability/action/SHA audits, review and documentation",
+  "scope": "Development comparison on reused official LIBERO-Spatial initial states, not an independent test",
+  "history": [
+    {
+      "from_step": 0,
+      "to_step": 2000,
+      "objective": "all_valid",
+      "state": "completed"
+    },
+    {
+      "from_step": 2000,
+      "to_step": 10000,
+      "objective": "resampled_only",
+      "state": "existing run preserved"
+    },
+    {
+      "from_step": 10000,
+      "to_step": 50000,
+      "objective": "resampled_only",
+      "state": "authorized extension"
+    }
+  ]
+}

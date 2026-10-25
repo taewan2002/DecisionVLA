@@ -1,0 +1,87 @@
+{
+  "samples": 45,
+  "start": "2026-10-25T00:39:23.800060+09:00",
+  "end": "2026-10-25T00:40:07.803456+09:00",
+  "gpu": [
+    {
+      "index": 0,
+      "gpu_util": {
+        "mean": 41.2,
+        "min": 27.0,
+        "max": 100.0
+      },
+      "mem_util": {
+        "mean": 14.377777777777778,
+        "min": 10.0,
+        "max": 34.0
+      },
+      "power_w": {
+        "mean": 234.50688888888888,
+        "min": 206.13,
+        "max": 275.73
+      },
+      "vram_MiB": {
+        "mean": 87467.0,
+        "min": 87467.0,
+        "max": 87467.0
+      },
+      "sm_MHz": {
+        "mean": 2783.7555555555555,
+        "min": 2730.0,
+        "max": 2797.0
+      },
+      "temperature_C": {
+        "mean": 60.06666666666667,
+        "min": 59.0,
+        "max": 68.0
+      }
+    },
+    {
+      "index": 1,
+      "gpu_util": {
+        "mean": 38.86666666666667,
+        "min": 25.0,
+        "max": 100.0
+      },
+      "mem_util": {
+        "mean": 17.244444444444444,
+        "min": 12.0,
+        "max": 24.0
+      },
+      "power_w": {
+        "mean": 240.58177777777777,
+        "min": 210.99,
+        "max": 277.45
+      },
+      "vram_MiB": {
+        "mean": 87404.0,
+        "min": 87404.0,
+        "max": 87404.0
+      },
+      "sm_MHz": {
+        "mean": 2831.8444444444444,
+        "min": 2790.0,
+        "max": 2850.0
+      },
+      "temperature_C": {
+        "mean": 62.71111111111111,
+        "min": 61.0,
+        "max": 70.0
+      }
+    }
+  ],
+  "process": [
+    {
+      "pid": 1762539,
+      "cpu_cores": 1.0283297225514139,
+      "first_io": "rchar: 240115737\nwchar: 397459778\nsyscr: 27124\nsyscw: 403\nread_bytes: 36560896\nwrite_bytes: 397656064\ncancelled_write_bytes: 25604096\n",
+      "last_io": "rchar: 244946745\nwchar: 397474343\nsyscr: 27553\nsyscw: 411\nread_bytes: 41222144\nwrite_bytes: 397680640\ncancelled_write_bytes: 25604096\n"
+    },
+    {
+      "pid": 1762540,
+      "cpu_cores": 1.0269661914275887,
+      "first_io": "rchar: 602979166\nwchar: 420707535\nsyscr: 26404\nsyscw: 242\nread_bytes: 29372416\nwrite_bytes: 420798464\ncancelled_write_bytes: 184320\n",
+      "last_io": "rchar: 607805638\nwchar: 420707535\nsyscr: 26889\nsyscw: 242\nread_bytes: 33927168\nwrite_bytes: 420798464\ncancelled_write_bytes: 184320\n"
+    }
+  ]
+}

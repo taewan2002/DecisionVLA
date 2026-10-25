@@ -1,0 +1,19 @@
+{
+  "status": "visually_checked",
+  "figma_file": "FbL9C7OnlyOZkiyGPOkcW0",
+  "frame": "13407:92873",
+  "parent": "13099:47340",
+  "dimensions": [
+    1320,
+    550
+  ],
+  "status_label": "PROPOSED ARCHITECTURE",
+  "branding": "DecisionVLA",
+  "old_pilot_frame_preserved": "13366:92873",
+  "note": "New sibling frame; existing neighboring figures were not edited. Cells/bars are schematic.",
+  "files": {
+    "architecture.png": "7e439816ff082e6c64f14150dc697fe0e0ec2da9dcceb5063b57b77a4750fa6b",
+    "architecture.svg": "a3b04f4a8ac99b98324137481f8ff16033e79eb5f9b71771eef718a124788456",
+    "build-figma.js": "d30bab8cad4eba409449f451e64f45885b67dc5b5167d18b5b6dd0fd4125a475"
+  }
+}

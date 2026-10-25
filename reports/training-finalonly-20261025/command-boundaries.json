@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "training_gpu_indices": [
+    0,
+    1
+  ],
+  "parent_mount_readonly": true,
+  "source_mount_readonly": true,
+  "cleanup_scope_current_run_and_final_assistance_only": true,
+  "intermediate_evaluation_steps": [],
+  "final_evaluation_step": 100000
+}

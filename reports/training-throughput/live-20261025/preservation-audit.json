@@ -1,0 +1,11 @@
+{
+  "frozen_source_files": 88,
+  "mismatches": [],
+  "main_training_running": true,
+  "miner_state": "exited",
+  "modifications_to_training_source_config_or_controller": 0,
+  "native_python_profile": "failed with UNW_EBADREG; not used as evidence",
+  "sampling_methods": "45s GPU/proc telemetry, 20s perf CPU samples, 45s/rank nonblocking Python stacks; small synthetic grouped-mm probe on GPU0; no model update from probes",
+  "protected_other_container_id_pid_started_checks": 3,
+  "protected_other_container_mismatches": []
+}

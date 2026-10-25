@@ -1,0 +1,43 @@
+{
+  "step": 38,
+  "files": {
+    "adapter_config.json": {
+      "size": 1411,
+      "sha256": "10849be1672a4b697e46fbac802ea242e8e7ad7f969b122ba5117d9a50f8a9b4"
+    },
+    "adapter-00004-of-00004.safetensors": {
+      "size": 980771024,
+      "sha256": "9be5242d53c585c451cf4e80efa008c8e1dce4aa4c7e4ecedbc91901dfffd412"
+    },
+    "adapter-00002-of-00004.safetensors": {
+      "size": 985385240,
+      "sha256": "01ba85008198ebe7406191fdde398c2697b6b3d032422ea01f771e5e35910192"
+    },
+    "adapter-00001-of-00004.safetensors": {
+      "size": 999803184,
+      "sha256": "94905de6c6a29db62a6d29ddffa798ba33d07ac3fa81aab07ebb716c30f32163"
+    },
+    "adapter.safetensors.index.json": {
+      "size": 55670,
+      "sha256": "2bc4c2f6cdfc18412b1350dbd9553122535daadc57699a8c4927c1b0eff0dea7"
+    },
+    "training_state.pt": {
+      "size": 7916293471,
+      "sha256": "672a92c9fb3f023fcc3a7a9b9b09552a3bbdf544ff2ff1ebb3b43329c904dfca"
+    },
+    "sha256.json": {
+      "size": 819,
+      "sha256": "87fde79327ac970790c95b1bff9ae375819e331ce96df6f8b2d15d87a406ce14"
+    },
+    "adapter-00003-of-00004.safetensors": {
+      "size": 992010728,
+      "sha256": "d47711845a2f67f3da6a34623470c94fc051d6c320aa00ac8a2acbb3bb0e6caf"
+    },
+    "training_metadata.json": {
+      "size": 95273,
+      "sha256": "8bbe59c99006992f2951c95ae408157a760d257208a094d11a3633a15cf3a6b9"
+    }
+  },
+  "frozen_source_88_unchanged": true,
+  "stop_reason": "Owner requested kernel migration; controller assertion at expected10000 is intentional early-stop evidence"
+}

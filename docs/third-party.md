@@ -8,11 +8,19 @@ DecisionVLA's original code is MIT licensed. That license does not replace the l
 | [NVIDIA NVFP4 DiffusionGemma](https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4) | Untrained base used for the latency proxy. Its card lists Apache-2.0 and additional Gemma terms links. Retain and review that card for any redistribution. |
 | [Transformers](https://github.com/huggingface/transformers) | Native DiffusionGemma model implementation and grouped MoE kernels, Apache-2.0. Imported as a dependency. |
 | [vLLM](https://github.com/vllm-project/vllm) | Base-model inference benchmark, Apache-2.0. The small compatibility patch is explicitly recorded. |
+| [FlashInfer](https://github.com/flashinfer-ai/flashinfer) | Experimental SM120 NVFP4 quantization and fused MoE, Apache-2.0 (installed 0.7.2.post1 metadata). The isolated GeGLU-tanh patch records upstream before/after hashes. |
+| [NVIDIA CUTLASS DSL](https://github.com/NVIDIA/cutlass) | Dependency of the experimental fused kernels. Installed 4.7.1 carries the NVIDIA Software License Agreement; see its [DSL terms](https://docs.nvidia.com/cutlass/latest/media/docs/pythonDSL/license.html). Its package is not vendored into this repository. |
+| [Triton](https://github.com/triton-lang/triton/) | Training kernels and deterministic inference route packing; MIT (installed 3.8.0 metadata). |
 | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) | Code is MIT; the official repository identifies dataset licensing as CC BY 4.0. The HF mirror's metadata labels Apache-2.0; preserve this distinction and credit the original authors. Dataset bytes are not redistributed here. |
-| [open-jev](https://github.com/JoshuaSP/open-jev) | Conceptual reference for constrained canvas inference; no claim that this project reproduces JEV or contains a trained OpenJEV VLA. |
+| [LIBERO-Plus](https://github.com/sylvestf/LIBERO-plus) | Evaluation-only simulator and perturbation assets, pinned to revision `4976dc30028e805ff8094b55501d532c48fec182`. Imported into an isolated runtime; upstream code and asset archives are not redistributed with DecisionVLA. Its dependency and asset terms remain separate from this repository's MIT license. |
+| [open-jev](https://github.com/JoshuaSP/open-jev) | Primary inference reference for the proposed native sampler and terminal readout. Revision and exact adaptation boundaries are recorded in [architecture](architecture.md); no upstream code is vendored and the native VLA path is not implemented yet. |
 | [Google's DiffusionGemma training recipes](https://github.com/google-deepmind/gemma/tree/main/gemma/diffusion/hackable_diffusion_adapter) | Reference for fine-tuning feasibility. DecisionVLA uses its own simpler PyTorch action objective, not an exact recipe reproduction. |
 | [NVIDIA Alpamayo quantization example](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/alpamayo) | Existing FP8/NVFP4 VLA quantization with calibration. A direct precedent against claiming that NVFP4 VLA alone is novel. |
 
 LIBERO attribution: Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu and Peter Stone, *LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning*, 2023.
 
+LIBERO-Plus attribution: Senyu Fei et al., *LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models*, 2025, arXiv:2510.13626.
+
 Prior work includes [Discrete Diffusion VLA](https://arxiv.org/abs/2508.20072). Direct discrete action diffusion and quantization are not presented as new concepts here.
+
+Additional reviewed decision implementations: [razorback16/openjev](https://github.com/razorback16/openjev) (Apache-2.0), [Saik0s/diffusiongemma-jev-macos](https://github.com/Saik0s/diffusiongemma-jev-macos) (MIT), [Zefan-Cai/Open-Jev](https://github.com/Zefan-Cai/Open-Jev) (MIT), and [TheoLeeCJ/SemIf-OpenJev](https://github.com/TheoLeeCJ/SemIf-OpenJev) (MIT). These are inspected references, not vendored dependencies or proof of proprietary Jev equivalence. Exact inspected revisions are in [source provenance](../reports/openjev-redesign-20261025/upstream-sources.json).

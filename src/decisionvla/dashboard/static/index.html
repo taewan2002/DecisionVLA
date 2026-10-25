@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>DecisionVLA · Observatory</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="DecisionVLA home"
+        ><span class="brand-mark">D<span>↗</span></span
+        >Decision<span>VLA</span></a
+      >
+      <span class="top-label"
+        >INFERENCE OBSERVATORY <span class="version">/ 01</span></span
+      >
+      <div class="connection">
+        <span id="status-dot" class="dot"></span
+        ><span id="connection">Connecting</span>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">FROM OBSERVATION TO ACTION</div>
+          <h1>See the next move.</h1>
+          <p>Actions, distributions, and confidence. Together.</p>
+        </div>
+        <div class="model-meta">
+          <span id="device" class="chip">Device —</span
+          ><span id="precision" class="chip">Precision —</span
+          ><span id="checkpoint" class="chip">Checkpoint —</span>
+        </div>
+      </section>
+      <div id="error" role="alert" hidden></div>
+      <section class="toolbar" aria-label="Session controls">
+        <div class="mode-group">
+          <span class="mode-badge" id="mode">REPLAY</span
+          ><span id="source-label">Recorded model outputs</span>
+        </div>
+        <label class="episode-control"
+          >Episode
+          <select id="episode" aria-label="Episode">
+            <option value="">All episodes</option>
+          </select></label
+        >
+        <button id="follow" type="button" hidden>Follow latest</button>
+        <span id="record-count" class="mono">0 queries</span>
+      </section>
+      <div id="empty" hidden>
+        <span class="empty-orbit">◎</span>
+        <h2>Waiting for the next decision.</h2>
+        <p>
+          Connect an inference recorder to this session. New predictions appear
+          automatically.
+        </p>
+      </div>
+      <div id="content" hidden>
+        <section class="workspace">
+          <article class="panel observation-panel">
+            <div class="panel-heading">
+              <h2><span class="section-number">01</span>Observation</h2>
+              <span id="query-label" class="mono">QUERY 001</span>
+            </div>
+            <div class="camera">
+              <img
+                id="observation"
+                alt="Camera image used for this policy query"
+              />
+              <div class="camera-tags">
+                <span>AGENT VIEW</span><span id="image-size">128 × 128</span>
+              </div>
+              <div class="crosshair crosshair-a"></div>
+              <div class="crosshair crosshair-b"></div>
+            </div>
+            <div class="instruction">
+              <span class="eyebrow">LANGUAGE INSTRUCTION</span>
+              <p id="instruction"></p>
+            </div>
+            <div class="observation-footer">
+              <span id="control-step">CONTROL —</span
+              ><span id="outcome" class="outcome"></span>
+            </div>
+          </article>
+          <div class="decision-column">
+            <section class="stats" aria-label="Prediction metrics">
+              <div class="stat">
+                <span class="stat-label">Policy latency</span>
+                <div>
+                  <strong id="latency">—</strong><span class="unit">ms</span>
+                </div>
+                <small id="latency-note">Recorded query</small>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Chunk confidence</span>
+                <div><strong id="chunk-confidence">—</strong></div>
+                <small>Distribution concentration</small>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Action chunk</span>
+                <div><strong>8</strong><span class="unit">× 7</span></div>
+                <small id="denoising">4 denoising passes</small>
+              </div>
+            </section>
+            <article class="panel action-panel">
+              <div class="panel-heading">
+                <h2><span class="section-number">02</span>Next actions</h2>
+                <div class="legend">
+                  <span>Diffuse</span><i></i><span>Concentrated</span>
+                </div>
+              </div>
+              <p class="panel-caption">
+                Select a control to inspect its distribution. Values are
+                normalized to [−1, 1].
+              </p>
+              <div
+                class="action-grid"
+                id="action-grid"
+                role="group"
+                aria-label="Action chunk and component confidence"
+              ></div>
+              <div class="matrix-foot">
+                <span>Cell color = component confidence</span
+                ><span>Δ position · Δ rotation · gripper</span>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="details">
+          <article class="panel distribution-panel">
+            <div class="panel-heading">
+              <h2><span class="section-number">03</span>Action distribution</h2>
+              <span class="selection-pill" id="selection">T+1 / ΔX</span>
+            </div>
+            <div class="distribution-summary">
+              <div>
+                <span class="stat-label">Selected action</span
+                ><strong id="selected-action">—</strong>
+              </div>
+              <div>
+                <span class="stat-label">Selected probability</span
+                ><strong id="selected-probability">—</strong>
+              </div>
+              <div>
+                <span class="stat-label">Confidence</span
+                ><strong id="component-confidence">—</strong>
+              </div>
+              <div>
+                <span class="stat-label">Entropy / normalized</span
+                ><strong id="entropy">—</strong>
+              </div>
+            </div>
+            <svg
+              id="distribution"
+              viewBox="0 0 760 172"
+              role="img"
+              aria-label="Probability distribution across allowed action bins"
+            ></svg>
+            <p class="chart-note" id="distribution-note">
+              256 discrete action bins · final denoising readout
+            </p>
+          </article>
+          <article class="panel history-panel">
+            <div class="panel-heading">
+              <h2>
+                <span class="section-number">04</span>Confidence over time
+              </h2>
+              <span class="mono">0—1</span>
+            </div>
+            <svg
+              id="history"
+              viewBox="0 0 390 172"
+              role="img"
+              aria-label="Recorded chunk confidence across policy queries"
+            ></svg>
+            <div class="playback">
+              <button id="previous" aria-label="Previous query" type="button">
+                ←</button
+              ><button
+                id="play"
+                aria-label="Play recorded queries"
+                type="button"
+              >
+                ▶ Play</button
+              ><input
+                id="scrubber"
+                type="range"
+                min="0"
+                max="0"
+                value="0"
+                aria-label="Query timeline"
+              /><button id="next" aria-label="Next query" type="button">
+                →
+              </button>
+            </div>
+            <div class="playback-note">
+              <span id="position">Query — / —</span
+              ><span id="playback-rate">Playback: 0.75s / query</span>
+            </div>
+          </article>
+        </section>
+        <aside class="interpretation">
+          <span class="info-symbol">i</span>
+          <p>
+            <strong>Confidence describes the action distribution.</strong> It is
+            not a task-success probability. This viewer observes predictions; it
+            does not change actions or stop the robot.
+          </p>
+          <button id="download" type="button">↓ Query JSON</button>
+        </aside>
+      </div>
+      <footer>
+        <span
+          >DecisionVLA <span class="footer-dot">·</span> Direct action
+          diffusion</span
+        ><span id="runtime-note">Awaiting session metadata</span
+        ><span id="telemetry-note">Observation only</span>
+      </footer>
+    </main>
+  </body>
+</html>

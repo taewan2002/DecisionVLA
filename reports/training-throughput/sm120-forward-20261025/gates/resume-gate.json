@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "step": 114,
+  "parameter_atol": 1e-05,
+  "max_parameter_abs_error": 0.0,
+  "max_optimizer_tensor_abs_error": 0.0,
+  "rng_exact": true,
+  "bitwise_equal": true,
+  "checkpoint_manifests": {
+    "checkpoint-000114_reference": "64fd7bdca33b9e5300bb4fd161041eae2b12a74d4884fa0a8e230d285b22c74c",
+    "checkpoint-000114_resumed": "63b7d1b149f527cdd240032b2e5be5836aafbacbba58e3ab1ab8d6a031aeae7e"
+  },
+  "scope": "disposable segment/resume check; no smoke weights reused",
+  "tensor_bytes_exact": true,
+  "byte_compared_tensors": 2130
+}

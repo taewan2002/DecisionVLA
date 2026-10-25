@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "step": 43,
+  "parameter_atol": 1e-05,
+  "max_parameter_abs_error": 0.0,
+  "max_optimizer_tensor_abs_error": 0.0,
+  "rng_exact": true,
+  "bitwise_equal": true,
+  "checkpoint_manifests": {
+    "checkpoint-000043_reference": "0c8c6d57159a5facc35a808d1ec9dc83934329801aad4f947e753619ba9ff6cc",
+    "checkpoint-000043_resumed": "b7cee1106dad45bf4b629ea93f6fd4ef418429afe4261206e12abde0fdf8faaf"
+  },
+  "scope": "disposable segment/resume check; no smoke weights reused"
+}

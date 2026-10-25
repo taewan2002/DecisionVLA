@@ -1,0 +1,12 @@
+{
+  "status": "parity_passed",
+  "task_id": 4,
+  "contract_sha256": "5ce13ce26dc74282d16e87b337cd074024799589b707e6efc263bd93510e395f",
+  "started_unix": 1792844953.3355231,
+  "completed_episodes": 2,
+  "policy_server_shared": true,
+  "worker_sha256": "b9189e122ab3d2b80ad1abaf7e112ddcf2d50850e26796c5a7e00e2c4bcdfe3e",
+  "parity_only": true,
+  "all_observations_states_actions_probabilities_exact": true,
+  "elapsed_seconds": 67.21852803230286
+}

@@ -1,0 +1,273 @@
+{
+  "microbatch": 4,
+  "effective_batch": 8,
+  "accumulation": 2,
+  "parent_step": 2000,
+  "parent_manifest_sha256": "aab279b96227ce63d3df5dc366382346e9b733f43bed5dd82fbcac0ffebd094d",
+  "trainable_parameters": 989474816,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "torch": "2.9.1+cu130",
+  "status": "completed",
+  "disposable_updates": true,
+  "candidate_adopted": false,
+  "rows": [
+    {
+      "loss": 3.033384919166565,
+      "sample_keys": [
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_47/56",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_30/47",
+        "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_24/53",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_3/45",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_26/24",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_42/0",
+        "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_1/50",
+        "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_15/82"
+      ],
+      "supervised_tokens": 275,
+      "valid_tokens": 399,
+      "grad_norm": 6.804958343505859,
+      "seconds": 18.152016895939596,
+      "peak_allocated_GiB": 80.03553819656372,
+      "peak_reserved_GiB": 80.40625,
+      "noise_rng_sha256": "9e77d802e813a8ca6ec3697cacea326efc74a34b7f3c577692b86c6a58f19bdb",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 319908889637592180337938529814086005612,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 111572770
+      },
+      "number": 0
+    },
+    {
+      "loss": 3.1540216207504272,
+      "sample_keys": [
+        "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_11/49",
+        "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_0/28",
+        "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_12/67",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_10/99",
+        "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_6/44",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_24/32",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_17/0",
+        "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_17/18"
+      ],
+      "supervised_tokens": 329,
+      "valid_tokens": 448,
+      "grad_norm": 6.254652976989746,
+      "seconds": 2.28142785304226,
+      "peak_allocated_GiB": 80.03553867340088,
+      "peak_reserved_GiB": 80.40625,
+      "noise_rng_sha256": "c985b993a8ef11d3f4e12e665020b6749036492fd46172beaf8cf7c78f8d3b9e",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 269623526522479548649614524261400640656,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 3501870359
+      },
+      "number": 1
+    },
+    {
+      "loss": 2.7246170043945312,
+      "sample_keys": [
+        "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_3/33",
+        "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_27/100",
+        "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_35/9",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_43/85",
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_6/51",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_33/93",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_28/77",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_20/6"
+      ],
+      "supervised_tokens": 268,
+      "valid_tokens": 448,
+      "grad_norm": 12.802855491638184,
+      "seconds": 2.256117386976257,
+      "peak_allocated_GiB": 79.92342281341553,
+      "peak_reserved_GiB": 80.40625,
+      "noise_rng_sha256": "259452a9fa0d78b360d0d4b9c18994c19ee4946f6195a0e7aa0b01a5d9d1ad72",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 244384796123914270937292462552050270580,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 3091139277
+      },
+      "number": 2
+    },
+    {
+      "loss": 2.9251530170440674,
+      "sample_keys": [
+        "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_2/63",
+        "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_46/43",
+        "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_11/2",
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_31/132",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_18/75",
+        "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_1/28",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_42/131",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_26/41"
+      ],
+      "supervised_tokens": 337,
+      "valid_tokens": 427,
+      "grad_norm": 8.70755672454834,
+      "seconds": 2.2628718509804457,
+      "peak_allocated_GiB": 80.03553867340088,
+      "peak_reserved_GiB": 80.42578125,
+      "noise_rng_sha256": "8456ddc1e207d2ae8bbf446c798fcf31d87e547a3104ea3d30f9f1c0d58bba9f",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 72104981435442488745266805069680059928,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 1034840904
+      },
+      "number": 3
+    },
+    {
+      "loss": 2.294556736946106,
+      "sample_keys": [
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_7/110",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_43/61",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_0/138",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_14/59",
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_0/61",
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_16/109",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_37/120",
+        "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_14/93"
+      ],
+      "supervised_tokens": 176,
+      "valid_tokens": 434,
+      "grad_norm": 8.698095321655273,
+      "seconds": 2.257014840026386,
+      "peak_allocated_GiB": 79.92342281341553,
+      "peak_reserved_GiB": 80.42578125,
+      "noise_rng_sha256": "b4e381465823b9aed8a3245fe4cf13a7845b75215f979fea4af8124dec5ef726",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 279378057270659179984877348282630901372,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 2686858416
+      },
+      "number": 4
+    },
+    {
+      "loss": 2.513675093650818,
+      "sample_keys": [
+        "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_33/34",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_7/49",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_38/138",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_35/94",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_41/69",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_24/114",
+        "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_demo.hdf5/demo_10/101",
+        "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_7/7"
+      ],
+      "supervised_tokens": 243,
+      "valid_tokens": 413,
+      "grad_norm": 6.660566806793213,
+      "seconds": 2.2558340509422123,
+      "peak_allocated_GiB": 80.03553867340088,
+      "peak_reserved_GiB": 80.42578125,
+      "noise_rng_sha256": "f81232cf04e2dad27450b7a55b24b60fbe5cd2c223a8cae79da6d3d3fe8eb28a",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 10496640315377634016857147772016860832,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 1774597048
+      },
+      "number": 5
+    },
+    {
+      "loss": 3.037999749183655,
+      "sample_keys": [
+        "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_21/26",
+        "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_27/118",
+        "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_3/167",
+        "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_demo.hdf5/demo_46/129",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_18/102",
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_44/103",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_2/121",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_24/65"
+      ],
+      "supervised_tokens": 324,
+      "valid_tokens": 413,
+      "grad_norm": 5.451053142547607,
+      "seconds": 2.4104331460548565,
+      "peak_allocated_GiB": 79.92342281341553,
+      "peak_reserved_GiB": 80.42578125,
+      "noise_rng_sha256": "f76557191f09a831ef830238ca12e0112d69237bdc4f5572aabc3f83f88d1cab",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 67994039881387151319217368536541428356,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 3133303356
+      },
+      "number": 6
+    },
+    {
+      "loss": 2.4441680908203125,
+      "sample_keys": [
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_17/113",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5/demo_32/9",
+        "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_demo.hdf5/demo_38/78",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_45/40",
+        "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_10/53",
+        "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_45/7",
+        "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5/demo_4/24",
+        "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5/demo_33/59"
+      ],
+      "supervised_tokens": 208,
+      "valid_tokens": 448,
+      "grad_norm": 7.345475673675537,
+      "seconds": 2.251199853955768,
+      "peak_allocated_GiB": 79.99842691421509,
+      "peak_reserved_GiB": 80.42578125,
+      "noise_rng_sha256": "f8d99660ca23efe5aacf7a010bf1908355026dbe36f1c71a04e794ac366d1613",
+      "sampler_state": {
+        "bit_generator": "PCG64",
+        "state": {
+          "state": 10639585397160194126127628595196692008,
+          "inc": 332724090758049132448979897138935081983
+        },
+        "has_uint32": 0,
+        "uinteger": 1566949491
+      },
+      "number": 7
+    }
+  ],
+  "comparison_limits": {
+    "first_loss_relative": 0.01,
+    "gradient_relative_l2": 0.05
+  },
+  "first_gradient_comparison": {
+    "relative_l2": 0.15810577359642886,
+    "max_abs": 0.0038248300552368164,
+    "reference_l2": 0.9999998485319024
+  },
+  "median_seconds": 2.2565661135013215,
+  "mean_seconds": 2.2822451881559878,
+  "measured_updates": 6,
+  "excluded_warmup_updates": 2,
+  "peak_allocated_GiB": 80.03553867340088,
+  "sample_and_rng_exact": true,
+  "first_loss_relative": 0.002984624971800121,
+  "numerical_screen_passed": false,
+  "speedup_vs_batch_1": 3.028226471034023
+}

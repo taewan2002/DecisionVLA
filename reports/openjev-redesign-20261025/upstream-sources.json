@@ -1,0 +1,399 @@
+{
+  "purpose": "Read-only source inspection; no third-party training or inference code executed",
+  "sources": [
+    {
+      "repository": "https://github.com/JoshuaSP/open-jev",
+      "revision": "50d32c7e542dd714c89bb223e8fc8c0b2b3d0d9c",
+      "files_inspected": [
+        {
+          "path": "LICENSE",
+          "sha256": "7e85345c5be61268151d49eaee500113c61edbe768569120fa80aa9cc1edae5f"
+        },
+        {
+          "path": "README.md",
+          "sha256": "886dfac4f9599f56252d0552dac2c70661e2c93d91aa7809362d032b77cc5786"
+        },
+        {
+          "path": "docs/RESEARCH_LOG.md",
+          "sha256": "4586ec25815d85846d99c45d23e97a7749b6e1f8bcd1ac1bd04c8ddbc3b17b77"
+        },
+        {
+          "path": "inference.py",
+          "sha256": "df9247de615ed232fe6db5081788d7c51b2a74710ba3622b034cc81c5696324f"
+        },
+        {
+          "path": "json_canvas.py",
+          "sha256": "83e7eae16cfebafe899142ab9da69c169ca0d9426edfe8455f8d7c4a43ec5e86"
+        },
+        {
+          "path": "modal_app.py",
+          "sha256": "ad27cbd3077f5452374d205abead25ae1fd9c803e6e4be4c20fbc474798ac0ae"
+        },
+        {
+          "path": "parallel_canvas.py",
+          "sha256": "672c07c2f203f57be20e31a8c1a436401ed567b5dadce5002c0af05cbdc59a86"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "3a55eaf8795634ab9844372f4f2687232451a565b21db6bc238037489b5201c4"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/Saik0s/diffusiongemma-jev-macos",
+      "revision": "070a792df210e5a5139622e049d0040988502873",
+      "files_inspected": [
+        {
+          "path": "LICENSE",
+          "sha256": "eab3b35cad39b84a507a24b5e8e516b32dbe9bc2d6ada48159fbd48a3ddb7360"
+        },
+        {
+          "path": "README.md",
+          "sha256": "9c4c0a9c057e5252241b4c825666503200391ac106e58e268980a18d383db743"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "f169770af7b2febb1351f18a552816bb32ad8ae6c241ccdd636e1ff79aa4b7d5"
+        },
+        {
+          "path": "src/diffusion_jev/canvas.py",
+          "sha256": "b0abb2839230ccb7ec9b6b1dea9ca23d0b01e9326ae2f8839e6f0f4ee328e73b"
+        },
+        {
+          "path": "src/diffusion_jev/engine.py",
+          "sha256": "9f49c67c9c4572463623f0e3b935e5a553cacac57753bbb23d2228993e16e670"
+        },
+        {
+          "path": "src/diffusion_jev/projection.py",
+          "sha256": "815a431fc65f22b2e32055d169f0abd69be4140395b1cecd018167415a47031d"
+        },
+        {
+          "path": "src/diffusion_jev/trajectory.py",
+          "sha256": "b7e53940004aa1ab5ec38354a71eda1206dce60ce3ab78c5b7986af9c26fad8c"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/TheoLeeCJ/SemIf-OpenJev",
+      "revision": "23cf1f39fc9534fe81437200959b6dfc7106e45a",
+      "files_inspected": [
+        {
+          "path": "LICENSE",
+          "sha256": "f765f2140f8507a8f0d81ec0fd2c4bd72fe6a066841ef27883ff876a76bf61be"
+        },
+        {
+          "path": "README.md",
+          "sha256": "89f00284285ea0dac7b0e10ff04ebe643e37fb1a3165ab7dbd13686e97d65f62"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "d67f3f226028da3274f8da70c643473ddc88c0402287aad291bf434a4fb146d9"
+        },
+        {
+          "path": "src/semif_phase1/llamacpp_backend.py",
+          "sha256": "2c0c5ae3ca0f28e994083fee5774b6dc7af661aab579ab1cae147ea099565781"
+        },
+        {
+          "path": "src/semif_phase1/mlx_backend.py",
+          "sha256": "f9260b46e1fed00bf6dd8b0c37d2f94c62a87604ab56687794c63d097857f1d3"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/Zefan-Cai/Open-Jev",
+      "revision": "bd4118882f733574a3250a4b65fe4d884130c08b",
+      "files_inspected": [
+        {
+          "path": "LICENSE",
+          "sha256": "ef2f6f6db605a2f611bc2d037c59276f615cdea76ac6e7551a28f71db890c9d2"
+        },
+        {
+          "path": "README.md",
+          "sha256": "4300ebdadd2b59d774355442edce1904f958615d1d788cecf6fcc7c294f705fc"
+        },
+        {
+          "path": "jev/fast_backend.py",
+          "sha256": "da9bcecbf87bcfb714dd23be63bb09863bd92308004343f77f86122f835a7cae"
+        },
+        {
+          "path": "jev/model.py",
+          "sha256": "333bed84cf2801ba33b053891e9ff9563d082f3da87ad6ad1681a2b1bcb4c6aa"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "788ada6668821824d8a3e7fe81c8d35f7deb0871696496f7bd32f8eb91491406"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/google-deepmind/gemma",
+      "revision": "9e1f74131ba9d45e5fe6ae7bb3941d9f2abb39c3",
+      "files_inspected": [
+        {
+          "path": "gemma/diffusion/__init__.py",
+          "sha256": "3c01fab13429c9c028961456fb1005f39aa093ccac9c90b5ba7794360233bd1b"
+        },
+        {
+          "path": "gemma/diffusion/_chat_sampler.py",
+          "sha256": "e9e514d32edfb4af604e103df7015c7cb8769a7f8f730bfd93fa37415b66b483"
+        },
+        {
+          "path": "gemma/diffusion/_chat_sampler_test.py",
+          "sha256": "c8cdccff0dcb57831c951be6fa15683b7f7f82506a33275eb9df2e164db10392"
+        },
+        {
+          "path": "gemma/diffusion/_early_stopping.py",
+          "sha256": "f346f091c2c4647a8dd3afba2fd8c7620d8094bca8638cfe9a07c914759d2168"
+        },
+        {
+          "path": "gemma/diffusion/_early_stopping_test.py",
+          "sha256": "66fe3cae4af0b976fc7f4e54f0261a9f9d070533353ce519190c3c7a95d0dbc9"
+        },
+        {
+          "path": "gemma/diffusion/_models.py",
+          "sha256": "ee07f6eb4de20406c973dcb18512a2546135cc5dcf918f63d9490d06402e0f35"
+        },
+        {
+          "path": "gemma/diffusion/_models_test.py",
+          "sha256": "cd75c7c8182027280834152cc00b299a17cc54f4a4f07de4db89a798e3fd02fe"
+        },
+        {
+          "path": "gemma/diffusion/_paths.py",
+          "sha256": "f1436f242779dfbc495d87dd74bb207573fa7102c506b1de51aa69ec7cfb5d55"
+        },
+        {
+          "path": "gemma/diffusion/_sampler.py",
+          "sha256": "b0030509dec6af5177d6806debcdab5c1b29b2dde980a807be471e0b1e22c7de"
+        },
+        {
+          "path": "gemma/diffusion/_sampler_test.py",
+          "sha256": "0c966c8cb9eca36d15c4eb2072679d38ce07298ebaae3aee4b7f187164363141"
+        },
+        {
+          "path": "gemma/diffusion/_transformer.py",
+          "sha256": "dc6e6e0478993de10673d23e8d424a386d88f7b2f0ffcb685e4f91852cd393e5"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/AGENT.md",
+          "sha256": "6413c14c528336dab82d4d12d6c176759c3a79b463785cf6064ab54d5fbd0d12"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/README.md",
+          "sha256": "3054e788300c729d3ded8108635673f1418c03379deb495649a66782215c8cb3"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/checkpointed_evaluator.py",
+          "sha256": "3d7c1db43c577d16cc1e404e0044802336e5cfe3a24b4ff0f8e16797d17bfa82"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/configs/README.md",
+          "sha256": "2779fec48ae52c4d392f4fbcbc908f0e9dfb7283b59b5d2ecb636de61f1b646a"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/configs/sft_pubmedqa.py",
+          "sha256": "ea098543ff042474aacfc27648bbda3daabc37f3cdc87900019938e6c22a938d"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/configs/sft_pubmedqa_test.py",
+          "sha256": "24cc88cc90bc073db1fc780dda501566f391147a65ac16c7adad384bd1745bc9"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/configs/sft_sudoku.py",
+          "sha256": "908c191427f93200201ccab0457c90d071eb618fabce10041358d604fd2ef489"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/configs/sft_sudoku_full.py",
+          "sha256": "290e2ffd76fb15e4d0ff7a743c313bd34c67a63843a3e84c442173792605d372"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/configs/sft_sudoku_test.py",
+          "sha256": "65da850c0bd3b2ccac7899786f65daeb28b7c3857458d17d7a8783f24888188b"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/README.md",
+          "sha256": "0e6cc5b6207d0fd96c41410326eb2cf386fa5457e32241af2c461ffa50128801"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/data.py",
+          "sha256": "05d5e9fc3b615a3f96e8283063f1b71eb3d59f7d488b0d61f0593540c45f8705"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/data_test.py",
+          "sha256": "37bfbdfc147e5af15492137523b158184bdc96ef5c8ad7c2d845da789aa892b9"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/pubmedqa/README.md",
+          "sha256": "a0c9b38d179dd4ff81193d28f80399d1d348242e6157831f32934aa3f40931fa"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/pubmedqa/convert_pubmedqa.py",
+          "sha256": "af83753dbdad6bd16902fa0a6b94ada1013832dc6bffd34f14f8fdbe8f486608"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/pubmedqa/pubmedqa_data.py",
+          "sha256": "abe40f3a0a3272a8c39a30c52e9baa62a63b8e914a6a0187814f83379efc9255"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/pubmedqa/pubmedqa_data_test.py",
+          "sha256": "fb973e892175074c9b8b0916279fdc174e185c7006393829dc51f033e2878f6b"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/sudoku/README.md",
+          "sha256": "ca5d223f29d965ecf92f44bfb6aafdbe10742619cb15dc006aa757f4c97ab9f6"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/sudoku/convert_sudoku.py",
+          "sha256": "de262be9031b36b46776e9273f223d425371dc9bceeaf595bb5e3243cc4b385c"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/sudoku/sudoku_data.py",
+          "sha256": "6f65c3b81d2b542321d5e944272375f9871c8bef610916b09f9744c3dd9f8ea3"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/data/sudoku/sudoku_data_test.py",
+          "sha256": "b32300e7a8642052a07b4d4c5548f09f2a410b4de2c484ea829600cb515b8bde"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/README.md",
+          "sha256": "fc24cc1c44ff0b8eab9066a59b6245403c8155ad596fa3d72d605d3e737e6896"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/ar_eval.py",
+          "sha256": "8681fd624fddb1648a033092648ffdf18a82882c67a03d055b90090e4f6fe46d"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/base_metric.py",
+          "sha256": "7208e316cc04f7aed2ddbca38a7df87f5877344c36f5c1bd3e88a54a3d5adda6"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/base_metric_test.py",
+          "sha256": "73626a44d6ea37cf4f170570704f075f946718cca5ea6e2abdf0c1668d8b3ab6"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/pubmedqa_eval.py",
+          "sha256": "cd99f2bc4ca29cf2b9b110c355d7ab7fbdd897844ef43aaf1a2bcad5eb10221f"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/pubmedqa_eval_test.py",
+          "sha256": "e87dcbc47334f753819c81cbb1906b035dc8e195912e51079f0429bd398d7ed1"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/sudoku_eval.py",
+          "sha256": "10c7df7f50e646c58e4858367fc35ee3c90c57f35c9bd3659d774b56fe047d51"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/sudoku_eval_test.py",
+          "sha256": "dc9efd174f63c7b9ba402cd305d3bcfd38f4b95c3bc3827edfa9b0502abd3b07"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/text_metric.py",
+          "sha256": "b65d8c26447d7d65663332c6d4d21f93b0e30f2e5123fab4268c86b57b3dee5f"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval/text_metric_test.py",
+          "sha256": "45e230ecc4b17b37d9a26c7d9607c8ba048f6066fd06c87c3d3cdec97ee05f36"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/eval_main.py",
+          "sha256": "566b996b24c4dc68d6772b8c1e1fb32c3c076b7116d726f9f92028f432f21105"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/README.md",
+          "sha256": "f1262a99c42fd8b91e149fbc6d0d695e1833e4331d825417a197297c67c3832f"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/gemma_checkpointer.py",
+          "sha256": "ecfa3f39d290a734ffabf4d3e603af375528b9e4e5963cf20bbb1238c2e5500c"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/gemma_checkpointer_test.py",
+          "sha256": "08d3d8da11fdfe9d232849c3a43abb7984e3fd2be20a02a928e5e713cb5494c9"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/hd_gemma_ar_state_handler.py",
+          "sha256": "750a2bd2947fc55ed0665f1c4053044d0739b2e2d56a0b491c6d347c2e83ee2b"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/hd_gemma_ar_state_handler_test.py",
+          "sha256": "87dc01d4968b6081bbee3bf4ffaf4d89c9756892dd367731ec39bb38a30043d5"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/hd_gemma_network.py",
+          "sha256": "d91fcff3281c32b91e738cf3d817c32910bd60ba28c8acc3056a63902d151b68"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/lora.py",
+          "sha256": "f5fcd1162f338363f9a3e6027b9f490f5b7ead9fa7792f5aeb094cba97e43b26"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/lora_test.py",
+          "sha256": "897be909bcd9ae7be12a5ba85dd9334bb0b59d50e46c3002a82997a12a5e1883"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/mask_helpers.py",
+          "sha256": "5c2de225e843b082eb6292708c5dff3c8c3e95ff80aafef433cb6adaf262636c"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/mask_helpers_test.py",
+          "sha256": "299fab7b100e7d85419249085460a99d35fea235edbd408a8e9835813f50f6d1"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/sft_model.py",
+          "sha256": "550a16dd8c51341cafed1f59503190fe0aa68731959ff617a624c58c3976741b"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/hd/sft_model_test.py",
+          "sha256": "915a2db7ae2662a5cc9d1c9b8776fb488acbeda8dd26ca54eaeb764dd86d60c7"
+        },
+        {
+          "path": "gemma/diffusion/hackable_diffusion_adapter/safe_writer.py",
+          "sha256": "97cc894fe15b155f47b808c254e42501b101096a3e019308fbfdfa2ace57123d"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/huggingface/transformers",
+      "revision": "e7b5b964e6f64923f2770208178f3ed367978895",
+      "files_inspected": [
+        {
+          "path": "src/transformers/models/diffusion_gemma/generation_diffusion_gemma.py",
+          "sha256": "b814a6fc41492794c1f50ba71c750206684e25dfdd53932e0842675871fef0de"
+        },
+        {
+          "path": "src/transformers/models/diffusion_gemma/modeling_diffusion_gemma.py",
+          "sha256": "3f1a24f517b51470113c5181a53c3ddb07c05d01b8780a3a6d030497a231e2ec"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/razorback16/openjev",
+      "revision": "b4339c640f5331ef75098637d1be2c787715ee88",
+      "files_inspected": [
+        {
+          "path": "LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "README.md",
+          "sha256": "d6d487e392f543eb5788182dd1723ed21f9b008327cfdb5f73ddccfcffa84683"
+        },
+        {
+          "path": "openjev/decisions.py",
+          "sha256": "94650f514e6099660a6b30d8f485c3953658dee4ba9d02ebfa3442a9a94ea8ac"
+        },
+        {
+          "path": "openjev/engine.py",
+          "sha256": "e084734f969b414be701bc438617c302e0b44867d907956ec87dcafc66b1d089"
+        },
+        {
+          "path": "openjev/mlx_backend.py",
+          "sha256": "9d147931ec485a07a0b44935071b2e58df68696b153dcf2018ab1061852e754f"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "21b2072ddd87a43df0c06079d36537215d1ee9874fde471b9bbadc74e6a92b65"
+        }
+      ]
+    }
+  ]
+}

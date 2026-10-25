@@ -1,0 +1,23 @@
+{
+  "status": "prepared",
+  "created_utc": "2026-10-24T14:29:14Z",
+  "public_source_files": 58,
+  "unchanged_10k_source_files": 38,
+  "unchanged_policy_core_files": 13,
+  "source_manifest_sha256": "d20a660ebbfcefdba7104e9149ba6f4f4434ea626408bd965c6e663c08ae1dd8",
+  "config_sha256": "ab839fdc88fb4da1084369dea13b831700b7dd85fb4f4c1f93946dd14d86698b",
+  "plan_sha256": "38752ad73ae6ea92e7acc594706725dac7ca31404cda2823be0d1f9cd2d1efb9",
+  "CPU_tests": 37,
+  "GPU_preflight": "queued after 10k evaluation; not yet executed",
+  "existing_10k_status": {
+    "step": 2210,
+    "target_steps": 10000,
+    "elapsed_seconds": 1507.3939268189715,
+    "last_update_seconds": 6.8188272919505835,
+    "last_loss": 2.8208717554807663,
+    "latest_checkpoint": null,
+    "status": "running"
+  },
+  "free_bytes": 3339733753856,
+  "pre_training_review_fix": "Use integer success counts to prevent floating-point tie breaking; regression test added before any 10k-to-50k updates."
+}

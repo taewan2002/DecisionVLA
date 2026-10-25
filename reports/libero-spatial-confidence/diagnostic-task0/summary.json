@@ -1,0 +1,28 @@
+{
+  "scope": "post-hoc first task only; not the final 500-episode analysis",
+  "episodes": 50,
+  "successes": 1,
+  "states_restored": 10939,
+  "first_query_failure_auroc": 0.5510204081632653,
+  "first_confidence_failure_mean": 0.9680323624370529,
+  "first_confidence_success_mean": 0.9738680418617492,
+  "failure_translation_confidence_mean": 0.9293392130306789,
+  "failure_rotation_confidence_mean": 0.9961078835993397,
+  "failure_gripper_confidence_mean": 0.9998852440289089,
+  "unique_training_anchor_fraction": 0.2515986492312114,
+  "supervised_action_step_coverage": 0.8834782296306941,
+  "continuous_mae_reduction_vs_zero": 0.11592805244056203,
+  "new_policy_calls": 0,
+  "new_simulation_steps": 0,
+  "limitations": [
+    "Only one success: discrimination estimate is unstable",
+    "Geometry categories are post-hoc contact/lift proxies",
+    "Training validation reuses only 20 held-out observations",
+    "Confidence is not a calibrated probability of task success"
+  ],
+  "input_sha256": {
+    "training-diagnostic.json": "1040abd7607d0440fbd6185f472849772883ebc0dcd09995ff637aff7ec42d56",
+    "geometry.json": "030e2eea65966e20e1aa9f6505435fa3cf6e2c3617fc0c009b1873a17be66f2b",
+    "geometry-traces.npz": "5ce48ead33e2f69010eeed931c6b4bffc44ee8865d903559b51edfa0637d4c26"
+  }
+}

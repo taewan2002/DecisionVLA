@@ -1,0 +1,59 @@
+{
+  "revision": "5811a8d7da873dd699ff6687092c225caffcf1bb",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/5811a8d7da873dd699ff6687092c225caffcf1bb/aten/src/ATen/native/cuda/Blas.cpp",
+      "sha256": "97dbcd2cf1fe9f63a2f12371ddaa4c09c8244e7a613576aaf454e629bc4dc459",
+      "relevant_lines": [
+        {
+          "line": 1796,
+          "text": "bool use_fast_path = _scaled_mm_allowed_device(/*sm90_only*/true, /*sm100_only*/true) && a_b_and_out_are_bf16;"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/5811a8d7da873dd699ff6687092c225caffcf1bb/aten/src/ATen/native/GroupedMMUtils.h",
+      "sha256": "114e3a1918f5cb0e940367b9bae1b465148219ef5e588a541305999a9004c948",
+      "relevant_lines": [
+        {
+          "line": 115,
+          "text": "inline void _grouped_mm_fallback(const Tensor& mat_a, const Tensor& mat_b,"
+        },
+        {
+          "line": 126,
+          "text": "auto offs_cpu = offs.value().cpu();"
+        },
+        {
+          "line": 138,
+          "text": "auto offs_cpu = offs.value().cpu();"
+        },
+        {
+          "line": 150,
+          "text": "auto offs_cpu = offs.value().cpu();"
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/5811a8d7da873dd699ff6687092c225caffcf1bb/aten/src/ATen/cuda/CublasHandlePool.cpp",
+      "sha256": "e43440cfc3c89e9252d07e812e05c40c315283e4e9d33069b6c196ccdb24a786",
+      "relevant_lines": [
+        {
+          "line": 148,
+          "text": "std::regex exp(\":([0-9]+):([0-9]+)\");"
+        },
+        {
+          "line": 201,
+          "text": "size_t getChosenWorkspaceSize() {"
+        },
+        {
+          "line": 202,
+          "text": "size_t pool_size = parseChosenWorkspaceSize();"
+        },
+        {
+          "line": 307,
+          "text": "TORCH_CUDABLAS_CHECK(cublasSetWorkspace(handle, workspace_it->second.get(), getChosenWorkspaceSize()));"
+        }
+      ]
+    }
+  ]
+}

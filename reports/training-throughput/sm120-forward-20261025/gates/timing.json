@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "measured_steps": [
+    111,
+    112,
+    113,
+    114
+  ],
+  "global_batch_size": 64,
+  "gpu_count": 2,
+  "old_seconds": [
+    12.161012916942127,
+    11.93997865403071,
+    11.789784519933164,
+    11.817608925979584
+  ],
+  "new_seconds": [
+    7.34145871293731,
+    7.569115585996769,
+    7.4038947890512645,
+    7.560384580981918
+  ],
+  "old_median_seconds": 11.878793790005147,
+  "new_median_seconds": 7.482139685016591,
+  "new_peak_allocated_GiB_by_rank": [
+    83.76803541183472,
+    83.76803541183472
+  ],
+  "scope": "Four warmed updates per backend from same checkpoint/input/optimizer/RNG; full training update, excludes checkpoints/validation/evaluation; not inference or long-run timing",
+  "speedup": 1.5876198908439394
+}

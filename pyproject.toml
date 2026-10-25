@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "decisionvla"
 version = "0.1.0"
 description = "A personal experiment in direct action diffusion with DiffusionGemma"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 license = "MIT"
 dependencies = [
   "torch==2.9.1", "torchvision==0.24.1", "transformers==5.20.2",
@@ -19,5 +19,13 @@ dev = ["pytest==9.0.2", "ruff==0.14.11"]
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+decisionvla = ["*.c"]
+"decisionvla.dashboard" = ["static/*.html", "static/*.css", "static/*.js"]
+
 [tool.ruff]
 line-length = 110
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

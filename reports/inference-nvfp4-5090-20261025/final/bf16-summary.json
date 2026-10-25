@@ -1,0 +1,81 @@
+{
+  "status": "completed",
+  "kind": "closed_loop_evaluation",
+  "episodes": 20,
+  "successes": 12,
+  "success_rate": 0.6,
+  "tasks": [
+    {
+      "task_id": 0,
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0
+    },
+    {
+      "task_id": 1,
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0
+    },
+    {
+      "task_id": 2,
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5
+    },
+    {
+      "task_id": 3,
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0
+    },
+    {
+      "task_id": 4,
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0
+    },
+    {
+      "task_id": 5,
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0
+    },
+    {
+      "task_id": 6,
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0
+    },
+    {
+      "task_id": 7,
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5
+    },
+    {
+      "task_id": 8,
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5
+    },
+    {
+      "task_id": 9,
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5
+    }
+  ],
+  "task_macro_success_rate": 0.6,
+  "expected_episodes": 20,
+  "errors": 0,
+  "elapsed_seconds": 7561.183284759987,
+  "query_seconds_p50_p95": [
+    17.23037436400773,
+    23.024985795770768
+  ],
+  "policy_seconds_p50_p95": [
+    17.21973228652496,
+    23.013869522931053
+  ]
+}

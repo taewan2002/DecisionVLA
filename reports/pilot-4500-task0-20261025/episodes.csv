@@ -1,0 +1,3 @@
+task_id,initial_state_id,failure,policy_steps,queries,first_query_uncertainty,first_query_entropy,first_query_low_probability
+0,0,0,102,13,0.09910861604070842,0.36857837438583374,0.5786625742912292
+0,1,0,72,9,0.05337066057225137,0.3020007312297821,0.5186007022857666

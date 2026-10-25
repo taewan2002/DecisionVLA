@@ -1,0 +1,248 @@
+{
+  "kind": "closed_loop_evaluation",
+  "config": {
+    "suite": "libero_spatial",
+    "libero_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "task_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "initial_state_ids": [
+      0,
+      1
+    ],
+    "camera_resolution": 128,
+    "environment_seed": 0,
+    "policy_seed": 42,
+    "settle_steps": 10,
+    "max_policy_steps": 220,
+    "execute_chunk_steps": 8,
+    "denoising_steps": 4,
+    "expected_checkpoint_step": 4500,
+    "max_evaluation_hours": 5,
+    "save_video": true,
+    "record_confidence": true,
+    "expected_policy_kind": "decisionvla_nvfp4_w4a16_stable"
+  },
+  "policy": {
+    "kind": "decisionvla_nvfp4_w4a16_stable",
+    "step": 4500,
+    "config": {
+      "base_model": "google/diffusiongemma-26B-A4B-it",
+      "base_revision": "f7f5b7f5fa82ffc52addd066915886d497f5517b",
+      "dataset_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+      "suite": "libero_spatial",
+      "seed": 42,
+      "validation_demo_modulus": 10,
+      "validation_demo_remainder": 9,
+      "camera": "agentview_rgb",
+      "action_offset": 1,
+      "rotate_image_180": true,
+      "visual_tokens": 280,
+      "horizon": 8,
+      "action_dim": 7,
+      "bins": 256,
+      "action_token_start": 261888,
+      "canvas_length": 256,
+      "lora_rank": 32,
+      "lora_alpha": 64,
+      "lora_targets": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ],
+      "train_action_embeddings": true,
+      "self_conditioning": false,
+      "full_noise_probability": 0.2,
+      "learning_rate": 5e-05,
+      "weight_decay": 0.0,
+      "gradient_clip": 1.0,
+      "microbatch": 4,
+      "gradient_accumulation": 8,
+      "steps": 100000,
+      "warmup_steps": 1000,
+      "checkpoint_every": 500,
+      "validation_every": 500,
+      "validation_samples": 100,
+      "validation_denoising_steps": 4,
+      "max_training_hours": 72,
+      "lora_mlp_targets": [
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "lora_experts": true,
+      "optimizer_foreach": false,
+      "schedule_start_step": 0,
+      "warmup_start_learning_rate": 5e-06,
+      "denoising_loss_scope": "resampled_only",
+      "world_size": 2,
+      "global_batch_size": 64,
+      "deterministic_algorithms": true,
+      "expert_kernel": "cublas_sm120_forward",
+      "format": "decisionvla-shared-lora-v2",
+      "step": 4500
+    },
+    "checkpoint_sha256": {
+      "adapter-00001-of-00004.safetensors": "564f1413a8bda041a6e06dca1726d7317ede83cf0a94478c250e33680ba0e586",
+      "adapter-00002-of-00004.safetensors": "fc7c7edbb77dde2104967ab71601cec886fe98bb53d912389211944c3aa93e46",
+      "adapter-00003-of-00004.safetensors": "35d51856165445b78f1544e13926b819c827c81d68552e74561617110c69ba07",
+      "adapter-00004-of-00004.safetensors": "b8cccd12eddb01871dc95fa72d632913579eb7b4be7cb4bff73b69ca8bcf9297",
+      "adapter_config.json": "6b5d25b957c2b4c7ea688a23bc8561d1261e7ebd24c6eae446d58d438b710e44",
+      "adapter.safetensors.index.json": "2bc4c2f6cdfc18412b1350dbd9553122535daadc57699a8c4927c1b0eff0dea7"
+    },
+    "confidence_schema": "decisionvla.action-confidence.v1",
+    "execution_placement": {
+      "kind": "resident_nvfp4_w4a16_stable_fused",
+      "offload": false,
+      "tensor_gib": 17.666859412565827,
+      "torch": "2.14.1+cu130",
+      "export_sha256": {
+        "layer-25.safetensors": "94964bc0047228a35eb55935c7cdf1bb9bc7548f73faaa5930848dcadd239968",
+        "layer-28.safetensors": "d73ee5cb3b69c56213be395eda6b7b6c3b912c72c33f4998c2613760c7238acc",
+        "layer-07.safetensors": "e247d8231cc76787f49e83040a24e131a273d4614f23d7af4cb23302754ef7fa",
+        "layer-16.safetensors": "4edb18743616ea0b28e4f1bdde6dbba4b1cba43cd44323279285f4502bead239",
+        "layer-08.safetensors": "32ccfde87c38ad5d94984616551bf1633b812d90cfde30a5e7950d167276ccd5",
+        "layer-20.safetensors": "7276218da0f54fdcbffd9a69098376b8fa90f3eaeccc96e59efcaeca84d13e7b",
+        "layer-10.safetensors": "2a888cc420f950c7730c60f1032002b276f223fe000308c4650afdf78046bde2",
+        "layer-00.safetensors": "b2d7622c0d9b2e495c4692c33fdae671999380ddf90ec668c19467575187ae0a",
+        "layer-02.safetensors": "ada041689f206dd4b328822ac8a27edd146fe50b5ab04858578aa916eab277ab",
+        "layer-19.safetensors": "caf3f5bbbf2e66549fed295319895e07c06c6a8444e3cc37a3018a2e6a7dd79a",
+        "layer-01.safetensors": "2bf2677ef111bd63b1eaa030c75ab20b911c26f3983da528069563e267486c94",
+        "layer-29.safetensors": "0369e5e570a6eeddf2fe180afdd28cb18bce51c1d3ca0aef11c32cff6452afe5",
+        "layer-11.safetensors": "7378fe06bd5ab276914e22aa88ac93fee759318a56742d098bbe56da14a1b111",
+        "layer-26.safetensors": "aab938a8f9abe4b68a5e6708eff6c6846ba20f855e46855214601f983a1b16e6",
+        "layer-15.safetensors": "6d1e167b99e3ac4b2a158aa2c2e14a44f897f2a98e3122ba8623743ce2f0901c",
+        "layer-21.safetensors": "f2dbd7ccd4581b90b82dbe146c539fc95236fd8e9c695ee2d349ef5f1e90c0a8",
+        "layer-09.safetensors": "6a6bb329f051dc6fb41601ef5f2f659c925fdecc8fd8630bc34ff54dc19e5ca1",
+        "layer-22.safetensors": "43d0e32595d4e55fe20a12b16bb97a209c4f291d665043310282518e453e1b48",
+        "layer-03.safetensors": "27838a17473c8a81fb04d2464a0ec81182068aeaa997b1c40f510a1c77657f56",
+        "layer-13.safetensors": "4f83ca3f4593c2dbcc9a7e05306d5d15cf4945a5db09fa2a9d71e39e8bfc66df",
+        "layer-06.safetensors": "d31d49c9cfd8b8a24580aa59cc49585c23b5b8bb127473771c8fa2d6b181c640",
+        "layer-05.safetensors": "54260fb1e42a3a814dad80ab20af8b8c73bbfc63290c0182f559f15f86f5f3b0",
+        "layer-27.safetensors": "ee33b30d0044f4bcad7bfdefa1b3db327ab91ab5f683b1b6833e2e8d095728aa",
+        "layer-12.safetensors": "c05509743082c0628456d264fadf6d9d0751409cf948198654b4754e98a83b96",
+        "layer-24.safetensors": "f72792612b9e173d76ab3694ebc18533ea8c4f4a47ab74b8e22812a356a4e134",
+        "layer-14.safetensors": "1a1730369a1f128d8d2a6f6ddcd63aee1121232b283ad7512166ed2d055cf820",
+        "layer-23.safetensors": "fbc872f5131579c1ef63207137f182232950931bc12f3a44eed075a15caf3da2",
+        "layer-18.safetensors": "fed27034683b0cdafae254746a97307767e003fcc8488e8777bf29a3d4875096",
+        "layer-17.safetensors": "0f9729029cb714cf00d3472515499640a9450a63b490dcdcf64d7e36af4c1226",
+        "layer-04.safetensors": "fd207d5528def8d7fcdd58933345adbb8987b7159fdbcb471180c795a09cf747"
+      }
+    },
+    "latency_scope": "Resident NVFP4 W4A16, stable fused MoE; baseline may overlap; not standalone latency"
+  },
+  "tasks": [
+    {
+      "task_id": 0,
+      "name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+      "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "init_states_sha256": "cbbc73792ce546c9bec181fd328a411d3183074840b282671dee481511381d0a",
+      "bddl_sha256": "9b59eb1287802868ad9bc78d58e6d36d4ba31134e679cfdbdf4b0feb660c959b"
+    },
+    {
+      "task_id": 1,
+      "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+      "language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "init_states_sha256": "9b6927b6ef03460ab055141e1a1154ad85e5e290058d8ed3a8a314aff911f864",
+      "bddl_sha256": "53a7516571412a2f46a27cbf8482d3b76dbad4221858c8f6b565d506c274e61d"
+    },
+    {
+      "task_id": 2,
+      "name": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+      "language": "pick up the black bowl from table center and place it on the plate",
+      "init_states_sha256": "27d5b81d739f969e40c72b6c88699e57a91ea61209946b21c593aae5990689cb",
+      "bddl_sha256": "5e19880ebc844f86b89f63b172aab0b7a89f85b6e6955891f544f0ea7d0795d5"
+    },
+    {
+      "task_id": 3,
+      "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+      "language": "pick up the black bowl on the cookie box and place it on the plate",
+      "init_states_sha256": "0627f5f5ce3ef23be546571012be8ef603d93bcb4032bc80feb34937ba580140",
+      "bddl_sha256": "3d4ccf070c3d9883ae0676f2d888588f98c696ddad71b7694f47c379fc99ef36"
+    },
+    {
+      "task_id": 4,
+      "name": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+      "language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "init_states_sha256": "deef3df529e0bb57658b973bbb3baf02b02922db065c025a73ebfcd11eb54d46",
+      "bddl_sha256": "4371189e11d9fd29bb548ab9a8adcd741bb0ce41bb66c612672d0e8cb29a52a9"
+    },
+    {
+      "task_id": 5,
+      "name": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate",
+      "language": "pick up the black bowl on the ramekin and place it on the plate",
+      "init_states_sha256": "2d2c50b7dcbf861fffa94d576f217ed34153e57487010d7a109a220d4d97189b",
+      "bddl_sha256": "10239815a9d18ad53e09365d453a362ee54d29ca276e04eef411cf1db8d72940"
+    },
+    {
+      "task_id": 6,
+      "name": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
+      "language": "pick up the black bowl next to the cookie box and place it on the plate",
+      "init_states_sha256": "ab86fb7b5942dc0fec762eae57e72bf636106b1c10ad8ce57227723d8eb9a81b",
+      "bddl_sha256": "566c65596f3472e752e6522817bff51bbf3ce5159d7bec1d3554e5ead46b1e55"
+    },
+    {
+      "task_id": 7,
+      "name": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+      "language": "pick up the black bowl on the stove and place it on the plate",
+      "init_states_sha256": "ea9cba2814bc166f3682f3f5a97329467839bcf584069cd419191b6c17adae25",
+      "bddl_sha256": "dd11837141a30d874ebbbfaae20e91ecc67ec85ab3872ceb4cff3abfcbef7cb0"
+    },
+    {
+      "task_id": 8,
+      "name": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+      "language": "pick up the black bowl next to the plate and place it on the plate",
+      "init_states_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e",
+      "bddl_sha256": "c8fbb9effa27b947d04d26862d75273d93cac1806734e53836cd472a08aec1fe"
+    },
+    {
+      "task_id": 9,
+      "name": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+      "language": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "init_states_sha256": "08b0ac928dcc524a66d963851a6a4eece9aeb782b38466006e403a70e3287867",
+      "bddl_sha256": "5293e759381b477e126beaf83d738542bbd4d93f522a3eead1066e612bad4a8c"
+    }
+  ],
+  "code_sha256": {
+    "__init__.py": "6df2b6ab705766133ae7bb44d495d41320360706488154fbe3b691b637d1c3cf",
+    "_cublas_forward.py": "552fe25e6310e813b7a590b080f65b54e6b878f6d9da09e8d7cfed1b50513a7c",
+    "_triton_gemm.py": "3fde9406edbcc050a295da5f5a7ad5a3cfcbe1759ae18d35068b4bffd5647b58",
+    "adapters.py": "2a16bfc9c900166752d2111745c734ffdee5fc0dcf1a314f5ddcb00c43d3ca58",
+    "analyze_confidence.py": "38f785f4356a25328505932e1036600a9ef87f693401292d6b54aa719ea4007e",
+    "batching.py": "43ed2ab93a7570b658840ae1035510e6d347e36e99137747a0e52ab551a54776",
+    "checkpoints.py": "a990031678c25e237668e431bfb422df5f7c3d4f6c077cec87692db6a0608896",
+    "codec.py": "cd198f55bab6b29e2731e1948f198c2c93a72a98ba3ff1bf46ec3817e4492226",
+    "confidence.py": "7061fef8e49351599d0f2250e411b0ce016784fe92ac2cbdf7d4e5d7b0f1db84",
+    "continuation.py": "79dc263d15b71995f68e44e3ffbe4e8fdacd58febe12d5245d731032582f7134",
+    "data.py": "c0368650d7985fd21227c3ca970a976799417093954bf01e7e261eb4e172828e",
+    "diagnostic_offload.py": "f766a1ffc8464a8d402baa858dd19fb901c5d742c3b7735ab838898094516469",
+    "distributed.py": "85a93579c8e6ddacfd711a2e795656b31adb08527c21f2ca46cd41e50fa0807f",
+    "grouped_gemm.py": "88c28b3b7f5f699867d287d39cf0859935949e3e516334413e46acc9a35d209a",
+    "model.py": "07e1c11b8e030d7979d20dd08f7e0e0ab0f1b33852cfadeb52be79720dbc8ac7",
+    "policy.py": "26c4e1f26fa19147e463428933cfd8abffb99cd78396c7df9e8a31f91411b811",
+    "rollout.py": "e13511e3382c293e029adda1128d122468debd734fa7ff3b37cf12ddf5fde6be",
+    "rpc.py": "e9b5b8e5bcecaccdf801ce8e9d98762a94ff6e0cdc09371a273f0292dbf700c3",
+    "schedule.py": "5de741f2560b9ef78f1aee8283cfd8de5aa42586ba63add23fface3b00419783",
+    "serve.py": "33a784cbb6fee4fedb77ef3426bf8c72ff953bc86123863737b37ccafddf789b",
+    "train.py": "f46b35943576630087c8868d4500a4a6f2be02d699829f2b6427839abecad3c7",
+    "train_distributed.py": "ea884f6ef24c09a89ef120d6f576b7912bf85bbb10eefb8f5ca7dc5d35b42fef"
+  },
+  "runtime": {
+    "torch": "2.5.1+cpu",
+    "numpy": "1.26.4",
+    "mujoco": "2.3.7",
+    "robosuite": "1.4.1",
+    "Pillow": "11.3.0",
+    "libero": "0.1.0"
+  }
+}

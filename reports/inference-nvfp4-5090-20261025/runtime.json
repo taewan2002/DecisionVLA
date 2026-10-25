@@ -1,0 +1,28 @@
+{
+  "tested_inference_image_sha256": "sha256:147c45b88930474835f59a13e72638cdd052219d1ef754a8bdba8f6de26c5bde",
+  "python": "3.12.15",
+  "torch": "2.14.1+cu130",
+  "torchvision": "0.29.1",
+  "triton": "3.8.0",
+  "transformers": "5.20.2",
+  "flashinfer": "0.7.2.post1",
+  "cutlass_dsl": "4.7.1",
+  "numpy": "1.26.4",
+  "pillow": "13.0.0",
+  "safetensors": "0.8.0",
+  "nvcc": "13.4.92",
+  "nvrtc": "13.0.88",
+  "cuda_runtime": "13.0.96",
+  "geglu_patch_source_hashes": {
+    "before": {
+      "moe_w4a16_activations.py": "d95ae610cd28d8ceba67f259e842d42d284fa9657e9a24721cc8f72358a9e7e8",
+      "moe_w4a16_kernel.py": "1625d0cc7f07f0c3aa0d3c562e899623b10815b533b5f9a66c5ab5c8658b3aa5"
+    },
+    "after": {
+      "moe_w4a16_activations.py": "730fa75ec07edff16ca1cda7aa59365c188c1c38109bdce7cd3e514a0e6b4b0f",
+      "moe_w4a16_kernel.py": "81f2b05ecc2982c7013a0a73b2d5b35e2840ee7c2fe2dfdb94f0021b6827709e"
+    }
+  },
+  "quantizer": "cute-dsl; C++ backend rejected due compiler/runtime version mismatch",
+  "training_runtime_changed": false
+}

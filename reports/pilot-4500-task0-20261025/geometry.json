@@ -1,0 +1,120 @@
+{
+  "kind": "posthoc_saved_state_diagnostic_not_new_rollout",
+  "task_id": 0,
+  "episodes": 2,
+  "new_policy_calls": 0,
+  "new_simulation_steps": 0,
+  "state_restore_max_abs": 2.220446049250313e-16,
+  "state_restore_atol": 1e-12,
+  "geometry": {
+    "target": "akita_black_bowl_1",
+    "goal": "plate_1",
+    "bilateral_contact": "target contact with each finger for >=3 consecutive saved states",
+    "lift": "target center >3cm above its own settled initial height for >=3 saved states",
+    "limitations": "post-hoc geometric proxies; contact/lift do not prove a stable grasp"
+  },
+  "categories": {
+    "success": 2
+  },
+  "failures_first_confidence_by_axis": null,
+  "failures_first_peak_probability_by_axis": null,
+  "rows": [
+    {
+      "initial_id": 0,
+      "success": true,
+      "category": "success",
+      "policy_steps": 102,
+      "min_eef_target_m": 0.04939985284286836,
+      "maximum_target_height_gain_m": 0.09629072988734766,
+      "target_displacement_final_m": 0.11108958757633866,
+      "final_target_goal_xy_m": 0.01794867133249535,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9008913839592916,
+      "all_query_mean_confidence": 0.9214512587427527,
+      "first_confidence_by_axis": [
+        0.667926013469696,
+        0.7848905324935913,
+        0.9078399538993835,
+        0.9820057153701782,
+        0.9688805937767029,
+        0.9948034286499023,
+        0.9998934268951416
+      ],
+      "first_peak_probability_by_axis": [
+        0.24480563402175903,
+        0.0799659788608551,
+        0.1761208176612854,
+        0.3737351596355438,
+        0.2945726215839386,
+        0.7802152037620544,
+        0.9999467134475708
+      ],
+      "first_min_component_confidence": 0.1582469344139099,
+      "gripper_close_fraction": 0.49019607843137253,
+      "action_abs_mean_by_axis": [
+        0.49311789870262146,
+        0.14609761536121368,
+        0.6872743964195251,
+        0.020761270076036453,
+        0.056747399270534515,
+        0.030680492520332336,
+        1.0
+      ]
+    },
+    {
+      "initial_id": 1,
+      "success": true,
+      "category": "success",
+      "policy_steps": 72,
+      "min_eef_target_m": 0.053812705118054284,
+      "maximum_target_height_gain_m": 0.10460103477187666,
+      "target_displacement_final_m": 0.13553514105284487,
+      "final_target_goal_xy_m": 0.011248702446814331,
+      "sustained_bilateral_contact": true,
+      "sustained_lift_3cm": true,
+      "first_chunk_confidence": 0.9466293394277486,
+      "all_query_mean_confidence": 0.9341633571589405,
+      "first_confidence_by_axis": [
+        0.8846566677093506,
+        0.869757354259491,
+        0.9165152311325073,
+        0.9874805212020874,
+        0.96933513879776,
+        0.998683750629425,
+        0.9999768733978271
+      ],
+      "first_peak_probability_by_axis": [
+        0.19016440212726593,
+        0.16925039887428284,
+        0.24226658046245575,
+        0.45024341344833374,
+        0.37805646657943726,
+        0.9398253560066223,
+        0.9999884366989136
+      ],
+      "first_min_component_confidence": 0.4016924500465393,
+      "gripper_close_fraction": 0.5,
+      "action_abs_mean_by_axis": [
+        0.48878008127212524,
+        0.21078431606292725,
+        0.535076379776001,
+        0.02233118563890457,
+        0.03703703358769417,
+        0.03322439640760422,
+        1.0
+      ]
+    }
+  ],
+  "source_hashes": {
+    "task-00-init-00": {
+      "result": "521ba8b9cc2b4507b360db3c50c1c8f3266b7e7c4d710c5fdff860e535a068d4",
+      "trace": "14dc227819df770a468db2d7fba1d835f8994a64ec37e4bae9609edbf81bbb65"
+    },
+    "task-00-init-01": {
+      "result": "aa6aeb2017c710ea635a827133548440555304b318ac8540856fb04058c50e59",
+      "trace": "38b705b49ff093de25bc4cf6ab15fa1ce1040f848c87323b332988b674585dd4"
+    }
+  },
+  "contract_sha256": "fa94dc95984653f05d14eea7b264fa5a28845eb0f9e7d81d018fe0e1fc0846a0"
+}

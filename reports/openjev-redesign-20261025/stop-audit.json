@@ -1,0 +1,40 @@
+{
+  "status": "verified_owner_requested_stop",
+  "step": 46,
+  "checkpoint": "checkpoint-000046",
+  "payload_files": 8,
+  "payload_sha256": {
+    "adapter_config.json": "f00e88a749129730947308c09eb850afda720f37a0b543232c1e777483ac49da",
+    "adapter-00004-of-00004.safetensors": "152c432e6645e5884db00b194abc399929f14757a460d581d3ffd1027c299bac",
+    "adapter-00002-of-00004.safetensors": "c2190e4536a97fba15f8d0752665f33769c2fcf42a0d51e81f1def75ecebb1a7",
+    "adapter-00001-of-00004.safetensors": "78c54852064753278a9c84249d9178a237779b29d28e14cca2de1db51ecf46c3",
+    "adapter.safetensors.index.json": "2bc4c2f6cdfc18412b1350dbd9553122535daadc57699a8c4927c1b0eff0dea7",
+    "training_state.pt": "0944bd5161bdedab4092073640bd6699918e88d24726be19dc7527d45feaf4dc",
+    "adapter-00003-of-00004.safetensors": "cd99f8923bde07f926f1ee87562a3de3df40b330bdc27a0ca969a57da176d3fc",
+    "training_metadata.json": "17b870f0fd6fae640a1654d63742af530e11b505cfcac375bdf9a7e8098051bd"
+  },
+  "manifest_sha256": "bda7f33e62b702fce8b1a4376c20522fdaa2e0a6547d3bb6e6c48cb80a3a6c33",
+  "final_evaluation_started": false,
+  "controller_boundary_error": "expected after user-requested stop before10000; original log preserved",
+  "verified_at_utc": "2026-10-25T07:04:53.602734+00:00",
+  "reason": "Owner requested redesign preserving OpenJEV native denoising and sampler",
+  "run": "libero40-r32-b64-100k-v1",
+  "controller_exited": true,
+  "protected_other_jobs_unchanged": true,
+  "gpu1_miner_running": false,
+  "training_gpu_power_limits_watts": [
+    500,
+    500
+  ],
+  "frozen_sources": {
+    "libero40-r32-b64-100k-v1": {
+      "files": 133,
+      "manifest_sha256": "281a190df58d9e66fdd1251871f878130ab84fd5efedcafa3103387e76d49e03"
+    },
+    "evaluation": {
+      "files": 36,
+      "manifest_sha256": "64bcef6add638f6f83997638c644d06feaa808a3fbb7e5a9f0820a38c082d9b4"
+    }
+  },
+  "new_training_started": false
+}

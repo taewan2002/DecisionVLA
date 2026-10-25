@@ -1,0 +1,83 @@
+{
+  "status": "completed",
+  "observations": 20,
+  "sampled_trajectories": 60,
+  "new_training_updates": 0,
+  "placement": {
+    "total_parameter_gib": 51.7866173684597,
+    "resident_parameter_gib": 24.1362267434597,
+    "offloaded_expert_modules": 18
+  },
+  "elapsed_seconds": 425.64633054006845,
+  "peak_allocated_gib": 25.829110622406006,
+  "steps": {
+    "1": {
+      "confidence": 0.7129480294615511,
+      "continuous_mae": 0.1292263616807759,
+      "translation_mae": 0.2203037771396339,
+      "token_accuracy": 0.36180555555555555,
+      "input_copy_fraction": 0.10208333333333333,
+      "wrong_token_confidence": 0.6854710389006322,
+      "gripper_accuracy": 0.93125,
+      "entropy": 0.6268106790861158,
+      "peak_probability": 0.3311274174118548
+    },
+    "2": {
+      "confidence": 0.7550710504089105,
+      "continuous_mae": 0.15151756750419737,
+      "translation_mae": 0.2565370816116532,
+      "token_accuracy": 0.315079365079365,
+      "input_copy_fraction": 0.36101190476190476,
+      "wrong_token_confidence": 0.7331474349323976,
+      "gripper_accuracy": 0.9305555555555555,
+      "entropy": 0.49749433780377456,
+      "peak_probability": 0.4650115951402335
+    },
+    "3": {
+      "confidence": 0.8211668582486881,
+      "continuous_mae": 0.15652763216445845,
+      "translation_mae": 0.2654169342170159,
+      "token_accuracy": 0.27599206349206346,
+      "input_copy_fraction": 0.5204365079365079,
+      "wrong_token_confidence": 0.7915603678907727,
+      "gripper_accuracy": 0.8645833333333334,
+      "entropy": 0.3874837476616804,
+      "peak_probability": 0.56797077192681
+    },
+    "4": {
+      "confidence": 0.9222115240717745,
+      "continuous_mae": 0.1520296516517798,
+      "translation_mae": 0.25339500879247984,
+      "token_accuracy": 0.25297619047619047,
+      "input_copy_fraction": 0.7776785714285712,
+      "wrong_token_confidence": 0.9098968799326369,
+      "gripper_accuracy": 0.8583333333333333,
+      "entropy": 0.18440962957711163,
+      "peak_probability": 0.8004673329231863
+    }
+  },
+  "controls": {
+    "ground_truth_canvas": {
+      "confidence": 0.99597028995963,
+      "continuous_mae": 0.002472201333148405,
+      "translation_mae": 0.002488553081639111,
+      "token_accuracy": 0.9991071428571429,
+      "input_copy_fraction": 0.9991071428571429,
+      "wrong_token_confidence": 0.8391352260689775,
+      "gripper_accuracy": 1.0,
+      "entropy": 0.018168917023447508,
+      "peak_probability": 0.9865577714251621
+    },
+    "shifted_translation_and_flipped_gripper_canvas": {
+      "confidence": 0.9634668518838895,
+      "continuous_mae": 0.2969845704734325,
+      "translation_mae": 0.5915132850408554,
+      "token_accuracy": 0.4303571428571429,
+      "input_copy_fraction": 0.9741071428571427,
+      "wrong_token_confidence": 0.9365703059833388,
+      "gripper_accuracy": 0.00625,
+      "entropy": 0.06315597548102476,
+      "peak_probability": 0.945408388463381
+    }
+  }
+}

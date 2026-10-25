@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "kind": "closed_loop_evaluation",
+  "episodes": 2,
+  "successes": 2,
+  "success_rate": 1.0,
+  "tasks": [
+    {
+      "task_id": 0,
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0
+    }
+  ],
+  "task_macro_success_rate": 1.0,
+  "expected_episodes": 2,
+  "errors": 0,
+  "elapsed_seconds": 367.4823380151065,
+  "query_seconds_p50_p95": [
+    15.59853955899598,
+    15.869262614409672
+  ],
+  "policy_seconds_p50_p95": [
+    15.584959518513642,
+    15.855636369017883
+  ]
+}

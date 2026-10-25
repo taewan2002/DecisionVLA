@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "kind": "CPU-only guard checks, not a rollout or numerical-parity result",
+  "checks": [
+    "low GPU headroom rejects further pilot work",
+    "sustained sampled training slowdown rejects further pilot work",
+    "non-running training state rejects further pilot work"
+  ],
+  "private_runtime_lint": "passed",
+  "training_source_changed": false
+}

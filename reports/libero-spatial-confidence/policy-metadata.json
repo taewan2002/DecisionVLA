@@ -1,0 +1,63 @@
+{
+  "kind": "decisionvla_bf16_reference",
+  "step": 2000,
+  "config": {
+    "base_model": "google/diffusiongemma-26B-A4B-it",
+    "base_revision": "f7f5b7f5fa82ffc52addd066915886d497f5517b",
+    "dataset_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+    "suite": "libero_spatial",
+    "seed": 42,
+    "validation_demo_modulus": 10,
+    "validation_demo_remainder": 9,
+    "camera": "agentview_rgb",
+    "action_offset": 1,
+    "rotate_image_180": true,
+    "visual_tokens": 280,
+    "horizon": 8,
+    "action_dim": 7,
+    "bins": 256,
+    "action_token_start": 261888,
+    "canvas_length": 256,
+    "lora_rank": 32,
+    "lora_alpha": 64,
+    "lora_targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "train_action_embeddings": true,
+    "self_conditioning": false,
+    "full_noise_probability": 0.2,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "gradient_clip": 1.0,
+    "microbatch": 1,
+    "gradient_accumulation": 8,
+    "steps": 2000,
+    "warmup_steps": 100,
+    "checkpoint_every": 500,
+    "validation_every": 100,
+    "validation_samples": 20,
+    "validation_denoising_steps": 4,
+    "max_training_hours": 12,
+    "lora_mlp_targets": [
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "lora_experts": true,
+    "optimizer_foreach": false,
+    "format": "decisionvla-shared-lora-v2",
+    "step": 2000
+  },
+  "checkpoint_sha256": {
+    "adapter-00001-of-00004.safetensors": "aba06e692af175b9ccbb10262587a9b84f37c4bcffb55441a857c052ec218f6f",
+    "adapter-00002-of-00004.safetensors": "b8f0aefd2de9c3d034a4bf7ed127d7a77ef816aa99f5b7a58b5808b0cab8c4a0",
+    "adapter-00003-of-00004.safetensors": "549626fe11e4899afe0ea8d33b6bb927777093154953c3386879734318a4a272",
+    "adapter-00004-of-00004.safetensors": "9f66c4b81b1617c2b2a51349146423fb30a2e2a17f00bef1a1cf5f4d944d7c5b",
+    "adapter_config.json": "7458ef8d3b0be688604a67ea3767913c2b00cca7f7df063f18d3b82a44a14495",
+    "adapter.safetensors.index.json": "2bc4c2f6cdfc18412b1350dbd9553122535daadc57699a8c4927c1b0eff0dea7"
+  },
+  "confidence_schema": "decisionvla.action-confidence.v1"
+}

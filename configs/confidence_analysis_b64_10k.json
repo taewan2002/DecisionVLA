@@ -1,0 +1,29 @@
+{
+  "version": "decisionvla.failure-association.v1",
+  "checkpoint_step": 10000,
+  "suite": "libero_spatial",
+  "episodes": 500,
+  "unit": "one episode (task, initial state); one trained policy seed",
+  "score": "1 - mean ordered_confidence of the first query, all 8 x 7 components; gripper uses choice_confidence",
+  "endpoint": "failure by the fixed 220-policy-control horizon",
+  "primary": "within-task pair-weighted AUROC (failure positive, higher uncertainty positive)",
+  "secondary": [
+    "pooled AUROC",
+    "task-specific AUROC",
+    "first-query normalized entropy AUROC",
+    "first-query 1 - mean selected_probability AUROC"
+  ],
+  "interval": "2000 bootstrap resamples of episodes within each fixed task; percentile 95%; not across training seeds or new tasks",
+  "permutation": "2000 label permutations within task, one-sided primary AUROC >= observed, plus-one p-value",
+  "seed": 20261024,
+  "single_class": "AUROC is null where either outcome is absent; report eligible task/pair counts",
+  "exclusions": "transport/preflight/smoke excluded; no episodes excluded based on outcome",
+  "selection": "Ten candidates fixed before this run; select task-macro success with earliest-step ties after all ten evaluations. Reused development initial states; no confidence threshold fitted.",
+  "calibration": "none; confidence is not a task success probability; do not compute success-probability ECE/Brier",
+  "limits": [
+    "Known Spatial tasks; development diagnostic, not a new-task test",
+    "Conditional on one sampled denoising path; not epistemic uncertainty",
+    "One checkpoint and training seed; association does not establish causal explanation or safer control"
+  ],
+  "interpretation_scope": "Fresh rank32 global-batch64 training; reused development conditions; initialization, objective, batch and total budget differ from the pilot."
+}

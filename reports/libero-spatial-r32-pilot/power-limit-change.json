@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-10-24T09:27:53Z",
+  "run": "libero-spatial-r32-all-v2",
+  "gpu_index": 0,
+  "previous_limit_W": 500,
+  "authorized_training_limit_W": 600,
+  "hardware_maximum_limit_W": 600,
+  "verified_limit_W": 600,
+  "training_step_at_record": 1865,
+  "recent_60_samples_mean_power_W": 263.14433333333335,
+  "recent_60_samples_max_power_W": 280.77,
+  "restore_after_training_W": 500,
+  "other_gpus_changed": false,
+  "note": "Power cap changed during the run; earlier timings remain measurements at their original power setting. A power ceiling is not actual power consumption."
+}

@@ -1,0 +1,204 @@
+{
+  "rows": [
+    {
+      "canvas_length": 56,
+      "i": 0,
+      "seconds_contended": 3.516635293024592,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.010620917193591595,
+      "probability_max_abs": 0.25815767515450716,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 1,
+      "seconds_contended": 0.4926838360261172,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.030228758230805397,
+      "probability_max_abs": 0.8597633689641953,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 2,
+      "seconds_contended": 0.49439397791866213,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.0017973855137825012,
+      "probability_max_abs": 0.43578555807471275,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 3,
+      "seconds_contended": 0.49168024596292526,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.0008169934153556824,
+      "probability_max_abs": 0.042954206466674805,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 4,
+      "seconds_contended": 0.49700340698473155,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.016339868307113647,
+      "probability_max_abs": 0.08329989050980657,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 5,
+      "seconds_contended": 0.3151621069991961,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.00898692850023508,
+      "probability_max_abs": 0.6503327190876007,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 6,
+      "seconds_contended": 0.31567277398426086,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.002124182879924774,
+      "probability_max_abs": 0.45706190913915634,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 7,
+      "seconds_contended": 0.31817947898525745,
+      "actions_exact": true,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.0,
+      "probability_max_abs": 0.04813838005065918,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 8,
+      "seconds_contended": 0.3212483669631183,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.003431372344493866,
+      "probability_max_abs": 0.05886158347129822,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 56,
+      "i": 9,
+      "seconds_contended": 0.31757044792175293,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.0009803920984268188,
+      "probability_max_abs": 0.27004772424697876,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 0,
+      "seconds_contended": 0.3974676540819928,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.005065361503511667,
+      "probability_max_abs": 0.5952435433864594,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 1,
+      "seconds_contended": 0.316534717916511,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.02124182879924774,
+      "probability_max_abs": 0.941355261951685,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 2,
+      "seconds_contended": 0.31683646992314607,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.0008169934153556824,
+      "probability_max_abs": 0.5123254060745239,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 3,
+      "seconds_contended": 0.3206079490482807,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.00555555522441864,
+      "probability_max_abs": 0.5001404285430908,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 4,
+      "seconds_contended": 0.3222636349964887,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.00555555522441864,
+      "probability_max_abs": 0.09130867570638657,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 5,
+      "seconds_contended": 0.31637790100649,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.0006535947322845459,
+      "probability_max_abs": 0.07382756471633911,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 6,
+      "seconds_contended": 0.3151221260195598,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.018300652503967285,
+      "probability_max_abs": 0.7790633738040924,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 7,
+      "seconds_contended": 0.31682367296889424,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.002124182879924774,
+      "probability_max_abs": 0.0489235520362854,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 8,
+      "seconds_contended": 0.3188035220373422,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.002124182879924774,
+      "probability_max_abs": 0.04701948165893555,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    },
+    {
+      "canvas_length": 64,
+      "i": 9,
+      "seconds_contended": 0.3229696929920465,
+      "actions_exact": false,
+      "probabilities_exact": false,
+      "continuous_action_mae": 0.03513072058558464,
+      "probability_max_abs": 0.3474277853965759,
+      "adoption_gate": "both actions and probabilities exact for every input; otherwise reject this shortcut"
+    }
+  ]
+}

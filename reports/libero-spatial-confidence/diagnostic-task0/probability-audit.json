@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "scope": "posthoc_task0_50_episode_diagnostic",
+  "episodes": 50,
+  "queries": 1386,
+  "checks": [
+    "result/trace SHA matches geometry inputs",
+    "all probability support/normalization/metrics recomputed",
+    "argmax/decoded action consistency",
+    "all executed chunk actions exact",
+    "query step intervals"
+  ],
+  "new_policy_calls": 0,
+  "new_simulation_steps": 0,
+  "geometry_sha256": "030e2eea65966e20e1aa9f6505435fa3cf6e2c3617fc0c009b1873a17be66f2b",
+  "protocol_sha256": "c64c01539e1f578be8e48285d9c92708addc10261e161060ee9e91663a2e21d2"
+}

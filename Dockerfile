@@ -1,5 +1,5 @@
 FROM python:3.12-slim-bookworm
-RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 gcc libc6-dev && rm -rf /var/lib/apt/lists/*
 WORKDIR /workspace
 COPY requirements-training-lock.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cu130 -r /tmp/requirements.txt

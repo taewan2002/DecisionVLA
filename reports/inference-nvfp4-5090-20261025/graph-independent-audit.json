@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "measurement_context": "GPU0 shared with original BF16 evaluation; not standalone latency",
+  "modes": {
+    "w4a16": {
+      "requests_measured": 20,
+      "distributions_checked": 1680,
+      "export_reload_and_graph_exact": true,
+      "p50_seconds": 0.2015604720218107,
+      "p95_seconds": 0.20601852955296637,
+      "peak_allocated_gib": 18.814839363098145,
+      "source_report_sha256": "febf823243baa4b59accc7a29a4256adf1c27dcf8c0a19e38d83c9a7674be7cd",
+      "raw_sha256": "629a4d90b956de5a1f436a6f09c509039273d4c6a69d77b9e0f32e02cfd0e6c3"
+    },
+    "w4a4": {
+      "requests_measured": 20,
+      "distributions_checked": 1680,
+      "export_reload_and_graph_exact": true,
+      "p50_seconds": 0.22488235193304718,
+      "p95_seconds": 0.22803085210034624,
+      "peak_allocated_gib": 20.527499675750732,
+      "source_report_sha256": "58e2b9dacb91ecff0ca5860a2e5eaa1272121580a74ef553f5f54b5a544b5871",
+      "raw_sha256": "76c6b345cc0f82c366059ceb1a7d0c255f0d040e9eafefd17853848a28a0502d"
+    }
+  }
+}

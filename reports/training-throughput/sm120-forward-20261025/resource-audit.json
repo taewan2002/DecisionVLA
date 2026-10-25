@@ -1,0 +1,7 @@
+{
+  "time": "2026-10-25T01:37:15.213974+09:00",
+  "protected_training_and_serving_identities_unchanged": true,
+  "gpu1_miner_stopped": true,
+  "gpu2_gpu3_control_actions": 0,
+  "evaluation_container_note": "The earlier RetoVLA validation container is no longer present; no control action was issued to it."
+}

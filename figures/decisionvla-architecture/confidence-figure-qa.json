@@ -1,0 +1,17 @@
+{
+  "figma_node": "13366:92873",
+  "png_dimensions": [
+    3520,
+    2360
+  ],
+  "native_canvas": [
+    1760,
+    1180
+  ],
+  "visual_review": "passed: probability branch, raw confidence, offline evaluation; no overlap or clipped text observed",
+  "files": {
+    "decisionvla-architecture.png": "e745098d56fb21bc27758ce053d4e7a1d8741c6469ef2ed9369ffb25d88fdd86",
+    "decisionvla-architecture.svg": "5d532c4f15c3e1ae75defb8db05e2f3d6a6a123c2be28e61051119cf7a6ebf88",
+    "update-confidence-figma.js": "ff951e26e7e7f075814c82e8aa278fce588ddc838136094d218db4b73b387d24"
+  }
+}

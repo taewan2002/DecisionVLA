@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "cold_vs_warm_preflight_exact": {
+    "initial_state": true,
+    "states": true,
+    "actions": true,
+    "chunks": true,
+    "query_seeds": true,
+    "image_sha256": true,
+    "probabilities": true,
+    "action_bins": true,
+    "chunk_confidence": true
+  },
+  "probability_metrics_and_actions_audited": true,
+  "scope": "two excluded preflights; repeat/placement stability, not full-resident parity or scored success",
+  "first_query_raw_confidence": 0.9008913839592916
+}

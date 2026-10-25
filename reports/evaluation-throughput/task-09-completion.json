@@ -1,0 +1,11 @@
+{
+  "status": "published",
+  "task_id": 9,
+  "contract_sha256": "5ce13ce26dc74282d16e87b337cd074024799589b707e6efc263bd93510e395f",
+  "started_unix": 1792845061.3971024,
+  "completed_episodes": 50,
+  "policy_server_shared": true,
+  "worker_sha256": "b9189e122ab3d2b80ad1abaf7e112ddcf2d50850e26796c5a7e00e2c4bcdfe3e",
+  "parity_only": false,
+  "elapsed_seconds": 2267.938106060028
+}

@@ -1,0 +1,4 @@
+# Isolated CPU simulator environment; policy inference runs through a Unix socket.
+mujoco==3.3.7
+numpy==1.26.4
+Pillow==13.0.0

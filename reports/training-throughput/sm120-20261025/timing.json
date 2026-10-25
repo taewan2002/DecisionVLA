@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "measured_steps": [
+    40,
+    41,
+    42,
+    43
+  ],
+  "global_batch_size": 64,
+  "gpu_count": 2,
+  "old_seconds": [
+    20.60410677094478,
+    20.53614884801209,
+    20.687566449982114,
+    20.539347897050902
+  ],
+  "new_seconds": [
+    12.22806520096492,
+    12.467220137943514,
+    12.240709415986203,
+    12.281004198011942
+  ],
+  "old_median_seconds": 20.571727333997842,
+  "new_median_seconds": 12.260856806999072,
+  "new_peak_allocated_GiB_by_rank": [
+    83.76803541183472,
+    83.76803541183472
+  ],
+  "scope": "Four post-warmup updates per backend from the same preserved state and sample sequence; includes data, forward/backward, optimizer; excludes checkpoint/validation/evaluation; not an inference or long-run benchmark",
+  "speedup": 1.6778376632091923
+}

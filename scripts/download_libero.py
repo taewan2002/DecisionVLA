@@ -8,18 +8,36 @@ from pathlib import Path
 
 REPO = "yifengzhu-hf/LIBERO-datasets"
 REVISION = "f13aa24a3da8c43c7225569f28c562979fa0e35a"
+SUITES = ("libero_spatial", "libero_object", "libero_goal", "libero_10")
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--suite", default="libero_spatial")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--suite", choices=SUITES)
+    group.add_argument("--suites", nargs="+", choices=SUITES)
     args = parser.parse_args()
+    suites = args.suites or [args.suite or "libero_spatial"]
+    if len(suites) != len(set(suites)):
+        parser.error("Duplicate suites")
+    manifest = args.output / "manifest.json"
+    if manifest.exists():
+        previous = json.loads(manifest.read_text())
+        previous_suites = {Path(item["file"]).parts[0] for item in previous["files"]}
+        if (previous["repo"] != REPO or previous["revision"] != REVISION
+                or previous_suites != set(suites)):
+            raise ValueError("Use a new output directory when changing the dataset scope")
     url = f"https://huggingface.co/api/datasets/{REPO}/revision/{REVISION}?blobs=true"
     metadata = json.load(urllib.request.urlopen(url))
     assert metadata["sha"] == REVISION
-    files = [f for f in metadata["siblings"] if f["rfilename"].startswith(args.suite + "/") and f["rfilename"].endswith(".hdf5")]
-    assert len(files) == 10, len(files)
+    files = []
+    for suite in suites:
+        selected = [f for f in metadata["siblings"]
+                    if f["rfilename"].startswith(suite + "/") and f["rfilename"].endswith(".hdf5")]
+        if len(selected) != 10:
+            raise ValueError(f"Expected ten tasks in {suite}, got {len(selected)}")
+        files.extend(selected)
 
     def download(item):
         path = args.output / item["rfilename"]
@@ -30,6 +48,9 @@ def main():
             with urllib.request.urlopen(uri, timeout=300) as response, temporary.open("wb") as out:
                 while chunk := response.read(8 << 20):
                     out.write(chunk)
+            with temporary.open("rb") as stream:
+                if hashlib.file_digest(stream, "sha256").hexdigest() != item["lfs"]["sha256"]:
+                    raise ValueError(f"Downloaded file hash mismatch: {item['rfilename']}")
             temporary.replace(path)
         with path.open("rb") as stream:
             digest = hashlib.file_digest(stream, "sha256").hexdigest()
@@ -40,7 +61,10 @@ def main():
 
     with ThreadPoolExecutor(max_workers=4) as pool:
         verified = list(pool.map(download, files))
-    (args.output / "manifest.json").write_text(json.dumps({"repo": REPO, "revision": REVISION, "files": verified}, indent=2) + "\n")
+    temporary_manifest = args.output / "manifest.json.tmp"
+    temporary_manifest.write_text(json.dumps({"repo": REPO, "revision": REVISION,
+                                               "files": verified}, indent=2) + "\n")
+    temporary_manifest.replace(manifest)
 
 
 if __name__ == "__main__":

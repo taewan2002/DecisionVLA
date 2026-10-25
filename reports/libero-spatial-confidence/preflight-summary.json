@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "kind": "real_checkpoint_preflight_excluded_from_score",
+  "episodes": 1,
+  "successes": 0,
+  "success_rate": 0.0,
+  "tasks": [
+    {
+      "task_id": 0,
+      "episodes": 1,
+      "successes": 0,
+      "success_rate": 0.0
+    }
+  ],
+  "task_macro_success_rate": 0.0,
+  "expected_episodes": 1,
+  "errors": 0,
+  "elapsed_seconds": 26.848863368970342,
+  "query_seconds_p50_p95": [
+    16.44170927698724,
+    16.44170927698724
+  ],
+  "policy_seconds_p50_p95": [
+    15.889739211997949,
+    15.889739211997949
+  ]
+}

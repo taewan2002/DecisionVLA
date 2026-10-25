@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "steps": [
+    110,
+    111,
+    112,
+    113,
+    114
+  ],
+  "sample_loss_gradient_lr_exact": true,
+  "baseline_and_candidate_sequences_exact": true,
+  "first_update_matches_numerical_gate": true
+}

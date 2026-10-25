@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "preserved_step": 219,
+  "parent_manifest_sha256": "32957e228756caab46b2d4c317d6ac865983fccae62d580ff107f23467442f3a",
+  "parent_payload_files": 8,
+  "parent_adapter_replica_sha256": "737235df740d13de8393265023f2741f7a623820aa6ba9a849397621dc0c0a3c",
+  "training_config_exact": true,
+  "training_numerical_source_exact": true,
+  "prior_controller_exited": true,
+  "prior_training_container_exited": true,
+  "protected_containers_unchanged": true,
+  "gpu1_miner_remains_stopped": true,
+  "cpu_tests_passed": 57,
+  "cpu_tests_skipped_gpu_only": 11,
+  "ruff_passed": true
+}

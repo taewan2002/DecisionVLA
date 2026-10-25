@@ -1,0 +1,67 @@
+{
+  "captured_utc": "2026-10-24T15:34:47Z",
+  "run": "libero-spatial-r32-b64-100k-v4",
+  "controller_status": "training",
+  "training_status": {
+    "status": "running",
+    "step": 1,
+    "target_steps": 100000,
+    "global_batch_size": 64,
+    "elapsed_seconds": 36.39554281893652,
+    "last_update_seconds": 36.388514015008695,
+    "last_loss": 6.223019957542419,
+    "latest_checkpoint": null
+  },
+  "initialization": "fresh pinned-base LoRA; no smoke or pilot weights/optimizer reused",
+  "initial_adapter_replica_sha256": "e2ae319a5e3ef8791465f6278cf7ffac17229318a544b9d833c83564f07f1757",
+  "initial_validation": {
+    "event": "validation_before",
+    "step": 0,
+    "continuous_action_mae": 0.5807681787606865,
+    "gripper_accuracy": 0.5771725032425421,
+    "action_token_accuracy": 0.08615897720956087,
+    "denoising_ce": 6.342304449081421,
+    "denoising_loss_scope": "resampled_only",
+    "samples": 100,
+    "kind": "held_out_demonstration_open_loop_not_rollout_success"
+  },
+  "updates": [
+    {
+      "step": 1,
+      "lr": 5.045000000000001e-06,
+      "loss": 6.223019957542419,
+      "grad_norm": 34.407676696777344,
+      "seconds": 36.388514015008695,
+      "global_batch_size": 64,
+      "supervised_tokens": 2225,
+      "valid_tokens": 3486,
+      "rank_peak_allocated_GiB": [
+        76.39587306976318,
+        76.39587306976318
+      ],
+      "family_gradient_norms": [
+        {
+          "self_attn": 9.55500316619873,
+          "mlp": 7.3101887702941895,
+          "experts": 3.0387842655181885,
+          "embed_tokens": 32.09231948852539
+        },
+        {
+          "self_attn": 9.55500316619873,
+          "mlp": 7.3101887702941895,
+          "experts": 3.0387842655181885,
+          "embed_tokens": 32.09231948852539
+        }
+      ]
+    }
+  ],
+  "gpu0_gpu1_state": [
+    "0, 79887 MiB, 40 %, 230.40 W, 600.00 W",
+    "1, 79826 MiB, 39 %, 241.05 W, 600.00 W"
+  ],
+  "gpu1_mining_stopped": true,
+  "gpu1_automatic_mining_restart_disabled": true,
+  "protected_training_validation_serving_containers_unchanged": true,
+  "frozen_source_verified": 88,
+  "closed_loop_performance": "pending"
+}

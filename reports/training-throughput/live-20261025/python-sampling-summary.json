@@ -1,0 +1,167 @@
+{
+  "scope": "45s/rank,50Hz,nonblocking,idle included; only main thread denominator; wall-stack occupancy, not GPU kernel timing; samples from other threads are excluded",
+  "ranks": [
+    {
+      "rank": 0,
+      "main_thread_samples": 2185,
+      "sampling_errors": 64,
+      "categories": {
+        "encoder_forward": {
+          "samples": 510,
+          "percentage": 23.340961098398168
+        },
+        "decoder_forward": {
+          "samples": 275,
+          "percentage": 12.585812356979405
+        },
+        "data_preparation": {
+          "samples": 11,
+          "percentage": 0.5034324942791762
+        },
+        "other": {
+          "samples": 40,
+          "percentage": 1.8306636155606408
+        },
+        "backward_including_recompute_and_communication": {
+          "samples": 1348,
+          "percentage": 61.693363844393595
+        },
+        "optimizer_step": {
+          "samples": 1,
+          "percentage": 0.04576659038901602
+        }
+      },
+      "top_leaf_frames": [
+        {
+          "frame": "_engine_run_backward (torch/autograd/graph.py:841)",
+          "samples": 1348
+        },
+        {
+          "frame": "_grouped_mm (transformers/integrations/moe.py:349)",
+          "samples": 576
+        },
+        {
+          "frame": "forward (transformers/models/gemma4/modeling_gemma4.py:2038)",
+          "samples": 24
+        },
+        {
+          "frame": "forward (decisionvla/adapters.py:20)",
+          "samples": 23
+        },
+        {
+          "frame": "forward (transformers/models/gemma4/modeling_gemma4.py:220)",
+          "samples": 21
+        },
+        {
+          "frame": "backward_microbatch (decisionvla/distributed.py:89)",
+          "samples": 12
+        },
+        {
+          "frame": "rotate_half (transformers/models/gemma4/modeling_gemma4.py:776)",
+          "samples": 10
+        },
+        {
+          "frame": "_norm (transformers/models/diffusion_gemma/modeling_diffusion_gemma.py:147)",
+          "samples": 10
+        },
+        {
+          "frame": "apply_rotary_pos_emb (transformers/models/gemma4/modeling_gemma4.py:798)",
+          "samples": 10
+        },
+        {
+          "frame": "sdpa_attention_forward (transformers/integrations/sdpa_attention.py:170)",
+          "samples": 9
+        },
+        {
+          "frame": "update (decisionvla/train_distributed.py:96)",
+          "samples": 8
+        },
+        {
+          "frame": "forward (transformers/models/diffusion_gemma/modeling_diffusion_gemma.py:152)",
+          "samples": 7
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "main_thread_samples": 2186,
+      "sampling_errors": 63,
+      "categories": {
+        "decoder_forward": {
+          "samples": 286,
+          "percentage": 13.083257090576396
+        },
+        "encoder_forward": {
+          "samples": 485,
+          "percentage": 22.186642268984446
+        },
+        "data_preparation": {
+          "samples": 26,
+          "percentage": 1.1893870082342177
+        },
+        "optimizer_step": {
+          "samples": 3,
+          "percentage": 0.1372369624885636
+        },
+        "other": {
+          "samples": 7,
+          "percentage": 0.3202195791399817
+        },
+        "backward_including_recompute_and_communication": {
+          "samples": 1379,
+          "percentage": 63.083257090576396
+        }
+      },
+      "top_leaf_frames": [
+        {
+          "frame": "_engine_run_backward (torch/autograd/graph.py:841)",
+          "samples": 1379
+        },
+        {
+          "frame": "_grouped_mm (transformers/integrations/moe.py:349)",
+          "samples": 525
+        },
+        {
+          "frame": "forward (transformers/models/gemma4/modeling_gemma4.py:2038)",
+          "samples": 31
+        },
+        {
+          "frame": "forward (decisionvla/adapters.py:20)",
+          "samples": 27
+        },
+        {
+          "frame": "forward (transformers/models/gemma4/modeling_gemma4.py:220)",
+          "samples": 26
+        },
+        {
+          "frame": "forward (decisionvla/adapters.py:78)",
+          "samples": 13
+        },
+        {
+          "frame": "__enter__ (torch/autograd/grad_mode.py:80)",
+          "samples": 12
+        },
+        {
+          "frame": "__new__ (torch/utils/_contextlib.py:160)",
+          "samples": 11
+        },
+        {
+          "frame": "_norm (transformers/models/diffusion_gemma/modeling_diffusion_gemma.py:147)",
+          "samples": 11
+        },
+        {
+          "frame": "rotate_half (transformers/models/gemma4/modeling_gemma4.py:776)",
+          "samples": 10
+        },
+        {
+          "frame": "<genexpr> (torch/utils/_pytree.py:1069)",
+          "samples": 7
+        },
+        {
+          "frame": "apply_rotary_pos_emb (transformers/models/gemma4/modeling_gemma4.py:798)",
+          "samples": 7
+        }
+      ]
+    }
+  ]
+}

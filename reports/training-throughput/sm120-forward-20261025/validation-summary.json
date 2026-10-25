@@ -1,0 +1,11 @@
+{
+  "cpu_tests_passed": 51,
+  "gpu_cases_passed": 15,
+  "gpu_suite_total": 16,
+  "ruff": "passed",
+  "runtime_source_files": 101,
+  "validation_source_files": 101,
+  "test_cublas_forward_sha256": "f2b22d37ee9662d9c7cf800a70fe17d70a28b8191168e5f8ddf8384afbad2d47",
+  "source_matches_local": true,
+  "rollout_protocol_or_training_objective_changes": false
+}

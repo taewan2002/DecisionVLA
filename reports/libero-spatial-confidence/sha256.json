@@ -1,0 +1,17 @@
+{
+  "cpu-smoke-summary.json": "356e843ae2d62079bace93d0aad8e929cdf3f27e026dd47c26b73a27399b0f1b",
+  "completion-audit.json": "600aa5464a0434a01716b3bd85bae1db92caff47feffc41e90cc3f3e1cbd916e",
+  "summary.json": "6678cbac427e4a0e0f8844f02f03dc645386fc9117d6db08cfe467140e744bbe",
+  "initial-trace-audit.json": "559e8ff5017183db0c0ac8811da3c555520354ce23c4a2a9f6aca253c746e7bf",
+  "report.json": "0192d980d8db845d0a4a37679fd977b8b81011c81dabb784561bd9ddce87e837",
+  "verified-artifacts.json": "e72bb3d043cbf9c0a1899ff6e64c59d01a59d1cd1e9a25a1a52780bdc541a057",
+  "preflight-result.json": "e284227e764c51bbe1e3edb83b3a499b07165d867f829027f26dd1ddd18ad856",
+  "MODEL_CARD.md": "fb581b6cbe051835667a74af56cf56587f422b2a4f89b899d5a502372538a16c",
+  "source-sha256.json": "0a78f06a1f8ed925ab77f2ee50157c463d7c9b5a14d559e1b950ff48ad82660c",
+  "policy-metadata.json": "6233434c5d4b41cdaf21593d02de203d75e4f9394d56f9eff0af390edf364025",
+  "README.md": "f784c1396feaa53b1b2ff45ab020c96d5fcda175c810fb3e6d9d0bc208476ee1",
+  "episodes.csv": "efe695305eb826ee5988e3214671c2881d3c9d76d217b0f5f88bb1606fa032df",
+  "training-diagnostic.json": "1040abd7607d0440fbd6185f472849772883ebc0dcd09995ff637aff7ec42d56",
+  "preflight-summary.json": "5e9edd3775e45cd24f46610fe9d21f2c9c69cd4f8064f5507c9348a03b6b6026",
+  "contract.json": "5ce13ce26dc74282d16e87b337cd074024799589b707e6efc263bd93510e395f"
+}
